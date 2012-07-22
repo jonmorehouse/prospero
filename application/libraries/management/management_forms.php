@@ -8,7 +8,7 @@ class Management_forms{
 	// PLEASE NOTE THAT ALL DEFAULTS ARE STORED IN THE DATABASE WITH THE P_ID = 'new_listing';
 	
 	// WE NEED A SOLUTION THAT WILL HANDLE THE SLASHES!
-	var $CI;
+	var $CIasdf;
 	
 	function Property_get(){
 		
