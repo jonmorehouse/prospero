@@ -116,8 +116,9 @@ class Development extends CI_Controller{
 	public function test(){
 		
 		$this->load->library('management/management_forms');
-		$this->load->library('management/management_categories', array('property_id' => 'default'));
-		$this->management_categories->update_property(1);
+		$this->load->library('management/create_update', array('property_id' => 'default'));
+		echo $this->create_update->create_property();
+		
 
 	}
 	

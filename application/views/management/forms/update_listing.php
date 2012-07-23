@@ -8,8 +8,6 @@ $this->load->view('management/resources/general_dashboard');
 <div id='update_listing'>
 <?php
 
-foreach($this->views as $view)
-	$this->load->view('management/forms/' . $view);
 
 	
 ?>
