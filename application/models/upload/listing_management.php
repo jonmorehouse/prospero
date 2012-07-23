@@ -6,7 +6,7 @@ class Listing_management extends CI_Model{
 	
 	function __construct(){
 		parent::__construct();
-		$this->load->config('tables');
+		$this->load->model('general');
 	}
 	
 	function index(){
@@ -32,7 +32,7 @@ class Listing_management extends CI_Model{
 		
 		// NEXT SECTION IS TO UPDATE ALL OF THE OTHER (GENERAL TABLES WITH THIS PROPERTY_ID WHICH IS THE PRIMARY KEY)
 		
-		$all_tables = $this->config->item('all_tables');
+		$all_tables = $this->general->category_tables();
 		$insert_data = array('property_id' => $property_id);
 		
 		// INSERTING INTO EACH TABLE THAT NEEDS IT!
@@ -79,11 +79,13 @@ class Listing_management extends CI_Model{
 	// END METHOD GENERAL_INSERT
 	}
 	
-	function remove_listing($property_id){
+	function remove_listing($property_id){ //change this in the future so that it has a delete column in property_status==not necessary for now but in the future
 		// DELETES FROM ALL TABLES LISTED IN THE CONFIG TABLES.php
 		$all_tables = $this->config->item('all_tables');
 		
 		foreach($all_tables as $value)
 			$this->db->where('property_id', $property_id)->delete($value);
 	}
+
+
 }

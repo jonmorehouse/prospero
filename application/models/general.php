@@ -17,7 +17,29 @@ class General extends CI_Model{
 		else
 			return "";
 	}
+	
+	public function get($table, $data){
+		
+		$query = $this->db->where($data)->get($table);
+		if(0 == $query->num_rows())
+			return false;
+		else
+			return $query;//this is a generic return-will handle the query in our class
+	}
 
+	public function category_tables() {
+		
+		$query = $this->db->distinct()->get('table_schema');
+		$all_tables = array();
+		
+		foreach($query->result() as $row) {
+			$table = $row->location;
+			if(!in_array($table, $all_tables))
+				array_push($all_tables, $row->location);
+		}
+			
+		return $all_tables;
+	}
 
 }
 

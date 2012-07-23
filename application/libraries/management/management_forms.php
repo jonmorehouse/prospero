@@ -1,327 +1,175 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-// WHATS THE REASON FOR THIS CLASS?? TO SEPERATE CONTENT FROM MODELS--THIS IS EASY TO USE IN THE VIEWS--IN ALL VIEWS!
-// TO HELP KEEP STUFF LIKE DOLLAR SIGNS/ETC FROM MY VIEWS--NORMALIZATION OF DATA!!!!!!!
-
 class Management_forms{	
-	// THIS JUST ECHOS EVERYTHING TO SAVE HTML PHP STUFF!
-	// PLEASE NOTE THAT ALL DEFAULTS ARE STORED IN THE DATABASE WITH THE P_ID = 'new_listing';
+
+	var $property_id;
 	
-	// WE NEED A SOLUTION THAT WILL HANDLE THE SLASHES!
-	var $CIasdf;
+	/********* PUBLIC FUNCTIONS ********/
 	
-	function Property_get(){
+	
+	public function Management_forms() {
 		
 		$this->CI =& get_instance();
-		$this->CI->load->model('property/information');
-		$this->CI->load->library('utilities/format');
-	}
-	
-/*THIS METHOD NEEDS TO CONTINUE BEING IMPLEMENTED AROUND THE APPLICATION*/
-
-	public function general_raw($property_id, $category){
+		$this->property_id = 1;
 		
-		$value = $this->CI->information->get_information($category, $property_id);
+		$library = array('utilities/format', 'property/property_get');
+		$models = array('general');
 		
-		return $value;
-	}
-	
-	public function general_clean($property_id, $category){
-		
-		$value = $this->CI->information->get_information($category, $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		return $value;
-	}
-	
-	// Can Be Obsolete
-	public function name($property_id){
-		// THIS IS THE GENERIC FORM POPULATION FOR A NEW FORM!
-		$value = $this->CI->information->get_information('name', $property_id);
-		$value = $this->CI->format->word_format($value);
-
-		return $value;
-	}
-	
-	public function radio($property_id, $property_type, $field){
-		//POPULATES THE FORM BASED ON WHETHER OR NOT THE TYPE (which is the html form value ) is equal to the db_type related to that p_ID
-		//OTHERWISE, WE NEED TO SEE IF THE TYPE--which is the value of the radio--IS THE SAME AS THE DB_TYPE
-		
-		$db_type = $this->CI->information->get_information($field, $property_id);
-		if($db_type == $property_type)		
-			return "checked='checked'";
-
-	}
-	
-	public function meta_description($property_id){
-		
-		$value = $this->CI->information->get_information('meta_description', $property_id);
-		$value = ucfirst($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
-	
-	public function meta_keywords($property_id){
-		
-		$value = $this->CI->information->get_information('meta_keywords', $property_id);
-		$return_value = $this->CI->format->keywords($value);
-
-		return $return_value;
-	}
-	
-	public function manager_email($property_id){
-		
-		$value = $this->CI->information->get_information('manager_email', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		return $value;	
-	}
-	
-	public function manager_phone($property_id){
-		
-		$value = $this->CI->information->get_information('manager_phone', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		return $value;	
+		$this->CI->load->model($models);
+		$this->CI->load->library($library);
+		$this->CI->config->load('database_configuration');
 	}
 
-	public function manager_phone_clean($property_id){
-		// THIS IS STILL IN NEED OF SOME WORK!
-		$value = $this->CI->information->get_information('manager_phone', $property_id);
-		$value = $this->CI->format->word_format($value);
-		// WILL NEED TO SPLIT THIS AND ADD DASHES IN THE FUTURE!--CREATE A CLASS?
-	
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		return $value;	
-	}
+	public function category_location($category) {
+		
+		$query = $this->CI->general->get('table_schema', array('category' => $category));
 
-	public function manager_first_name($property_id){
-		
-		$value = $this->CI->information->get_information('manager_first_name', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;	
-	}
-
-	public function manager_last_name($property_id){
-
-		$value = $this->CI->information->get_information('manager_last_name', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		return $value;
-	}
+		if($query)
+			return $query->row()->location;
 	
-	public function property_content($property_id){
-
-		$value = $this->CI->information->get_information('property_content', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
+	}	
 	
-	public function address($property_id){
-		
-		$value = $this->CI->information->get_information('address', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
+	/********* PROTECTED FUNCTIONS *******/
 	
-	public function location($property_id){
+	protected function set_property_id($property_id) {
 		
-		$value = $this->CI->information->get_information('location', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	
-	}
-
-	public function postal_code($property_id){
-		
-		$value = $this->CI->information->get_information('postal_code', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
-	
-	public function thumbnail_blurb($property_id){
-		
-		$value = $this->CI->information->get_information('thumbnail_blurb', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
-	
-	public function buy_price($property_id){
-
-		$value = $this->CI->information->get_information('buy_price', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
-	
-	public function buy_list_date($property_id){
-
-		$value = $this->CI->information->get_information('buy_list_date', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS IN CASE THE TYPE WAS SPECIFIED AS A RETURN INSTEAD OF THE DEFAULT ECHO!
-		
-		return $value;
-	}
-	
-	public function rent_price($property_id){
-
-		$value = $this->CI->information->get_information('rent_price', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS TO SEE WHAT TYPE OF RETURN THIS FUNCTION SHOULD HAVE!
-		return $value;	
-	}
-	
-	public function rent_units_available($property_id, $type="return"){
-
-		$value = $this->CI->information->get_information('rent_units_available', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		// THIS NEXT SECTION IS TO SEE WHAT TYPE OF RETURN THIS FUNCTION SHOULD HAVE!
-		
-		return $value;
+		$this->property_id = $property_id;
 		
 	}
 	
-	// ACTUAL HTML TAG!
-	public function thumbnail_image($property_id){
+	protected function get_category_types(&$categories) {/*for the form categories such as rent/buy/general etc*/
 		
-		// FILE ANALYSIS LIBRARY
-		$this->CI->load->library('utilities/file_analysis');
-
-		// DIRECTORY TO GET IMAGE FROM!
-		$directory = "property_images/{$property_id}/thumbnail/";
-
-		// IMAGE TAG--REMEMBER WE JUST WANT THE FIRST ONE!
-		$image_name = $this->CI->file_analysis->file_list($directory, 'image');
-		if(count($image_name) > 0)
-			$image_src = base_url($directory . $image_name[0]);
-		else
-			$image_src = base_url('resources/images/defaults/thumbnail.png');
+		array_push($categories, 'general');
 		
-		//RETURN IMAGE TAG--WITH OUR COMBINE URL!
-		$image_tag = "<img src='{$image_src}' alt='{$this->name($property_id, 'return')}' />";
-				
-		// THIS NEXT SECTION IS TO SEE WHAT TYPE OF RETURN THIS FUNCTION SHOULD HAVE!
-		
-		return $image_tag;
-	}
-	
-	public function slideshow_image($property_id){
-		
-		// IMAGES FOR THE SLIDESHOW GALLERY
-		//THIS CAN BE FOR THUMBNAIL IMAGES OR SLIDESHOW IMAGES!
-		// CAN ALSO RETURN IMAGE_TAGS VS FILE NAMES
-		
-		// LOAD FILE ANALYSIS LIBRARY
-		$this->CI->load->library('utilities/file_analysis');
-		
-		// DIRECTORY OF THE SLIDESHOW IMAGES
-		$directory = 'property_images/' . $property_id . '/slideshow/';
-		$image_list = $this->CI->file_analysis->file_list($directory);
-		
-		$slideshow_images = array();
-		
-		foreach($image_list as $value){
-			// THE URL OF THE SLIDESHOW GALLERY
-			$image_src = base_url($directory . $value);
-			$image_tag = "<img src='{$image_src}' alt='{$this->name($property_id, 'return')}' />";
+		if (1 == $this->property_id) {
 			
-			// ADD THE IMAGE TAG TO THE ARRAY
-			array_push($slideshow_images, $image_tag);
+			foreach($this->CI->config->item('top_level_categories') as $category)//push all top levels into array(ie industrial,retail)
+				array_push($categories, $category);
+				
+			foreach($this->CI->config->item('second_level_categories') as $category)//push all second levels into array (ie rent/buy)
+				array_push($categories, $category);
 		}
-		
-		return $slideshow_images;
-	}
+	
+		else {//need to find out which categories are linked to this property so that we can add only the ones needed
+			
+			$type_category = $this->CI->property_get->type_category($this->property_id);
 
-	public function thumbnail_image_name($property_id){
-		
-		// LOAD LIBRARY WITH FILE_LISTS!
-		$this->CI->load->library('utilities/file_analysis');
-		
-		// SEND DIRECTORY TO FILE COUNT METHOD IN FILE_ANALYSIS
-		// THIS IS RELATIVE
-		$directory = "property_images/{$property_id}/thumbnail/";
-		$file_list = $this->CI->file_analysis->file_list($directory, 'image');
-		
-		// SINGLE FILE_NAME--remember it will always be thumbnail but not always .png
-		
-		$file_path = base_url($directory . $file_list[0]);
-		
-		// RETURN THE THUMBNAIL_IMAGE_NAME
-		
-		return $file_path;
-
-	}
-		
-	public function slideshow_image_name($property_id){
-		
-		// LOAD LIBRARY WITH FILE_LISTS!
-		$this->CI->load->library('utilities/file_analysis');
-		
-		// SEND DIRECTORY TO FILE COUNT METHOD IN FILE_ANALYSIS
-		// THIS IS RELATIVE
-		$directory = "property_images/{$property_id}/slideshow/";
-		$file_list = $this->CI->file_analysis->file_list($directory, 'image');
-		
-		// SINGLE FILE_NAME--remember it will always be thumbnail but not always .png
-		$slideshow_images = array();
-		
-		foreach($file_list as $image_name){
-			$file_path = base_url($directory . $image_name);
-			array_push($slideshow_images, $file_path);
+			$type = $this->CI->property_get->type($this->property_id);
+			
+			array_push($categories, $type, $type_category);
 		}
-		
-		// RETURN THE THUMBNAIL_IMAGE_NAME
-		return $slideshow_images;
-	}
-
-	public function listing_url($property_id){
-		
-		$url = site_url('listing/' . $property_id);
-		return $url;
-		
-	}
-
-	public function type($property_id){
-		
-		$value = $this->CI->information->get_information('type', $property_id);
-		$value = $this->CI->format->word_format($value);
-		
-		return $value;
 	}
 	
-	public function type_category($property_id){
+	protected function get_individual_categories($category_type) {
 		
-		$value = $this->CI->information->get_information('type_category', $property_id);
-		$value = $this->CI->format->word_format($value);
+		// $table = "${category}_property"; // this is the convention used in the msyql
+		// ie: rent_property or industrial_residential_property
 		
-		return $value;
+		$query = $this->CI->general->get('table_schema', array('type' => $category_type));
+		$categories = array();
+
+		if($query) {
+			foreach ($query->result() as $row)
+				array_push($categories, $row->category);
+		}
+		
+		return $categories;
 	}
 	
+	protected function get_category_input_type($category) {
+	
+		$query = $this->CI->general->get('table_schema', array('category' => $category));
+		
+		if($query && $query->row()->input_type)
+			return $query->row()->input_type;
+		else
+			return "input";//throw an error here
+	
+	}
+	
+	protected function get_comment($category) {
+		
+		$query = $this->CI->general->get('table_schema', array('category' => $category));
 
+
+		if($query && $query->row()->description && strlen($query->row()->description > 0))
+			return "\n\t<span>{$query->row()->comment}</span>";
+		else
+			return "";
+		
+	}
+	
+	public function get_options($category) {
+		
+		$options = array();
+		$query = $this->CI->general->get('default_options', array('category' => $category));
+
+		if($query) {
+			foreach($query->result() as $row)
+				array_push($options, $row->category_value);
+		}
+		
+		return $options;
+	}
+	
+	/*********** FORM PIECES ***********/ 
+
+	public function radio($category) {
+		// this function will an entire list for the category -- will return a string
+		// make sure it takes care of the default!
+
+		$options = $this->get_options($category); // get all options
+
+		$radio_form = "\n<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$radio_form .= $this->get_comment($category);
+
+		foreach ($options as $option) {
+			
+			$radio_form .= "\n\t<input type='radio' name='{$category}' value='{$option}'";
+			
+			$db_type = $this->CI->information->get_information($category, $this->property_id);
+			
+			if($db_type == $option)
+				$radio_form .= "checked='checked'";
+			
+			$radio_form .= " />\n\t{$this->CI->format->word_format($option)}<br />";
+		
+		}
+		
+		return $radio_form;
+	}
+	
+	public function checkbox($category) {//not needed for prospero website
+		
+		
+	}
+	
+	public function textarea($category, $rows = 5) {
+		
+		$textarea_form = "\n<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$textarea_form .= $this->get_comment($category);
+		
+		$textarea_form .= "\n\t<textarea rows='{$rows}' name='{$category}' value='{$this->CI->property_get->general_clean($this->property_id, $category)}\n\t"; 
+		
+		return $textarea_form;
+		
+		
+	}
+	
+	public function text($category) {
+		
+		$text_form = "\n<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$text_form .= $this->get_comment($category);
+		
+		$text_form .= "\n\t<input type='text' name='{$category}' value='{$this->CI->property_get->general_clean($this->property_id, $category)}' />\n\t";
+		
+		return $text_form;
+	}
+
+	public function hidden($category) {
+		
+		$hidden_form = "\n\t<input type='hidden' value='{$this->CI->property_get->general_clean($this->property_id, $category)}' name='{$category}' />\n\t";
+		return $hidden_form;
+		
+	}
 };

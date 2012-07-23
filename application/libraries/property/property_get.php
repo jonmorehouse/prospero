@@ -43,16 +43,6 @@ class Property_get{
 		return $value;
 	}
 	
-	public function radio($property_id, $property_type, $field){
-		//POPULATES THE FORM BASED ON WHETHER OR NOT THE TYPE (which is the html form value ) is equal to the db_type related to that p_ID
-		//OTHERWISE, WE NEED TO SEE IF THE TYPE--which is the value of the radio--IS THE SAME AS THE DB_TYPE
-		
-		$db_type = $this->CI->information->get_information($field, $property_id);
-		if($db_type == $property_type)		
-			return "checked='checked'";
-
-	}
-	
 	public function meta_description($property_id){
 		
 		$value = $this->CI->information->get_information('meta_description', $property_id);
@@ -323,5 +313,12 @@ class Property_get{
 		return $value;
 	}
 	
-
+	public function status($property_id) {
+		
+		$value = $this->CI->information->get_information('property_status', $property_id);
+		if($value)
+			return true;
+		else
+			return false;
+	}
 };

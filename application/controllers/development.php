@@ -50,7 +50,7 @@ class Development extends CI_Controller{
 			
 			// PROPERTY_TYPE
 			'type' => 'rent',
-			'type_category' => 'none',
+			'type_category' => 'residential',
 			'new' => false,
 			
 			
@@ -115,13 +115,16 @@ class Development extends CI_Controller{
 
 	public function test(){
 		
-		$this->load->library('session');
-		print_r($this->session->all_userdata());
+		$this->load->library('management/management_forms');
+		$this->load->library('management/management_categories', array('property_id' => 'default'));
+		$this->management_categories->update_property(1);
 
-		
 	}
 	
-	
-
-
+	public function test_1() {
+		
+		$this->load->model('general');
+		print_r($this->general->category_tables());
+		
+	}
 }
