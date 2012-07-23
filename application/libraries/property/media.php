@@ -15,6 +15,8 @@ class Media{
 	
 	function Media(){
 		
+		
+		
 	}
 	
 	public function get_media($type) {

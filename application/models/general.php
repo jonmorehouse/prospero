@@ -41,5 +41,19 @@ class General extends CI_Model{
 		return $all_tables;
 	}
 
+	public function get_category_table($category) {
+		
+		// this function will search table schema for the correct table and return the string location
+		$query = $this->db->where(array('category' => $category))->get('table_schema');
+		
+		if($query->num_rows()!=1) {
+			$this->load->library('utilities/developer_contact');
+			$this->developer_contact->general_error('table_schema problem', "Please check out {$category}");
+			return false;
+		}
+		
+		else 
+			return $query->row()->category;
+	}
 }
 

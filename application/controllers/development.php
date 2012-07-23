@@ -104,19 +104,45 @@ class Development extends CI_Controller{
 		}
 	}
 
+	public function table_schema_insert() {
+		
+		$category = 'video_status';
+		$table = 'videos';
+		$type = 'media_status';//ie general, media location etc
+		$input_type = 'radio';
+		$default_value = '';
+		$description = '';
+		
+		$query = $this->db->where(array('category' => $category))->get('table_schema');
+		
+		if($query->num_rows > 0) {
+			
+			$this->db->where(array('category' => $category))->delete('table_schema');
+			echo "deleted old insertion for {$category} in table schema...please note this";
+		}
+		
+
+		$data = array(
+			'category' => $category, //property_category
+			'location' => $table, //location or table
+			'type' => $type, //general, media etc
+			'input_type'=> $input_type, //for cms forms -- leave blank for status
+			'default_value'=> $default_value, //for cms mainly, set to false etc
+			'description'=> $description, //for the cms span tag to describe this
+		);
+		
+		$this->db->insert('table_schema', $data);
+		
+	}
 	// THIS IS FOR THE EMAIL WHICH ISN'T WORKING AS OF NOW?
 
 /************************************************************************************************************/
 
-	public function test(){
-		
-
-	}
-	
-	public function test_1() {
+	public function test() {
 		
 		$this->load->model('general');
-		print_r($this->general->category_tables());
+		echo $this->general->get_category_table('video_status');
 		
 	}
+
 }
