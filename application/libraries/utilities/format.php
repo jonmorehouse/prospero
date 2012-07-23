@@ -54,7 +54,6 @@ class Format{
 		return $formatted_keywords;
 	}
 
-
 	//this function accepts an image tag that is relative as of the resources/images folder
 	public function image_tag($url, $class='', $alt='prospero', $id=''){
 		
@@ -63,5 +62,30 @@ class Format{
 		
 		return $tag;
 		
+	}
+	
+	public function max_file($input = '100M') {
+		
+		$suffix = $this->last_character($input);
+		
+		$max_file = "";
+		
+		for ($i = 0; $i<strlen($input); $i++)
+			if($input[$i] != $suffix)
+				$max_file .= $input[$i];
+		
+		if('M' == $suffix) 
+			$max_file .= " Megabytes";
+		else
+			$max_file .= "Kilobytes";
+			
+		return $max_file;
+	}
+	
+	public function last_character($input, $index = 0) {//can also specify for 2-3 etc
+		// this function will pop the last character off
+		$reverse = strrev($input);
+		
+		return $reverse[$index];
 	}
 };

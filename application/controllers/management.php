@@ -3,6 +3,15 @@ class Management extends CI_Controller{
 	
 /*MANAGEMENT CONSTRUCT*/
 
+/* Note the management_forms, management_create_update and management_general class
+	
+	managmeent forms is for general form creation -- to be used for dynamic generation for the update/create listings -- everything is database driven
+	 
+	management general creates thumbnails for search because it has to account for differing urls etc -- makes it easier to make modifications
+
+	
+*/
+
 	function __construct(){
 		parent::__construct();
 		
@@ -10,6 +19,7 @@ class Management extends CI_Controller{
 		$page_title = 'Prospero Real Estate Content Management System';
 		$this->page_type = 'management';//this is used for headers
 		$this->id = 'management'; //this is used for the navigation bars--not always page_type in other controllers
+		$this->content = "";
 
 		// LOAD LIBRARIES
 		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header');
@@ -80,32 +90,13 @@ class Management extends CI_Controller{
 		$status = $this->user_status->login($username, $password);
 		
 		//Failed login message
-		
-		$message = $this->load->view('management/resources/failed_login', '', true);
+		$this->content = $this->load->view('management/resources/failed_login', '', true);
 		
 		// IF USER_STATUS VALIDATES, The session will be set and it will auto-login
 		if($status)
-			redirect('management/tools');
+			redirect('management/homepage');
 		else
 			$this->login($username, $message);
-	}
-
-/*TOOL PAGE CONSTRUCT--DETERMINES WILL LOAD SEARCH OR CREATE LISTING FORM*/
-
-	public function tools(){//this catches from the navigation bar at the top!
-		
-		// tool_id allocation
-		$this->tool_id = $this->uri->segment(3);
-
-		
-		if(!$this->tool_id)
-			$this->homepage();
-
-		else if(in_array($this->tool_id, $search_tools))
-			$this->property_search();
-
-		else//if we don't need to search...this applies to logout, create_listing, remove_listing
-			$this->all_admin_rights();
 	}
 	
 	private function homepage(){
@@ -114,14 +105,6 @@ class Management extends CI_Controller{
 		$this->content = "Please select an option above. If you have reached this page in error, please contact an admin";
 		$this->load->view('management/management_base');
 		
-	}
-
-	private function property_search(){
-		
-		// grab tool id in this form and then use the class to generate the proper form
-		
-		
-	
 	}
 	
 	public function create_listing() {
@@ -142,8 +125,6 @@ class Management extends CI_Controller{
 		$this->load->view('management/management_base');		
 	}
 
-	
-	
 	public function remove_listing() {//
 
 		if(!$this->uri->segment(3))
@@ -160,29 +141,27 @@ class Management extends CI_Controller{
 		
 	}
 	
-	public function video_upload() {
+	public function upload_media() {
 		
-		
-	}
-	
-	public function thumbnail_upload() {//change the thumbnail
-		
-		
-		
-	}
-	
-	public function slideshow_upload() {//load a single image into the page
-		
-		
-		
-		
-	}
+		if(!$this->uri->segment(3))//no listing set -- listing will be 3rd segment -- we need to give our users search parameters
+			$this->content = $this->management_general->search("upload_media");//the search will send the 
 
-	public function process() {
+		else //listing selected -- load the generic upload form
+			$this->content = $this->management_general->upload_media($this->uri->segment(3));
+		
+		$this->load->view('management/management_base');
+	}
+	
+	public function process() {//only 
 		
 		$this->type = $this->uri->segment(3);
 		$this->property = $this->uri->segment(4);
-	
 	}
 
+	public function test() {
+		
+		$this->management_general->upload_media(1);
+	
+		
+	}
 }

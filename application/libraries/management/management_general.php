@@ -14,6 +14,8 @@ class Management_general extends Management_forms {
 		
 		$this->url = site_url('management');
 		$this->property_list = $this->CI->admin->property_list($this->username);
+		
+		$this->CI->load->config('site_status');
 	}
 	
 	/********** PUBLIC FUNCTIONS ************/
@@ -61,30 +63,26 @@ class Management_general extends Management_forms {
 		return $form;
 	}
 	
-	public function remove_media($property_id) {
+	public function upload_media($property_id) {
 		
-
+		// This function is used to dynamically generate all of the categories for the radio dropdown to be used in the upload_media form
+		$media_categories = $this->get_individual_categories('media');//get the dropdown options for the media form
+		$destination = site_url('management/process/' . $property_id);
 		
+		// Form creation
+		$form = "\n<h1>Upload Media for {$this->CI->property_get->name($property_id)}</h1>";
+		$form .= "\n<form action='{$destination}' method='post' enctype='multipart/form-data'>";
+		$form .= "\n<span>Media Type:</span>";
+		$form .= $this->dropdown($media_categories, 'type');
+		$form .= "\n<input type='file' name='media' />";
+		$form .= "\n<span>Maximum File Size: {$this->CI->format->max_file($this->CI->config->item('max_file'))}</span>";
+		$form .= "\n<input type='submit' name='submit' />";
+		$form .= "\n</form>"; 
+		$form .= "\n<div id='preview'></div>";//please note controllers/ajax/management for the thumbnail preview!
 		
-		
-	}
-	
-	public function video_upload($property_id) {
-		
-		
-		
-	}
-	
-	public function thumbnail_upload($property_id) {
-		
-		
-	}
-	
-	public function slideshow_upload($property_id) {
-		
+		return $form;
 		
 	}
-	
 	/******* PRIVATE FUNCTIONS *********/
 	
 	private function set_configuration($tool) {
@@ -111,7 +109,6 @@ class Management_general extends Management_forms {
 	
 	private function thumbnail($property_id) {
 		
-		
 		$thumbnail = "\n<div class='thumbnail'>";
 		$thumbnail .= "\n\t<span>{$this->CI->property_get->thumbnail_image($property_id)}</span>";
 		$thumbnail .= "\n\t<span>{$this->CI->property_get->name($property_id)}</span>";
@@ -120,5 +117,6 @@ class Management_general extends Management_forms {
 		
 		return $thumbnail;
 	}
+
 	
 };

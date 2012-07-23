@@ -43,6 +43,11 @@ class Management_forms{
 	
 	protected function get_category_types(&$categories) {/*for the form categories such as rent/buy/general etc*/
 		
+		/* this method is to generate the category types that can be changed with user input in the update_create forms
+		
+			we have a media type that is not used in the update_create forms
+		*/
+		
 		array_push($categories, 'general');
 		
 		if (1 == $this->property_id) {
@@ -177,4 +182,15 @@ class Management_forms{
 		
 	}
 
+	public function dropdown($options, $name) {//takes an array and generates a dropdown box
+		
+		$dropdown = "\n<select name='{$name}'";
+		
+		foreach($options as $option)
+			$dropdown .= "\n\t<option value='{$option}'>{$this->CI->format->word_format($option)}</option>\n\t";
+
+		$dropdown .= "\n</select>";
+		
+		return $dropdown;
+	}
 };

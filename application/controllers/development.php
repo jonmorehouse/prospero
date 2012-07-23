@@ -115,11 +115,6 @@ class Development extends CI_Controller{
 
 	public function test(){
 		
-		// $this->load->library('property/browse');
-		
-		// print_r($this->browse->categorized_properties(array(2,3,4,5)));
-		echo site_url();
-		
 
 	}
 	

@@ -29,12 +29,9 @@ class Management extends CI_Controller{
 
 	}
 	
-	function remove_listing(){//This is to load the remove_listing prompt
-		
-		$this->load->view('management/forms/remove_listing_prompt');
+	function upload_media_preview() {
 		
 		
 		
 	}
-	// THIS SECTION IS NOT AN AJAX CONTROLLER RIGHT NOW-NO NEED FOR THIS	
 }

@@ -8,8 +8,8 @@ class User_status{
 	function User_status(){
 		
 		$this->CI =& get_instance();
-		$this->CI->load->library('session');
-
+		$libraries = array('session', 'user_access/admin');
+		$this->CI->load->library($libraries);
 	}
 	
 	public function login($username, $password){

@@ -11,6 +11,10 @@
 
 <div id='page_container'>
 	<div id='page_content'>
+		<?php if(isset($this->page))
+			$this->load->view('management/forms/' . $this->page);
+		?>
+		
 		<?php echo $this->content;?>
 	</div> <!--THIS IS THE END OF THE PAGE_CONTENT-->
 </div>
