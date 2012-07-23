@@ -53,43 +53,20 @@ class Create_update extends Management_forms {
 			$form .= "<form class='{$category_type}'>\n";//start a form -- used to hide the inactive ones in create!
 			$form .= "\n<h1>{$this->CI->format->word_format($category_type)}</h1><br /><hr /><br />\n";//category header
 			
-			$column_counter = 1;
-			$category_counter = 0;
-			
 			foreach($categories as $category) {
 				
-				$last_category = count($categories) - 1;//last element--stop everything
-				
-				if($column_counter == 0)
-					$form .= "<br /><div>\n";
-				
+				if($this->get_category_input_type($category) != 'hidden')//don't put hidden in the columns -- columns floated left
+					$form .="<div>";
+
 				$input_type = $this->get_category_input_type($category);
 				$this->{$input_type}($category);
 				$form .= $this->$input_type($category);
 				
-				if($category_counter == $last_category ) {
-					$form .= "\n</div>\n\n";
-				}
-					
 				// last already taken care of so div closed...just move on
-				else if('hidden' == $this->get_category_input_type($category)) {//do nothing--don't want to mess up the column counting!
-					
-					// $column_counter does not change!--don't want to mess up the columns
-					$category_counter++;
 
-				}
-				
-				else if($column_counter == 2) {//check if column_Counter needs to be reset
-					$form .= "\n</div>";
-					$column_counter = 0;
-					$category_counter++;
-				}
-				
-				else {//no special circumstances
-					$category_counter++;
-					$column_counter++;
-				}
-				
+				if($this->get_category_input_type($category) != 'hidden')
+					$form .= "</div>";//only close the divs that were created -- not for hiddens
+
 			}//end foreach for categories
 			
 			$form .= "</form><br />";//close the category_type form
