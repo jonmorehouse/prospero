@@ -78,11 +78,25 @@ class Management_general extends Management_forms {
 		$form .= "\n<span>Maximum File Size: {$this->CI->format->max_file($this->CI->config->item('max_file'))}</span>";
 		$form .= "\n<input type='submit' name='submit' />";
 		$form .= "\n</form>"; 
-		$form .= "\n<div id='preview'></div>";//please note controllers/ajax/management for the thumbnail preview!
+		$form .= "\n<div id='preview'>Please visit media status page to activate/deactivate media</div>";//please note controllers/ajax/management for the thumbnail preview!
 		
 		return $form;
 		
 	}
+	
+	public function media_status($property_id) {
+		
+		// get the categories such as thumbnail, pdf, slideshow images and video
+		$categories = $this->get_individual_categories('media_status');//used to change whether or not certain images are live or not
+			
+
+		// we want to give a radio option for the video, pdf and all images 
+		// want to give a preview for each -- select different 
+		
+		return "media status return here";
+		
+	}
+	
 	/******* PRIVATE FUNCTIONS *********/
 	
 	private function set_configuration($tool) {

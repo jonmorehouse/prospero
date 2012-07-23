@@ -119,8 +119,11 @@ class Management extends CI_Controller{
 
 		if(!$this->property_id || strlen($this->property_id < 1))
 			$this->content = $this->management_general->search('update_listing');
-		else
-			$this->content = $this->management_create_update->update_property($this->property_id);
+		
+		else {
+			$this->content = $this->load->view('management/resources/general_dashboard', '', true);
+			$this->content .= $this->management_create_update->update_property($this->property_id);
+		}
 
 		$this->load->view('management/management_base');		
 	}
@@ -135,8 +138,15 @@ class Management extends CI_Controller{
 		$this->load->view('management/management_base');
 	}
 	
-	public function remove_media() {//remove a form
+	public function media_status() {//remove a form
 		
+		if(!$this->uri->segment(3))
+			$this->management_general->search('media_status');
+		
+		else{
+			echo $this->management_general->media_status($this->uri->segment(3));
+			
+		}
 		
 		
 	}

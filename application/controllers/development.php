@@ -53,10 +53,6 @@ class Development extends CI_Controller{
 			'type_category' => 'residential',
 			'new' => false,
 			
-			
-			// PROPERTY_VIDEO
-			'status' => 0,
-
 			//RENT_PROPERTY
 			'rent_price' => 999,
 			'rent_units_available' => 999,
@@ -72,9 +68,8 @@ class Development extends CI_Controller{
 	
 	public function clear_general_tables(){
 		
-		$this->load->config('tables');
-		
-		$tables = $this->config->item('all_tables');
+		$this->load->model('general');
+		$tables = $this->general->category_tables();
 
 		foreach($tables as $value){
 			$this->db->truncate($value);
