@@ -4,7 +4,7 @@ class Browse{
 	
 	var $CI;
 	
-	function Browse(){
+	function Browse() {
 		$this->CI =& get_instance();
 		
 		$models = array('property/search', 'property/information');
@@ -13,7 +13,7 @@ class Browse{
 		// USE METHOD->$this->search->retrieve('type'=rent/buy, 'category'=column/all, 'order'=high_to_low, low_to_high, alphabetical)
 	}
 
-	public function browse_thumbnail($type, $category, $filter){
+	public function browse_thumbnail($type, $category, $filter) {
 		
 		// 	THIS IS TO QUERY THE DATABASE FOR PROPERTIES--THIS WILL GRAB ALL OF THE 'RAW' PROPERTIES FOR EACH TYPE
 		// GET RAW RESULTS--CRITERIA RESPONDS TO A CATEGORY WHICH IS A LOCATION THAT GETS JOINED TO PROPERTY_TYPE
@@ -31,7 +31,7 @@ class Browse{
 		return $sorted_list;
 	}
 	
-	public function management_thumbnail($type){
+	public function management_thumbnail($type) {
 
 		// THIS IS FOR THE SELECTION OF PROPERTIES IN THE MANAGEMENT APPLICATION!
 	
@@ -41,7 +41,7 @@ class Browse{
 
 	}
 	
-	public function page_header($id){ 
+	public function page_header($id) { 
 		
 		if($id === 'office_industrial')
 			$header = 'Office and Industrial Properties';
@@ -55,7 +55,7 @@ class Browse{
 		return $header;
 	}
 
-	public function browse_header($id, $category = false, $filter = false){
+	public function browse_header($id, $category = false, $filter = false) {
 		
 		// ID refers to the top_level_category!--ie: industrial/retail, residential etc
 		
@@ -71,6 +71,27 @@ class Browse{
 		
 		// RETURN HEADER
 		return $header;
+	}
+	
+	public function categorized_properties($property_list) {
+		
+		//get unique categories
+		// create an array for each category
+		
+		$this->CI->load->library('property/property_get');
+		
+		$categorized_properties = array();
+
+		foreach($property_list as $property_id) {
+			$category = $this->CI->property_get->type_category($property_id);//get the type_category
+
+			if(!isset($categorized_properties[$category]))
+				$categorized_properties[$category] = array();
+				
+			array_push($categorized_properties[$category], $property_id);//use the key for the header
+		}
+		
+		return $categorized_properties;
 	}
 	
 /***********************************************************************************************************************************/

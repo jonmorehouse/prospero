@@ -3,21 +3,25 @@
 class Management_forms{	
 
 	var $property_id;
+	var $admin_rights;
 	
 	/********* PUBLIC FUNCTIONS ********/
 	
 	
-	public function Management_forms() {
+	public function Management_forms($parameters) {
 		
 		$this->CI =& get_instance();
 		$this->property_id = 1;
-		
+		$this->admin_rights = $parameters['admin_rights'];
+		$this->username = $parameters['username'];
+
 		$library = array('utilities/format', 'property/property_get');
 		$models = array('general');
 		
 		$this->CI->load->model($models);
 		$this->CI->load->library($library);
 		$this->CI->config->load('database_configuration');
+		
 	}
 
 	public function category_location($category) {
@@ -172,4 +176,5 @@ class Management_forms{
 		return $hidden_form;
 		
 	}
+
 };

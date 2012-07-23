@@ -12,7 +12,7 @@ class Management extends CI_Controller{
 		$this->id = 'management'; //this is used for the navigation bars--not always page_type in other controllers
 
 		// LOAD LIBRARIES
-		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header', 'management/management_forms');
+		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header');
 		$this->load->library($libraries);
 		
 		// Load Configuration Files
@@ -20,10 +20,12 @@ class Management extends CI_Controller{
 		
 		// If the user_status is validated, we will then load session data to be used around the controller
 		if($this->user_status->current_status()){
-			$this->username = $this->session->userdata('username');
-			$this->admin_rights = $this->session->userdata('admin_rights');
+			$username = $this->session->userdata('username');
+			$admin_rights = $this->session->userdata('admin_rights');
+			$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
+			
 		}
-		
+
 		// load header information-this will be passed into management_base and echoed from there
 		$this->header = $this->header->header_creation($this->page_type, $page_title);//pass css as array or js as array if desired
 	}
@@ -117,42 +119,48 @@ class Management extends CI_Controller{
 	private function property_search(){
 		
 		// grab tool id in this form and then use the class to generate the proper form
+		
+		
 	
 	}
 	
 	public function create_listing() {
 		
-		$this->load->library('management/create_update');
-		$this->content = $this->create_update->create_property();//1 is our default property -- to load the defaults in! 
+		$this->content = $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
 		$this->load->view('management/management_base');		
 	}
 	
 	public function update_listing() {
 
-		$this->load->library('management/create_update');
 		$this->property_id = $this->uri->segment(3);
 
 		if(!$this->property_id || strlen($this->property_id < 1))
-			redirect('management/homepage');
-		else{
-			echo "passed";
-			
-		}	
-		// $this->content = $this->create_update->update_property($this->property_id); 
-		// $this->load->view('management/management_base');		
+			$this->content = $this->management_general->search('update_listing');
+		else
+			$this->content = $this->management_create_update->update_property($this->property_id);
 
-
-	
+		$this->load->view('management/management_base');		
 	}
 
+	
+	
 	public function remove_listing() {//
-		
-		// validate with admin_access which is already set
-		
+
+		if(!$this->uri->segment(3))
+			$this->content = $this->management_general->search('remove_listing');
+		else
+			$this->content = $this->management_general->remove_listing($this->uri->segment(3));
+			
+		$this->load->view('management/management_base');
 	}
 	
 	public function remove_media() {//remove a form
 		
+		
+		
+	}
+	
+	public function video_upload() {
 		
 		
 	}
