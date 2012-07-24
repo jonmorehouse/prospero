@@ -88,4 +88,13 @@ class Format{
 		
 		return $reverse[$index];
 	}
+
+	public function replace_in_string($input, $original, $replacement, $counter = 1) {
+		
+		$replacement_output = str_replace($original, $replacement, $input, $counter);
+		
+		return $replacement_output;
+		
+		
+	}
 };

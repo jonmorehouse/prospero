@@ -140,8 +140,7 @@ class Development extends CI_Controller{
 
 	public function test() {
 		
-		$this->load->model('general');
-		echo $this->general->get_category_table('video_status');
+		
 		
 	}
 

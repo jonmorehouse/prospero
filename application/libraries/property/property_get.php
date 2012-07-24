@@ -14,7 +14,8 @@ class Property_get{
 		
 		$this->CI =& get_instance();
 		$this->CI->load->model('property/information');
-		$this->CI->load->library('utilities/format');
+		$this->CI->load->library('utilities/format', 'property/media');
+
 	}
 	
 /*THIS METHOD NEEDS TO CONTINUE BEING IMPLEMENTED AROUND THE APPLICATION*/
@@ -200,94 +201,59 @@ class Property_get{
 	// ACTUAL HTML TAG!
 	public function thumbnail_image($property_id){
 		
-		// FILE ANALYSIS LIBRARY
-		$this->CI->load->library('utilities/file_analysis');
+		$thumbnail_id = $this->CI->media->get_media($property_id);
 
-		// DIRECTORY TO GET IMAGE FROM!
-		$directory = "property_images/{$property_id}/thumbnail/";
-
-		// IMAGE TAG--REMEMBER WE JUST WANT THE FIRST ONE!
-		$image_name = $this->CI->file_analysis->file_list($directory, 'image');
-		if(count($image_name) > 0)
-			$image_src = base_url($directory . $image_name[0]);
+		if($thumbnail_id)
+			$url = $this->CI->media->get_url($thumbnail_id);//not the default in this case
+		
 		else
-			$image_src = base_url('resources/images/defaults/thumbnail.png');
+		 	$url = $this->CI->media->get_url('thumbnail_image');//will get default media url
 		
 		//RETURN IMAGE TAG--WITH OUR COMBINE URL!
-		$image_tag = "<img src='{$image_src}' alt='{$this->name($property_id, 'return')}' />";
+		$image_tag = "<img src='{$url}' alt='{$this->name($property_id, 'return')}' />";
 				
 		// THIS NEXT SECTION IS TO SEE WHAT TYPE OF RETURN THIS FUNCTION SHOULD HAVE!
 		
 		return $image_tag;
 	}
 	
-	public function slideshow_image($property_id){
+	public function slideshow_image_list($property_id){//this is to be used by the property_get class for thumbnail_images and listings -- not necessarily cms
 		
-		// IMAGES FOR THE SLIDESHOW GALLERY
-		//THIS CAN BE FOR THUMBNAIL IMAGES OR SLIDESHOW IMAGES!
-		// CAN ALSO RETURN IMAGE_TAGS VS FILE NAMES
+		$list = $this->CI->media->get_slideshow_images($property_id);
+		$image_id_list = array();
+
+		if(!$list)
+			array_push($image_id_list, 'default');//no images found that were live so they are default
 		
-		// LOAD FILE ANALYSIS LIBRARY
-		$this->CI->load->library('utilities/file_analysis');
-		
-		// DIRECTORY OF THE SLIDESHOW IMAGES
-		$directory = 'property_images/' . $property_id . '/slideshow/';
-		$image_list = $this->CI->file_analysis->file_list($directory);
-		
-		$slideshow_images = array();
-		
-		foreach($image_list as $value){
-			// THE URL OF THE SLIDESHOW GALLERY
-			$image_src = base_url($directory . $value);
-			$image_tag = "<img src='{$image_src}' alt='{$this->name($property_id, 'return')}' />";
-			
-			// ADD THE IMAGE TAG TO THE ARRAY
-			array_push($slideshow_images, $image_tag);
+		else {
+			foreach($list as $image_id)
+				array_push($image_id_list, $image_id);
 		}
 		
-		return $slideshow_images;
+		return $image_id_list;
 	}
-
-	public function thumbnail_image_name($property_id){
+	
+	public function slideshow_images($property_id) {//generates the actual tags for the slideshow and puts them into an array to return
 		
-		// LOAD LIBRARY WITH FILE_LISTS!
-		$this->CI->load->library('utilities/file_analysis');
+		$id_list = $this->slideshow_image_list($property_id);
+		$tag_list = array();
 		
-		// SEND DIRECTORY TO FILE COUNT METHOD IN FILE_ANALYSIS
-		// THIS IS RELATIVE
-		$directory = "property_images/{$property_id}/thumbnail/";
-		$file_list = $this->CI->file_analysis->file_list($directory, 'image');
+		$name = $this->name($property_id);
 		
-		// SINGLE FILE_NAME--remember it will always be thumbnail but not always .png
-		
-		$file_path = base_url($directory . $file_list[0]);
-		
-		// RETURN THE THUMBNAIL_IMAGE_NAME
-		
-		return $file_path;
-
-	}
-		
-	public function slideshow_image_name($property_id){
-		
-		// LOAD LIBRARY WITH FILE_LISTS!
-		$this->CI->load->library('utilities/file_analysis');
-		
-		// SEND DIRECTORY TO FILE COUNT METHOD IN FILE_ANALYSIS
-		// THIS IS RELATIVE
-		$directory = "property_images/{$property_id}/slideshow/";
-		$file_list = $this->CI->file_analysis->file_list($directory, 'image');
-		
-		// SINGLE FILE_NAME--remember it will always be thumbnail but not always .png
-		$slideshow_images = array();
-		
-		foreach($file_list as $image_name){
-			$file_path = base_url($directory . $image_name);
-			array_push($slideshow_images, $file_path);
+		foreach($id_list as $id) {
+			$tag = "<img src='{$this->CI->media->get_url('slideshow_image', $id)}' alt='{$name}' />";
+			array_push($tag_list, $tag);
 		}
 		
-		// RETURN THE THUMBNAIL_IMAGE_NAME
-		return $slideshow_images;
+		return $tag_list;//will return all the slideshow images
+	}
+	
+	public function slideshow_thumbnail_images($property_id) {
+		
+		$id_list = $this->slideshow_image_list($property_id);
+		
+		
+		
 	}
 
 	public function listing_url($property_id){
@@ -297,7 +263,7 @@ class Property_get{
 		
 	}
 
-	public function type($property_id){
+	public function type($property_id){//second level type -- ie rent/buy
 		
 		$value = $this->CI->information->get_information('type', $property_id);
 		$value = $this->CI->format->word_format($value);
@@ -305,7 +271,7 @@ class Property_get{
 		return $value;
 	}
 	
-	public function type_category($property_id){
+	public function type_category($property_id){//top level category ie industrial/residential etc
 		
 		$value = $this->CI->information->get_information('type_category', $property_id);
 		$value = $this->CI->format->word_format($value);
@@ -313,7 +279,7 @@ class Property_get{
 		return $value;
 	}
 	
-	public function status($property_id) {
+	public function status($property_id) {//property status -- live or not
 		
 		$value = $this->CI->information->get_information('property_status', $property_id);
 		if($value)
