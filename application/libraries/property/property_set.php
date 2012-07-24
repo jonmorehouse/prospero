@@ -1,11 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
 /*THIS PROPERTY INFORMATION CLASS IS TO BE LOADED SO THAT EACH AND EVERY DATA MEMBER CAN BE CALLED FROM A MEMBER IN THIS CLASS*/
-// THIS PROPERTY SET CLASS IS A DATABASE ABSTRACTION LAYER TO BE EASILY CALLED FROM MANY CONTROLLERS
-// JUST LIKE PROPERTY GET CLASS BUT THE GET CLASS IS CALLED FROM ALL OF THE VIEWS--KEEP CONTROLLERS CLEAN
+/***** PROPERTY SET CLASS
+	
+	responsible for updating the database with properties
+	calls file_management class for uploads after it updates them and generates the proper names etc
+	
+**********/
+
 
 class Property_set{
 	
+/********** CLASS CONSTRUCTION *************/
+
 	var $CI;
 	
 	function Property_set(){
@@ -14,6 +21,8 @@ class Property_set{
 		$this->CI->load->library('utilities/file_analysis');
 
 	}
+	
+/*************** PUBLIC FUNCTIONS ************/
 
 	// THIS IS CALLED FROM THE AJAX CONTROLLER MANAGEMENT FOR ALL THE UPDATES--
 	public function save($data){
@@ -49,8 +58,7 @@ class Property_set{
 			$this->CI->listing_management->general_insert($column, $data[$column], $property_id);
 	}
 	
-	public function media_upload($type, $property_id){
-		// TYPE should be video, thumbnail or slideshow--THIS COMES FROM THE HTML FORM NAME!
+	public function media_upload($type, $property_id){//type comes from html form
 
 		// DOWNLOADING THE FILE FROM BROWSER AND STORING IT LOCALLY--THIS IS AN ARRAY SO YOU CAN PRINT_R IT
 		$media = $_FILES[$type];
@@ -59,17 +67,21 @@ class Property_set{
 		$temporary_file = $media['tmp_name'];
 		
 		// $media['type'] is sent by the browser. It looks something like image/jpeg or image/png--we need to make sure we include the case where 4 characters are there
-		$format = end(explode('/', $media['type']));
+		$extension = end(explode('/', $media['type']));
 
 		// THIS IS THE FINAL FILE_NAME
+		$media_id = $this->get_new_media_id($property_id, $type);//generates a new media piece 
+		$file_name = $this->get_new_media_name($property_id, $type, $media_id, $extension);
+		
+		$this->set_new_media_name($property_id, $media_id, $file_name);
+		
 		$file_name = $this->file_name($type, $property_id, $format);//THIS WILL RETURN THE SLIDESHOW IMAGE, THUMBNAIL IMAGE OR VIDEO URL
 		
 		// If there is no error, we will add the file. Thumbnail images will be overwritten because we can only have one thumbnail
 		if(!$media['error']){//WE WILL JUST HAVE THE IMAGES OVERWRITE IF THERE IS A PROBLEM
 			move_uploaded_file($temporary_file, $file_name);
-			}
+		}
 			
-		// IF THE FILE IS UNSUCCESSFULLY UPLOADED WE NEED TO MAKE SURE THAT WE CONTACT SOMEONE
 		else{
 			// ERROR-->NEED TO CONTACT THE DEVELOPER!
 			$this->CI->load->library('utilities/developer_contact');
@@ -80,65 +92,49 @@ class Property_set{
 			return false;
 		}
 	
-		if($type=='video')
-			$this->CI->listing_management->general_insert('status', true, $property_id);
-		
-		// IF EVERYTHING GOES THROUGH THEN THE FILE WAS SUCCESSFULLY UPLOADED!
-		return $file_name;
 	}
-	
-	// WE ARE USING FILE_NAME TO RECORD THE IMAGES THAT WE WANT TO HAVE
-	public function file_name($type, $property_id, $format = ".png"){
-		
-		if($type == 'video'){
-			return "property_videos/{$property_id}/preview.{$format}";// THIS IS GOING TO BE FOR THE VIDEOS--SO YOU CAN UPLOAD DIFFERENT TYPES
-		}
-		
-		else if ($type == 'thumbnail'){
-			echo $format;
-			return "property_images/{$property_id}/thumbnail/thumbnail.{$format}";//THIS IS FOR THE PROPERTY
-		}
-		
-		else if($type == 'image'){
-			// IF THE FILE IS A SLIDESHOW, WE WANT TO COUNT THE CURRENT SLIDESHOW IMAGES AND THEN WILL ADD +1 to it!
-			
-			$directory = "property_images/{$property_id}/slideshow/";
-			
-			//LOAD FILE_ANALYSIS LIBRARY TO HELP YOU COUNT THE FILES
-			$this->CI->load->library('utilities/file_analysis');
-			$file = intval($this->CI->file_analysis->file_count($directory)) + 1;
-			// RETURN FILE AS A PNG WITH PROPER NUMBER!
 
-			return "{$directory}{$file}.{$format}";
-		}
-	// END OF MEDIA UPLOAD FORM
+	
+/**************** PRIVATE FUNCTIONS *****************/
+
+
+	private function get_new_media_id($property_id, $type) {//creates a new media and returns its unique id
+			
+		$category = "{$type}_id";//we need to generate a new id -- this is the primay key for the media tables ie: videos, thumbnail_images etc
+		$table = $this->CI->general->get_category_table($category);//get table to update for this media
+			
+		$data = array('property_id' => $property_id, 'url' => 'temp');//this is used to cretae the new row and then grab its' media id
+
+		$this->CI->general->insert($table, $data);//insert the new media into its proper table
+			
+		$media_id = $this->CI->general->get($table, $data)->row()->$category;//return the id name
+		
+		return $media_id;
 	}
 	
-	public function remove($property_id){
+	public function create_new_media_name($property_id, $type, $media_id, $extension) {//creates a media name--public because we may need to reference it from thumbnail_slideshow image creation--
 		
-		// THIS WILL RECIEVE THE FILE AND PROPERTY ID TO REMOVE
-		// THIS WILL CALL THE FILE_MANAGEMENT CLASS!
-		// REMOVE PROPERTY
-		$this->CI->listing_management->remove_listing($property_id);
+		if('video' == $type)
+			$name = "/property_videos/{$property_id}/{$media_id}.{$extension}";
+
+		else if('pdf' == $type)
+			$name = "/property_pdfs/{$property_id}/{$media_id}.{$extension}";
+
+		else if('thumbnail_image' == $type)
+			$name = "/property_images/{$property_id}/thumbnail/{$media_id}.{$extension}";
+
+		else if('slideshow_image' == $type)
+			$name = "/property_images/{$property_id}/slideshow/{$media_id}.{$extension}";
+
+		else if('slideshow_thumbnail_image' == $type)
+			$name = "/property_images/{$property_id}/slideshow_thumbnail/{$media_id}.{$extension}";
 	}
 	
-	public function remove_video($property_id){
+	private function set_new_media_name($property_id, $media_id, $file_name) {//sets the new media name
 		
-		// ALL PROPERTIES WILL HAVE TO HAVE IMAGES BY DEFAULT
-		// HOWEVER, WE CAN REMOVE THE VIDEO FROM THE PROPERTY WITH A GENERAL INSERT
-		$this->CI->listing_management->general_insert('status', false, $property_id);
+		$where = array('property_id' => $property_id, 'media_id' => $media_id);
+		$update = array('url' => $file_name);//set url as the file name -- property_get calls media class to create url
 		
-		// GET FILE LIST
-		$directory = "property_videos/{$property_id}/";
-		$video_list = $this->CI->file_analysis->file_list($directory);
-		
-		// DELETE FILES FROM SERVER!
-		foreach($video_list as $value)
-			unlink($directory . $value);
+		$this->CI->general->update('table_schema', $where, $update);
 	}
-	
-	public function file_remove($file_name){
-		// THIS WILL TAKE A FILE NAME AND WILL REMOVE IT...MUST BE AN ABSOLUTE SUCH AS:
-		unlink($file_name);
-	}
-}
+};

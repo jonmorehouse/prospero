@@ -59,7 +59,7 @@ class Listing_management extends CI_Model{
 		
 		if($query->num_rows()==0){
 			 $message = "An invalid column was searched for in create_listing_model. Column={$column}, Value={$value}, Table={$table}, Property_id={$property_id}"; 
-			$this->developer_contact->general_error('Invalid table', $message);
+			$this->developer_contact->general_error("Invalid table", $message);
 		}
 		
 		// WE LOOK AT THE DATA TYPE IN PROSPERO.TABLE_SCHEMA
@@ -78,16 +78,5 @@ class Listing_management extends CI_Model{
 	
 	// END METHOD GENERAL_INSERT
 	}
-
-
-	// MAKE THIS FUNCTION OBSOLETE! -- NEED TO MAKE SURE THAT WE 
-	function remove_listing($property_id){ //change this in the future so that it has a delete column in property_status==not necessary for now but in the future
-		// DELETES FROM ALL TABLES LISTED IN THE CONFIG TABLES.php
-		$all_tables = $this->config->item('all_tables');
-		
-		foreach($all_tables as $value)
-			$this->db->where('property_id', $property_id)->delete($value);
-	}
-
 
 }

@@ -4,11 +4,10 @@ class General extends CI_Model{
 	
 	function __construct(){
 		parent::__construct();
-		
-		
+	
 	}
 	
-	public function page_meta_information($page_type, $column){
+	public function page_meta_information($page_type, $column) {
 		
 		$query = $this->db->where('page_type', $page_type)->get('header_meta_information');
 		
@@ -18,13 +17,18 @@ class General extends CI_Model{
 			return "";
 	}
 	
-	public function get($table, $data){
+	public function get($table, $data) {
 		
 		$query = $this->db->where($data)->get($table);
 		if(0 == $query->num_rows())
 			return false;
 		else
 			return $query;//this is a generic return-will handle the query in our class
+	}
+
+	public function update($table, $where, $update) {
+		
+		$this->db->where($where)->update($table, $update);
 	}
 
 	public function category_tables() {
@@ -55,5 +59,6 @@ class General extends CI_Model{
 		else 
 			return $query->row()->location;
 	}
+
 }
 

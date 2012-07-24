@@ -31,4 +31,5 @@ class File_management{
 			$this->CI->developer_contact->general_error('Duplicate Folder Directory', $message); 
 		}
 	}
+
 }
