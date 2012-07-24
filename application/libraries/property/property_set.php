@@ -30,26 +30,27 @@ class Property_set{
 /*************** PUBLIC FUNCTIONS ************/
 
 	public function save($data) {//this function is used to save all data that is input through post. 
-			// used to save all categories by calling general->set
+	
+		// used to save all categories by calling general->set
 		if(!isset($data['property_id']) || 'new_listing' == $data['property_id']) {
-			
+
 			$property_id = $this->create_listing();		
 
 			if(isset($data['property_id']))
 				unset($data['property_id']);
 		}
 
-		else if(isset($data['new_listing']) && 'new_listing' != $data['property_id']) {
-			
+		else if(isset($data['property_id']) && 'new_listing' != $data['property_id']) {
+
 			$property_id = $data['property_id'];
 			unset($data['property_id']);
 		}
 		
 		foreach($data as $category => $value)
 			$this->save_item($property_id, $category, $value);
-			
+
 		return $property_id;// always return this so it can be used to regenerate the form for creation or updating*/
-		
+
 	}
 	
 	public function media_upload($property_id, $type){//type comes from html form
@@ -156,22 +157,19 @@ class Property_set{
 		$category = "{$type}_id";
 		$table = $this->CI->general->get_category_table($category);
 		
-		$data = array(
-			'status' => $status,//default is true -- the only time we would need to change this is when updating status
+		$where = array(
+			$category => $media_id,
 			'property_id' => $property_id,
 		);
 		
-		if($url)//only update the url if it is specified
-			$data['url'] = $url;
+		$update = array('status' => $status);//update data
 		
-		$query = $this->CI->general->get($table, $data);
+		if($url)//only update the url if it is specified
+			$update['url'] = $url;
+		
+		$query = $this->CI->general->get($table, $where);
 
-		$this->CI->general->update($table, array($category => $media_id), $data);//update the new media into the database
-
-		if(!$query || $query->row()->$category) {
-			$this->CI->load->library('utilities/developer_contact');
-			$this->CI->developer_contact->general_error("new media property_set method problem", "Could not update where property_id = {$property_id} and url = {$url} for category {$category}");
-		}
+		$this->CI->general->update($table, $where, $update);//update the new media into the database
 		
 	}
 	
@@ -186,6 +184,7 @@ class Property_set{
 		
 		// can't use the get_category because it will only return one -- create own search with database abstraction layer get in general
 		$query = $this->CI->general->get($table, $data);
+	
 		if(!$query || !isset($query->row()->$category)) {
 			$this->CI->load->library('utilities/developer_contact');
 			$this->developer_contact->general_error("Media id could not be found after creating", "{$category}, {$property_id}");

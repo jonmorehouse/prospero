@@ -41,7 +41,7 @@ class General extends CI_Model{
 
 /******** PROSPERO SPECIFIC FUNCTIONS *******/
 
-	public function category_tables() {
+	public function category_tables() {//returns all tables
 		
 		$query = $this->db->distinct()->get('table_schema');
 		$all_tables = array();
@@ -55,7 +55,7 @@ class General extends CI_Model{
 		return $all_tables;
 	}
 
-	public function get_category_table($category) {
+	public function get_category_table($category) {//get table for individul categroy
 		
 		// this function will search table schema for the correct table and return the string location
 		$query = $this->db->where(array('category' => $category))->get('table_schema');
@@ -66,7 +66,7 @@ class General extends CI_Model{
 			return false;
 		}
 		
-		else 
+		else
 			return $query->row()->location;
 	}
 
