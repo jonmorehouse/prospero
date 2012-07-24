@@ -43,17 +43,13 @@ class Property_set{
 			
 			$property_id = $data['property_id'];
 			unset($data['property_id']);
-		
 		}
 		
-		echo $property_id;
-		/*
 		foreach($data as $category => $value)
 			$this->save_item($property_id, $category, $value);
 			
-		return $property_id;// always return this so it can be used to regenerate the form for creation or updating
+		return $property_id;// always return this so it can be used to regenerate the form for creation or updating*/
 		
-		*/
 	}
 	
 	public function media_upload($property_id, $type){//type comes from html form
@@ -109,25 +105,28 @@ class Property_set{
 	private function save_item($property_id, $category, $value) {//general save with validation
 		
 		$table = $this->CI->general->get_category_table($category);//get table to help with general update or insert
-		$check = $this->CI->general->get_category($property_id, $category);//see if this row exists
-		$data = array($category => $value);
+		
+		$check = $this->CI->general->get($table, array('property_id' => $property_id));//see if this row exists for the property
+			
+		$data = array($category => $value);//data to be uploaded
 		
 		
-		if(!$check)//this row does not exist -- need to insert data
-			$this->CI->general->insert($table, $data);
+		if(!$check)//this row does not exist -- need to insert the property id as well
+			$this->CI->general->insert($table, array('property_id' => $property_id, $category => $value));//insert prop id and categ + value
 		else
-			$this->CI->general->update($table, $data);
+			$this->CI->general->update($table, array('property_id' => $property_id), $data);
 	}
 	
 	private function create_listing(){//new listing
 		
-		$table = $this->CI->general->get_category_table('name');
+		$table = $this->CI->general->get_category_table('name');//the category that is the primary_id
 
 		$temp_data = array('name' => md5(time()));//creates a temporary name so we can easily get the property_id
 
 		$this->CI->general->insert($table, $temp_data);//create the id with the database abstraction class
 		
 		// This is the only time you should have to find the property_id other than in the search which uses different methods
+
 		$query = $this->CI->general->get($table, $temp_data);
 		
 		if(!$query || !$query->row()->property_id) {
@@ -141,7 +140,6 @@ class Property_set{
 			$property_id = $query->row()->property_id;	
 		
 		$this->CI->file_management->directory_creation($property_id);//create the directories for the new property
-		
 		
 		$media_id = $this->create_media_id($property_id, "thumbnail_image");//generate the new media
 		$url = $this->CI->config->item('default_thumbnail_image_url');//generate the file name--this is relative so don't send to the db
