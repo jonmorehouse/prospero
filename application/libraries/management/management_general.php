@@ -88,22 +88,24 @@ class Management_general extends Management_forms {
 		
 		// get the categories such as thumbnail, pdf, slideshow images and video
 		$media_types = $this->get_individual_categories('media');//used to change whether or not certain images are live or not
-		print_r($media_types);
+
 		$form = "";
 		
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
 			$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
 			
-			$media_id_list = $this->CI->media->get_media($media_type, $property_id);
+			$media_id_list = $this->CI->media->get_media($property_id, $media_type); 
 			
-			foreach($media_id_list as $media_id) {
+			print_r($media_id_list);
+			
+			// foreach($media_id_list as $media_id) {
 				
-				// generate form!
+				// print_r($media_id_list);
 				
 				
 				
-			}
+			// }
 		}
 		
 			

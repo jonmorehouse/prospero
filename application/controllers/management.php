@@ -140,9 +140,12 @@ class Management extends CI_Controller{
 
 		if(!$this->uri->segment(3))
 			$this->content = $this->management_general->search('remove_listing');
-		else
-			$this->content = $this->management_general->remove_listing($this->uri->segment(3));
+		else {
 			
+			$this->content = $this->load->view('management/resources/general_dashboard', '', true);
+			$this->content .= $this->management_general->remove_listing($this->uri->segment(3));
+		}
+
 		$this->load->view('management/management_base');
 	}
 	
@@ -152,8 +155,11 @@ class Management extends CI_Controller{
 			$this->management_general->search('media_status');
 		
 		else{
-			$this->management_general->media_status($this->uri->segment(3));
+			$property_id = $this->uri->segment(3);
+			$this->management_general->media_status($property_id);
+			// $this->content = $this->load->view('management/resources/general_dashboard', '', true);
 			
+			// $this->load->view('management/resources/general_dashboard', '', true);
 		}
 	}
 

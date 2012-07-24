@@ -18,7 +18,9 @@ class Property_set{
 	function Property_set(){
 		$this->CI = $this->CI =& get_instance();
 		$this->CI->load->model('upload/listing_management');
-		$this->CI->load->library('utilities/file_analysis');
+		
+		$libraries = array('utilities/file_analysis', 'utilities/file_management');
+		$this->CI->load->library($libraries);
 
 	}
 	
@@ -34,14 +36,16 @@ class Property_set{
 		// EITHER WAY YOU WANT TO SAVE THE WHOLE ARRAY
 		$this->save_items($data);
 
-		// WE ALWAYS WANT TO RETURN THE PROPERTY ID FOR THIS SO WE CAN PASS IT TO A VIEW TO REPOPULATE THE FORM!
-		return $data['property_id'];
+		return $data['property_id'];//return property_id for form recreation
 	}
 	
-	// THIS IS NOT NECESSARY NOW BUT COULD BE HELPFUL IN THE FUTURE
-	public function create_id($data){
+
+	public function create_id($data){//new listing
+		
 		
 		$property_id = $this->CI->listing_management->new_listing();
+		$this->CI->file_management->directory_creation($property_id);
+		
 		return $property_id;//THIS RETURNS TO THE INDEX FUNCTION IF THIS WAS A COMPLETELY NEW LISTING
 	}
 	

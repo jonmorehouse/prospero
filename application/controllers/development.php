@@ -58,13 +58,44 @@ class Development extends CI_Controller{
 			'rent_units_available' => 999,
 			
 		);
-	
-		$this->load->library('property/property_set');
-		$property_id = $this->property_set->save($defaults);
 		
-		echo "Default properties were set for the prospero development database";
-
+		foreach($defaults as $key=>$value) {
+			
+			$update_data = array('default_value' => $value); 
+			$where = array('category' => $key);
+			$this->db->where($where)->update('table_schema', $update_data);
+			
+		}
+		
+		
+		// $this->load->library('property/property_set');
+		// $property_id = $this->property_set->save($defaults);
+		
+		// echo "Default properties were set for the prospero development database";
+	}
 	
+	public function create_default() {
+		
+		$query = $this->db->get('table_schema');
+		$values['property_id'] = 'new_listing';
+		
+		foreach($query->result() as $row) {
+			
+			$category = $row->category;
+			$default_value = $row->default_value;
+			$location = $row->location;
+			$datatype = $row->data;
+			$data = array($category => $default_value);
+
+			
+			if(strlen($location) > 0 && $category != 'property_id' && $category != 'property_name') 
+				$values[$category] = $default_value;
+		
+		}//end foreach loop
+		
+		// print_r($values);
+		$this->load->library('property/property_set');
+		$this->property_set->save(array('property_id' => 'new_listing'));
 	}
 	
 	public function clear_general_tables(){

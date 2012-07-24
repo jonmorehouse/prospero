@@ -4,7 +4,7 @@ class General extends CI_Model{
 	
 	function __construct(){
 		parent::__construct();
-	
+		$this->load->library('utilities/developer_contact');
 	}
 	
 	public function page_meta_information($page_type, $column) {
@@ -60,5 +60,37 @@ class General extends CI_Model{
 			return $query->row()->location;
 	}
 
+	public function get_category_datatype($category) {
+		
+		$query = $this->db->where(array('category' => $category))->get('table_schema');
+		if($query->num_rows() != 0) {
+
+			$this->developer_contact->general_error("General get category datatype returned bad", "{$category} not found in table_schema");
+			return false;
+		}
+		
+		else{
+	
+			$datatype = $query->row()->datatype;
+			return $datatype;
+		}
+	}
+
+	public function get_all_categories() {
+		
+		$categories = array();
+		$query = $this->db->get('table_schema');
+		
+		foreach($query->result() as $row) {
+			
+			if(!$row->location || strlen($row->location)<1)
+				
+			
+			
+			
+		}
+		
+		
+	}
 }
 
