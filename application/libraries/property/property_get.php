@@ -14,7 +14,7 @@ class Property_get{
 		
 		$this->CI =& get_instance();
 		$this->CI->load->model('property/information');
-		$this->CI->load->library('utilities/format', 'property/media');
+		$this->CI->load->library(array('utilities/format', 'property/media'));
 
 	}
 	

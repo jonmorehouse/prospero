@@ -106,12 +106,12 @@ class Development extends CI_Controller{
 
 	public function table_schema_insert() {
 		
-		$category = 'video_status';
-		$table = 'videos';
-		$type = 'media_status';//ie general, media location etc
-		$input_type = 'radio';
-		$default_value = '';
-		$description = '';
+		$category = 'thumbnail_image_id';
+		$table = 'thumbnail_images';
+		$type = 'media_id';//ie general, media location etc
+		$input_type = 'radio';//form input
+		$default_value = '';//
+		$description = '';//to show in the cms for cms driven categories
 		
 		$query = $this->db->where(array('category' => $category))->get('table_schema');
 		
@@ -140,7 +140,8 @@ class Development extends CI_Controller{
 
 	public function test() {
 		
-		
+		$this->load->library('property/media');
+		$this->media->get_url('thumbnail_image');
 		
 	}
 

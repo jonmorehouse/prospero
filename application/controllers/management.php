@@ -147,8 +147,6 @@ class Management extends CI_Controller{
 			echo $this->management_general->media_status($this->uri->segment(3));
 			
 		}
-		
-		
 	}
 	
 	public function upload_media() {
@@ -170,8 +168,10 @@ class Management extends CI_Controller{
 
 	public function test() {
 		
-		$this->management_general->upload_media(1);
+		$this->management_general->media_status(1);
 	
 		
 	}
+
+
 }

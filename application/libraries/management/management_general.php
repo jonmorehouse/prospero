@@ -87,7 +87,19 @@ class Management_general extends Management_forms {
 	public function media_status($property_id) {
 		
 		// get the categories such as thumbnail, pdf, slideshow images and video
-		$categories = $this->get_individual_categories('media_status');//used to change whether or not certain images are live or not
+		$media_types = $this->get_individual_categories('media');//used to change whether or not certain images are live or not
+		print_r($media_types);
+		$form = "";
+		
+		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
+			
+			// $this
+			
+			
+		
+		
+		}
+		
 			
 
 		// we want to give a radio option for the video, pdf and all images 
@@ -132,5 +144,4 @@ class Management_general extends Management_forms {
 		return $thumbnail;
 	}
 
-	
 };

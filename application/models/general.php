@@ -53,7 +53,7 @@ class General extends CI_Model{
 		}
 		
 		else 
-			return $query->row()->category;
+			return $query->row()->location;
 	}
 }
 
