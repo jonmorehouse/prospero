@@ -13,14 +13,20 @@ class File_management{
 		
 		// TESTING IF THE DIRECTORY IS CREATED ALREADY--IF IT IS WE DON'T WANT TO RECREATE IT!
 			
-		if(!file_exists('property_images/' . $property_id)){
-			mkdir('property_images/' . $property_id);
-			mkdir('property_images/' . $property_id . '/thumbnail');
-			mkdir('property_images/' . $property_id . '/slideshow');
+		if(!file_exists("property_images/{$property_id}")){
+			mkdir("property_images/{$property_id}");
+			mkdir("property_images/{$property_id}/thumbnail");
+			mkdir("property_images/{$property_id}/slideshow");
+			mkdir("property_images/{$property_id}/thumbnail_slideshow");
 		}	
 		
-		if(!file_exists('property_videos/' . $property_id)){
+		if(!file_exists("property_videos/{$property_id}")) {
 			mkdir('property_videos/' . $property_id);
+		}
+		
+		if(!file_exists("property_pdfs/{$property_id}")) {
+			
+			mkdir("property_pdfs/{$property_id}");
 		}
 		
 		else{

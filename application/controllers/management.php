@@ -12,7 +12,9 @@ class Management extends CI_Controller{
 	
 */
 
-	function __construct(){
+/************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
+
+	public function __construct(){
 		parent::__construct();
 		
 		// PAGE META INFORMATION
@@ -58,6 +60,8 @@ class Management extends CI_Controller{
 		
 /*LOGIN CONSTRUCT*/
 
+/**************** USER ACCESS FUNCTIONALITY ***********************/
+
 	function login($username = false, $message = false){//loads the login page
 		
 		// Check if the user is already trying
@@ -72,7 +76,7 @@ class Management extends CI_Controller{
 		
 	}
 	
-	function logout(){
+	function logout() {
 		// CALL USER_STATUS LOGOUT--THIS CONTROLS THE LOGIN/LOGOUT SECTIONS
 		$this->user_status->logout();
 		
@@ -80,7 +84,7 @@ class Management extends CI_Controller{
 		redirect('management');
 	}
 	
-	function login_validation(){
+	function login_validation() {
 		
 		// GETTING INFORMATION FOR THE LOGIN
 		$username = strtolower($this->input->post('username'));
@@ -98,22 +102,26 @@ class Management extends CI_Controller{
 		else
 			$this->login($username, $message);
 	}
-	
-	private function homepage(){
+
+	private function homepage() {
 		
 		$this->page = 'home';
 		$this->content = "Please select an option above. If you have reached this page in error, please contact an admin";
 		$this->load->view('management/management_base');
 		
 	}
+
+/**************** TOOL GENERATION ***********************/
 	
-	public function create_listing() {
+	public function create_listing() {//create listing -- ajax saving in ajax/management
 		
-		$this->content = $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
+		$this->content = $this->load->view('management/resources/general_dashboard', '', true);
+		$this->content .= $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
+
 		$this->load->view('management/management_base');		
 	}
 	
-	public function update_listing() {
+	public function update_listing() {//update listing -- ajax saving in ajax/management
 
 		$this->property_id = $this->uri->segment(3);
 
@@ -128,7 +136,7 @@ class Management extends CI_Controller{
 		$this->load->view('management/management_base');		
 	}
 
-	public function remove_listing() {//
+	public function remove_listing() { //make status not-live -- ajax saving in ajax/management
 
 		if(!$this->uri->segment(3))
 			$this->content = $this->management_general->search('remove_listing');
@@ -138,7 +146,7 @@ class Management extends CI_Controller{
 		$this->load->view('management/management_base');
 	}
 	
-	public function media_status() {//remove a form
+	public function media_status() { //save with ajax to ajax/management
 		
 		if(!$this->uri->segment(3))
 			$this->management_general->search('media_status');
@@ -148,8 +156,8 @@ class Management extends CI_Controller{
 			
 		}
 	}
-	
-	public function upload_media() {
+
+	public function upload_media() {//will be process with $this->process()
 		
 		if(!$this->uri->segment(3))//no listing set -- listing will be 3rd segment -- we need to give our users search parameters
 			$this->content = $this->management_general->search("upload_media");//the search will send the 
@@ -159,19 +167,20 @@ class Management extends CI_Controller{
 		
 		$this->load->view('management/management_base');
 	}
-	
-	public function process() {//only 
+
+/****************** PROCESS UPLOADS -- NOTE THAT ajax/controller is the process for the other properties *******/
+
+	public function process() {//process all media uploads
 		
-		$this->type = $this->uri->segment(3);
-		$this->property = $this->uri->segment(4);
+		$this->property_id = $this->segment->uri(3);//property_id
+		$type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
+		
+		if(!$type || !$this->property)
+			redirect('management/upload_media');//redirect back to the main page to restart the process
+		
+		$this->load->library('property/property_set');//property_set loading
+		$this->content = $this->property_set->media_upload($this->property_id, $type);//submit the informatino
+		
+		$this->load->view('management/management_base');
 	}
-
-	public function test() {
-		
-		$this->management_general->media_status(1);
-	
-		
-	}
-
-
 }

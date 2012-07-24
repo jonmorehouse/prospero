@@ -58,7 +58,7 @@ class Property_set{
 			$this->CI->listing_management->general_insert($column, $data[$column], $property_id);
 	}
 	
-	public function media_upload($type, $property_id){//type comes from html form
+	public function media_upload($property_id, $type){//type comes from html form
 
 		// DOWNLOADING THE FILE FROM BROWSER AND STORING IT LOCALLY--THIS IS AN ARRAY SO YOU CAN PRINT_R IT
 		$media = $_FILES[$type];
@@ -78,8 +78,15 @@ class Property_set{
 		$file_name = $this->file_name($type, $property_id, $format);//THIS WILL RETURN THE SLIDESHOW IMAGE, THUMBNAIL IMAGE OR VIDEO URL
 		
 		// If there is no error, we will add the file. Thumbnail images will be overwritten because we can only have one thumbnail
+
 		if(!$media['error']){//WE WILL JUST HAVE THE IMAGES OVERWRITE IF THERE IS A PROBLEM
 			move_uploaded_file($temporary_file, $file_name);
+			
+			if('slideshow_image' == $type) {
+				$thumbnail_file_name = $this->create_new_media_name($property_id, 'slideshow_thumbnail_image', $media_id, $extension);
+				$this->CI->load->library('utilities/image_management');
+				$this->CI->image_management->create_slideshow_thumbnail_image($file_name, $thumbnail_file_name);
+			}
 		}
 			
 		else{

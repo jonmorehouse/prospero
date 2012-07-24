@@ -104,10 +104,6 @@ class Management_general extends Management_forms {
 				
 				
 			}
-			
-			
-		
-		
 		}
 		
 			

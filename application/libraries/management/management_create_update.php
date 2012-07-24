@@ -41,7 +41,6 @@ class Management_create_update extends Management_forms {
 	function generate_categories($category_types) {
 		
 		// each form 
-		
 		$form = "";
 		
 		foreach ($category_types as $category_type) {//create a segment for the final form
@@ -78,4 +77,6 @@ class Management_create_update extends Management_forms {
 		
 		return $form;
 	}
+
+
 };
