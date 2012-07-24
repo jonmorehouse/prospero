@@ -75,36 +75,28 @@ class Development extends CI_Controller{
 	}
 	
 	public function create_default() {
-		
+
+		$defaults = array();
 		$query = $this->db->get('table_schema');
-		$values['property_id'] = 'new_listing';
 		
 		foreach($query->result() as $row) {
-			
-			$category = $row->category;
-			$default_value = $row->default_value;
-			$location = $row->location;
-			$datatype = $row->data;
-			$data = array($category => $default_value);
-
-			
-			if(strlen($location) > 0 && $category != 'property_id' && $category != 'property_name') 
-				$values[$category] = $default_value;
+			$key = $row->category;
+			$value = $row->default_value;
+			$defaults[$key] = $value;
+		}
 		
-		}//end foreach loop
-		
-		// print_r($values);
 		$this->load->library('property/property_set');
-		$this->property_set->save(array('property_id' => 'new_listing'));
+		$this->property_set->save($defaults);
 	}
 	
 	public function clear_general_tables(){
 		
 		$this->load->model('general');
 		$tables = $this->general->category_tables();
+		
+	foreach($tables as $value){
 
-		foreach($tables as $value){
-			$this->db->truncate($value);
+			$this->db->truncate($value, 'prospero');
 			echo "<br />Successfully Cleared table: " . $value; 		
 		}
 		

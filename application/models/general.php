@@ -48,7 +48,7 @@ class General extends CI_Model{
 		
 		foreach($query->result() as $row) {
 			$table = $row->location;
-			if(!in_array($table, $all_tables))
+			if(!in_array($table, $all_tables) && ""!=$table)
 				array_push($all_tables, $row->location);
 		}
 			

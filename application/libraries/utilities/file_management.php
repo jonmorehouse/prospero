@@ -12,7 +12,9 @@ class File_management{
 	function directory_creation($property_id){
 		
 		// TESTING IF THE DIRECTORY IS CREATED ALREADY--IF IT IS WE DON'T WANT TO RECREATE IT!
-			
+		
+		echo $property_id;	
+		
 		if(!file_exists("property_images/{$property_id}")){
 			mkdir("property_images/{$property_id}");
 			mkdir("property_images/{$property_id}/thumbnail");

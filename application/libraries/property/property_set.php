@@ -46,10 +46,14 @@ class Property_set{
 		
 		}
 		
+		echo $property_id;
+		/*
 		foreach($data as $category => $value)
 			$this->save_item($property_id, $category, $value);
 			
 		return $property_id;// always return this so it can be used to regenerate the form for creation or updating
+		
+		*/
 	}
 	
 	public function media_upload($property_id, $type){//type comes from html form
@@ -124,18 +128,20 @@ class Property_set{
 		$this->CI->general->insert($table, $temp_data);//create the id with the database abstraction class
 		
 		// This is the only time you should have to find the property_id other than in the search which uses different methods
-		$query = $this->CI->general->get('property_name', $temp_data);
+		$query = $this->CI->general->get($table, $temp_data);
 		
 		if(!$query || !$query->row()->property_id) {
 			$this->CI->load->library('utilities/developer_contact');
 			$this->CI->developer_contact->general_error("New property Error", "{$name}");//message me so I can fix manually -- shouldn't happen but in case there are bigger problems
-			$property_id = $name;
+
+			$property_id = $temp_data['name'];
 		}
 		
 		else
 			$property_id = $query->row()->property_id;	
 		
 		$this->CI->file_management->directory_creation($property_id);//create the directories for the new property
+		
 		
 		$media_id = $this->create_media_id($property_id, "thumbnail_image");//generate the new media
 		$url = $this->CI->config->item('default_thumbnail_image_url');//generate the file name--this is relative so don't send to the db
@@ -166,7 +172,7 @@ class Property_set{
 
 		if(!$query || $query->row()->$category) {
 			$this->CI->load->library('utilities/developer_contact');
-			$this->developer_contact->general_error("new media property_set method problem", "Could not update where property_id = {$property_id} and url = {$url} for category {$category}");
+			$this->CI->developer_contact->general_error("new media property_set method problem", "Could not update where property_id = {$property_id} and url = {$url} for category {$category}");
 		}
 		
 	}
@@ -176,7 +182,7 @@ class Property_set{
 		$category = "{$type}_id";
 		$table = $this->CI->general->get_category_table($category);
 
-		$data = array('url' => $temp, 'property_id' => $property_id);
+		$data = array('url' => 'temp', 'property_id' => $property_id);
 
 		$this->CI->general->insert($table, $data);
 		
