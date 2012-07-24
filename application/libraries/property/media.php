@@ -13,9 +13,11 @@ class Media{
 	var $table;//the table to search in
 	var $category;//thumbnail_image 
 	var $media;//thumbnail_image/video/pdf etc
+
 	
 /********* CONSTRUCTORS / DESCTRUCTORS **************/	
 	
+
 	function Media(){
 		
 		$this->CI =& get_instance();
@@ -30,9 +32,10 @@ class Media{
 	
 		$this->search_configuration('thumbnail_image');
 	}
-	
+
 	
 /********** PUBLIC FUNCTIONS ************************/
+
 
 	public function get_media($property_id, $type = 'thumbnail_image', $status = true) {//type is pdf/video/thumbnail -- returns a single media_id
 		
@@ -97,13 +100,12 @@ class Media{
 		$thumbnail_url = $this->CI->format->replace_in_string($full_image_url, 'slideshow_thumbnail', 'slideshow');
 
 		return $thumbnail_url;//we simply replaced the slideshow directory with teh slideshow_thumbnail directory
-		
-		
-		
 	}
 	
 
+
 /************* PRIVATE FUNCTIONS ********************/
+	
 	
 	private function search_configuration($media) {
 		
@@ -123,6 +125,3 @@ class Media{
 	}
 
 };
-
-
-?>

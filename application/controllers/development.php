@@ -56,6 +56,7 @@ class Development extends CI_Controller{
 			//RENT_PROPERTY
 			'rent_price' => 999,
 			'rent_units_available' => 999,
+			
 		);
 	
 		$this->load->library('property/property_set');

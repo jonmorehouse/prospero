@@ -144,7 +144,7 @@ class Management extends CI_Controller{
 			$this->management_general->search('media_status');
 		
 		else{
-			echo $this->management_general->media_status($this->uri->segment(3));
+			$this->management_general->media_status($this->uri->segment(3));
 			
 		}
 	}

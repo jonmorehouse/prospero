@@ -93,7 +93,17 @@ class Management_general extends Management_forms {
 		
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
-			// $this
+			$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
+			
+			$media_id_list = $this->CI->media->get_media($media_type, $property_id);
+			
+			foreach($media_id_list as $media_id) {
+				
+				// generate form!
+				
+				
+				
+			}
 			
 			
 		
