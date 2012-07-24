@@ -16,7 +16,9 @@ class General extends CI_Model{
 		else
 			return "";
 	}
-	
+
+/****** GENERAL DATABASE ABSTRACTION ********/
+
 	public function get($table, $data) {
 		
 		$query = $this->db->where($data)->get($table);
@@ -30,6 +32,14 @@ class General extends CI_Model{
 		
 		$this->db->where($where)->update($table, $update);
 	}
+
+	public function insert($table, $data) {
+
+		$this->db->insert($table, $data);
+		
+	}
+
+/******** PROSPERO SPECIFIC FUNCTIONS *******/
 
 	public function category_tables() {
 		
@@ -75,22 +85,33 @@ class General extends CI_Model{
 			return $datatype;
 		}
 	}
+	
+	public function get_datatype($category) {
 
-	public function get_all_categories() {
+		$query = $this->get("table_schema", array('category' => $category));
 		
-		$categories = array();
-		$query = $this->db->get('table_schema');
-		
-		foreach($query->result() as $row) {
+		if(!$query || !$query->row()->data) {
 			
-			if(!$row->location || strlen($row->location)<1)
-				
-			
-			
-			
+			$this->load->library('utilities/developer_contact');
+			$this->developer_contact->general_error("General Model datatype nonexistent", "Couldn't find {$category}");
+			return false;
 		}
-		
-		
+			
+		else
+			return $query->row()->data;//return datatype
 	}
+	
+	public function get_category($property_id, $category) {//database abstraction to get the individual category at any time
+		
+		$table = $this->get_category_table($category);
+		$query = $this->get($table, array($category => $property_id));
+		
+		if(!$query || !$query->row()->$category)
+			return false;
+		else
+			return $query->row()->$category;
+	}
+
+
 }
 

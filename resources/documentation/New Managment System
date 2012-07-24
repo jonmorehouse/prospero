@@ -1,7 +1,4 @@
-Keep BASIC Javascript
+New Property
 
-1.) Login Section
-2.) Tool Selection
-3.) Tool generation
-		-- either a property search or new listing
-		-- 
+1.) Create a new row for every single category so we don't have problems switching in the future
+2.) Update thumbnails -- with the default -- which is set already though in table_schema

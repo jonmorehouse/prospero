@@ -99,13 +99,6 @@ class Management_general extends Management_forms {
 			
 			print_r($media_id_list);
 			
-			// foreach($media_id_list as $media_id) {
-				
-				// print_r($media_id_list);
-				
-				
-				
-			// }
 		}
 		
 			

@@ -172,8 +172,8 @@ class Development extends CI_Controller{
 
 	public function test() {
 		
-		$this->load->library('property/media');
-		$this->media->get_url('thumbnail_image');
+		$this->load->library('property/property_set');
+		$data = array('name' => 'jon_home', 'property_id' => 'new_listing');
 		
 	}
 
