@@ -1,24 +1,11 @@
+<div class='message'>
 <?php
-/*LOADING RESOURCES/HEADER FOR NOW BUT IN THE FUTURE THIS WILL BE FOR THE LIBRARY HEADER*/
+	$category = $this->format->word_format($this->type);
 
-	$this->load->view('site_wide/header', $page_title, $css, $javascript);
-	$this->load->view('site_wide/background');
-	$this->load->view('site_wide/border');
-	$this->load->view('site_wide/logo', $id);
-
-	// TOP LEVEL NAVIGATION FOR THE CONTENT MANAGEMENT SYSTEM
-	$this->load->view('navigation/navigation_management');		
-
+	echo "\n<h1>{$this->property_get->name($this->property_id)}</h1>";
+	echo "\n<h2> " . ($this->status? 'Successful':'Unsuccessful') . "{$category} Upload</h1>";
+	echo "\n<p>This {$category} was successfully uploaded for this property.</p>";
+	echo "\n<p>By default all media is set to live upon upload. If you wish to deactivate this {$category} use the 'Media Status' tool</p>";
 ?>
-
-<div id='page_container'>
-	<div id='page_content'>
- 		
-		<h1>
-			<?php
-				echo $this->message;
-			?>
-		</h1>
-		<h2><a href='<?php echo site_url('management/');?>'>Return</a><h2>
-	</div> <!--THIS IS THE END OF THE PAGE_CONTENT-->
+	
 </div>

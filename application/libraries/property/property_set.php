@@ -83,6 +83,11 @@ class Property_set{
 				$this->CI->load->library('utilities/image_management');
 				$this->CI->image_management->create_slideshow_thumbnail_image($file_name, $thumbnail_file_name);
 			}
+			
+			else if('thumbnail_image' == $type)
+				$this->current_thumbnail($property_id, $media_id, 'thumbnail_image');//set current as the new thumbnail/deactivate old ones
+			
+			return true;
 		}
 			
 		else{
@@ -220,6 +225,18 @@ class Property_set{
 	
 		return $url;
 	}
-
+	
+	private function current_thumbnail($property_id, $media_id) {//will take in the new thumbnail and deactivate all others
+		
+		$category = 'thumbnail_image_id';
+		$table = $this->CI->general->get_category_table($category);
+		$query = $this->CI->general->get($table, array('property_id' => $property_id));
+		
+		if($query)
+			foreach($query->result() as $row)
+				$this->update_media($property_id, $row->$category, 'thumbnail_image', false, false);//deactivate all other thumbnails
+		
+		$this->update_media($property_id, $media_id, 'thumbnail_image');//activate the new thumbnail
+	}
 
 };

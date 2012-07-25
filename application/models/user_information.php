@@ -51,6 +51,7 @@ class User_information extends CI_Model{
 		// If there are properties for this particular user, we need to return an array of 
 		foreach($query->result() as $row){
 			$property_id = $row->property_id;
+			
 			if($property_id > 1)
 				array_push($property_list, $property_id);
 		}

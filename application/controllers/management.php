@@ -40,6 +40,7 @@ class Management extends CI_Controller{
 
 		// load header information-this will be passed into management_base and echoed from there
 		$this->header = $this->header->header_creation($this->page_type, $page_title);//pass css as array or js as array if desired
+		$this->dashboard = false;
 	}
 	
 	public function _remap($method, $parameters){
@@ -115,7 +116,7 @@ class Management extends CI_Controller{
 	
 	public function create_listing() {//create listing -- ajax saving in ajax/management
 		
-		$this->content = $this->load->view('management/resources/general_dashboard', '', true);
+		$this->dashboard = true;
 		$this->content .= $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
 
 		$this->load->view('management/management_base');		
@@ -123,6 +124,7 @@ class Management extends CI_Controller{
 	
 	public function update_listing() {//update listing -- ajax saving in ajax/management
 
+		$this->dashboard = true;
 		$this->property_id = $this->uri->segment(3);
 
 		if(!$this->property_id || strlen($this->property_id < 1))
@@ -137,31 +139,25 @@ class Management extends CI_Controller{
 	}
 
 	public function remove_listing() { //make status not-live -- ajax saving in ajax/management
+		// generates a list of properties to be set as live or not live
 		
-		// generates a list of properties that has an option of live/not_live on each one
-		//similar to the search piece but has a thumbnail
-
-		// else {
-			
-			// $this->content = $this->load->view('management/resources/general_dashboard', '', true);
-			// $this->content .= $this->management_general->remove_listing($this->uri->segment(3));
-		// }
-
-		// $this->load->view('management/management_base');
+		$this->content = $this->management_general->property_status();
+		$this->general_dashboard = true;
+		$this->load->view('management/management_base');
 	}
 	
 	public function media_status() { //save with ajax to ajax/management
 		
 		if(!$this->uri->segment(3))
-			$this->management_general->search('media_status');
+			$this->content = $this->management_general->search('media_status');
 		
 		else{
 			$property_id = $this->uri->segment(3);
-			$this->management_general->media_status($property_id);
-			// $this->content = $this->load->view('management/resources/general_dashboard', '', true);
-			
-			// $this->load->view('management/resources/general_dashboard', '', true);
+			$this->content = $this->management_general->media_status($property_id);
+			$this->dashboard = true;//load the dashboard for ajax controls in the view
 		}
+		
+		$this->load->view('management/management_base');
 	}
 
 	public function upload_media() {//will be process with $this->process()
@@ -180,15 +176,16 @@ class Management extends CI_Controller{
 	public function process() {//process all media uploads
 		
 		$this->property_id = $this->uri->segment(3);//property_id
-		$type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
+		$this->type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
 		
-		if(!$type || !$this->property_id)
+		if(!$this->type || !$this->property_id)
 			redirect('management/upload_media');//redirect back to the main page to restart the process
+		else
+			$this->load->library('property/property_set');//property_set loading
+			$this->status = $this->property_set->media_upload($this->property_id, $this->type);//submit the informatino
+			$this->content = $this->load->view('management/message', '', true);//return the proper message to be passed to the rendered view
 		
-		$this->load->library('property/property_set');//property_set loading
-		$this->content = $this->property_set->media_upload($this->property_id, $type);//submit the informatino
-		
-		// $this->load->view('management/management_base');
-
+		$this->load->view('management/management_base');
 	}
+
 }

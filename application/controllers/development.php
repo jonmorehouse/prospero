@@ -71,8 +71,8 @@ class Development extends CI_Controller{
 
 	public function table_schema_insert() {
 		
-		$category = 'pdf_id';
-		$table = 'pdfs';
+		$category = 'video_id';
+		$table = 'videos';
 		$type = 'media_id';//ie general, media location etc
 		$input_type = 'radio';//form input
 		$default_value = '';//

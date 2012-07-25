@@ -18,7 +18,7 @@ class Media{
 /********* CONSTRUCTORS / DESCTRUCTORS **************/	
 	
 
-	function Media(){
+	function Media() {
 		
 		$this->CI =& get_instance();
 		
@@ -49,6 +49,23 @@ class Media{
 		
 		else
 			return false;//remember that the thumbnail will automatically be the default one
+	}
+	
+	public function get_media_list($property_id, $type = 'thumbnail_image', $status = true) {//returns array of any media type with ids
+		
+		$media_list = array(); //array of integers that are primary keys for each table
+		$category = "{$type}_id";//generic media type--hardcoded around the site in this format
+		$table = $this->CI->general->get_category_table($category);//category location
+		
+		$query = $this->CI->general->get($table, array('status' => $status));//perform the query with database abstraction
+		
+		if(!$query)//no medias for this type for this property_id
+			return $media_list;
+		
+		foreach($query->result() as $row)
+			array_push($media_list, $row->$category);//push all of the type_ids into the array to be returned
+		
+		return $media_list;
 	}
 	
 	public function get_slideshow_thumbnails($property_id) {//get a list of all the thumbnails for a property slideshow

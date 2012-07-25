@@ -94,10 +94,15 @@ class Management_general extends Management_forms {
 		
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
-			$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
-			$form .= "<div>";
 
-			$media_id_list = $this->CI->media->get_media($property_id, $media_type); 
+			$media_id_list = $this->CI->media->get_media_list($property_id, $media_type);//will return an array of all properties available
+			$exists = (boolean)count($media_id_list);//count the media_list and use a boolean
+			$category = "{$media_type}_id";
+			
+			if($exists) {
+				$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
+				$form .= "<div class='{$media_type}'>";
+			}
 			
 			foreach($media_id_list as $media_id) {
 				
@@ -106,25 +111,28 @@ class Management_general extends Management_forms {
 				$form .= "<span>{$this->status_form($property_id, $category)}</span>";//actual form section
 				$form .= "<span>{$this->get_comment($media_type)}</span>";//include the comment in span form
 			}
-			
-			$form .= "</div>";
+
+			if($media_id_list)
+				$form .= "</div>";
 		}
 		
 		return $form;
 	}
 	
 	public function property_status() {//generate a list of properties available to the manager to remove and then it will be saved with ajax/management calling the property_set class
-		
-		$form = "\n\t<h1>Activate/Deactivate Properties</h1>";
-		
+		$destination = site_url('ajax/management/listing_status');
+		$form = "\n<h1>Activate/Deactivate Properties</h1>";
+		$form .= "\n\t<form action='{$destination}' method='post'>";
+
 		foreach($this->property_list as $property_id) {
 			
-			$form .= "<span>{$this->property_get->thumbnail_image}</span>";
-			$form .="<span>";
-			$form .= $this->status_form($property_id, $category);//generates a live/not live form for each
-			$form .= "</span>";
-			
+			$form .= "\n<span>\n\t{$this->CI->property_get->thumbnail_image($property_id)}\n</span>";
+			$form .="\n<span>";
+			$form .= $this->status_form($property_id, 'property_status');//generates a live/not live form for each
+			$form .= "\n</span>";
 		}
+		
+		$form .= "</form>";
 		
 		return $form;
 	}//end property status method
