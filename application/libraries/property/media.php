@@ -27,8 +27,8 @@ class Media{
 		
 		$this->CI->load->config('site_status');
 		
-		$this->default_thumbnail_image = base_url($this->CI->config->item('default_thumbnail_image_url'));
-		$this->default_slideshow_image = base_url($this->CI->config->item('default_slideshow_image_url'));
+		$this->default_thumbnail_image_url = base_url($this->CI->config->item('default_thumbnail_image_url'));
+		$this->default_slideshow_image_url = base_url($this->CI->config->item('default_slideshow_image_url'));
 	
 		$this->search_configuration('thumbnail_image');
 	}
@@ -51,10 +51,100 @@ class Media{
 			return false;//remember that the thumbnail will automatically be the default one
 	}
 	
+	public function get_slideshow_thumbnails($property_id) {//get a list of all the thumbnails for a property slideshow
+		
+		$media_ids = $this->slideshow_images($property_id);
+		$thumbnail_urls = array();
+		
+		foreach($media_ids as $media_id) {
+			
+			$url = $this->get_slideshow_thumbnail_url($media_id);
+			if($url)
+				array_push($thumbnail_urls, $url);
+		}
+	}
+	
+	public function get_image_thumbnail($media_id) {
+			
+		$url = $this->get_slideshow_thumbnail_url($media_id);
+		
+		if($url)
+			return $url;
+		else
+		 	return false;
+	}
+	
 	public function get_slideshow_images($property_id, $status = 'live') {
 		
-		$this->property_id = $property_id;
-		$this->search_configuration('slideshow_image');//configure the query to get slideshow images
+		$media_ids = $this->slideshow_images($property_id, $status);//returns a list of the media_ids for the property
+		$media_urls = array();
+		
+		foreach($media_ids as $media_id) {
+			
+			$url = $this->get_url('slideshow_image', $media_id);
+			if($url)
+				array_push($media_urls, $url);
+		}
+	}
+	
+	public function get_url($media, $media_id = false) {//will get the media type such as thumbnail_id or video_id etc's url
+		
+		$category = "{$media}_id";//id
+
+		$table = $this->CI->general->get_category_table($category);
+		$query = $this->CI->general->get($table, array($category => $media_id));
+		
+		if(!$query)//for a different media type--should not happen
+			return false;
+	
+		else {//exists
+			
+			$url = "{$query->row()->url}";
+			
+			if(file_exists($url))//only works for local files no http:// etc
+				return base_url($url);
+
+			else if('thumbnail_image' == $media)
+				return $this->default_thumbnail_image_url;
+
+			else if('slideshow_image' == $media)
+				return $this->default_slideshow_image_url;
+		}
+	}	
+
+	public function get_slideshow_thumbnail_url($media_id) {
+		
+		$full_image_url = $this->get_url('slideshow_image', $media_id);
+		$thumbnail_url = $this->CI->format->replace_in_string($full_image_url, 'slideshow_thumbnail', 'slideshow');
+
+		return $thumbnail_url;//we simply replaced the slideshow directory with teh slideshow_thumbnail directory
+	}
+	
+
+/************* PRIVATE FUNCTIONS ********************/
+	
+	
+	private function slideshow_images($property_id, $status = 'live') {
+		
+		$category = "slideshow_image_id";
+		$table = $this->CI->general->get_category_table($category);
+
+		$where = array('property_id' => $property_id);
+		
+		if($status)
+			$where['status'] = $status;//only include the status if specified
+		
+		$query = $this->CI->general->get($table, $where);
+		
+		if($query) {
+			
+			foreach($query->result() as $row) {
+				
+				$media_id = $row->$category;
+			}
+		}
+		
+		
 		$query = $this->get_query($status);
 		$results = array();
 		
@@ -69,43 +159,6 @@ class Media{
 		else
 			return false;
 	}
-	
-	public function get_url($media, $media_id = "default") {//will get the media type such as thumbnail_id or video_id etc's url
-		
-		$this->search_configuration($media);
-		$url_result = "{$media}_url";//media_url
-		
-		$query = $this->CI->general->get($this->table, array($this->category => $media_id));
-		
-		if($query) {
-			
-			$url = site_url('property_images');//
-			$url .= "/{$query->row()->$url_result}";//the relative url--takes care of slideshow or thumbnail
-			if(file_exist($url))//make sure the file exists before returning it
-				return $url;//the absolute path
-			else
-				return $this->default_slideshow_image;//this is declared in constructor
-		}
-
-		else if('thumbnail_image' == $media) // shouldn't really happen
-			return $this->default_thumbnail_image;
-
-		else//usually a video or pdf that does not exist -- shouldn't really happen unless we call default or something
-			return false;
-	}	
-
-	public function get_slideshow_thumbnail_url($media_id) {
-		
-		$full_image_url = $this->get_url('slideshow_image', $media_id);
-		$thumbnail_url = $this->CI->format->replace_in_string($full_image_url, 'slideshow_thumbnail', 'slideshow');
-
-		return $thumbnail_url;//we simply replaced the slideshow directory with teh slideshow_thumbnail directory
-	}
-	
-
-
-/************* PRIVATE FUNCTIONS ********************/
-	
 	
 	private function search_configuration($media) {
 		

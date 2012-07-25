@@ -204,10 +204,10 @@ class Property_get{
 		$thumbnail_id = $this->CI->media->get_media($property_id);
 
 		if($thumbnail_id)
-			$url = $this->CI->media->get_url($thumbnail_id);//not the default in this case
+			$url = $this->CI->media->get_url('thumbnail_image', $thumbnail_id);//not the default in this case
 		
 		else
-		 	$url = $this->CI->media->get_url('thumbnail_image');//will get default media url
+		 	$url = $this->CI->media->get_url('thumbnail_image', 1);//will get default media url
 		
 		//RETURN IMAGE TAG--WITH OUR COMBINE URL!
 		$image_tag = "<img src='{$url}' alt='{$this->name($property_id, 'return')}' />";

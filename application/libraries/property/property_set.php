@@ -56,7 +56,8 @@ class Property_set{
 	public function media_upload($property_id, $type){//type comes from html form
 
 		// DOWNLOADING THE FILE FROM BROWSER AND STORING IT LOCALLY--THIS IS AN ARRAY SO YOU CAN PRINT_R IT
-		$media = $_FILES[$type];
+
+		$media = $_FILES["media"];//media is the name of the form as created in managmeent_forms
 		
 		// TEMPORARY_FILE IS WHERE THE SERVER STORES THE FILE LOCALLY
 		$temporary_file = $media['tmp_name'];
@@ -65,10 +66,12 @@ class Property_set{
 		$extension = end(explode('/', $media['type']));
 
 		// THIS IS THE FINAL FILE_NAME
+		
 		$media_id = $this->create_media_id($property_id, $type);//generates a new media piece 
 		$file_name = $this->create_relative_url($property_id, $type, $media_id, $extension);//create the url to be saved
 		
-		$this->update_media($property_id, $media_id, $type, $url);//update the database
+
+		$this->update_media($property_id, $media_id, $type, $file_name);//update the database
 		
 		// If there is no error, we will add the file. Thumbnail images will be overwritten because we can only have one thumbnail
 
@@ -176,6 +179,7 @@ class Property_set{
 	private function create_media_id($property_id, $type) {//create new media and return unique media id
 		
 		$category = "{$type}_id";
+
 		$table = $this->CI->general->get_category_table($category);
 
 		$data = array('url' => 'temp', 'property_id' => $property_id);
@@ -200,19 +204,19 @@ class Property_set{
 		$url = "";
 		
 		if('video' == $type)
-			$url = "/property_videos/{$property_id}/{$media_id}.{$extension}";
+			$url = "property_videos/{$property_id}/{$media_id}.{$extension}";
 
 		else if('pdf' == $type)
-			$url = "/property_pdfs/{$property_id}/{$media_id}.{$extension}";
+			$url = "property_pdfs/{$property_id}/{$media_id}.{$extension}";
 
 		else if('thumbnail_image' == $type)
-			$url = "/property_images/{$property_id}/thumbnail/{$media_id}.{$extension}";
+			$url = "property_images/{$property_id}/thumbnail/{$media_id}.{$extension}";
 
 		else if('slideshow_image' == $type)
-			$url = "/property_images/{$property_id}/slideshow/{$media_id}.{$extension}";
+			$url = "property_images/{$property_id}/slideshow/{$media_id}.{$extension}";
 
 		else if('slideshow_thumbnail_image' == $type)
-			$url = "/property_images/{$property_id}/slideshow_thumbnail/{$media_id}.{$extension}";
+			$url = "property_images/{$property_id}/slideshow_thumbnail/{$media_id}.{$extension}";
 	
 		return $url;
 	}

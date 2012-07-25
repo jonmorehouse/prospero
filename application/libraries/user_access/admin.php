@@ -43,4 +43,6 @@ class Admin{
 		
 		return $this->CI->user_information->get_user_information('username', $username, 'admin_rights');
 	}
+
+
 };

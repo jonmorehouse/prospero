@@ -24,7 +24,7 @@ class Information extends CI_Model{
 		if($query->num_rows == 0 || !$query){
 						
 			// THERE WAS AN ERROR
-			$this->load->library('developer_contact');
+			$this->load->library('utilities/developer_contact');
 			$message = "There was a property not found at " . time() . " This error occurred in the information model while retrieving " . $category . " for " . $property_id; 
 			$this->developer_contact->general_error('Property Not Found in Information Model', $message);
 			$value = "Error, admin was contacted";

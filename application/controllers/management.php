@@ -178,15 +178,15 @@ class Management extends CI_Controller{
 
 	public function process() {//process all media uploads
 		
-		$this->property_id = $this->segment->uri(3);//property_id
+		$this->property_id = $this->uri->segment(3);//property_id
 		$type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
 		
-		if(!$type || !$this->property)
+		if(!$type || !$this->property_id)
 			redirect('management/upload_media');//redirect back to the main page to restart the process
 		
 		$this->load->library('property/property_set');//property_set loading
 		$this->content = $this->property_set->media_upload($this->property_id, $type);//submit the informatino
 		
-		$this->load->view('management/management_base');
+		// $this->load->view('management/management_base');
 	}
 }

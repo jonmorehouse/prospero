@@ -184,7 +184,7 @@ class Management_forms{
 
 	public function dropdown($options, $name) {//takes an array and generates a dropdown box
 		
-		$dropdown = "\n<select name='{$name}'";
+		$dropdown = "\n<select name='{$name}'>";
 		
 		foreach($options as $option)
 			$dropdown .= "\n\t<option value='{$option}'>{$this->CI->format->word_format($option)}</option>\n\t";

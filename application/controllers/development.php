@@ -18,15 +18,15 @@ class Development extends CI_Controller{
 		$query = $this->db->get('table_schema');
 		
 		foreach($query->result() as $row) {
+			
 			$category = $row->category;
 			$value = $row->default_value;
 			$location = $row->location;
 			
-			$bad_categories = array('thumbnail_image_id', 'slideshow_image_id', 'pdf_id', 'video_id', 'pdf', 'thumbnail_image', 'slideshow_image', 'video');//categories in 
+			$bad_categories = array('thumbnail_image_id', 'slideshow_image_id', 'pdf_id', 'video_id', 'pdf', 'thumbnail_image', 'slideshow_image', 'video', 'thumbnail_image_url', 'slideshow_image_url', 'pdf_url', 'video_url');//categories in 
 
 			if(!in_array($category, $bad_categories))
 				$defaults[$category] = $value;
-			
 		}
 		
 		$this->load->library('property/property_set');
@@ -71,8 +71,8 @@ class Development extends CI_Controller{
 
 	public function table_schema_insert() {
 		
-		$category = 'slideshow_image_id';
-		$table = 'slideshow_images';
+		$category = 'pdf_id';
+		$table = 'pdfs';
 		$type = 'media_id';//ie general, media location etc
 		$input_type = 'radio';//form input
 		$default_value = '';//
