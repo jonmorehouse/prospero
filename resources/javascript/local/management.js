@@ -25,6 +25,11 @@ $(document).ready(function(){
 			current.attr('value', form_value);
 
 	});
+	
+	$('form').find('input[name="property_status"]').each(function() {
+		var current = $(this);
+		alert(current.attr('data-property_id'));
+	});
 
 });
 

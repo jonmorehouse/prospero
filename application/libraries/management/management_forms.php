@@ -204,12 +204,12 @@ class Management_forms{
 		$value = $this->CI->general->get_category($property_id, $category);//should return false/true
 		if($property_id == 2) echo "${value}";
 		
-		$form = "\n\t<input type='radio' name='${category}' value='false'";
+		$form = "\n\t<input type='radio' name='${category}' value='false' data-property_id='${property_id}' ";
 			if(!$value)
 				$form .= "checked='checked'";
 		$form .= "/>Inactive";
 		
-		$form .= "\n\t<input type='radio' name='${category}' value='true'";
+		$form .= "\n\t<input type='radio' name='${category}' value='true' data-property_id='{$property_id}' ";
 			if($value)
 				$form .= "checked='checked'";
 		$form .= "/>Active";
