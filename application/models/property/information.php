@@ -12,7 +12,7 @@ class Information extends CI_Model{
 
 	function get_information($category, $property_id){
 		
-		if($property_id=='new_listing')
+		if('new_listing' == $property_id)
 			$property_id = 1; //SO WE CAN GET THE DEFAULT VALUES!
 		
 		// NEED TO FIND WHERE THE CATEGORY IS LOCATED!

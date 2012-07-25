@@ -29,7 +29,8 @@ class Management_general extends Management_forms {
 		$categorized_properties = $this->CI->browse->categorized_properties($this->property_list);
 		
 		// SEARCH FORM CLASSES
-		$search_form = "\n<div id='search_form'>";
+		$search_form = "\n<h1>{$this->CI->format->word_format($tool)}</h1>";
+		$search_form .= "\n<div id='search_form'>";
 		
 		foreach($categorized_properties as $category => $property_ids) {//key is the header, value is the list of property ids in that category!
 			
@@ -94,21 +95,39 @@ class Management_general extends Management_forms {
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
 			$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
-			
+			$form .= "<div>";
+
 			$media_id_list = $this->CI->media->get_media($property_id, $media_type); 
 			
-			print_r($media_id_list);
+			foreach($media_id_list as $media_id) {
+				
+				$form .= "<div>";
+				$form .= "<span>{$this->media_thumbnail($property_id, $media_type)}</span>";//create thumbnail
+				$form .= "<span>{$this->status_form($property_id, $category)}</span>";//actual form section
+				$form .= "<span>{$this->get_comment($media_type)}</span>";//include the comment in span form
+			}
+			
+			$form .= "</div>";
+		}
+		
+		return $form;
+	}
+	
+	public function property_status() {//generate a list of properties available to the manager to remove and then it will be saved with ajax/management calling the property_set class
+		
+		$form = "\n\t<h1>Activate/Deactivate Properties</h1>";
+		
+		foreach($this->property_list as $property_id) {
+			
+			$form .= "<span>{$this->property_get->thumbnail_image}</span>";
+			$form .="<span>";
+			$form .= $this->status_form($property_id, $category);//generates a live/not live form for each
+			$form .= "</span>";
 			
 		}
 		
-			
-
-		// we want to give a radio option for the video, pdf and all images 
-		// want to give a preview for each -- select different 
-		
-		return "media status return here";
-		
-	}
+		return $form;
+	}//end property status method
 	
 	/******* PRIVATE FUNCTIONS *********/
 	
@@ -143,6 +162,22 @@ class Management_general extends Management_forms {
 		$thumbnail .= "\n</div>";
 		
 		return $thumbnail;
+	}
+
+	private function media_thumbnail($property_id, $type, $media_id = 1) {//just returns the basic image tag for a media url
+		
+		if('thumbnail_image' == $type)
+			return $this->CI->property_get->thumbnail_image($property_id);
+
+		else if ('slideshow_image' == $type)
+			return $this->CI->format->image_tag($this->CI->config->item('default_slideshow_image_url'), "", $type);
+
+		else if('pdf' == $type)//don't want the url generated in media because only need the thumbnail here. Don't want it other places
+			return $this->CI->format->image_tag($this->CI->config->item('default_pdf_url'), "", $type);
+
+		else if('video' == $type)
+			return $this->CI->format->image_tag($this->CI->config->item('default_video_thumbnail_url'), "", $type);
+		
 	}
 
 };

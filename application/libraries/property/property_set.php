@@ -97,12 +97,12 @@ class Property_set{
 	
 	}
 
-	public function media_status($property_id, $input_data) {//method to change the status for any piece of media
+	public function status($property_id, $data) {//responsible for activating/deactivating properties etc
+		
 		
 		
 		
 	}
-	
 	
 /**************** PRIVATE FUNCTIONS *****************/
 

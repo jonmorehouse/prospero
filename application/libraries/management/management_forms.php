@@ -193,4 +193,23 @@ class Management_forms{
 		
 		return $dropdown;
 	}
+
+	public function status_form($property_id, $category) {//generates a live/not live for each category sent to it 
+
+		// for each category will give an option of live or not
+		// in the input, just cast the function as boolean
+		// uses radio forms where the options are not database driven
+		
+		// create inactive form
+		$form = "<input type='radio' name='${category}' value='false'";
+			if(!$this->CI->general->get_category($property_id, $category)) 
+				$form .= "'checked='checked'";
+		$form .= "Inactive";
+		
+		$form .= "<input type='radio' name='${category}' value='true'";
+		  	if($this->CI->general->get_category($property_id, $category)) 
+				$form .= "'checked='checked'";
+				
+		return $form;
+	}
 };

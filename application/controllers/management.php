@@ -137,16 +137,17 @@ class Management extends CI_Controller{
 	}
 
 	public function remove_listing() { //make status not-live -- ajax saving in ajax/management
+		
+		// generates a list of properties that has an option of live/not_live on each one
+		//similar to the search piece but has a thumbnail
 
-		if(!$this->uri->segment(3))
-			$this->content = $this->management_general->search('remove_listing');
-		else {
+		// else {
 			
-			$this->content = $this->load->view('management/resources/general_dashboard', '', true);
-			$this->content .= $this->management_general->remove_listing($this->uri->segment(3));
-		}
+			// $this->content = $this->load->view('management/resources/general_dashboard', '', true);
+			// $this->content .= $this->management_general->remove_listing($this->uri->segment(3));
+		// }
 
-		$this->load->view('management/management_base');
+		// $this->load->view('management/management_base');
 	}
 	
 	public function media_status() { //save with ajax to ajax/management
@@ -188,5 +189,6 @@ class Management extends CI_Controller{
 		$this->content = $this->property_set->media_upload($this->property_id, $type);//submit the informatino
 		
 		// $this->load->view('management/management_base');
+
 	}
 }
