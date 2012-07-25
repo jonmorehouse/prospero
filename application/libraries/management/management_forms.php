@@ -201,14 +201,17 @@ class Management_forms{
 		// uses radio forms where the options are not database driven
 		
 		// create inactive form
+		$value = $this->CI->general->get_category($property_id, $category);//should return false/true
+		if($property_id == 2) echo "${value}";
+		
 		$form = "\n\t<input type='radio' name='${category}' value='false'";
-			if(!$this->CI->general->get_category($property_id, $category)) 
-				$form .= "'checked='checked'";
+			if(!$value)
+				$form .= "checked='checked'";
 		$form .= "/>Inactive";
 		
 		$form .= "\n\t<input type='radio' name='${category}' value='true'";
-		  	if($this->CI->general->get_category($property_id, $category)) 
-				$form .= "'checked='checked'";
+			if($value)
+				$form .= "checked='checked'";
 		$form .= "/>Active";
 				
 		return $form;

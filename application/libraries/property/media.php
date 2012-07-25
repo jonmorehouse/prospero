@@ -41,11 +41,17 @@ class Media{
 		
 		$this->property_id = $property_id;
 		$this->search_configuration($type);
-
-		$query = $this->get_query($status);
 		
-		if($query && isset($query->row()->$this->category))
-			return $query->row()->$this->category;
+		$category = "{$type}_id";//category
+		$table = $this->CI->general->get_category_table($category);
+		$where = array('property_id' => $property_id);
+	
+		if($status) $where['status'] = $status;
+		
+		$query = $this->CI->general->get($table, $where);//generate database query
+		
+		if($query && isset($query->row()->$category))
+			return $query->row()->$category;
 		
 		else
 			return false;//remember that the thumbnail will automatically be the default one
@@ -162,7 +168,8 @@ class Media{
 		}
 		
 		
-		$query = $this->get_query($status);
+		$where = array('property_id' => $this->property_id);//search parameters
+		$query = $this->CI->general->get($table, $where);
 		$results = array();
 		
 		if($query) {
@@ -183,15 +190,4 @@ class Media{
 		$this->table = $this->CI->general->get_category_table($this->category);//find the location
 	}
 	
-	private function get_query($status) {
-
-		$where = array('property_id' => $this->property_id);
-		
-		if($status)//we don't want to add this parameter if we are trying to get all medias
-			$where['status'] = true;
-		
-		$return = $this->CI->general->get($this->table, $where);
-	
-	}
-
 };

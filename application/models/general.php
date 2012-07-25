@@ -104,7 +104,8 @@ class General extends CI_Model{
 	public function get_category($property_id, $category) {//database abstraction to get the individual category at any time
 		
 		$table = $this->get_category_table($category);
-		$query = $this->get($table, array($category => $property_id));
+
+		$query = $this->get($table, array('property_id' => $property_id));
 		
 		if(!$query || !$query->row()->$category)
 			return false;

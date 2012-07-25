@@ -126,10 +126,12 @@ class Management_general extends Management_forms {
 
 		foreach($this->property_list as $property_id) {
 			
+			$form .= "\n<form class='{$property_id}'>";
 			$form .= "\n<span>\n\t{$this->CI->property_get->thumbnail_image($property_id)}\n</span>";
 			$form .="\n<span>";
 			$form .= $this->status_form($property_id, 'property_status');//generates a live/not live form for each
 			$form .= "\n</span>";
+			$form .= "\n</form>";//individual form is used to create the same form input several times but with different values so there is not interference with the different radios
 		}
 		
 		$form .= "</form>";

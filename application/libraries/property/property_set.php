@@ -79,7 +79,7 @@ class Property_set{
 			move_uploaded_file($temporary_file, $file_name);
 			
 			if('slideshow_image' == $type) {
-				$thumbnail_file_name = $this->create_new_media_name($property_id, 'slideshow_thumbnail_image', $media_id, $extension);
+				$thumbnail_file_name = $this->create_relative_url($property_id, 'slideshow_thumbnail_image', $media_id, $extension);
 				$this->CI->load->library('utilities/image_management');
 				$this->CI->image_management->create_slideshow_thumbnail_image($file_name, $thumbnail_file_name);
 			}
@@ -220,8 +220,8 @@ class Property_set{
 		else if('slideshow_image' == $type)
 			$url = "property_images/{$property_id}/slideshow/{$media_id}.{$extension}";
 
-		else if('slideshow_thumbnail_image' == $type)
-			$url = "property_images/{$property_id}/slideshow_thumbnail/{$media_id}.{$extension}";
+		else if('slideshow_thumbnail_image' == $type)//not database driven called when the slideshow images is updateby an if statement
+			$url = "property_images/{$property_id}/thumbnail_slideshow/{$media_id}.{$extension}";
 	
 		return $url;
 	}
