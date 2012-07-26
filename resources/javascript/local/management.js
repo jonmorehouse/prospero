@@ -1,102 +1,84 @@
-$(document).ready(function(){
-	var form_value;
-	
-	$('#page_container').on('click', '#management_dashboard .save', function(){
-		// WE WANT TO GET THE MAIN CONTENT PAGE TO GET THE LISTING--SO WE KNOW WHAT TO SAVE!
-		var element_id, element;
-		element_id = $(this).parent().siblings('div').attr('id');
-		element = $('#' + element_id);
-		save(element);
-	});
-	
-	$('#login').find('input[type="text"], input[type="password"]').focus(function(){
-		
-		var current;
-		current = $(this);
-		form_value = current.attr('value');
-		current.attr('value', '');
-	});
-	
-	$('#login').find('input[type="text"], input[type="password"]').focusout(function(){
-		
-		var current;
-		current = $(this);
-		if(current.attr('value') == '')
-			current.attr('value', form_value);
+var form = {};
 
-	});
+form.form_data = {};
+
+form.get_radio_input = function(container) {
 	
-	$('form').find('input[name="property_status"]').each(function() {
+	container.find('input[type="radio"]').each(function() {
+		
 		var current = $(this);
-		alert(current.attr('data-property_id'));
+		var current_key = current.attr('name');//should be the category in our database
+		var current_value = current.attr('value');//should be the value to send to the database
+		
+		this.form_data.current_key = current_value;
+		
 	});
-
-});
-
-function site_submit(data, url, destination){
-	$.ajax({
-		url: url,
-		type: 'post',
-		data: data,
-		success: function(msg){
-			destination.html(msg);
-		}
-	});
+	
+	return data;//return the object of the values
 }
 
-function message_flash(element){
+form.get_text_input = function(container) {
 	
-	element.fadeIn(time);
-	setTimeout(function(){
-		element.fadeOut(time);
-	}, time*4);
+	var data = {};
+	
+	container.find('input[type="text"], textarea').each(function() {
+		
+		var current = $(this);//current element in the loop
+		var current_key = current.attr('name');//the category
+		var current_value = current.attr('value');//value to update the database with
+		
+		this.form_data.current_key = current_value;//push into the object
+	});
+	
+	return data;//return the object
 }
 
-// SUBMIT SAVE
-function save(element){
+form.get_password_input = function(container) {
 	
-	var data, url;
-
-	url = site_url + 'ajax/management/save_listing';
-
-	data = form_data();
-
-	site_submit(data, url, element);
-	message_flash($('.save .content'));
-}
-
-function form_data(){
-	var data;
+	var data = {};
 	
-	data = new Object();
-	
-	$('input[type="radio"]:checked').each(function(){
-		var input_name, input_value, current;
-		current = $(this);
-		input_value = current.val();
-		input_name = current.attr('name');
-		data[input_name] = input_value;
+	container.find('input[type="password"]').each(function() {
+		
+		var current = $(this);//current element
+		var current_key = current.attr('name');//the category
+		var current_value = current.attr('value');//value to update the database with
+		
+		this.form_data.current_key = current_value;
+		
 	});
-	
-	$('textarea').each(function(){
-		var input_name, input_value, current;
-		current = $(this);
-		input_value = current.val();
-		input_name = current.attr('name');
-		data[input_name] = input_value;
-	});
-	
-	$('input[type="text"]:visible').each(function(){
-		var input_name, input_value, current;
-		current = $(this);
-		input_value = current.val();
-		input_name = current.attr('name');
-		data[input_name] = input_value;
-	});
-	
-	data.property_id = $('input[name="property_id"]').val();
 	
 	return data;
 }
 
+form.get_radio_input = function(container) {//will return the value 
+	
+	var data = {};//new object
+	
+	container.find('input[type="radio"]').attr('checked').each(function() {
+		
+		var current = $(this);//current element
+		var current_key = current.attr('name');//the category
+		var current_value = current.attr('value');//value to update the database with
+		
+		this.form_data.current_key = current_value;
+		
+	});
+	
+	return data;
+}
 
+form.get_checked_input = function(container) {//will return the values that are checked
+	
+	container.find('input[type="checkbox"]').each(function() {
+		var current = $(this);//current
+		var values = {};
+		var category_name = current.attr('name');
+		var category_vaue = current.attr('value');
+		if(!this.form_data.category_name)
+			this.form_data.category_name = array();
+		this.form_data.category_name.category_value;
+		
+	});
+}
+
+form.get_all_input
