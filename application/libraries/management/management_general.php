@@ -98,22 +98,24 @@ class Management_general extends Management_forms {
 			
 
 			$media_id_list = $this->CI->media->get_media_list($property_id, $media_type);//will return an array of all properties available
+			
 			$exists = (boolean)count($media_id_list);//count the media_list and use a boolean
 			$category = "{$media_type}_id";
 			
-			if($exists)
+			if($exists) {
+				
 				$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
-				
-			$form .= "\n<form data-category='{$category}' data-property_id='{$property_id}'>";//category 
-				
+				$form .= "\n<form data-category='{$category}' data-property_id='{$property_id}'>";//category 
+			}
 			
 			foreach($media_id_list as $media_id) {
 				
 				$form .= "\n<div>";
-				$form .= "\n\t<span>{$this->media_thumbnail($property_id, $media_type)}</span>";//create thumbnail
+				$form .= "\n\t<span>{$this->CI->property_get->get_media_thumbnail($media_type, $media_id)}</span>";//create thumbnail
 				// special form with data values for form submission
 				//javascript creates an object with key of category and then has members inside with media_id and true or false
 				$form .= "\n\t<span>{$this->media_status_form($category, $media_id)}</span>";//actual form section
+				$form .= "\n</div>";
 			}
 			
 			$form .= "</form>";//end of individual media_category form
@@ -181,9 +183,9 @@ class Management_general extends Management_forms {
 	}
 
 	private function media_thumbnail($property_id, $type, $media_id = 1) {//just returns the basic image tag for a media url
-		
+
 		if('thumbnail_image' == $type)
-			return $this->CI->property_get->thumbnail_image($property_id);
+			return $this->CI->property_get->get_media_thumbnail($type, $media_id);
 
 		else if ('slideshow_image' == $type)
 			return $this->CI->format->image_tag($this->CI->config->item('default_slideshow_image_url'), "", $type);

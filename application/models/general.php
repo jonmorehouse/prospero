@@ -18,6 +18,11 @@ class General extends CI_Model{
 	}
 
 /****** GENERAL DATABASE ABSTRACTION ********/
+	public function delete($table, $data) {
+		
+		$this->db->where($data)->delete($table);
+		
+	}
 
 	public function get($table, $data) {
 		
@@ -60,7 +65,7 @@ class General extends CI_Model{
 	
 /******** PROSPERO SPECIFIC FUNCTIONS *******/
 
-	public function category_tables() {//returns all tables
+	public function category_tables() {//returns all tables for the site -- used to clear stuff!
 		
 		$query = $this->db->distinct()->get('table_schema');
 		$all_tables = array();
@@ -74,7 +79,7 @@ class General extends CI_Model{
 		return $all_tables;
 	}
 
-	public function get_category_table($category) {//get table for individul categroy
+	public function get_category_table($category) {//get table for individul category
 		
 		// this function will search table schema for the correct table and return the string location
 		$query = $this->db->where(array('category' => $category))->get('table_schema');
@@ -132,6 +137,24 @@ class General extends CI_Model{
 			return $query->row()->$category;
 	}
 
+	public function get_categories_by_type($category_type) {
+		
+		$query = $this->db->where(array('type' => $category_type))->get('table_schema');
+		$categories = array();
+		if(!$query || $query->num_rows() === 0) {
+			
+			$this->developer_contact("Searched by bad category type", "{$category_type}");
+			return false;
+		}
+		
+		else {
+			
+			foreach($query->result() as $row)
+				array_push($categories, $row->category);
+			
+			return $categories;
+		}
+	}
 
 }
 

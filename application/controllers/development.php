@@ -2,8 +2,11 @@
 
 class Development extends CI_Controller{
 	
-/*THIS CLASS IS JUST FOR DEVELOPMENT--ITS TO HELP THE DEVELOPERS AS THEY MOVE FORWARD
+/*
+
+	THIS CLASS IS JUST FOR DEVELOPMENT -- ITS TO HELP THE DEVELOPERS AS THEY MOVE FORWARD
 	THIS SHOULD BE REMOVED ON LIVE SITE
+
 */
 	
 	public function index(){
@@ -71,12 +74,12 @@ class Development extends CI_Controller{
 
 	public function table_schema_insert() {
 		
-		$category = 'video_id';
-		$table = 'videos';
-		$type = 'media_id';//ie general, media location etc
-		$input_type = 'radio';//form input
-		$default_value = '';//
-		$description = '';//to show in the cms for cms driven categories
+		$category = 'residential_test';
+		$table = 'residential';
+		$type = 'residential';//ie general, media location etc
+		$input_type = 'text';//form input
+		$default_value = 'default residential';//
+		$description = 'asdf';//to show in the cms for cms driven categories
 		
 		$query = $this->db->where(array('category' => $category))->get('table_schema');
 		
@@ -101,13 +104,21 @@ class Development extends CI_Controller{
 	}
 	// THIS IS FOR THE EMAIL WHICH ISN'T WORKING AS OF NOW?
 
-	public function test() {
+	public function delete() {
 			
-				
+		$this->load->library('property/property_set');
+		$property_id = $this->uri->segment(3);
+		for($i = 0; $i<20; $i++)
+			$this->property_set->destroy_property($i);
+	}
+
+	public function test() {
+		
+		$this->load->model('general');
+		echo $this->general->get_category_table('thumbnail_image_id');
+		
 	}
 	
+
 /************************************************************************************************************/
-
-
-
 }

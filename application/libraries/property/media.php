@@ -63,7 +63,7 @@ class Media{
 		$category = "{$type}_id";//generic media type--hardcoded around the site in this format
 		$table = $this->CI->general->get_category_table($category);//category location
 		
-		$query = $this->CI->general->get($table, array('status' => $status));//perform the query with database abstraction
+		$query = $this->CI->general->get($table, array('property_id' => $property_id));//get all all medias for this property!
 		
 		if(!$query)//no medias for this type for this property_id
 			return $media_list;

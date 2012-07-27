@@ -60,11 +60,14 @@ var management_submit = {//defaults -- uses the prototype below
 			
 			var form_data = {};
 			
+			// form_data.property_id = this.container.find('form').attr('data-property_id');
 			this.container.find('form').each(function(){
 				
 				var current = $(this);
+				
 				$.extend(form_data, get_form_data.input(current));//combine the objects
 				$.extend(form_data, get_form_data.radio(current));//combine the objects
+				$.extend(form_data, get_form_data.hidden(current));//combine the objects!
 				
 			});
 			
@@ -116,7 +119,7 @@ var management_submit = {//defaults -- uses the prototype below
 				
 				success:function(content) {
 					
-					alert(content);
+					
 					
 				}
 			});//end ajax call
@@ -128,7 +131,20 @@ var management_submit = {//defaults -- uses the prototype below
 var get_form_data = get_form_data || {};
 
 //could make this a prototype and could pass it a global 
-
+	get_form_data.hidden = function(container) {
+		
+		var data = {};
+		
+		container.find('input[type="hidden"]').each(function() {
+			
+			data[this.name] = this.value;
+			
+		});
+		
+		return data;
+		
+	}
+	
 	get_form_data.input = function(container) {
 		
 		var data = {};

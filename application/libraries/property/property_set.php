@@ -22,7 +22,7 @@ class Property_set{
 
 		$this->CI->load->config('site_status');
 
-		$libraries = array('utilities/file_analysis', 'utilities/file_management');
+		$libraries = array('utilities/file_analysis', 'utilities/file_management', 'utilities/data_helper');
 		$this->CI->load->library($libraries);
 
 	}
@@ -32,7 +32,7 @@ class Property_set{
 	public function save($data) {//this function is used to save all data that is input through post. 
 	
 		// used to save all categories by calling general->set
-		if(!isset($data['property_id']) || 'new_listing' == $data['property_id']) {
+		if(!isset($data['property_id']) || 'new_listing' == $data['property_id'] || 1 == $data['property_id']) {
 
 			$property_id = $this->create_listing();		
 
@@ -84,8 +84,8 @@ class Property_set{
 				$this->CI->image_management->create_slideshow_thumbnail_image($file_name, $thumbnail_file_name);
 			}
 			
-			else if('thumbnail_image' == $type)
-				$this->current_thumbnail($property_id, $media_id, 'thumbnail_image');//set current as the new thumbnail/deactivate old ones
+			else if('thumbnail_image' === $type)
+				$this->current_thumbnail($property_id, $media_id);//set current as the new thumbnail/deactivate old ones
 			
 			return true;
 		}
@@ -102,11 +102,52 @@ class Property_set{
 	
 	}
 
-	public function status($property_id, $data) {//responsible for activating/deactivating properties etc
+	public function property_status($property_id, $input_status) {//responsible for activating/deactivating properties etc
 		
+		$category = 'property_status';
 		
+		if($input_status === 'true')
+			$status = true;
+		else
+			$status = false;
+
+		$table = $this->CI->general->get_category_table($category);
 		
+		$query = $this->CI->general->get($table, array('property_id' => $property_id));
+
+		if(!$query)
+			$this->CI->general->insert($table, array('property_id' => $property_id, $category => $status));
+
+		else
+			$this->CI->general->update($table, array('property_id' => $property_id), array($category => $status));
+	}
+	
+	public function media_status($media_id, $category, $input_status, $property_id) {
+
+		if('false' === $input_status)
+			$status = false;
+		else
+			$status = true;
 		
+		$table = $this->CI->general->get_category_table($category);
+		
+		if('thumbnail_image_id' === $category) {//note that the last thumbnail inserted will be the current one
+			
+			$this->current_thumbnail($property_id, $media_id);
+		}
+		
+		else
+			$this->CI->general->update($table, array($category => $media_id));
+	}
+	
+	public function destroy_property($property_id) {
+		
+		$tables = $this->CI->general->category_tables();//all tables to be deleted frome
+		array_push($tables, 'property_management');
+
+		foreach($tables as $table)
+			$this->CI->general->delete($table, array('property_id' => $property_id));
+			
 	}
 	
 /**************** PRIVATE FUNCTIONS *****************/
@@ -116,7 +157,19 @@ class Property_set{
 		$table = $this->CI->general->get_category_table($category);//get table to help with general update or insert
 		
 		$check = $this->CI->general->get($table, array('property_id' => $property_id));//see if this row exists for the property
-			
+		
+		$datatype = $this->CI->general->get_category_datatype($category);
+		
+		// convert the values to the proper types to save in the proper format for our database
+		if('bool' == $datatype || 'boolean' == $datatype)
+			$value = $this->CI->data_helpers->input_to_boolean($value);
+		
+		else if('int' == $datatype || 'integer' == $datatype)
+			$value = $this->CI->data_helpers->input_to_integer($value);
+		
+		else
+			$value = $this->CI->data_helpers->input_to_safe_string($value);
+		
 		$data = array($category => $value);//data to be uploaded
 		
 		
@@ -227,17 +280,21 @@ class Property_set{
 		return $url;
 	}
 	
-	private function current_thumbnail($property_id, $media_id) {//will take in the new thumbnail and deactivate all others
+	public function current_thumbnail($property_id, $media_id) {//will take in the new thumbnail and deactivate all others
 		
 		$category = 'thumbnail_image_id';
 		$table = $this->CI->general->get_category_table($category);
 		$query = $this->CI->general->get($table, array('property_id' => $property_id));
 		
 		if($query)
-			foreach($query->result() as $row)
-				$this->update_media($property_id, $row->$category, 'thumbnail_image', false, false);//deactivate all other thumbnails
-		
-		$this->update_media($property_id, $media_id, 'thumbnail_image');//activate the new thumbnail
+			foreach($query->result() as $row) {
+				$all_media_id = $row->$category;
+				$update_data = array('status' => false);
+				$this->CI->general->update($table, array($category => $all_media_id), $update_data);
+			}
+
+		$this->CI->general->update($table, array($category=>$media_id), array('status' => true));
+
 	}
 
 	private function add_admin($property_id) {//calls the function admin and sets the property as attached to this user

@@ -251,9 +251,20 @@ class Property_get{
 	public function slideshow_thumbnail_images($property_id) {
 		
 		$id_list = $this->slideshow_image_list($property_id);
+		$tag_list = array();
 		
+		foreach ($id_list as $id) {
+			$url = $this->CI->media->get_image_thumbnail($id);
+			if($url) {
+				$tag = $this->CI->format->image_tag($url);
+				array_push($tag_list, $tag);
+			}
+		}
 		
-		
+		if(count($tag_list) > 0)
+			return $tag_list;
+		else
+			return false;
 	}
 
 	public function listing_url($property_id){
@@ -286,5 +297,43 @@ class Property_get{
 			return true;
 		else
 			return false;
+	}
+
+	public function get_media_thumbnail($type, $media_id) {
+		
+		$this->CI->load->config('site_status');
+		$category = "{$type}_id";
+		$table = $this->CI->general->get_category_table($category);
+
+		$query = $this->CI->general->get($table, array($category => $media_id));
+		
+		if(!$query) {//need to generate the default
+			
+			if('video' == $type)
+				$url = $this->CI->config('default_video_thumbnail_url');
+			
+			else if ('pdf' == $type)
+				$url = $this->CI->config('default_pdf_thumbnail_url');
+			
+			else if ('slideshow_image' == $type)
+				$url = $this->CI->config('default_slideshow_image_url');
+			
+			else
+				$url = $this->CI->config('default_thumbnail_image_url');
+		}
+		
+		else {
+			
+			$url = $query->row()->url;
+			
+			if('slideshow_image' == $type)
+				$url = $this->CI->media->get_slideshow_thumbnail_url($media_id);
+		}
+		
+		$url = base_url($url);
+		
+		$tag = "<img src='{$url}' alt='{$category}' />";
+
+		return $tag;
 	}
 };

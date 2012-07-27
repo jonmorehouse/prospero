@@ -27,10 +27,11 @@ class Management_create_update extends Management_forms {
 	
 	function form_generation($type) {
 		
-		$form = "<h1>{$this->CI->format->word_format($type)} Property</h1><br /><hr /><br />\n";
+		$this->header = "<h1>{$this->CI->format->word_format($type)} Property</h1><br /><hr /><br />\n";
 		$form_categories = array();
-		$this->get_category_types($form_categories);
-		$form .= $this->generate_categories($form_categories);
+		$this->get_category_types($form_categories);//passed by reference
+		
+		$form = $this->generate_categories($form_categories);
 
 		return $form;
 		
@@ -39,13 +40,14 @@ class Management_create_update extends Management_forms {
 	function generate_categories($category_types) {
 		
 		$destination = site_url('ajax/management/save');
+		
 		$form = "\n<div id='form' data-destination='{$destination}'  data-form_type='save'>";
-
+		$form .= $this->header;
 		
 		foreach ($category_types as $category_type) {//create a segment for the final form
 
 			$categories = $this->get_individual_categories($category_type);
-			
+
 			$form .= "\n\t<form class='{$category_type}'>\n";//start a form -- used to hide the inactive ones in create!
 			$form .= "\n\t<h1>{$this->CI->format->word_format($category_type)}</h1>\n\t<br />";
 
@@ -78,6 +80,5 @@ class Management_create_update extends Management_forms {
 		
 		return $form;
 	}
-
 
 };

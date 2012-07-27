@@ -67,12 +67,12 @@ class Management_forms{
 			
 			array_push($categories, $type, $type_category);
 		}
+		
+		return $categories;
 	}
 	
 	protected function get_individual_categories($category_type) {
 		
-		// $table = "${category}_property"; // this is the convention used in the msyql
-		// ie: rent_property or industrial_residential_property
 		
 		$query = $this->CI->general->get('table_schema', array('type' => $category_type));
 		$categories = array();
@@ -232,4 +232,6 @@ class Management_forms{
 		
 		return $form;
 	}
+
+
 };
