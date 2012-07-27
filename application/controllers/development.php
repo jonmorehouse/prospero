@@ -8,7 +8,12 @@ class Development extends CI_Controller{
 	THIS SHOULD BE REMOVED ON LIVE SITE
 
 */
-	
+	function __construct() {
+		parent::__construct();
+		
+		$this->load->model('general');
+		
+	}
 	public function index(){
 		
 		redirect();
@@ -112,13 +117,46 @@ class Development extends CI_Controller{
 			$this->property_set->destroy_property($i);
 	}
 
-	public function test() {
+	public function get_all_categories() {
 		
 		$this->load->model('general');
-		echo $this->general->get_category_table('thumbnail_image_id');
+		$tables = $this->general->category_tables();
+		$categories = array();
+		
+		$all_categories = array();
+		
+		foreach ($tables as $table) {
+			
+			$all_categories[$table] = array();
+			$table_name = $this->db->escape_str($table);
+			$sql = "DESCRIBE `$table_name`";
+			$description = $this->db->query($sql);
+			foreach($description->result() as $describe_row) {
+				foreach($describe_row as $key => $value)
+					if('Field' == $key)
+						array_push($all_categories[$table], $value);
+			}
+		}
+		
+		foreach($all_categories as $category_type)
+			foreach($category_type as $category)//category_type level
+				echo "{$category} <br />"; //category level
 		
 	}
 	
+	public function get_category_types() {
+		
+		print_r($this->general->get_category_types());
+		
+	}
+	
+	
+	public function test() {
+		
 
+	}
+	
+
+	
 /************************************************************************************************************/
 }

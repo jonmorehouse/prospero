@@ -38,7 +38,7 @@ class Management extends CI_Controller{
 		}
 
 		// load header information-this will be passed into management_base and echoed from there
-		$this->header = $this->header->header_creation($this->page_type, $page_title);//pass css as array or js as array if desired
+		$this->header = $this->header->header_creation($this->page_type, $page_title, false, array(), array('animation'));//pass css as array or js as array if desired
 		$this->dashboard = false;
 		$this->property_status_dashboard = false;
 	}
@@ -190,12 +190,7 @@ class Management extends CI_Controller{
 		$this->load->view('management/management_base');
 	}
 
-	public function test() {
-		
-		print_r($this->session->userdata);
-		$this->load->library('user_access/admin');
-		$this->admin->property_list($username);
-		
-		
-	}
+
+
+
 }

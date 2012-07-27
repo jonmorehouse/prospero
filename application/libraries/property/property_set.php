@@ -162,13 +162,13 @@ class Property_set{
 		
 		// convert the values to the proper types to save in the proper format for our database
 		if('bool' == $datatype || 'boolean' == $datatype)
-			$value = $this->CI->data_helpers->input_to_boolean($value);
+			$value = $this->CI->data_helper->input_to_boolean($value);
 		
 		else if('int' == $datatype || 'integer' == $datatype)
-			$value = $this->CI->data_helpers->input_to_integer($value);
+			$value = $this->CI->data_helper->input_to_integer($value);
 		
 		else
-			$value = $this->CI->data_helpers->input_to_safe_string($value);
+			$value = $this->CI->data_helper->input_to_safe_string($value);
 		
 		$data = array($category => $value);//data to be uploaded
 		

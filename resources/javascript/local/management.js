@@ -13,6 +13,17 @@ $(document).ready(function() {
 	$('#management_dashboard .save').click(function() {
 		content_submission();
 	});
+	
+	$(document).keypress(function() {
+		if(event.which == 13)
+			content_submission();
+	});
+	
+	$('input, textarea').focus(function() {
+		content_submission();
+	});
+	
+	page_animation.test();
 });
 
 function content_submission() {
@@ -196,4 +207,9 @@ var get_form_data = get_form_data || {};
 		return data;
 		
 	}
+
+	
+	
+};
+
 

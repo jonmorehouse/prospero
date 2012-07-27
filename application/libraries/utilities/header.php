@@ -154,16 +154,15 @@ class Header{
 	//will get the meta keywords and will return the tag
 	private function meta_keywords($page_type, $property_id){
 		
+		$keywords = "";
+		$keywords .= $this->CI->general->get_column("page_type_meta_information", array('page_type' => $page_type), 'keywords');
+
 		if($property_id){
-			$keywords = 'Prospero';
 			foreach((array)$property_id as $value)
 				$keywords .= ' ' . $this->CI->property_get->meta_keywords($value);//will be an array
-			$keywords .= ', ' . $this->CI->general->page_meta_information($page_type, 'keywords');//will return an array
+			$keywords .= ", {$meta}"; 
 		}
 		
-		else
-			$keywords = $this->CI->general->page_meta_information($page_type, 'keywords');//this will return the page_type description
-
 		$clean_keywords = $this->CI->format->keywords($keywords);
 
 		return $clean_keywords;
@@ -172,15 +171,12 @@ class Header{
 	// will get the meta description and return it
 	private function meta_description($page_type, $property_id){
 		
-		if($property_id && $page_type == 'listing'){
-			$property_description = $this->CI->property_get->meta_description($property_id);
-			$page_type_description = $this->CI->general->page_meta_information($page_type, 'description');
-			$description = "{$property_description} {$page_type_description}";
-		}
+		$description = "";
+		$description .= $this->CI->general->get_column("page_type_meta_information", array('page_type' => $page_type), 'description');
 		
-		else
-			$description = $this->CI->general->page_meta_information($page_type, 'description');
-			
+		if($property_id && $page_type == 'listing')
+			$description .= $this->CI->property_get->meta_description($property_id);
+		
 		return $description;
 	}
 
