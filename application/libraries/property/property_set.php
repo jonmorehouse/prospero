@@ -153,6 +153,7 @@ class Property_set{
 		$media_id = $this->create_media_id($property_id, "thumbnail_image");//generate the new media
 		$url = $this->CI->config->item('default_thumbnail_image_url');//generate the file name--this is relative so don't send to the db
 		$this->update_media($property_id, $media_id, 'thumbnail_image', $url);//actually update and enable the media
+		$this->add_admin($property_id);
 		
 		return $property_id;//return our newly created id to be used every where else. If there was an error this will be a md5(time()) and we will be contacted
 	}
@@ -238,5 +239,13 @@ class Property_set{
 		
 		$this->update_media($property_id, $media_id, 'thumbnail_image');//activate the new thumbnail
 	}
+
+	private function add_admin($property_id) {//calls the function admin and sets the property as attached to this user
+		
+		$this->CI->load->library('user_access/admin');
+		$this->CI->admin->add_admin($property_id);
+		
+	}
+
 
 };

@@ -56,8 +56,10 @@ class User_information extends CI_Model{
 				array_push($property_list, $property_id);
 		}
 
+		print_r($property_list);
 		return $property_list;
 	}
+
 
 }
 

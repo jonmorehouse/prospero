@@ -89,8 +89,10 @@ class Management_general extends Management_forms {
 		
 		// get the categories such as thumbnail, pdf, slideshow images and video
 		$media_types = $this->get_individual_categories('media');//used to change whether or not certain images are live or not
+	
+		$destination = site_url('ajax/management/media_status');
 
-		$form = "";
+		$form = "\n<div id='form' data-destination='{$destination}' data-property_id='{$property_id}' data-form_type='media_status'>";//parent form
 		
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
@@ -99,22 +101,26 @@ class Management_general extends Management_forms {
 			$exists = (boolean)count($media_id_list);//count the media_list and use a boolean
 			$category = "{$media_type}_id";
 			
-			if($exists) {
+			if($exists)
 				$form .= "\n<h1>{$this->CI->format->word_format($media_type)}</h1>";
-				$form .= "<div class='{$media_type}'>";
-			}
+				
+			$form .= "\n<form data-category='{$category}' data-property_id='{$property_id}'>";//category 
+				
 			
 			foreach($media_id_list as $media_id) {
 				
-				$form .= "<div>";
-				$form .= "<span>{$this->media_thumbnail($property_id, $media_type)}</span>";//create thumbnail
-				$form .= "<span>{$this->status_form($property_id, $category)}</span>";//actual form section
-				$form .= "<span>{$this->get_comment($media_type)}</span>";//include the comment in span form
+				$form .= "\n<div>";
+				$form .= "\n\t<span>{$this->media_thumbnail($property_id, $media_type)}</span>";//create thumbnail
+				// special form with data values for form submission
+				//javascript creates an object with key of category and then has members inside with media_id and true or false
+				$form .= "\n\t<span>{$this->media_status_form($category, $media_id)}</span>";//actual form section
 			}
-
-			if($media_id_list)
-				$form .= "</div>";
+			
+			$form .= "</form>";//end of individual media_category form
 		}
+		
+		$form .= "\n</div>";
+		
 		
 		return $form;
 	}
@@ -122,19 +128,19 @@ class Management_general extends Management_forms {
 	public function property_status() {//generate a list of properties available to the manager to remove and then it will be saved with ajax/management calling the property_set class
 		$destination = site_url('ajax/management/listing_status');
 		$form = "\n<h1>Activate/Deactivate Properties</h1>";
-		$form .= "\n\t<form action='{$destination}' method='post'>";
+		$form .= "\n<div id='form' data-form_type='property_status' data-destination='{$destination}'>";//parent form
 
 		foreach($this->property_list as $property_id) {
 			
-			$form .= "\n<form class='{$property_id}'>";
-			$form .= "\n<span>\n\t{$this->CI->property_get->thumbnail_image($property_id)}\n</span>";
-			$form .="\n<span>";
+			$form .= "\n\t<form data-property_id='{$property_id}' data-category='property_status'>";
+			$form .= "\n\t\t<span>{$this->CI->property_get->thumbnail_image($property_id)}</span>";
+			$form .="\n\t\t<span>";
 			$form .= $this->status_form($property_id, 'property_status');//generates a live/not live form for each
-			$form .= "\n</span>";
-			$form .= "\n</form>";//individual form is used to create the same form input several times but with different values so there is not interference with the different radios
+			$form .= "\n\t\t</span>";
+			$form .= "\n\t</form>";//individual form is used to create the same form input several times but with different values so there is not interference with the different radios
 		}
 		
-		$form .= "</form>";
+		$form .= "\n</div>";
 		
 		return $form;
 	}//end property status method

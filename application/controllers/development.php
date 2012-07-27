@@ -101,6 +101,11 @@ class Development extends CI_Controller{
 	}
 	// THIS IS FOR THE EMAIL WHICH ISN'T WORKING AS OF NOW?
 
+	public function test() {
+			
+				
+	}
+	
 /************************************************************************************************************/
 
 

@@ -11,26 +11,29 @@ class Management extends CI_Controller{
 		
 	// THIS IS TO GRAB THE INFORMATION FROM THE CMS GUI
 	
-	function save_listing(){//THIS IS THE SAME AS FOR THE UPDATE LISTING AND CREATE LISTING
+	function save(){//THIS IS THE SAME AS FOR THE UPDATE LISTING AND CREATE LISTING
 		
 		// SPECIFIC LIBRARY LOADER
-		$this->load->library('property/property_set');
+		// $this->load->library('property/property_set');
 		
 		// GET POST DATA
 		$post_data = $this->input->post();
 		
-		// SAVE DATA--SEND TO THE PROPERTY_SET LIBRARY WHICH WILL TAKE CARE OF EVERYTHING
-		$this->property_id = $this->property_set->save($post_data);
-		
-		// OUTPUT THE SAME LISTING FORM FOR THIS
-		$this->load->view('management/forms/general');
-		$this->load->view('management/forms/rent');
-		$this->load->view('management/forms/buy');
+		print_r($post_data);
 
+		
+		
 	}
 	
-	function upload_media_preview() {
+	function media_status() {
 		
+		print_r($this->input->post());
+		
+	}
+	
+	function listing_status() {
+		
+		print_r($this->input->post());
 		
 		
 	}

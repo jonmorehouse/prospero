@@ -129,7 +129,7 @@ class Management_forms{
 
 		$options = $this->get_options($category); // get all options
 
-		$radio_form = "\n<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$radio_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
 		$radio_form .= $this->get_comment($category);
 
 		foreach ($options as $option) {
@@ -155,7 +155,7 @@ class Management_forms{
 	
 	public function textarea($category, $rows = 5) {
 		
-		$textarea_form = "\n<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$textarea_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
 		$textarea_form .= $this->get_comment($category);
 		
 		$textarea_form .= "\n\t<textarea rows='{$rows}' name='{$category}' value='{$this->CI->property_get->general_clean($this->property_id, $category)}\n\t"; 
@@ -167,7 +167,7 @@ class Management_forms{
 	
 	public function text($category) {
 		
-		$text_form = "\n<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$text_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
 		$text_form .= $this->get_comment($category);
 		
 		$text_form .= "\n\t<input type='text' name='{$category}' value='{$this->CI->property_get->general_clean($this->property_id, $category)}' />\n\t";
@@ -202,7 +202,6 @@ class Management_forms{
 		
 		// create inactive form
 		$value = $this->CI->general->get_category($property_id, $category);//should return false/true
-		if($property_id == 2) echo "${value}";
 		
 		$form = "\n\t<input type='radio' name='${category}' value='false' data-property_id='${property_id}' ";
 			if(!$value)
@@ -214,6 +213,23 @@ class Management_forms{
 				$form .= "checked='checked'";
 		$form .= "/>Active";
 				
+		return $form;
+	}
+
+	public function media_status_form($category, $media_id) {// special form for the media status page
+		
+		$value = $this->CI->media->get_media_status($category, $media_id);
+		
+		$form = "\n\t<input type='radio' name='{$media_id}' value='false'";
+			if(!$value)
+				$form .= "checked='checked'";
+		$form .= "/>Inactive";
+		
+		$form .= "\n\t<input type='radio' name='{$media_id}' value='true'";
+			if($value)
+				$form .= "checked='checked'";
+		$form .= "/>Active";
+		
 		return $form;
 	}
 };

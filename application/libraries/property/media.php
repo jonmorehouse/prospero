@@ -143,6 +143,19 @@ class Media{
 		return $thumbnail_url;//we simply replaced the slideshow directory with teh slideshow_thumbnail directory
 	}
 	
+	public function get_media_status($category, $media_id) {//will return the value of the media_id as true or false
+		
+		if(strpos($category, "_id") === false)
+			$category = "{$category}_id";
+
+		$table = $this->CI->general->get_category_table($category);
+		
+		$query = $this->CI->general->get($table, array($category => $media_id));
+		
+		if($query)
+			return $query->row()->status;
+		
+	}
 
 /************* PRIVATE FUNCTIONS ********************/
 	

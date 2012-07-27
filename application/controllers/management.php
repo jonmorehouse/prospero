@@ -1,7 +1,7 @@
 <?php
 class Management extends CI_Controller{
 	
-/*MANAGEMENT CONSTRUCT*/
+/******************* MANAGEMENT CONSTRUCT *************************/
 
 /* Note the management_forms, management_create_update and management_general class
 	
@@ -9,7 +9,6 @@ class Management extends CI_Controller{
 	 
 	management general creates thumbnails for search because it has to account for differing urls etc -- makes it easier to make modifications
 
-	
 */
 
 /************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
@@ -41,6 +40,7 @@ class Management extends CI_Controller{
 		// load header information-this will be passed into management_base and echoed from there
 		$this->header = $this->header->header_creation($this->page_type, $page_title);//pass css as array or js as array if desired
 		$this->dashboard = false;
+		$this->property_status_dashboard = false;
 	}
 	
 	public function _remap($method, $parameters){
@@ -61,7 +61,7 @@ class Management extends CI_Controller{
 		
 /*LOGIN CONSTRUCT*/
 
-/**************** USER ACCESS FUNCTIONALITY ***********************/
+/**************** USER ACCESS FUNCTIONALITY **********************/
 
 	function login($username = false, $message = false){//loads the login page
 		
@@ -112,7 +112,7 @@ class Management extends CI_Controller{
 		
 	}
 
-/**************** TOOL GENERATION ***********************/
+/**************** TOOL GENERATION *********************************/
 	
 	public function create_listing() {//create listing -- ajax saving in ajax/management
 		
@@ -139,11 +139,13 @@ class Management extends CI_Controller{
 	}
 
 	public function remove_listing() { //make status not-live -- ajax saving in ajax/management
+
 		// generates a list of properties to be set as live or not live
-		
 		$this->content = $this->management_general->property_status();
-		$this->general_dashboard = true;
+		$this->dashboard = true;
+		// $this->property_status_dashboard = true;
 		$this->load->view('management/management_base');
+	
 	}
 	
 	public function media_status() { //save with ajax to ajax/management
@@ -188,4 +190,12 @@ class Management extends CI_Controller{
 		$this->load->view('management/management_base');
 	}
 
+	public function test() {
+		
+		print_r($this->session->userdata);
+		$this->load->library('user_access/admin');
+		$this->admin->property_list($username);
+		
+		
+	}
 }

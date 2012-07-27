@@ -27,37 +27,36 @@ class Management_create_update extends Management_forms {
 	
 	function form_generation($type) {
 		
-		$form = "<div id='{$type}'>\n";
-		$form .= "<h1>{$this->CI->format->word_format($type)} Property</h1><br /><hr /><br />\n";
+		$form = "<h1>{$this->CI->format->word_format($type)} Property</h1><br /><hr /><br />\n";
 		$form_categories = array();
 		$this->get_category_types($form_categories);
 		$form .= $this->generate_categories($form_categories);
-		$form .= "\n</div>";
-		
+
 		return $form;
 		
 	}
 	
 	function generate_categories($category_types) {
 		
-		// each form 
-		$form = "";
+		$destination = site_url('ajax/management/save');
+		$form = "\n<div id='form' data-destination='{$destination}'  data-form_type='save'>";
+
 		
 		foreach ($category_types as $category_type) {//create a segment for the final form
 
 			$categories = $this->get_individual_categories($category_type);
-
-			$form .= "<form class='{$category_type}'>\n";//start a form -- used to hide the inactive ones in create!
-			$form .= "\n<h1>{$this->CI->format->word_format($category_type)}</h1><br />";
+			
+			$form .= "\n\t<form class='{$category_type}'>\n";//start a form -- used to hide the inactive ones in create!
+			$form .= "\n\t<h1>{$this->CI->format->word_format($category_type)}</h1>\n\t<br />";
 
 			if($category_type != $category_types[0])
 				$form .= "<hr />";
-			$form .= "<br />\n";//category header
+			$form .= "\n\t<br />\n";//category header
 			
 			foreach($categories as $category) {
 				
 				if($this->get_category_input_type($category) != 'hidden')//don't put hidden in the columns -- columns floated left
-					$form .="<div>";
+					$form .="\n\t<div>";
 
 				$input_type = $this->get_category_input_type($category);
 				$this->{$input_type}($category);
@@ -66,14 +65,16 @@ class Management_create_update extends Management_forms {
 				// last already taken care of so div closed...just move on
 
 				if($this->get_category_input_type($category) != 'hidden')
-					$form .= "</div>";//only close the divs that were created -- not for hiddens
+					$form .= "\n\t</div>";//only close the divs that were created -- not for hiddens
 
 			}//end foreach for categories
 			
-			$form .= "</form><br />";//close the category_type form
+			$form .= "\n\t</form>\n\t<br />";//close the category_type form
 
 
 		}//end foreach for category_types
+		
+		$form .= "\n</div>";//end main form with form_type='save'
 		
 		return $form;
 	}

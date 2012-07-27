@@ -39,6 +39,25 @@ class General extends CI_Model{
 		
 	}
 
+	public function get_properties($table, $where) {
+		
+		$properties = array();
+		
+		if(!$where)
+			$query = $this->db->get($table);
+		else
+			$query = $this->db->where($where)->get($table);
+			
+		foreach($query->result() as $row) {
+			
+			$property_id = $row->property_id;
+			if($property_id > 1)
+				array_push($properties, $property_id);
+		}
+		
+		return $properties;
+	}
+	
 /******** PROSPERO SPECIFIC FUNCTIONS *******/
 
 	public function category_tables() {//returns all tables
