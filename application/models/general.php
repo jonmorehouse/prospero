@@ -21,9 +21,23 @@ class General extends CI_Model{
 		
 	}
 
-	public function get($table, $data) {//get a query
+	public function get($table, $data, $order = false) {//get a query -- orderby is like array(column, asc or desc)
 		
-		$query = $this->db->where($data)->get($table);
+		$this->db->where($data);
+		
+		// $this->db->order_by("title", "desc");
+		
+		if($order) {//add an order to the results
+			
+			if($order[1] === 'asc' || $order[1] === 'desc') 
+				$this->db->order_by($order[0], $order[1]);
+			
+			else
+				$this->db->order_by($order[0], 'desc');//incase the proper order was not given
+		}
+	
+		$query = $this->db->get($table);
+		
 		if(0 == $query->num_rows())
 			return false;
 		else
