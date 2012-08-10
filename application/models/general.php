@@ -77,13 +77,29 @@ class General extends CI_Model{
 	public function get_column($table, $where, $category, $array = false) {//returns an array or single value -- if 
 		
 		
+		$this->db->select($category);
+		$this->db->where($where);
+		$query = $this->db->get($table);
 		
+		if(0 === $query->num_rows() || !isset($query->row()->$category))//return false the query failed
+			return false;
+		
+		if(!$array) //only return one result -- the first!
+			return $query->row()->$category;
+		
+		else {//the results exist and need to return an array of results
+			$results = array();
+			foreach($query->result() as $row)
+				array_push($results, $row->$category);
+			
+			return $results;
+		}
 	}
 
 /******** PROSPERO SPECIFIC FUNCTIONS *******/
 
 	/****  CATEGORY TYPE ****/
-	public function get_category_types() {
+	public function get_category_types() {//get all category types for the site wide
 		
 		$category_types = array();
 		$query = $this->db->get('category_types');
@@ -107,6 +123,8 @@ class General extends CI_Model{
 		return $all_tables;
 	}
 	
+	
+	// useful for things other than 
 	public function get_categories_by_type($category_type) {//returns all the tables for a specific category_type
 		
 		$query = $this->db->where(array('type' => $category_type))->get('table_schema');
@@ -145,6 +163,7 @@ class General extends CI_Model{
 			return $query->row()->location;
 	}
 
+	// useful for data changes
 	public function get_category_datatype($category) {//get individual category data-type such as boolean, integer etc
 		
 		$query = $this->db->where(array('category' => $category))->get('table_schema');
@@ -164,8 +183,10 @@ class General extends CI_Model{
 	public function get_category($property_id, $category) {//database abstraction to get the individual category at any time
 		
 		$table = $this->get_category_table($category);
+		
+		$this->db->where(array('property_id' => $property_id))->select($category);
 
-		$query = $this->get($table, array('property_id' => $property_id));
+		$query = $this->db->get($table);
 		
 		if(!$query || !$query->row()->$category)
 			return false;
@@ -173,7 +194,20 @@ class General extends CI_Model{
 			return $query->row()->$category;
 	}
 	
+	public function get_category_type_categories($category_type) {//returns an array of all category_types
+
+		$categories = array();//initialize empty array so that we don't have to validate in methods!
 		
-	
+		$this->db->select('category');
+		$this->db->where(array('category_type' => $category_type));
+		$query = $this->db->get('category_type_categories');
+		
+		if(0 != $query->num_rows()) {
+			foreach ($query->result() as $row) 
+				array_push($categories, $row->category);
+		}
+		
+		return $categories;
+	}
 }
 
