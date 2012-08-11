@@ -8,12 +8,14 @@ class Table_development extends CI_Controller{
 	THIS SHOULD BE REMOVED ON LIVE SITE
 
 */
+
 	function __construct() {
 		parent::__construct();
 		
 		$this->load->model('general');
 		
 	}
+
 	public function index(){
 		
 		redirect();
@@ -37,27 +39,24 @@ class Table_development extends CI_Controller{
 		// include the proper file
 		$root = $_SERVER['DOCUMENT_ROOT'];
 		$url = "{$root}prospero/helper_scripts/category_type_categories.php";//note that this file is dynamically generated
-		include($url);
 		
-		// get all relevant category_types
-		$category_types = $this->general->get_category_types();
-
+		include($url); // get all_categories from this
+		
 		// update category_type_categories and table_schema!
-		foreach($category_types as $category_type => $categories) {
+		foreach($all_categories as $category_type => $array) {
 			
-			foreach($categories as $category => $datatype) {
+			foreach($array as $category => $datatype) {
 				
 				$exists = $this->table_schema($category, $category_type, $datatype);//will update if it needs to 
-
-				if(!$exists) {//
-					$this->category_type_categories;
-					
-					if($category_type != 'general')//update personal table if it doesn't fit into the general
+				$this->category_type_category($category_type, $category);//update category_type_categories
+				
+				if($category_type != 'general')
 						$this->non_general_category($category_type, $category, $datatype);
-				}
 			}
 		}
+		
 	}
+	
 	
 	private function table_schema($category, $category_type, $datatype) {//looks for the proper table_schema category
 		
@@ -76,7 +75,7 @@ class Table_development extends CI_Controller{
 				'description' => "default_{$category}",
 		);
 		
-			$this->db->insert($table, $data);//insert new category into table_schema!
+			$this->db->insert('table_schema', $data);//insert new category into table_schema!
 			
 			return false;
 		}
@@ -91,7 +90,7 @@ class Table_development extends CI_Controller{
 			return false;
 		}
 		
-		else
+		else//the file was in the table_schema already!
 			return true;
 	}
 	
@@ -107,31 +106,53 @@ class Table_development extends CI_Controller{
 	private function non_general_category($category_type, $category, $datatype) {
 		
 		$this->load->dbforge();
-		$default = NULL;
 
+		$default = false;
+		
 		if('bool' == $datatype) {
-			$type = tinyint(1);
-			$default = 0;
+			$type = "tinyint(1)";
+			$default = '0';
 		}
 		
 		else if ('int' == $datatype)
-			$type = int(11);
+			$type = "int(11)";
 		
 		else
 			$type = "varchar(255)";
 		
 		$field = array($category => array(
 			'type' => $type,
-			'default' => $default,
+			'null' => true,
 			));
-			
-		$this->dbforge->add_field($field);
-		$this->dbforge->create_table($category_type, TRUE);//only create table if it doesn't exist
-
-		$this->dbforge->add_column($category_type, $field);//add column -- will throw error but works anyway
-		$this->dbforge->modify_column($category_type, $field);//modify column -- will throw error but works 
+		
+		if($default) {
+			$field['null'] = false;
+			$field['default'] = $default;
+		}
+		
+		if(!$this->column_exists($category_type, $category)) {
+			$this->dbforge->add_field($field);
+			$this->dbforge->add_column($category_type, $field);//add column -- will throw error but works anyway
+		}
 	}
+	
+	private function column_exists($table, $category) {
+		
+		$table = $this->db->escape_str($table);
+		$sql = "DESCRIBE `$table`";
+		$query = $this->db->query($sql);
+		
+		$flag = false; // it doesn't exist
 
+		foreach($query->result() as $row) {
+
+			if($row->Field === $category)
+				$flag = true;
+		}
+		
+		return $flag;
+	}
+	
 
 /************************************************************************************************************/
 }
