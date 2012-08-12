@@ -12,7 +12,8 @@ class Listing extends CI_Controller{
 		$this->load->library($libraries);
 	}
 	
-	public function _remap($uri){
+	public function _remap($uri){ //uri is the number or title etc
+		
 		// NEED A PROPERTY EXISTS MAPPING
 		// WILL DETERMINE IF IT IS 0-9
 
@@ -27,6 +28,7 @@ class Listing extends CI_Controller{
 			$this->listing();
 		else
 			$this->redirect();
+			
 	}
 		
 	function redirect(){
@@ -47,7 +49,10 @@ class Listing extends CI_Controller{
 		
 		// Can pass extra css sheets or js files. Header class will check for validity so its okay to pass for local only and compile later
 		$this->header = $this->header->header_creation($this->page_type, $page_title, $this->property_id, array(), array());
-
+		
+		// WE NEED TO LOAD THE PROPER CLASSES HERE -- STATICALLY!
+		// example: this->load->library('listing', 'array('property_id => $this->property_id)')
+		
 		// VIEW OUTPUT
 		$this->load->view('listing/listing_base');
 	}
