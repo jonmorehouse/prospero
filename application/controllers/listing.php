@@ -10,6 +10,7 @@ class Listing extends CI_Controller{
 		// LIBRARY LOADING
 		$libraries = array('property/property_search', 'property/browse', 'utilities/header');
 		$this->load->library($libraries);
+		
 	}
 	
 	public function _remap($uri){ //uri is the number or title etc
@@ -50,10 +51,16 @@ class Listing extends CI_Controller{
 		// Can pass extra css sheets or js files. Header class will check for validity so its okay to pass for local only and compile later
 		$this->header = $this->header->header_creation($this->page_type, $page_title, $this->property_id, array(), array());
 		
-		// WE NEED TO LOAD THE PROPER CLASSES HERE -- STATICALLY!
-		// example: this->load->library('listing', 'array('property_id => $this->property_id)')
+		// LOAD LISTING CLASSES -- 
+		$libraries = array('listing/listing', 'listing/listing_content', 'listing/listing_media', 'listing/listing_drawers');
+		$this->load->library($libraries, array('property_id' => $this->property_id));
+		
+		
 		
 		// VIEW OUTPUT
-		$this->load->view('listing/listing_base');
+		// $this->load->view('listing/listing_base');
 	}
+
+
+
 }

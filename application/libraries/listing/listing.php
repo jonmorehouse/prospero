@@ -2,15 +2,19 @@
 
 class Listing{
 	
-	protected var $property_id;
+	protected $property_id;
 	
 	public function __construct($parameters) {
 		
-		echo "in the listing section";
-		print_r($parameters);
 		
-		echo $this->property_id;
+		
 	}
 	
-	
+	protected function get($category) {
+		
+		$category_value = $this->CI->general->get_category($this->property_id, $category);
+		$category_value = $this->CI->format->word_format($category);
+		
+		return $category_value;
+	}
 };

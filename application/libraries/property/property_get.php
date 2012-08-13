@@ -336,4 +336,5 @@ class Property_get{
 
 		return $tag;
 	}
+
 };
