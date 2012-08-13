@@ -123,10 +123,11 @@ class Media{
 		else {//exists
 			
 			$url = "{$query->row()->url}";
-			
+
 			if(file_exists($url))//only works for local files no http:// etc
 				return base_url($url);
 
+			
 			else if('thumbnail_image' == $media)
 				return $this->default_thumbnail_image_url;
 

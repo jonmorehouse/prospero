@@ -25,8 +25,21 @@ class Tools extends CI_Controller{
 		
 		$this->load->library('property/property_set');
 		$property_id = $this->property_set->save(array('property_id' => 'new_listing', 'name' => 'default name'));
-		print_r($this->general->get_category_types());
 
+		$category_types = $this->general->get_category_types();
+		print_r($category_types);
+		foreach($category_types as $category_type) {
+			
+			$categories = $this->general->get_category_type_categories($category_type);
+			
+			foreach($categories as $category) {
+				
+				if('property_id' != $category) {
+					$default = "";
+					$this->property_set->save(array('property_id' => $property_id, $category => "Default {$this->format->word_format($category)}"));
+				}
+			}
+		}
 	}
 	
 	public function clear_general_tables(){
@@ -107,10 +120,6 @@ class Tools extends CI_Controller{
 		
 	}
 	
-	
-	
-	
-
 	
 /************************************************************************************************************/
 }

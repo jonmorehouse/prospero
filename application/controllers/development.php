@@ -3,7 +3,7 @@
 	** this class is for temporary tools to be used with the 
 	** any permanent tools go into the tools class
 */
-class Development extends CI_Controller{
+class Development extends CI_Controller {
 	
 	/*** CONSTRUCTS ***/
 	
@@ -18,13 +18,12 @@ class Development extends CI_Controller{
 	
 	public function test() {
 		
-		$this->load->model('general');
-		echo $this->general->get_category_table('weekend_manager_status');
-
-		// $this->load->library('listing/listing');
-		// $this->load->library('listing/listing_media', array('property_id' => 2));
+		$parameters = array('property_id' => 50);
+		$libraries = array('listing/listing', 'listing/listing_media', 'listing/listing_content', 'listing/listing_drawers');
+		$this->load->library($libraries, $parameters);	
 		
-		
+		$this->listing_drawers->drawer_content();
+		echo "\n\n";
 		
 		
 	}

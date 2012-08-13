@@ -55,7 +55,7 @@ class Listing extends CI_Controller{
 		$libraries = array('listing/listing', 'listing/listing_content', 'listing/listing_media', 'listing/listing_drawers');
 		$this->load->library($libraries, array('property_id' => $this->property_id));
 		
-		
+		$this->listing_content->test();
 		
 		// VIEW OUTPUT
 		// $this->load->view('listing/listing_base');
