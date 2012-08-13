@@ -20,4 +20,11 @@ class Date{
 		return $formatted_date;
 		
 	}
+	
+	public function sort_dates($dates) {//will sort a bunch of datetimes and will give a month ranking of how many views per month in the past year
+		
+		
+		
+		
+	}
 };

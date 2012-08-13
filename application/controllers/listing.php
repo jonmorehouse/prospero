@@ -1,19 +1,20 @@
 <?php
 
-class Listing extends CI_Controller{
+class Listing extends CI_Controller { 
 	
-	function __construct(){
+	function __construct() {
 		parent::__construct();
 		
 		$this->page_type = 'listing';
 
 		// LIBRARY LOADING
-		$libraries = array('property/property_search', 'property/browse', 'utilities/header');
+		$libraries = array('property/property_search', 'property/browse', 'utilities/header', 'session');
 		$this->load->library($libraries);
 		
+
 	}
 	
-	public function _remap($uri){ //uri is the number or title etc
+	public function _remap($uri) { //uri is the number or title etc
 		
 		// NEED A PROPERTY EXISTS MAPPING
 		// WILL DETERMINE IF IT IS 0-9
@@ -25,21 +26,24 @@ class Listing extends CI_Controller{
 		// verify the listing uri with property_search--allows for searching by name
 		$this->property_id = $this->property_search->listing_verification($uri);
 
-		if($this->property_id)
-			$this->listing();
+		if($this->property_id) {
+			$this->listing_view();//used to update the database
+			$this->listing();//the actual listing view
+
+		}
 		else
 			$this->redirect();
 			
 	}
 		
-	function redirect(){
+	public function redirect() {
 		// THIS IS TO REDIRECT TO ANOTHER SITE--THIS IS SO IT CAN BE CHANGED EASILY!
 		redirect('property/industrial_retail');
 	}
 	
 // 	LISTING OUTPUT
 	
-	function listing(){
+	public function listing() {
 		
 		// PAGE META DATA
 		$this->page_type = 'listing';
@@ -61,6 +65,18 @@ class Listing extends CI_Controller{
 		// $this->load->view('listing/listing_base');
 	}
 
-
+	private function listing_view() {
+		
+		$properties_visited = $this->input->post('properties_visited');//array of all the visited properties for this user stored in the session
+		
+		if(!in_array($this->property_id, $properties_visited)) {
+		
+			$this->load->library('listing/listing_inquiry', array('property_id' => $property_id));//load the library
+			$this->listing_inquiry->database_update();
+			array_push($properties_visited, $this->property_id);//push property_id into the array
+			$this->session->set_userdata(array('properties_visited' => $properties_visited));//update the session with visited properties
+		} //end of array
+		
+	}
 
 }

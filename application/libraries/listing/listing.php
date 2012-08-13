@@ -54,6 +54,20 @@ class Listing{
 		return $category_value;
 	}
 
+	protected function managers() {//will return an array of the managers attached to this property
+		
+		$weekend_manager_status = $this->get('weekend_manager');
 
+		$manager = "{$this->get('manager_first_name')} {$this->get('manager_last_name')}";
+		
+		$managers = array($manager);//all managers attached to this property
+		
+		if($weekend_manager_status) {
+
+			$weekend_manager = "{$this->get('weekend_manager_first_name')} {$this->get('weekend_manager_last_name')}";
+			
+			array_push($managers, $weekend_manager);
+		}
+	}
 
 };

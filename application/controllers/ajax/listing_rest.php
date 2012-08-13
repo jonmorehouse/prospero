@@ -13,8 +13,7 @@ class Listing_rest extends CI_Controller{
 	
 	public function video() {
 		
-		// $browser_type = $this->input->post('browser_type');
-		$browser_type = "firefox";
+		$browser_type = $this->input->post('browser_type');
 		$video = $this->listing_media->video($browser_type);
 		
 		if(!$video)	
@@ -38,21 +37,14 @@ class Listing_rest extends CI_Controller{
 	public function email() {
 		
 		$sender = $this->input->post('sender');
-		$email = $this->input->post('destination');// should be an array
 		$message = $this->input->post('message');
 		$subject = $this->input->post('subject');
+		
+		$this->load->library('listing/listing_inquiry', array('property_id' => $this->property_id));
+		$this->listing_inquiry->property_inquiry($message, $subject, $sender);
+		
+		echo "Message sent successfully.";
 
-		
-		// SUBMIT EMAIL
-		$this->email->from($sender, "{$this->property->get($this->property_id)} Customer Inquiry");
-		$this->email->to(); 
-		
-		$this->email->subject($subject);
-		$this->email->message($message);	
-
-		$this->email->send();		
-		
-		
 	}
 
 	private function return_false() {
