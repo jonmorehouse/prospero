@@ -39,9 +39,13 @@ class File_analysis{
 	}
 	// CONSTRUCTOR TO FIND THE ROOT DIRECTORY
 	
-	public function file_format($file_name) {
+	public function extension_switch($file_name, $extension) {
 		
-		
-		
+		$extension_position = strrpos($file_name, ".") + 1;
+		$length = strlen($file_name);
+		$file_name = substr_replace($file_name, $extension, $extension_position, $length);
+
+		return $file_name;
 	}
+
 }

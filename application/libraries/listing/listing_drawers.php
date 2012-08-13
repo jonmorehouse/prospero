@@ -94,17 +94,21 @@ class Listing_drawers extends Listing{
 	}
 	
 	private function video() {
+		// WILL USE JAVASCRIPT TO LOAD IN THE VIDEO UPON LOADING
 		
 		$media_id = $this->get('video_id');
-		$url = $this->CI->media->get_url('video', $media_id);
-		$html = "<a href='{$url}' target='new'>Download PDF</a>";
+
+		$html = "<video>";
+		$html .= "</video>";
 		
 		return $html;
 	}
 	
 	private function contact() {
 		
-		return "";
+		$name = $this->CI->format->word_format("{$this->get('manager_first_name')} {$this->get('manager_last_name')}");
+		$html = "<div data-manager_email='{$this->get('manager_email')}'";
+		$html .= "\n\t<span>{$this->get('manager_first_name')}"
 		
 		
 	}
@@ -120,4 +124,6 @@ class Listing_drawers extends Listing{
 		return "";
 		
 	}
+
+
 };

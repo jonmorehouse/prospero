@@ -10,9 +10,13 @@
 
 class Listing{
 	
+/******** VARIABLES **********/
+
 	protected $property_id;
 	protected $CI;
 	
+/********* CONSTRUCT/DESTRUCTS **********/
+
 	public function __construct($parameters) {
 		
 		// VARIABLES
@@ -31,6 +35,10 @@ class Listing{
 			
 	}
 	
+/*****PUBLIC FUNCTIONS ***************/	
+
+/******* PROTECTED FUNCTIONS **********/
+	
 	protected function get($category) {
 		
 		$category_value = $this->CI->general->get_category($this->property_id, $category);
@@ -45,4 +53,7 @@ class Listing{
 		
 		return $category_value;
 	}
+
+
+
 };
