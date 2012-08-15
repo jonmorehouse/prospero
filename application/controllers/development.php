@@ -28,7 +28,24 @@ class Development extends CI_Controller {
 		
 	}
 	
+	public function date() {
+		
+		$this->load->library('utilities/date');
+		
+		$year_ago = $this->date->year_ago();
 
+		$increments = $this->date->db_date_increments($year_ago, 'week');
+		
+
+		
+		echo "\n\n";
+	}
+	
+	public function tester() {
+		
+		$this->load->library('utilities/date');
+		echo $this->date->db_date();
+	}
 	
 	
 }

@@ -54,6 +54,12 @@ class Listing{
 		return $category_value;
 	}
 
+	protected function category($category) {
+		
+		return $this->CI->general->get_category($this->property_id, $category);
+		
+	}
+	
 	protected function managers() {//will return an array of the managers attached to this property
 		
 		$weekend_manager_status = $this->get('weekend_manager');
