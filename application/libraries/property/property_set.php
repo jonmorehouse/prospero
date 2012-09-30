@@ -18,8 +18,6 @@ class Property_set{
 	function Property_set(){
 		$this->CI = $this->CI =& get_instance();
 
-		$this->CI->load->model('upload/listing_management');
-
 		$this->CI->load->config('site_status');
 
 		$libraries = array('utilities/file_analysis', 'utilities/file_management', 'utilities/data_helper');
@@ -79,6 +77,7 @@ class Property_set{
 			move_uploaded_file($temporary_file, $file_name);
 			
 			if('slideshow_image' == $type) {
+				
 				$thumbnail_file_name = $this->create_relative_url($property_id, 'slideshow_thumbnail_image', $media_id, $extension);
 				$this->CI->load->library('utilities/image_management');
 				$this->CI->image_management->create_slideshow_thumbnail_image($file_name, $thumbnail_file_name);

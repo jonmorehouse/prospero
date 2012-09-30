@@ -60,15 +60,14 @@ class Management_create_update extends Management_forms {
 				if($this->get_category_input_type($category) != 'hidden')//don't put hidden in the columns -- columns floated left
 					$form .="\n\t<div>";
 
-				$input_type = $this->get_category_input_type($category);
-				$this->{$input_type}($category);
-				$form .= $this->$input_type($category);
+				$input_type = $this->get_category_input_type($category);//generate which type of category this is
 				
+				$form .= $this->$input_type($category);//add the form for this category type to our current form
+
 				// last already taken care of so div closed...just move on
 
-				if($this->get_category_input_type($category) != 'hidden')
+				if($this->get_category_input_type($category) != 'hidden')//if it is not hidden, add a div -- we don't want the hidden elements to take up space and create blank spots on the forsm!
 					$form .= "\n\t</div>";//only close the divs that were created -- not for hiddens
-
 			}//end foreach for categories
 			
 			$form .= "\n\t</form>\n\t<br />";//close the category_type form
@@ -78,7 +77,7 @@ class Management_create_update extends Management_forms {
 		
 		$form .= "\n</div>";//end main form with form_type='save'
 		
-		return $form;
+		return $form;//return the generated form to the management controller to be echoed in the view
 	}
 
 };

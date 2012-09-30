@@ -1,6 +1,6 @@
 <?php
 
-class Listing_content extends Listing{
+class Listing_inquiry extends Listing_base{
 	
 /***** CONSTRUCTOR/DESTRUCTOR METHODS ******/
 	
@@ -10,8 +10,9 @@ class Listing_content extends Listing{
 	private $weekend_manager;
 	
 	public function __construct($parameters) {
-		
+			
 		parent::__construct($parameters);
+
 		$this->CI->load->library('utilities/date');
 		$this->weekend_manager = $this->get('weekend_manager');//boolean to be used throughout this library
 		$this->CI->config->load('site_status');
@@ -67,9 +68,11 @@ class Listing_content extends Listing{
 			mail($this->category('weekend_manager_email'), $this->subject, $this->message, $headers);
 	}
 	
+	// this will generate the property by property hits for the past year
 	private function year_properties() {
 		
 		$year_ago = $this->CI->date->year_ago();
+
 		
 		
 	}

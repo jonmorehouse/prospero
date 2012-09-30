@@ -56,7 +56,8 @@ class Table_development extends CI_Controller{
 		}
 		
 	}
-	
+
+/****** PRIVATE FUNCTIONS ******/
 	
 	private function table_schema($category, $category_type, $datatype) {//looks for the proper table_schema category
 		

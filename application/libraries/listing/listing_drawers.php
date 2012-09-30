@@ -4,12 +4,12 @@
 	to add a new draw tab, please look into available_drawers() and edit the arrays there!
 */
 
-class Listing_drawers extends Listing{
+class Listing_drawers extends Listing_base{
 
 /******** CLASS WIDE VARIABLES *********/
 	
 	private $available_drawers = array();
-	private $universal_drawers = array('map', 'walk_score');
+	private $universal_drawers = array('contact', 'map', 'walk_score', 'other_properties');
 	private $media_drawers = array('video', 'pdf');
 	private $category_drawers = array();//functionality is here, to add a new category just change the array and create proper function below
 
@@ -34,6 +34,7 @@ class Listing_drawers extends Listing{
 		
 		$html .= "\n\t</ul>";
 		
+		
 	}
 
 	public function drawer_content() {//automatically creates a div for each available drawer to be used
@@ -52,7 +53,7 @@ class Listing_drawers extends Listing{
 	}
 
 /****** PRIVATE FUNCTIONS *******/
-
+	
 	private function available_drawers() {//creates all of the available drawers to be used in this class
 		
 		$this->available_drawers = $this->universal_drawers;
@@ -75,6 +76,7 @@ class Listing_drawers extends Listing{
 
 	}
 	
+	// word format -- this is useful for the drawer names etc
 	private function header($header) {/* Responsible for changing any headers to account for extra characters throughout this class */
 		
 		return $this->CI->format->word_format($header);
@@ -93,7 +95,7 @@ class Listing_drawers extends Listing{
 		return $html;
 	}
 	
-	private function video() {
+	private function video() {//this is the video loader -- obsolete as of right now
 		// WILL USE JAVASCRIPT TO LOAD IN THE VIDEO UPON LOADING
 		
 		$media_id = $this->get('video_id');
@@ -104,7 +106,7 @@ class Listing_drawers extends Listing{
 		return $html;
 	}
 	
-	private function contact() {
+	private function contact() {//contact html -- this will be what sends the email for when users inquire
 		
 		$name = $this->CI->format->word_format("{$this->get('manager_first_name')} {$this->get('manager_last_name')}");
 		$html = "<div data-manager_email='{$this->get('manager_email')}'";
@@ -115,7 +117,7 @@ class Listing_drawers extends Listing{
 	
 	private function map() {
 	
-		return "";
+		return "";//this will be implemented in later -- this will 
 		
 	}
 	

@@ -36,7 +36,7 @@ class Media{
 	
 /********** PUBLIC FUNCTIONS ************************/
 
-
+	//this is for retrieving a single media id!
 	public function get_media($property_id, $type = 'thumbnail_image', $status = true) {//type is pdf/video/thumbnail -- returns a single media_id
 		
 		$this->property_id = $property_id;
@@ -57,6 +57,7 @@ class Media{
 			return false;//remember that the thumbnail will automatically be the default one
 	}
 	
+	// this is for retrieving a list of images or -- for the thumbnail image or slideshow image media type
 	public function get_media_list($property_id, $type = 'thumbnail_image', $status = true) {//returns array of any media type with ids
 		
 		$media_list = array(); //array of integers that are primary keys for each table
@@ -136,10 +137,12 @@ class Media{
 		}
 	}	
 
+	// this function is useful for getting the thumbnail url to be used by each slideshow image!
 	public function get_slideshow_thumbnail_url($media_id) {
 		
 		$full_image_url = $this->get_url('slideshow_image', $media_id);
-		$thumbnail_url = $this->CI->format->replace_in_string($full_image_url, 'slideshow_thumbnail', 'slideshow');
+
+		$thumbnail_url = $this->CI->format->replace_in_string($full_image_url, 'slideshow', 'thumbnail_slideshow');
 
 		return $thumbnail_url;//we simply replaced the slideshow directory with teh slideshow_thumbnail directory
 	}
@@ -155,7 +158,6 @@ class Media{
 		
 		if($query)
 			return $query->row()->status;
-		
 	}
 
 /************* PRIVATE FUNCTIONS ********************/

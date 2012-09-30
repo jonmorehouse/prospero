@@ -7,7 +7,7 @@
 	
 */
 
-class Listing_media extends Listing {
+class Listing_media extends Listing_base{
 
 /******* CONSTRUCTS / DESTRUCTS ********/
 
@@ -15,6 +15,11 @@ class Listing_media extends Listing {
 		
 		parent::__construct($parameters);
 		$this->CI->load->library('utilities/file_analysis');
+		$this->CI->load->library('property/media');
+
+		//generate a list of the slideshow images to be used by both the thumbnails 
+		$this->images = $this->CI->media->get_media_list($this->property_id, 'slideshow_image');//this should be an array of image ids! -- set this globally so that the thumbnails can be used
+
 	}
 	
 /********** PUBLIC FUNCTIONS ***********/
@@ -35,18 +40,38 @@ class Listing_media extends Listing {
 		
 	}
 	
-	public function slideshow_image($url) {// will create the url for an individual slideshow image
+	public function image_tag($url) {// will create the url for an individual slideshow image
 		
 		$html = "<img src='{$url}' alt='{$this->get('name')}' />"; 
 		
 		return $html;
-		
 	}
 	
-	public function slideshow() {//will return the slideshow for the content page
-		
-		
-		
+	public function slideshow_thumbnails() {//this will return the slideshow image urls
+
+		// grab all of the images, and then retrieve their thumbnails using the media class
+		// for each of the slideshow image ids, we need to generate a thumbnail url to show in the slideshow -- these are auto-generated and should all be working
+		//need to have some sort of validation system to ensure that all images work properly
+
+		$thumbnails = array();
+
+		//generate each of the thumbnail_urls
+		foreach($this->images as $image_id)
+			array_push($thumbnails, $this->CI->media->get_slideshow_thumbnail_url($image_id));
+
+		return $thumbnails;
+	}
+
+	public function slideshow_images() {//will return the slideshow for the content page
+	
+		//note that the construct creates a list of media ids for all of the images to be used by this property
+		// we need to convert those into urls to be used for the slideshow
+		$urls = array();
+
+		foreach ($this->images as $image_id) 
+			array_push($urls, $this->CI->media->get_url('slideshow_image', $image_id));
+
+		return $urls;
 	}
 
 	public function video($browser_type) {//will return the proper video_url for the video player

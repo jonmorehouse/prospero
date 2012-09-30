@@ -160,7 +160,6 @@ class Header{
 		if($property_id){
 			foreach((array)$property_id as $value)
 				$keywords .= ' ' . $this->CI->property_get->meta_keywords($value);//will be an array
-			$keywords .= ", {$meta}"; 
 		}
 		
 		$clean_keywords = $this->CI->format->keywords($keywords);

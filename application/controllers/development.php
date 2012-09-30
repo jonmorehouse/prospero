@@ -1,8 +1,10 @@
 <?php
+
 /*
 	** this class is for temporary tools to be used with the 
 	** any permanent tools go into the tools class
 */
+
 class Development extends CI_Controller {
 	
 	/*** CONSTRUCTS ***/
@@ -11,23 +13,10 @@ class Development extends CI_Controller {
 		
 		parent::__construct();
 		
-		
 	}
 	
 	/***** PUBLIC FUNCTIONS *****/
-	
-	public function test() {
-		
-		$parameters = array('property_id' => 50);
-		$libraries = array('listing/listing', 'listing/listing_media', 'listing/listing_content', 'listing/listing_drawers');
-		$this->load->library($libraries, $parameters);	
-		
-		$this->listing_drawers->drawer_content();
-		echo "\n\n";
-		
-		
-	}
-	
+
 	public function date() {
 		
 		$this->load->library('utilities/date');
@@ -35,17 +24,22 @@ class Development extends CI_Controller {
 		$year_ago = $this->date->year_ago();
 
 		$increments = $this->date->db_date_increments($year_ago, 'week');
-		
 
-		
-		echo "\n\n";
 	}
 	
-	public function tester() {
-		
-		$this->load->library('utilities/date');
-		echo $this->date->db_date();
+	public function test() {
+
+		$address = "527 Crossbow Dr. Maineville Oh. 45039";
+
+		$this->load->library('google/geocoding', array('address' => $address));
+
+		$longitude = $this->geocoding->get_longitude();
+		$latitude = $this->geocoding->get_latitude();
+
+		echo "longitude = $longitude and latitude = $latitude\n\n";
+
+		$this->load->library('walkscore/walkscore', array('address'=> $address, 'longitude'=>$longitude, 'latitude'=>$latitude));
+
 	}
-	
-	
+
 }

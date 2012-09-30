@@ -125,7 +125,7 @@ class General extends CI_Model{
 	
 	
 	// useful for things other than 
-	public function get_categories_by_type($category_type) {//returns all the tables for a specific category_type
+	public function get_categories_by_type($category_type) {//returns all the categories for a specific category_type
 		
 		$query = $this->db->where(array('type' => $category_type))->get('table_schema');
 		$categories = array();
@@ -182,13 +182,24 @@ class General extends CI_Model{
 	
 	public function get_category($property_id, $category) {//database abstraction to get the individual category at any time
 		
-		$table = $this->get_category_table($category);
+		if (is_numeric($category)) {
+
+			$temp = $category;	
+			$category = $property_id;
+			$property_id = $temp;
+		}
 		
+		$table = $this->get_category_table($category);//need to do some
+		
+
 		$this->db->where(array('property_id' => $property_id))->select($category);
 
 		$query = $this->db->get($table);
-		
-		if(!$query || !$query->row()->$category)
+
+		if ($query->num_rows() == 0)
+			return false;
+
+		else if(!$query || !$query->row()->$category || $query->num_rows() ==0)
 			return false;
 		else
 			return $query->row()->$category;

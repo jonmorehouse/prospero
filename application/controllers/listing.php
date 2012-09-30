@@ -27,6 +27,8 @@ class Listing extends CI_Controller {
 		$this->property_id = $this->property_search->listing_verification($uri);
 
 		if($this->property_id) {
+
+			//need to initialize the listing library
 			$this->listing_view();//used to update the database
 			$this->listing();//the actual listing view
 
@@ -44,7 +46,7 @@ class Listing extends CI_Controller {
 // 	LISTING OUTPUT
 	
 	public function listing() {
-		
+
 		// PAGE META DATA
 		$this->page_type = 'listing';
 		$page_title = $this->property_get->name($this->property_id);
@@ -54,29 +56,37 @@ class Listing extends CI_Controller {
 		
 		// Can pass extra css sheets or js files. Header class will check for validity so its okay to pass for local only and compile later
 		$this->header = $this->header->header_creation($this->page_type, $page_title, $this->property_id, array(), array());
-		
+
+		/* When it comes time to change the listing information, lets just extend the header for this section! */		
+
 		// LOAD LISTING CLASSES -- 
-		$libraries = array('listing/listing', 'listing/listing_content', 'listing/listing_media', 'listing/listing_drawers');
+		$libraries = array('listing/listing_inquiry', 'listing/listing_content', 'listing/listing_media', 'listing/listing_drawers');
 		$this->load->library($libraries, array('property_id' => $this->property_id));
-		
-		$this->listing_content->test();
-		
+	
+		$this->slideshow_images = $this->listing_media->slideshow_images();//get the slideshow image urls
+		$this->slideshow_thumbnail_images = $this->listing_media->slideshow_thumbnails();//get the small thumbnails for the individual slideshow for this property		
+
 		// VIEW OUTPUT
-		// $this->load->view('listing/listing_base');
+		$this->load->view('listing/listing_base');
 	}
 
+//listing view is responsible for setting whether or not a listing was viewed by a user
 	private function listing_view() {
+
+		if(!array_key_exists('properties_visited', $this->session->all_userdata()))//check to make sure that the properties visited actually exist in the session data
+			$this->session->set_userdata(array('properties_visited' => array()));//if they don't, you need to add an empty array
+
+		$properties_visited = $this->session->userdata('properties_visited');
 		
-		$properties_visited = $this->input->post('properties_visited');//array of all the visited properties for this user stored in the session
-		
+		$this->load->library('listing/listing_base', array('property_id' => $this->property_id));
+		$this->load->library('listing/listing_inquiry', array('property_id' => $this->property_id));//load the library
+
 		if(!in_array($this->property_id, $properties_visited)) {
-		
-			$this->load->library('listing/listing_inquiry', array('property_id' => $property_id));//load the library
-			$this->listing_inquiry->database_update();
+			
+			$this->listing_inquiry->database_update();//update the database
+
 			array_push($properties_visited, $this->property_id);//push property_id into the array
 			$this->session->set_userdata(array('properties_visited' => $properties_visited));//update the session with visited properties
 		} //end of array
-		
 	}
-
 }
