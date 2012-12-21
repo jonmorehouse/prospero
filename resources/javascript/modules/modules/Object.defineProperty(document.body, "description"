@@ -1,0 +1,18 @@
+Object.defineProperty(document.body, "description", {
+			
+		this.description = test;
+
+		get: fucntion() {
+
+			return this.descr
+
+		},
+
+		set: function(input) {
+
+			this.description = test;
+
+		}
+
+
+});
