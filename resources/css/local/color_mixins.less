@@ -1,0 +1,35 @@
+@import "variables.less";
+
+/**** THE BASIC BACKGROUND ******/
+.base_background(@red, @green, @blue, @opacity) {
+
+	background-color:rgba(@red, @green, @blue, @opacity);
+
+	.norgba {
+
+		opacity: @opacity;
+		background-color:rgb(@red, @green, @blue);
+	}
+}
+
+
+/********* PUBLIC ACCESSORS **********/
+.light_gray_background(@opacity: 0.8) {
+
+	.base_background(36,36,36,@opacity);
+
+}
+
+.dark_background(@opacity: @dark_opacity){
+
+	.base_background(0,0,0,@opacity);
+
+}
+
+.light_background(@opacity: @light_opacity){
+
+	.base_background(255,255,255,@opacity);
+
+}
+
+

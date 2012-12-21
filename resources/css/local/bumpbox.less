@@ -1,0 +1,223 @@
+@import "mixins";
+@import "variables";
+@import "color_mixins.less";
+
+#bumpbox_out_trigger {
+
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	height:100%;
+	width:100%;
+	display:none;
+	z-index:40;
+
+	// mixins etc
+	.light_gray_background(0.4);
+}
+
+/*************** GENERAL BUMPBOX STYLES ****************/
+.bumpbox{
+
+	z-index:60;
+	display:none;
+	position:fixed;
+	top:15%;
+	padding: 1% 3% 2% 3%;
+	left:20%;
+	right:20%;
+	max-height:80%;
+	.box_shadow();
+	.border();
+	.base_font();
+	.dark_background(@dark_opacity);
+	.border_radius();
+}
+
+.bumpbox > .thumbnails {
+
+	// THIS CODE ASSUMES THAT WE ARE USING 6 ELEMENTS
+	width: 100%;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	overflow-y: auto;
+	padding-top:1.2em;
+
+	> div {
+
+		width: 14.67%;
+		float:left;
+		margin-left:2%;
+		cursor:pointer;
+		.border_radius(10px, 10px, 10px, 10px, 10px);
+
+
+		&:hover {
+
+			.dark_background(@dark_opacity);
+
+		}
+
+		&:first-child {
+
+			margin-left: 0;
+
+		}
+
+		img {
+
+			position: relative;
+			width: 90%;
+			display: block;
+			margin: 2% auto;
+
+		}
+
+		h1, h2 {
+
+			position:relative;
+			color: white;
+			margin: 0.2em auto;
+			text-align:center;
+			font-size: 1.2em;
+		}
+
+		h1 {
+			margin-top:1em;
+		}
+		h2 {
+
+			font-size:0.9em;
+
+		}
+	}
+
+	> div.selected {
+
+		.light_background(0.2);
+
+	}
+
+		
+}
+
+.bumpbox > .content {
+
+	position:relative;
+	display:block;
+	width: 100%;
+	.border_radius();
+	color: white;
+
+
+}
+
+/******** INDIVIDUAL BUMPBOX ELEMENTS **********/
+.bumpbox.contact > div {
+
+	// global contact styles
+	h1, span {
+		display:block;
+		text-align:center;
+	}
+
+	// address only style
+	&:first-child {//address section
+
+		height:30%;
+		width:50%;
+		display:block;
+		position:relative;
+		margin:0 auto;
+
+		span {
+			height:8px;
+
+		}
+
+	}
+
+	// form styles
+	&:last-child {//email form
+
+		height:60%;
+
+		input[type="text"], textarea, button{
+
+			display:block;
+			width:80%;
+			padding:0.2em 0 0.2em 0;
+			font-size:1.1em;
+			margin: 1em auto;
+			background-color:rgba(255, 255,255,0.8);
+		}
+
+		button {
+			margin:0 auto 2em;
+			cursor:pointer;
+			width:50%;
+			.border_radius;
+			&:hover {
+				background-color:gray;
+			}
+		}
+
+		div.message {
+
+			display:none;
+			width:50%;
+			margin:0 auto;
+			color:white;
+		}
+	}
+}
+//end of contact
+
+// TEAM BUMPBOX ELEEMENT
+.bumpbox.team > .content {
+
+	.light_background(0.2);
+	width:96%;
+	margin-top:2em;
+	padding:0.5em 2% 0.5em 2%;
+	height: 12em;
+
+	div {
+
+
+		// basic elements
+		width:100%;
+		display:none;	
+		overflow-y:auto;
+
+		// control elements
+		&:first-child {
+
+			display:block;
+
+		}
+
+		// text elements
+		h1 {
+
+			font-size:1.4em;
+			text-align:center;
+		}
+
+		p {
+
+			color:white;
+
+		}
+	}
+
+
+
+
+}
+
+
+
