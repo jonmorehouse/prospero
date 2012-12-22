@@ -13,7 +13,6 @@ class Temp_development extends CI_Controller {
 	public function test() {
 
 
-
 	}
 
 

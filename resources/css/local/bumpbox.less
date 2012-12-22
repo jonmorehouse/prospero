@@ -186,7 +186,7 @@
 /******* TEAM *****/
 /******* TEAM *****/
 /******* TEAM *****/
-.bumpbox.team > .content {
+.bumpbox.team > .content, .bumpbox.about > .content {
 
 	.light_background(0.2);
 	width:96%;
@@ -228,7 +228,7 @@
 /******** SERVICES ********/
 /******** SERVICES ********/
 /******** SERVICES ********/
-.bumpbox.services > .content > div {
+.bumpbox.services > .content > div, .bumpbox.about > .content > div {
 
 	display:none;
 
@@ -241,7 +241,7 @@
 
 }
 
-.bumpbox.services > .thumbnails {
+.bumpbox.services > .thumbnails, .bumpbox.about > .thumbnails {
 
 	width: 100%;
 	overflow-x:hidden;
@@ -281,5 +281,29 @@
 	}
 }
 
+.bumpbox.about > .content {
 
+	div{	
+		position:relative;
+		padding: 2em 0 2em 0;
+		overflow-y: auto;
+		max-height: 12em;
+		overflow-y:auto;
+
+		p {
+			position:relative;
+			width:90%;
+			display:block;
+			padding:0 5% 0 5%;
+			position:relative;
+		}
+	}
+
+}
+
+.bumpbox.about > .thumbnails > ul > li{
+
+	width: 23%;
+
+}
 

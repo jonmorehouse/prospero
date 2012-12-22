@@ -58,6 +58,8 @@ Project.Pages.Homepage = (function() {
 			"contact": new Project.Modules.contact($('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"),
 			"contact_animation": new Project.Modules.form_animation($('.bumpbox.contact')),
 			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails ul'), $('.bumpbox.services > .content')),//will create a pause function later -- this can be embedded in a different element
+			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails ul'), $('.bumpbox.about > .content')),//will create a pause function later -- this can be embedded in a different element
+
 		}; 
 
 		// set the reset on each member here
@@ -78,7 +80,7 @@ Project.Pages.Homepage = (function() {
 	
 	var test = (function() {
 
-		$('#navigation_left li.services').trigger('click');
+		$('#navigation_left li.about').trigger('click');
 
 	}());
 

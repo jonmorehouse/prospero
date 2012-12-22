@@ -12,7 +12,7 @@ class Bumpbox_content {
 		$this->CI->load->library('utilities/format');
 
 		// initialize all models
-		$models = array('homepage/team_member', 'homepage/service');
+		$models = array('homepage/team_member', 'homepage/service', 'homepage/about');
 
 		$this->CI->load->model($models);//this corresponds to a small member
 
@@ -67,8 +67,20 @@ class Bumpbox_content {
 
 	private function set_about() {
 
+		$_abouts = array();
 
-		
+		$about_ids = $this->CI->about->get_about_ids();
+
+		foreach ($about_ids as $about_id) {
+
+			$about = array();
+			$about['title'] = $this->CI->about->get_title($about_id);
+			$about['content'] = $this->CI->about->get_content($about_id);
+
+			array_push($_abouts, $about);
+		}
+
+		return $_abouts;
 	}
 
 	private function set_maps()  {
