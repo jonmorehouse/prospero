@@ -228,19 +228,6 @@
 /******** SERVICES ********/
 /******** SERVICES ********/
 /******** SERVICES ********/
-.bumpbox.services > .content > div, .bumpbox.about > .content > div {
-
-	display:none;
-
-	&:first-child {
-
-		display: block;
-		max-height: 18em;
-		overflow-y: auto;
-	}
-
-}
-
 .bumpbox.services > .thumbnails, .bumpbox.about > .thumbnails {
 
 	width: 100%;
@@ -281,29 +268,32 @@
 	}
 }
 
-.bumpbox.about > .content {
+.bumpbox.about > .thumbnails > ul > li {
 
-	div{	
-		position:relative;
-		padding: 2em 0 2em 0;
-		overflow-y: auto;
-		max-height: 12em;
+	width: 23.5%;
+}
+
+.bumpbox.services > .content, .bumpbox.about > .content {
+
+	height: 17em;
+
+	> div {
+		height: 100%;
+		display: none;
 		overflow-y:auto;
 
-		p {
-			position:relative;
-			width:90%;
-			display:block;
-			padding:0 5% 0 5%;
-			position:relative;
+		> p {
+
+
 		}
+
+		&:first-child {
+
+			display:block;
+
+		}
+
+
 	}
 
 }
-
-.bumpbox.about > .thumbnails > ul > li{
-
-	width: 23%;
-
-}
-
