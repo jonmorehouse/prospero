@@ -8,9 +8,19 @@ class Bumpbox_content {
 
 		$this->CI =& get_instance();
 
+		// load proper libraries
 		$this->CI->load->library('utilities/format');
-		$this->CI->load->model('homepage/team_member');//this corresponds to a small member
+
+		// initialize all models
+		$models = array('homepage/team_member', 'homepage/service');
+
+		$this->CI->load->model($models);//this corresponds to a small member
+
+
+		// set proper elements
 		$this->team = $this->set_team();//get the team members
+		$this->services = $this->set_services();//
+
 
 	}
 
@@ -35,6 +45,24 @@ class Bumpbox_content {
 		}
 
 		return $_team;
+	}
+
+	private function set_services() {
+
+		$_services = array();//this is the collection of services
+
+		$service_ids = $this->CI->service->get_service_ids();//returns all service ids
+
+		foreach ($service_ids as $service_id) {
+
+			$service = array();
+			$service['title'] = $this->CI->service->get_title($service_id);
+			$service['content'] = $this->CI->service->get_content($service_id);
+
+			array_push($_services, $service);
+		}
+
+		return $_services;
 	}
 
 	private function set_maps()  {

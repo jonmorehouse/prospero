@@ -18,8 +18,10 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 
 	};
 
-	config.reset = (function () {
+	var reset = function () {
 
+		if (config.current_thumbnail !== undefined) config.current_thumbnail.removeClass(config.selection_class);
+		
 		config.current_id = 0;
 		config.current_content = container.children(":first-child");
 		config.current_thumbnail = thumbnail_container.children(":first-child");
@@ -27,7 +29,9 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 		// add the proper class to the element
 		config.current_thumbnail.addClass(config.selection_class);
 
-	}());
+	};
+
+	reset();//run the file -- can't use it as a seaf because it won't return in factory / self revealing pattern
 
 	var listen = thumbnail_container.children().click(function() {
 
@@ -52,8 +56,7 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 
 	return {
 
-		'test': this.test,
-		'config': config,
-		'Config': config,
+		'reset': reset,//this is the function that is responsible for resetting the entire module
+		'config': config,//return the configuration object
 	};
 };

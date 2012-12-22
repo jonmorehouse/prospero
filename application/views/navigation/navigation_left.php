@@ -15,8 +15,8 @@
 <?php
 
 	// keep this for now -- should by no sql in the future though
-	$this->load->view('navigation/bumpboxes/about');
-	$this->load->view('navigation/bumpboxes/team');
-	$this->load->view('navigation/bumpboxes/services');
+	$this->load->view('navigation/bumpboxes/about');//not finished
+	$this->load->view('navigation/bumpboxes/team');//finished
+	$this->load->view('navigation/bumpboxes/services');//services bumpbox
 	$this->load->view('navigation/bumpboxes/careers');
 ?>

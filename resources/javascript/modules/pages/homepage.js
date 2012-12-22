@@ -57,24 +57,24 @@ Project.Pages.Homepage = (function() {
 
 		}; 
 
+		// set the reset on each member here
 		for (var controller in bumpbox_controllers) {
 
-		    bumpbox_controllers[controller]["test"] = (function(i) {
+		    bumpbox_controllers[controller]["config"]["reset"] = (function(i) {
 
-		        // creating a new context for i
-		        return function() {
-		            alert(i); // access the i in scope, not the controller
-		        }
-		    })(controller);
+		    	if (bumpbox_modules[controller] !== undefined && bumpbox_modules[controller]["reset"] !== undefined) 
+		    		return bumpbox_modules[controller]["reset"];
 
+		    	return false;
+		    })(controller);//end of closure
 		}//end loop
+	}());//end of homepage initialization section
 
-		bumpbox_controllers["team"]["test"]();
+	var test = (function() {
 
 		$('#navigation_left li.team').trigger('click');
 
-
-	}());//end of homepage initialization section
+	}());
 
 
 }());

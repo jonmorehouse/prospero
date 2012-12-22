@@ -4,21 +4,19 @@ Project.Modules.bumpbox = function(in_trigger, container) {
 
 		'speed': 500,
 		'easing' : false,//will 
+		'reset': false,//will be responsible for resetting the bumpbox when we are done
 		'in_callback': false,
 		'out_callback' : false,
 		'visible': false,
 		'out_trigger' : $('#bumpbox_out_trigger'),//this is set by default only change if you know what you are doing!
 	};
-	
-	this.test = function() {
-
-		//this should be the default function. 
-
-	};
 
 	var in_listener = in_trigger.click(function() {
 
 		if (config.visible) return true;//don't want to call the animation if not necessary
+
+		// reset the configuration if we need to
+		if (config.reset) config.reset();
 
 		if (config.in_callback) config.in_callback();
 

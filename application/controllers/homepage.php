@@ -22,8 +22,11 @@ class Homepage extends CI_Controller{
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the javascript modules for this homepage
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
 		$this->background_images = $this->general->get_multiple_columns("general_images", array("image_id"=>"general_background"), array("url", "alt"), true);//this is an array of urls that we want to have as background images!
+
+		// generate bumpbox content
 		$this->team_bumpbox = $this->bumpbox_content->get_team();
-		
+		$this->services_bumpbox = $this->bumpbox_content->get_services();//get the services for the navigation_left elements!
+
 		//load and compile the view
 		$this->load->view('homepage/homepage_base');//main view for this page
 	}
