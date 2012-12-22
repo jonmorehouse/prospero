@@ -35,6 +35,7 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 
 	var listen = thumbnail_container.children().click(function() {
 
+
 		var id = $(this).attr(config.thumbnail_tag),//this is the tag id
 			next = container.children("div[data-id=" + id + "]");//this is the next element -- 
 

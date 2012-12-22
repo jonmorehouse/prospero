@@ -3,7 +3,7 @@ Project.Pages.Homepage = (function() {
 	var fade = (function() {
 
 		var animation_time = 1000,//how long the fade out will last
-			faded_opacity = 0.4;
+			faded_opacity = 0.3;
 
 		var elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#homepage_blurb'), $('#search')];
 
@@ -37,6 +37,9 @@ Project.Pages.Homepage = (function() {
 
 	}());//homepage fade in / fade out
 
+	// END FADE
+
+	// BUMPBOX INIT
 	var bumpbox_init = (function() {
 
 		var bumpbox_controllers = {
@@ -51,15 +54,17 @@ Project.Pages.Homepage = (function() {
 
 		var bumpbox_modules = {
 
-			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team .thumbnails'), $('.bumpbox.team .content')),//will create a pause function later -- this can be embedded in a different element
+			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails'), $('.bumpbox.team > .content')),//will create a pause function later -- this can be embedded in a different element
 			"contact": new Project.Modules.contact($('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"),
 			"contact_animation": new Project.Modules.form_animation($('.bumpbox.contact')),
-
+			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails ul'), $('.bumpbox.services > .content')),//will create a pause function later -- this can be embedded in a different element
 		}; 
 
 		// set the reset on each member here
 		for (var controller in bumpbox_controllers) {
 
+			bumpbox_controllers[controller]["config"]["in_callback"] = fade.fade_out;
+			bumpbox_controllers[controller]["config"]["out_callback"] = fade.fade_in;
 		    bumpbox_controllers[controller]["config"]["reset"] = (function(i) {
 
 		    	if (bumpbox_modules[controller] !== undefined && bumpbox_modules[controller]["reset"] !== undefined) 
@@ -69,10 +74,11 @@ Project.Pages.Homepage = (function() {
 		    })(controller);//end of closure
 		}//end loop
 	}());//end of homepage initialization section
-
+	//END OF BUMPBOX CONTROLLERS!
+	
 	var test = (function() {
 
-		$('#navigation_left li.team').trigger('click');
+		$('#navigation_left li.services').trigger('click');
 
 	}());
 

@@ -9,7 +9,7 @@
 	<li class='about'>About</li>
 	<li class='team'>Team</li>
 	<li class='services'>Services</li>
-	<li class='careers'>Careers</li>
+	<!-- <li class='careers'>Careers</li> -->
 </div>
 
 <?php
@@ -18,5 +18,5 @@
 	$this->load->view('navigation/bumpboxes/about');//not finished
 	$this->load->view('navigation/bumpboxes/team');//finished
 	$this->load->view('navigation/bumpboxes/services');//services bumpbox
-	$this->load->view('navigation/bumpboxes/careers');
+	// $this->load->view('navigation/bumpboxes/careers');
 ?>

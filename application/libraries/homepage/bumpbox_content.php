@@ -20,7 +20,7 @@ class Bumpbox_content {
 		// set proper elements
 		$this->team = $this->set_team();//get the team members
 		$this->services = $this->set_services();//
-
+		$this->about = $this->set_about();//this sets the about page
 
 	}
 
@@ -63,6 +63,12 @@ class Bumpbox_content {
 		}
 
 		return $_services;
+	}
+
+	private function set_about() {
+
+
+		
 	}
 
 	private function set_maps()  {

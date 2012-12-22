@@ -15,7 +15,7 @@
 			
 			<input type='text' value='Email Address' name="email"></input>
 
-			<textarea rows='5' cols='40' name="message">Your Email Message</textarea>
+			<textarea rows='3' cols='40' name="message">Your Email Message</textarea>
 			
 			<button>Submit Message</button>
 

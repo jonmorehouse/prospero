@@ -4,7 +4,7 @@
 
 		<?php
 			foreach ($this->services_bumpbox as $index=>$service)
-				echo "<div data-id='${index}'>${service['content']}</div>\n";
+				echo "<div data-id='${index}'><h1>${service['title']}</h1>${service['content']}</div>\n";
 		?>
 	</div>
 
