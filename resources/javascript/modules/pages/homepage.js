@@ -33,9 +33,7 @@ Project.Pages.Homepage = (function() {
 			"fade_out" : fade_out,
 		};
 
-	}());//homepage fade in / fade out
-
-	// END FADE
+		}());//homepage fade in / fade out
 
 	// BUMPBOX INIT
 	var bumpbox_init = (function() {
@@ -67,7 +65,7 @@ Project.Pages.Homepage = (function() {
 
 			bumpbox_controllers[controller]["config"]["in_callback"] = fade.fade_out;
 			bumpbox_controllers[controller]["config"]["out_callback"] = fade.fade_in;
-		    bumpbox_controllers[controller]["config"]["reset"] = (function(i) {
+		    bumpbox_controllers[controller]["config"]["reset"] = (function() {
 
 		    	if (bumpbox_modules[controller] !== undefined && bumpbox_modules[controller]["reset"] !== undefined) 
 		    		return bumpbox_modules[controller]["reset"];
@@ -79,12 +77,18 @@ Project.Pages.Homepage = (function() {
 		// link bumpbox window controller with bumpbox map controller
 		bumpbox_modules['map']['config']['change_trigger'] = bumpbox_modules['map_controller']['change_trigger'];
 
-	}());//end of homepage initialization section
+		}());//end of homepage initialization section
 	//END OF BUMPBOX CONTROLLERS!
+	
+	var global_animation = (function() {
+
+		var search_bar_animation = new Project.Modules.form_animation($('#search'));
+
+	}());
 	
 	var test = (function() {
 
-		$('#navigation_top li.map').trigger('click');
+		// $('#navigation_top li.map').trigger('click');
 
 	}());
 

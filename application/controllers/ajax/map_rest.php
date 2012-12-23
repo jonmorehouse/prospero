@@ -19,12 +19,18 @@ class Map_rest extends CI_Controller{
 
 		$filter = $this->input->post("filter");
 
-		$map_data = $this->map_api->general_map($filter);
+		$points = $this->map_api->general_map($filter);
 
-		if (!$map_data) echo json_encode(array("status" => false));
+		if (!$points) $map_data = array('status' => false);
 
-		else
-			echo json_encode(array("status" => true, "points" => $map_data));
+		else {
+
+			$map_data['status'] = true;			
+			$map_data['center'] = $this->map_api->get_center($points);
+			$map_data['points'] = $points;
+		}
+
+		echo json_encode($map_data);//this is the return data
 	}
 
 	

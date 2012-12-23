@@ -35,7 +35,7 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 
 						url: url,
 						data: {filter: category},
-						data: 'json',
+						dataType: 'JSON',
 						method: 'post'
 
 					}).done(function(_data) {

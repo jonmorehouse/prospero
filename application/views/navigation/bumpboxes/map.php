@@ -2,7 +2,7 @@
 	<div class='content'>
 	<?php
 		foreach ($this->map_bumpbox as $index=>$map)
-			echo "\n\t\t<div data-id='${index}' data-filter='${map['filter']}' data-url='${map['url']}'><h1>${map['title']}</h1><div>askldjf</div></div>\n";
+			echo "\n\t\t<div data-id='${index}' data-filter='${map['filter']}' data-url='${map['url']}'><h1>${map['title']}</h1><div></div></div>\n";
 	?>
 	</div>
 

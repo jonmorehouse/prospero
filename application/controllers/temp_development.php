@@ -17,12 +17,10 @@ class Temp_development extends CI_Controller {
 			'url' => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false",
 			'page_id' => "homepage",
 			'status' => false,	
-			'type' => 'site_wide',		
+			// 'type' => 'site_wide',		
 		);
 
-		$this->db->insert("javascript_modules", $insert_data);
-		
+		$this->db->insert("javascript_resources", $insert_data);
 		
 	}
-
 }
