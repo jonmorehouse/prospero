@@ -121,10 +121,16 @@ class Dynamic_header extends Header{
 
 			if ($query) {//verify the query
 				foreach ($query->result() as $row) {//loop through each of the loops
-					$url = $this->base_url . $row->url;
-					if (file_exists($row->url)) array_push($raw_files, $url);//only add the file to raw_files if it exists
-				}
-			}
+
+					// check to see if using a global module (ie: google maps api url!)
+					if (strpos($row->url, "http") !== false) {
+						array_push($raw_files, $row->url);
+						continue;
+					}
+					
+					if (file_exists($row->url)) array_push($raw_files, base_url($row->url));//only add the file to raw_files if it exists
+				}//end of foreach loop
+			}//end of if query
 		}//raw_files is now a list of ordered javascript files, checked for existences for this particular page
 
 		return $raw_files;//this is going to be echoed out in the footer to be included with javascript

@@ -96,7 +96,7 @@ class Bumpbox_content {
 
 			$data['id'] = $map_id;
 			$data['title'] = $this->CI->map->get_map_title($map_id);
-			$data['url'] = $this->CI->map->get_map_url($map_id);
+			$data['url'] = site_url($this->CI->map->get_map_url($map_id));
 			$data['filter'] = $this->CI->map->get_map_category($map_id);
 
 			array_push($_maps, $data);

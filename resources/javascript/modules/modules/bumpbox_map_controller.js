@@ -7,61 +7,73 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 
 		loop through each element in the the container list,
 		grab data and 
-	
 	*/
-	var initialize_data = function () {
-
-
-
-
-
-	}
-	$.ajax({
-
-				url : url,
-				data: {"filter": category},
-				method: 'POST',
-				data: 'json',
-			}).done(function(data) {
-
-
-				this.created = true;//this data has been recieved, notify the object that it has
-
-			});
-		});//end of data property
 
 	var maps = {};//map data and modules contained -- will contain objects!
 
 	var init = (function() {
 
+		container.children('div').each(function() {
+
+			var current = $(this),
+				id = current.attr('data-id'),
+				category = current.attr('data-category'),
+				url = current.attr('data-url');
+
+			var data = {
+
+				element: current,//cache the element so that we can store stuff in it
+				id: id,//cache the id -- this is the element id -- not completely necessary but helpful
+				created: false,//map not created yet
+				ready: false,//data is not recieved -- not ready to be created
+
+			};//end of data
+
+			(function() {//initialize the data
+
+					$.ajax({
+
+						url: url,
+						data: {filter: category},
+						data: 'json',
+						method: 'post'
+
+					}).done(function(_data) {
 
 
-	}());
+						data['data'] = _data;//initialize data!
+						data['ready'] = true;//data is processed
 
-	/* MAP HOLDER*/
-	var maps = {};//map data and modules contained -- will contain objects!
+						return true;
+					});
+				}()),
 
-	// initialize the functions here
-	var init = (function() {
+			maps[id] = data;
+		});//end of each loop
 
-
-
-	}());
-	
+		// end of init function
+		}());
+		
 	// trigger a change in the element -- need to ensure that the map is created
 	function change_trigger(id) {
 
-		if (maps[id] === undefined) {//init is not finished
+		if (maps[id] === undefined || !maps[id]['ready']) {//init is not finished
 
-			return setTimeout(function() {change_trigger(id)}, 1000);//we're still waiting on all data to be initialized
+			return setTimeout(function() {change_trigger(id)}, 200);//we're still waiting on all data to be initialized
 
-		}
+		}//
 
-		if (!maps[id]['created']) return false;
+		// we now know that the data is initialized and ready!
+		if (!maps[id]['created']) {//id not yet created need to create new module
 
+			maps[id]['module'] = (function() {
 
+				maps[id]['created'] = true;//set this element to created!
+				return new Project.Modules.general_map(maps[id]['element'], maps[id]['data']);//return a new map with all of the elements in the space
+			}(id));//
 
-	};
+		}//end of if loop
+		};//end of function
 
 	return {
 

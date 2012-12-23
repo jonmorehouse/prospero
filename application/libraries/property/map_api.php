@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
 /*
-	This
 	
 */
 class Map_api extends Base_filter {
