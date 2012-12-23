@@ -11,29 +11,6 @@ class Listing_rest extends CI_Controller{
 		$this->load->library($libraries, array('property_id' => $this->property_id));
 	}
 	
-	public function video() {
-		
-		$browser_type = $this->input->post('browser_type');
-		$video = $this->listing_media->video($browser_type);
-		
-		if(!$video)	
-			echo $this->return_false();
-		else
-			echo $video;
-		
-	}
-	
-	public function slideshow_image() {//will be responsible for getting an image_tag
-		
-		$media_id = $this->input->post('media_id');
-		$image = $this->listing_media->slideshow_image($media_id);
-		
-		if(!$image)
-			echo $this->return_false();
-		else
-			echo $image;
-	}
-	
 	public function email() {
 		
 		$sender = $this->input->post('sender');
@@ -46,15 +23,4 @@ class Listing_rest extends CI_Controller{
 		echo "Message sent successfully.";
 
 	}
-
-	private function return_false() {
-		
-		$tag = "<script type='text/javascript'>";
-		$tag .= "\n\tmsg={};";
-		$tag .= "\n\tmsg.status=false;";
-		$tag .= "</script>";
-		
-		return $tag;
-	}
-
 }
