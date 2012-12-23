@@ -53,7 +53,7 @@ Project.Pages.Homepage = (function() {
 		var bumpbox_modules = {
 
 			"map" : new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),//will create a pause function later -- this can be embedded in a different element
-			"map_controller": new Project.Modules.bumpbox_map_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),
+			"map_controller": new Project.Modules.bumpbox_map_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),//
 			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails'), $('.bumpbox.team > .content')),//will create a pause function later -- this can be embedded in a different element
 			"contact": new Project.Modules.contact($('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"),
 			"contact_animation": new Project.Modules.form_animation($('.bumpbox.contact')),
