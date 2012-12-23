@@ -250,11 +250,51 @@ class General extends CI_Model{
 		return $categories;
 	}
 
+	public function get_default_options($category) {
+
+		$table = "default_options";
+
+		$query = $this->db->where(array('category' => $category))->select('category_value')->get($table);
+
+		if ($query->num_rows() == 0) return false;
+
+		$options = array();
+
+		foreach ($query->result() as $row)
+			array_push($options, $row->category_value);
+
+		return $options;
+	} 
+
+	public function get_category_by_default_option($option) {
+
+		$table = "default_options";
+		$categories = $this->db->distinct()->select('category')->get($table);
+
+		
+
+		foreach ($categories->result() as $category) {
+
+			$category_options = $this->get_default_options($category->category);
+
+			if (!$category_options) continue;
+	
+			if (in_array($option, $category_options))
+				return $category->category;
+
+		}
+
+		return false;//was not found
+
+	} 
+
 	public function live($property_id) {
 
 		return $this->get_category($property_id, "property_status");	
 		
 	}
+
+
 }
 
 ?>

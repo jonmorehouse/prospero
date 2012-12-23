@@ -35,7 +35,6 @@ class Geographical_information extends CI_Model {
 			array_push($coordinates, array('longitude'=> $row->longitude, 'latitude'=>$row->latitude));
 		
 		return $coordinates;
-
 	}
 
 }

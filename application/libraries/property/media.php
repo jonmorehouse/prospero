@@ -35,6 +35,17 @@ class Media{
 
 	
 /********** PUBLIC FUNCTIONS ************************/
+	
+	public function get_thumbnail($property_id) {
+
+		$media_id = $this->get_media($property_id);
+		
+		return array(
+
+			'alt' => $this->CI->general->get_category($property_id, 'name'),
+			'url' => $this->get_url('thumbnail_image', $media_id),
+		);
+	}
 
 	//this is for retrieving a single media id!
 	public function get_media($property_id, $type = 'thumbnail_image', $status = true) {//type is pdf/video/thumbnail -- returns a single media_id
