@@ -15,6 +15,37 @@ class Development extends CI_Controller {
 		
 	}
 	
+	public function add_module() {
+
+		$url = site_url('development/add_module_process');
+		echo "
+
+			<form action='${url}' method='post'>
+
+				<input type='text' name='page_id' value='page_id'>
+				<input type='text' name='url' value='url'>
+				<input type='text' name='type' value='type'>
+
+				<button type='submit'>Submit</button>
+			</form> 
+		";
+
+	}
+
+	public function add_module_process() {
+
+		$insert_data = array(
+			'page_id' => $this->input->post('page_id'),
+			'status' => false,
+			'url' => $this->input->post('url'),
+			'type' => $this->input->post('type'),
+		);
+
+		$this->db->insert("javascript_modules", $insert_data);
+
+
+	}
+
 	/***** PUBLIC FUNCTIONS *****/
 
 	public function date() {

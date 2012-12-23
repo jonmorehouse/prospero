@@ -228,7 +228,7 @@
 /******** SERVICES ********/
 /******** SERVICES ********/
 /******** SERVICES ********/
-.bumpbox.services > .thumbnails, .bumpbox.about > .thumbnails {
+.bumpbox.services > .thumbnails, .bumpbox.about > .thumbnails, .bumpbox.map > .thumbnails {
 
 	width: 100%;
 	overflow-x:hidden;
@@ -273,7 +273,12 @@
 	width: 23%;
 }
 
-.bumpbox.services > .content, .bumpbox.about > .content {
+.bumpbox.map > .thumbnails > ul > li {
+
+	width: 18%;
+}
+
+.bumpbox.services > .content, .bumpbox.about > .content, .bumpbox.map > .content {
 
 	height: 17em;
 
@@ -292,8 +297,11 @@
 			display:block;
 
 		}
-
-
 	}
+}
+
+.bumpbox.map > .content {
+
+	height: 20em;
 
 }

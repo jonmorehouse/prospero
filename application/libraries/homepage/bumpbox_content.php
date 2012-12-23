@@ -12,7 +12,7 @@ class Bumpbox_content {
 		$this->CI->load->library('utilities/format');
 
 		// initialize all models
-		$models = array('homepage/team_member', 'homepage/service', 'homepage/about');
+		$models = array('bumpbox/team_member', 'bumpbox/service', 'bumpbox/about', 'bumpbox/map');
 
 		$this->CI->load->model($models);//this corresponds to a small member
 
@@ -21,6 +21,7 @@ class Bumpbox_content {
 		$this->team = $this->set_team();//get the team members
 		$this->services = $this->set_services();//
 		$this->about = $this->set_about();//this sets the about page
+		$this->maps = $this->set_maps();//sets the maps about page
 
 	}
 
@@ -85,8 +86,23 @@ class Bumpbox_content {
 
 	private function set_maps()  {
 
-		// will be responsible for generating proper map code
-		// will be responsible for generating proper map codes etc 
+		$map_ids = $this->CI->map->get_map_ids();
+
+		$_maps = array();
+
+		foreach ($map_ids as $map_id) {
+
+			$data = array();
+
+			$data['id'] = $map_id;
+			$data['title'] = $this->CI->map->get_map_title($map_id);
+			$data['url'] = $this->CI->map->get_map_url($map_id);
+			$data['filter'] = $this->CI->map->get_map_category($map_id);
+
+			array_push($_maps, $data);
+		}
+
+		return $_maps;
 	}
 /********* PUBLIC FUNCTIONS ********/
 
@@ -118,13 +134,6 @@ class Bumpbox_content {
 	public function get_about() {
 
 		return $this->about;
-
-
-	}
-
-	public function get_careers() {
-
-		return $this->careers;
 
 
 	}

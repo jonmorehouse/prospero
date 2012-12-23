@@ -27,6 +27,7 @@ class Homepage extends CI_Controller{
 		$this->team_bumpbox = $this->bumpbox_content->get_team();//this is the team 
 		$this->services_bumpbox = $this->bumpbox_content->get_services();//get the services for the navigation_left elements!
 		$this->about_bumpbox = $this->bumpbox_content->get_about();//get about page
+		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
 		//load and compile the view
 		$this->load->view('homepage/homepage_base');//main view for this page

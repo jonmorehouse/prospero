@@ -15,7 +15,6 @@ Project.Pages.Homepage = (function() {
 					'opacity': 1.0
 				},animation_time);	
 			});
-
 		};
 
 		var fade_out = function() {
@@ -26,7 +25,6 @@ Project.Pages.Homepage = (function() {
 					'opacity': faded_opacity,
 				}, animation_time);
 			});
-
 		};
 
 		return {
@@ -54,6 +52,8 @@ Project.Pages.Homepage = (function() {
 
 		var bumpbox_modules = {
 
+			"map" : new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),//will create a pause function later -- this can be embedded in a different element
+			"map_controller": new Project.Modules.bumpbox_map_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),
 			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails'), $('.bumpbox.team > .content')),//will create a pause function later -- this can be embedded in a different element
 			"contact": new Project.Modules.contact($('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"),
 			"contact_animation": new Project.Modules.form_animation($('.bumpbox.contact')),
@@ -75,12 +75,16 @@ Project.Pages.Homepage = (function() {
 		    	return false;
 		    })(controller);//end of closure
 		}//end loop
+
+		// link bumpbox window controller with bumpbox map controller
+		bumpbox_modules['map']['config']['change_trigger'] = bumpbox_modules['map_controller']['change_trigger'];
+
 	}());//end of homepage initialization section
 	//END OF BUMPBOX CONTROLLERS!
 	
 	var test = (function() {
 
-		$('#navigation_left li.about').trigger('click');
+		$('#navigation_top li.map').trigger('click');
 
 	}());
 

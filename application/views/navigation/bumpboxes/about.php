@@ -3,7 +3,7 @@
 	<div class='content'>
 	<?php
 		foreach ($this->about_bumpbox as $index=>$about) 
-			echo "<div data-id='${index}'><h1>${about['title']}</h1>${about['content']}</div>\n";
+			echo "\n\t\t<div data-id='${index}'><h1>${about['title']}</h1>${about['content']}</div>\n";
 	?>
 	</div>
 
@@ -11,7 +11,7 @@
 		<ul>
 		<?php
 			foreach ($this->about_bumpbox as $index=>$about)
-				echo "<li data-id='${index}'>${about['title']}</li>\n";
+				echo "\t\t\n<li data-id='${index}'>${about['title']}</li>\n";
 		?>
 		</ul>
 	</div>

@@ -27,6 +27,5 @@ class Map_rest extends CI_Controller{
 			echo json_encode(array("status" => true, "points" => $map_data));
 	}
 
-
-
+	
 }
