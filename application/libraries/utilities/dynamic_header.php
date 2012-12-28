@@ -19,7 +19,9 @@ class Dynamic_header extends Header{
 		parent::__construct();	
 
 		// need to generate the page id for this element
-		$this->page_id = ($parameters['page_id']) ? ($parameters['page_id']) : ("listing");
+		$this->page_id = ($parameters['page_id']) ? ($parameters['page_id']) : ("listing");//basic page type for the site 
+
+		if ($this->page_id == "property") $this->page_filter = $parameters['page_filter'];//this is the office_industrial / residential / retail etc of the site
 
 		// only use page id for the actual listing pages
 		$this->property_id = -1;
@@ -138,31 +140,25 @@ class Dynamic_header extends Header{
 
 	private function get_page_title() {
 
-
 		if ($this->page_id === "listing")
-			$name = $this->CI->general->get_category($this->property_id, "name");
+			return $this->CI->format->word_format($this->CI->general->get_category($this->property_id, "name"));
 
-		else {//run query on the element to find the proper db name
+		else {//run a custom query to get the proper page title
 
+			$filter = ($this->page_id === "property") ? ($this->page_filter) : ($this->page_id);
 			try {
+				$query = $this->CI->db->where(array("page_id" => $filter))->select("title")->get("page_titles");
 
-				$table = "page_titles";
-				$this->CI->db->where(array("page_id" => $this->page_id))->select("title")->get("page_titles")->row();
+				if ($query->num_rows() == 0) throw new Exception();
+
+				else return $page_title = $query->row()->title;
 
 			} catch (Exception $e) {
 
-
-				echo "hello world";
-			}
-
-
-		}
-
-
-
-
-
-		return $page_title;
-	}
+				return $this->CI->format->word_format($this->page_id);
+			}//end of the catch statement
+		}//end of else method
+	//end method
+	}//end of page title function
 
 };

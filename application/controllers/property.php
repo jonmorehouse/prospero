@@ -51,7 +51,7 @@ class Property extends CI_Controller{
 			
 		// load libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "homepage/bumpbox_content");
-		$this->load->library($libraries, array('page_id' => $this->id));
+		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
 		// get the basic header
 		$this->header = $this->dynamic_header->get_header();//get the current header element
@@ -66,7 +66,6 @@ class Property extends CI_Controller{
 		$this->thumbnail_list = $this->browse->browse_thumbnail($this->id, $this->category, $this->filter);
 
 
-		return;	
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
 	}
