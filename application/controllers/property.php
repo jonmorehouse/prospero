@@ -44,18 +44,29 @@ class Property extends CI_Controller{
 	
 	private function redirect(){
 		// Redirect to the property/office_industrial in case of an error. 
-		redirect('property/office_industrial');
+		redirect('property/office_industrial');//default re-route
 	}
 	
 	private function browse(){
 			
-		$page_title = $this->browse->page_header($this->id);
+		// load libraries
+		$libraries = array("utilities/header","utilities/dynamic_header", "homepage/bumpbox_content");
+		$this->load->library($libraries, array('page_id' => $this->id));
+
+		// get the basic header
+		$this->header = $this->dynamic_header->get_header();//get the current header element
+		// now get the basic modules
+		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the current javascript modules for this page
+		// get the background image information
+		$this->background_images = $this->general->get_multiple_columns("general_images", array("image_id"=>"general_background"), array("url", "alt"), true);//this is an array of urls that we want to have as background images!
+		// map bumpbox
+		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
 		//List of thumbnails that should be displayed for this id, this category and this filter
 		$this->thumbnail_list = $this->browse->browse_thumbnail($this->id, $this->category, $this->filter);
 
-		$this->header = $this->header->header_creation($this->page_type, $page_title, $this->thumbnail_list, array(), array('property_search'));//pass css as array or js as array if desired
-	
+
+		return;	
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
 	}

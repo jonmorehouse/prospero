@@ -23,10 +23,12 @@ class Homepage extends CI_Controller{
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
 		$this->background_images = $this->general->get_multiple_columns("general_images", array("image_id"=>"general_background"), array("url", "alt"), true);//this is an array of urls that we want to have as background images!
 
-		// generate bumpbox content
+		// left side bumpboxes
 		$this->team_bumpbox = $this->bumpbox_content->get_team();//this is the team 
 		$this->services_bumpbox = $this->bumpbox_content->get_services();//get the services for the navigation_left elements!
 		$this->about_bumpbox = $this->bumpbox_content->get_about();//get about page
+
+		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
 		//load and compile the view

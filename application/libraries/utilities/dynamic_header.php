@@ -138,12 +138,29 @@ class Dynamic_header extends Header{
 
 	private function get_page_title() {
 
+
 		if ($this->page_id === "listing")
 			$name = $this->CI->general->get_category($this->property_id, "name");
 
-		else $name = $this->CI->format->word_format($this->page_id);
+		else {//run query on the element to find the proper db name
 
-		$page_title = $this->CI->format->word_format($name);
+			try {
+
+				$table = "page_titles";
+				$this->CI->db->where(array("page_id" => $this->page_id))->select("title")->get("page_titles")->row();
+
+			} catch (Exception $e) {
+
+
+				echo "hello world";
+			}
+
+
+		}
+
+
+
+
 
 		return $page_title;
 	}

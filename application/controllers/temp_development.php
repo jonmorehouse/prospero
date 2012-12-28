@@ -10,6 +10,21 @@ class Temp_development extends CI_Controller {
 
 	}
 
+	public function temp() {
+
+		foreach (array("retail", "office_industrial", "residential") as $value) {
+
+			$_title = $this->format->word_format($value);
+			$title = "Prospero ${_title} Properties";
+
+			$this->db->insert("page_titles", array("page_id" => $value, "title" => $title));
+
+		}
+
+
+	}
+
+
 	public function google_api() {
 
 		$insert_data = array(
