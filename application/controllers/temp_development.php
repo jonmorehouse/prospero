@@ -12,13 +12,28 @@ class Temp_development extends CI_Controller {
 
 	public function temp() {
 
-		$data = array("page_id" => "homepage", "title" => "Prospero Real Estate");
 
-		$this->db->insert("page_titles", $data);
 
 
 	}
 
+	/****** CSS DB UPDATING *********/
+	public function css() {
+
+		$resources = array(
+			"resources/css/local/property.less",
+			"resources/css/local/bumpbox.less",
+
+		);
+
+		foreach ($resources as $resource) {
+
+			$data = array("url" => $resource, "file_type" => "stylesheet/less", "status" => false, "page_id" => "property");
+			$this->db->insert("stylesheets", $data);
+
+		}
+
+	}
 
 
 	/****** JAVASCRIPT DB UPDATING *******/
@@ -34,31 +49,32 @@ class Temp_development extends CI_Controller {
 
 			$insert = array("url" => $resource, "status" => false, "page_id" => "property");
 			$this->db->insert("javascript_resources", $insert);
-
 		}	
 	}
 
 	public function javascript_modules() {
 
 		$modules = array(
-
-			"resources/javascript/modules/modules/bumpbox.js",
-			"resources/javascript/modules/site_wide/site_wide.js",
-			"resources/javascript/modules/pages/site_wide.js",
-			"resources/javascript/modules/modules/background_gallery.js",
-			"resources/javascript/modules/modules/thumbnail_controller.js",
-			"resources/javascript/modules/modules/contact.js",
-			"resources/javascript/modules/modules/form_animation.js",
-			"resources/javascript/modules/pages/homepage_maps.js",
-			"resources/javascript/modules/modules/bumpbox_map_controller.js",
-			"resources/javascript/modules/modules/general_map.js",
-
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/bumpbox.js"),
+			array("type" => "site_wide", "url" => "resources/javascript/modules/site_wide/site_wide.js"),
+			array("type" => "pages", "url" => "resources/javascript/modules/pages/site_wide.js"),
+			array("type" => "pages", "url" => "resources/javascript/modules/pages/homepage.js"),
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/background_gallery.js"),
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/thumbnail_controller.js"),
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/contact.js"),
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/form_animation.js"),
+			array("type" => "pages", "url" => "resources/javascript/modules/pages/homepage_maps.js"),
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/bumpbox_map_controller.js"),
+			array("type" => "modules", "url" => "resources/javascript/modules/modules/general_map.js"),
 		);
 
 		foreach ($modules as $module) {
 
-			$insert = array("page_id" => "property", "status"=> false, "url" => $module);
-			$this->db->insert("javascript_modules", $insert);
+			$module['status'] = false;
+			$module['page_id'] = "property";
+
+			$this->db->insert("javascript_modules", $module);
+
 		}
 
 	}

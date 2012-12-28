@@ -160,5 +160,4 @@ class Dynamic_header extends Header{
 		}//end of else method
 	//end method
 	}//end of page title function
-
 };
