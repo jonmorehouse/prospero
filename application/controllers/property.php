@@ -10,7 +10,11 @@ class Property extends CI_Controller{
 		// LIBRARY LOADING
 		$libraries = array('property/browse', 'property/property_get', 'utilities/header');
 		$this->load->library($libraries);
-		
+			
+
+		// model loading 
+		$this->load->model("utilities/background_images");
+
 		// VALID IDS--Corresponds to the type_category which is retail/residential/office/industrial etc
 		$this->valid_ids = array('retail', 'residential', 'office_industrial');
 	}
@@ -58,7 +62,7 @@ class Property extends CI_Controller{
 		// now get the basic modules
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the current javascript modules for this page
 		// get the background image information
-		$this->background_images = $this->general->get_multiple_columns("general_images", array("image_id"=>"general_background"), array("url", "alt"), true);//this is an array of urls that we want to have as background images!
+		$this->background_images = $this->background_images->get_images();
 		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 

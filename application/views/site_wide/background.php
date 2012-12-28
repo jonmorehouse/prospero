@@ -4,12 +4,11 @@
 	<?php
 		if (count($this->background_images) > 0) {
 
-			$url = base_url($this->background_images[0]['url']);
+			$url = $this->background_images[0]['url'];
 			echo "<img src=\"{$url}\" alt=\"{$this->background_images[0]['alt']}\" />";
 		}
 	?>
 	</div>
-
 </div>
 
 <script type='text/javascript'>
