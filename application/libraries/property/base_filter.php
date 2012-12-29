@@ -9,9 +9,35 @@ class Base_filter {
 		$this->CI =& get_instance();//get the codeigniter instance
 
 		// load proper models for this element
-		$models = array('general', 'property/filter', 'property/geographical_information', 'property/search');
+		$models = array('general', 'property/filter', 'property/geographical_information', 'property/search', 'property/thumbnail');
 		$this->CI->load->model($models);
+
+
 	}
+
+	public function get_thumbnails($properties) {
+
+		$thumbnails = array();
+
+		foreach ($properties as $property_id) {
+
+			$thumbnail = array(
+
+				"status" => $this->CI->thumbnail->get_status($property_id),
+				"url" => $this->CI->thumbnail->get_url($property_id),
+				"image" => $this->CI->thumbnail->get_image($property_id),
+				"blurb" => $this->CI->thumbnail->get_blurb($property_id),
+				"name" => $this->CI->thumbnail->get_name($property_id),
+			);
+
+			if ($thumbnail['status'])
+				array_push($thumbnails, $thumbnail);
+		}
+
+		return $thumbnails;
+	}
+
+	
 
 	// this will filter properties based on categories etc that are based upon default values that are specified in our 
 	protected function property_filter($filter) {

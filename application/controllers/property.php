@@ -7,14 +7,6 @@ class Property extends CI_Controller{
 		$this->page_type = 'property';
 		$this->id = '';
 		
-		// LIBRARY LOADING
-		$libraries = array('property/browse', 'utilities/header');
-		$this->load->library($libraries);
-			
-
-		// model loading 
-		$this->load->model("utilities/background_images");
-
 		// VALID IDS--Corresponds to the type_category which is retail/residential/office/industrial etc
 		$this->valid_ids = array('retail', 'residential', 'office_industrial');
 	}
@@ -22,10 +14,23 @@ class Property extends CI_Controller{
 	// FUNCTION REMAP IS TO MAKE SURE THAT WE NEVER LAND ON A 404!
 	public function _remap($id, $uri){
 		
-		if('search' == $id)
-			$this->search();
+		$post = $this->input->post();
+
+		// validate for the rest api segment of this
+		if ($post && array_key_exists("data", $post)) {
+
+			echo "REST API FUNCTIONALITY NOT COMPLETED YET";
+		}
+
+		// validate for a search page
+		else if ($id === "search" && $post && array_key_exists("search", $post)) {
+
+			$this->id = "search";
+			$this->output();
+		}
 		
-		else{
+		// just a user browsing!
+		else {
 		// First need to make sure that a valid id is chosen
 			if(!in_array($id, $this->valid_ids))
 				$this->redirect();
@@ -42,7 +47,7 @@ class Property extends CI_Controller{
 				$this->category_filter = $uri[1];
 		
 			// Output/Redirection
-			$this->browse();
+			$this->output();
 		}
 	}
 	
@@ -51,15 +56,15 @@ class Property extends CI_Controller{
 		redirect('property/office_industrial');//default re-route
 	}
 	
-	private function browse(){
+	private function output(){
 				
 		// load general libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "homepage/bumpbox_content");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
-		// load property search classes
-		$libraries = array("property/base_filter", "property/property_filter");
-		$this->load->library($libraries, array("category" => "type_category", "filter" => $this->id));//initialize the category_filter library for the type of page this is
+		// load models
+		$this->load->model(array("utilities/background_images", "property/headers");
+
 
 		// get the basic header
 		$this->header = $this->dynamic_header->get_header();//get the current header element
@@ -70,27 +75,43 @@ class Property extends CI_Controller{
 		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
-		// get the proper thumbnails for this type of search
-		$thumbnails = $this->property_filter->get_thumbnails($this->category, $this->category_filter);
+		$this->thumbnails = $this->get_thumbnails();//seperate the logic out into another method for grabbing the proper thumbnail!
 
-		// get the proper message if no thumbnails
-		$this->thumbnails = ($thumbnails && count($thumbnails) > 0) ? ($thumbnails) : ($this->general->get_message("no_listings"));
+		// this is the box in the middle of the screen the user sees
+		$this->thumbnail_label = $this->header("browse", $this->)
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
 	}
 
-	private function search(){
+	private function rest_search() {
 
-		// Load method specific library -- don't load it in the construct because it is only used here
-		$this->load->library('property/property_search');
-		
-		// this function will recieve search parameters-will be accessed from the homepage/listing page
-		$this->header = $this->header->header_creation($this->page_type, 'Search Results', false, array('search.less'), array('property_search'));
-		$this->search_value = $this->input->post('search');
+		// validate rest and then return thumbnails etc
+		// return json elements here
 
-		$this->thumbnail_list = $this->property_search->user_search($this->search_value);
-
-		$this->load->view('browse/search_base');
 	}
+
+	private function get_thumbnails() {
+
+		$this->load->library("property/base_filter");//initialize the base filter
+
+		if ($this->id == "search") {
+
+			$this->load->library("property/property_search");
+
+			$properties = $this->property_search->general_search($this->input->post("search"));
+
+		}
+
+		else {
+
+			// load property search classes
+			$libraries = array("property/base_filter", "property/property_filter");
+			$this->load->library($libraries, array("category" => "type_category", "filter" => $this->id));//initialize the category_filter library for the type of page this is
+			$properties = $this->property_filter->filter_properties($this->category, $this->filter);
+		}
+
+		return $this->base_filter->get_thumbnails($properties);
+	}
+
 }

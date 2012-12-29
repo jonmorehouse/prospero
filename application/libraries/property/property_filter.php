@@ -12,7 +12,7 @@ class Property_filter extends Base_filter {
 		$this->CI->load->model("property/thumbnail");
 	}
 
-	public function get_thumbnails($category = "all", $filter = false) {
+	public function filter_properties($category = "all", $filter = false) {
 
 
 		// will create custom statements etc based upon absolute values!
@@ -37,8 +37,7 @@ class Property_filter extends Base_filter {
 			$filtered = $this->property_filter($filtered, "category_location", array("category_location" => $filter));
 
 
-		// get the thumbnails and return them!
-		return $this->generate_thumbnails($filtered);
+		return $filtered;
 	}
 
 	protected function status_filter($unfiltered) {
@@ -72,26 +71,5 @@ class Property_filter extends Base_filter {
 		return $filtered;
 	}
 
-	protected function generate_thumbnails($properties) {
-
-		$thumbnails = array();
-
-		foreach ($properties as $property_id) {
-
-			$thumbnail = array(
-
-				"status" => $this->CI->thumbnail->get_status($property_id),
-				"url" => $this->CI->thumbnail->get_url($property_id),
-				"image" => $this->CI->thumbnail->get_image($property_id),
-				"blurb" => $this->CI->thumbnail->get_blurb($property_id),
-				"name" => $this->CI->thumbnail->get_name($property_id),
-			);
-
-			if ($thumbnail['status'])
-				array_push($thumbnails, $thumbnail);
-		}
-
-		return $thumbnails;
-	}
 
 };

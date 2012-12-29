@@ -1,4 +1,3 @@
-
 <?php
 	echo $this->header;
 	$this->load->view('site_wide/background');//automatically loads in its images with proper js
@@ -6,7 +5,11 @@
 	$this->load->view('navigation/navigation_top');//takes care of its own bumpboxes assuming the correct content is passed
 	$this->load->view('site_wide/logo');
 
-	$this->load->view('navigation/navigation_' . $this->id);
+	if ($this->id !== "search")
+		$this->load->view('navigation/navigation_' . $this->id);
+
+	else $this->load->view("navigation/navigation_office_industrial");
+
 	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 
 ?>
 
@@ -14,11 +17,7 @@
 <!-- INDIVIDUAL NAVIGATION BAR IS BELOW -->
 <div id='header'>
 	<h1>Prospero Real Estate</h1>
-	<h2>
-		<?php
-			echo $this->browse->browse_header($this->id, $this->category, $this->category_filter);
-		?>
-	</h2>
+	<h2><?php echo $this->thumbnail_label; ?></h2>
 </div>
 
 <?php
