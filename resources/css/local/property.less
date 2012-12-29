@@ -51,7 +51,8 @@
 		
 		cursor:pointer;
 		position:relative;
-	
+
+
 		ul{
 			.navigation_li(@dark_opacity, 0.8em, 15px);
 			text-align:center;
@@ -79,8 +80,15 @@
 			li:last-child{
 				border-bottom-right-radius:@secondary_radius;
 			}
-
 		}
+		
+		&:hover {
+
+			ul {
+				display:block;
+			}
+		}
+
 	}
 	
 	li:nth-child(2){

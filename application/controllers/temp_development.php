@@ -13,9 +13,9 @@ class Temp_development extends CI_Controller {
 	public function temp() {
 
 		$libraries = array("property/base_filter", "property/property_filter");
-		$this->load->library($libraries, array("category" => "type", "filter" => "rent"));
+		$this->load->library($libraries, array("category" => "type_category", "filter" => "office_industrial"));
 
-		$this->property_filter->get_thumbnails("new");				
+		$this->property_filter->get_thumbnails("all");				
 
 	}
 
