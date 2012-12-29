@@ -127,6 +127,16 @@ class General extends CI_Model{
 		}
 
 		return $results;
+	}
+
+	public function get_message($message_id) {
+
+		$table = "general_messages";
+		$query = $this->db->where(array("message_id" => $message_id))->get($table);
+	
+		if ($query->num_rows() === 0) return false;
+
+		return $query->row()->message;
 
 	}
 

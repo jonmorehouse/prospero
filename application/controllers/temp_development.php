@@ -10,7 +10,15 @@ class Temp_development extends CI_Controller {
 
 	}
 
-	public function temp() {
+	public function insert_message() {
+
+		$message = file_get_contents("temp");
+		$data = array("message_id" => "no_listings", "message"=>$message);
+		$this->db->insert("general_messages", $data);
+
+	}
+
+	public function browse_test() {
 
 		$libraries = array("property/base_filter", "property/property_filter");
 		$this->load->library($libraries, array("category" => "type_category", "filter" => "office_industrial"));

@@ -98,98 +98,6 @@
 	}
 }
 
-#thumbnail_container{
-	
-	overflow-y: auto;
-	position: relative;
-	width: 100%;
-	height:2000px;
-
-}
-
-.thumbnail{
-	
-	float:left;
-	position:relative;
-	height:@thumbnail_dimension;
-	width:@thumbnail_dimension;
-	margin: 0 0 10px 1%;
-	padding:0px;
-	cursor:pointer;
-	.dark_background();
-	.box_shadow(@dark_shadow, 4px);
-	.border_radius(6px, 6px, 6px, 6px, 6px);
-	overflow:hidden;
-	
-	/*FOR THE HORIZONTAL SPACING OF THE THUMBNAILS!*/
-
-	&:hover{
-		.dark_background(0.4);
-		img{
-			opacity:1.0;
-			}
-		h1{
-			.inner_text_shadow(black, 1px, 1px);
-		}
-	}
-	
-	a{
-		position:absolute;
-		top:0;
-		left:0;
-		width:100%;
-		height:100%;
-		display:block;
-	}
-	
-	h1{
-		width:100%;
-		position:relative;
-		text-align:center;
-		.base_font(0.9em);
-		opacity:0.9;
-		color:white;
-		background-color:transparent;
-		z-index:10;
-	}
-	
-	.image{
-		/*THE REASON FOR THIS IS BECAUSE OF THE PADDING ISSUE THAT WOULD COME WITH THE PERCENTAGE WIDTH AND PIXEL HEIGHT*/
-		/*ALSO THE BORDER SHOULDNT APPLY TO EVERYTHING*/
-		@thumbnail_border:10px;
-		position:absolute;
-		top:@thumbnail_border;
-		bottom:@thumbnail_border;
-		left:@thumbnail_border;
-		right:@thumbnail_border;
-		
-		img{
-			height:100%;
-			max-width:100%;
-			display:block;
-			position:relative;
-			margin:0 auto;
-			opacity:0.5;
-		}
-	}
-
-	.blurb{
-		display:none;
-		position:absolute;
-		bottom:0;
-		left:0;
-		width:90%;
-		padding:5%;
-		height:50%;
-		overflow:hidden;
-		.light_background();
-		color:black;
-		.border_radius(0px, 10px, 10px, 0px, 0px);
-		.base_font(0.7em);
-		color:white;
-
-	}
-}
 
 #header{
 	width:30%;
@@ -206,6 +114,43 @@
 	border-radius: 20px;
 	padding: 0.5em;
 }
+
+/* THUMBNAIL CONTENTS FOR THIS PAGE ***/
+#thumbnail_container {
+
+	position: relative;
+	width:100%;
+	display:block;
+	.base_font();
+	top:1em;
+	padding: 1em;
+	border-radius:20px;
+	min-height: 200px;
+
+	> .message {
+
+		display:block;
+		color: white;
+		width:100%;
+		position:relative;
+
+
+		> h1 {
+			text-align:center;
+		}
+
+		> p {
+
+			width:80%;
+			font-size:1.3em;
+			display:block;
+			margin:0 auto;
+		}
+	}//end of message
+
+}
+
+
 
 /*MEDIA QUERIES*/
 

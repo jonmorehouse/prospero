@@ -16,7 +16,7 @@
 	<h1>Prospero Real Estate</h1>
 	<h2>
 		<?php
-			echo $this->browse->browse_header($this->id, $this->category, $this->filter);
+			echo $this->browse->browse_header($this->id, $this->category, $this->category_filter);
 		?>
 	</h2>
 </div>
@@ -29,9 +29,8 @@
 	<div id='page_content'>
 		<div id='thumbnail_container'>
 			<?php
-
-				
-
+				if (gettype($this->thumbnails) === "array") $this->load->view("browse/thumbnails");
+				else echo $this->thumbnails;
 			?>
 		</div>
 	</div> <!--THIS IS THE END OF THE PAGE_CONTENT-->

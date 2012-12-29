@@ -33,13 +33,13 @@ class Property extends CI_Controller{
 			// 	Basic parameters
 			$this->id = $id;//id corresponds to type_category
 			$this->category = 'all';//category corresponds to the second uri, such as rent_price/location_category/type etc
-			$this->filter = 'all';//filter corresponds to how we want to filter properties ie: a certain location_category, a price range etc
+			$this->category_filter = 'all';//category_filter corresponds to how we want to category_filter properties ie: a certain location_category, a price range etc
 		
-			// Determine if category/filter is passed
+			// Determine if category/category_filter is passed
 			if(isset($uri[0]))
 				$this->category = $uri[0];
 			if(isset($uri[1]))
-				$this->filter = $uri[1];
+				$this->category_filter = $uri[1];
 		
 			// Output/Redirection
 			$this->browse();
@@ -53,9 +53,13 @@ class Property extends CI_Controller{
 	
 	private function browse(){
 			
-		// load libraries
+		// load general libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "homepage/bumpbox_content");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
+
+		// load property search classes
+		$libraries = array("property/base_filter", "property/property_filter");
+		$this->load->library($libraries, array("category" => "type_category", "filter" => $this->id));//initialize the category_filter library for the type of page this is
 
 		// get the basic header
 		$this->header = $this->dynamic_header->get_header();//get the current header element
@@ -66,8 +70,11 @@ class Property extends CI_Controller{
 		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
-		// initialize
-		
+		// get the proper thumbnails for this type of search
+		$thumbnails = $this->property_filter->get_thumbnails($this->category, $this->category_filter);
+
+		// get the proper message if no thumbnails
+		$this->thumbnails = ($thumbnails && count($thumbnails) > 0) ? ($thumbnails) : ($this->general->get_message("no_listings"));
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
