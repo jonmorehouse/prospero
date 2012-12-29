@@ -35,39 +35,31 @@ class Base_filter {
 	// this function breaks down a raw list with multiple versions of the same number to a map of the correct elements
 	protected function sort_prepare($raw_list) {
 
-		// sample = array (
-
-		// 	0 => array ("id" => 0, "occurrences" => 5);			
-		// );
-
 		$elements = array();
 
 		foreach ($raw_list as $id) {
 
-			$found = false;
+			if (array_key_exists($id, $elements)) $elements[$id] += 1;
 
-			foreach ($list as $element) {
+			else $elements[$id] = 1;
+		}
 
-				if ($element['id'] === $id) {
 
-					$element['occurrences'] += 1;
-					$found = true;//was found
-					break;//end the for loop
-				}
-			}
-
-			if (!$found)
-				array_push($elements, array("id" => $id, "occurrences" => 1));
-		} 
-
+		return $elements;
 	}
 
+	// modularized the sort like this to make it easier to upgrade in the future if I don't want to use the asort method
 	protected function sort($list) {
 
+		arsort($list);
+
+		$properties = array();
+
+		foreach ($list as $key => $value)
+			array_push($properties, $key);//push the key into the properties
 
 
-		return true;
-
+		return $properties;
 	}
 
 

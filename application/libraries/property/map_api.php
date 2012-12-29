@@ -63,4 +63,13 @@ class Map_api extends Base_filter {
 		
 	}
 	
+	public function nearby_properties() {
+
+		$property_id = $this->input->post("property_id");
+
+		// get a triangle of all points and then return thumbnails for each property in the vicinity / triangle of the elements
+		
+
+	}
+
 }

@@ -9,11 +9,18 @@ class Similar_properties extends Base_filter {
 
 	}
 
-	public function get_similar_properties($property_id, $max = 5) {
+	public function similar_properties($property_id, $max = 5) {
 
 		// get raw properties from search model
 		// run the sort
 		//return the valid elements by checking against the max
+		$raw_properties = $this->CI->search->similar_properties($property_id);
+
+		$similar_properties = parent::sort(parent::sort_prepare($raw_properties));
+
+		if (count($similar_properties) < $max) return $similar_properties;
+
+		else return array_slice($similar_properties, 0, $max);//assumes that element zero is the most common on the list		
 
 	}
 

@@ -14,8 +14,8 @@ class Temp_development extends CI_Controller {
 
 		$table = "search_categories";
 
-		$type = "general";
-		$categories = array("name", "address", "type", "type_category", "location_category");
+		$type = "similar";
+		$categories = array("rent_price", "address", "type_category", "type", "location_category", "priced_from", "price_per_month", "price_per_square", "city", "postal_code", "thumbnail_blurb", "amenities", "operating_costs", "number_baths", "sized_from");
 
 		foreach ($categories as $category) {
 
