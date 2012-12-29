@@ -15,9 +15,6 @@ class Listing extends CI_Controller {
 	
 	public function _remap($uri) { //uri is the number or title etc
 		
-		// NEED A PROPERTY EXISTS MAPPING
-		// WILL DETERMINE IF IT IS 0-9
-
 		// MEANS THEY JUST WENT TO LISTING/
 		if(!$uri || $uri === 'index')
 			$this->redirect();

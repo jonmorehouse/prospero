@@ -112,7 +112,6 @@ class Listing_drawers extends Listing_base{
 		$html = "<div data-manager_email='{$this->get('manager_email')}'";
 		$html .= "\n\t<span>{$this->get('manager_first_name')}";
 		
-		
 	}
 	
 	private function map() {
