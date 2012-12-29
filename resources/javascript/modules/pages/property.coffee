@@ -5,11 +5,7 @@ do Project.Pages.Property = () ->
 	Project.Pages.Bumpbox elements
 	
 
-
-
-
-
-	
+	search_bar_animation = new Project.Modules.form_animation $('#search')
 
 	
 	

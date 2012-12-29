@@ -2,9 +2,10 @@
 (function() {
 
   (Project.Pages.Property = function() {
-    var elements;
+    var elements, search_bar_animation;
     elements = [$('#navigation_browse'), $('#navigation_top'), $('#logo'), $('#search'), $('#header')];
-    return Project.Pages.Bumpbox(elements);
+    Project.Pages.Bumpbox(elements);
+    return search_bar_animation = new Project.Modules.form_animation($('#search'));
   })();
 
 }).call(this);
