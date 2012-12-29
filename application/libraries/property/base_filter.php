@@ -23,6 +23,7 @@ class Base_filter {
 		// need to figure out category based on value!
 		$category = $this->CI->general->get_category_by_default_option($filter);
 		
+		// returns all the elements -- ie: will get the rent only properties from a segment!
 		if ($category) 
 			$properties = $this->CI->filter->get_category($category, $filter);
 

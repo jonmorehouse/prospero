@@ -290,10 +290,18 @@ class General extends CI_Model{
 
 	public function live($property_id) {
 
-		return $this->get_category($property_id, "property_status");	
-		
-	}
+		// live is not a category_type_category because we don't want it to be in the main
+		$table = $this->get_category_table("property_status");
 
+		// had some trouble returning boolean values from mysql mapping- using mysql properties so we don't have to map
+		$query = $this->db->where(array('property_status' => true, 'property_id' => $property_id))->get($table);
+
+		// returstatus
+		if ($query->num_rows() > 0) return true;
+
+		return false;
+
+	}
 
 }
 

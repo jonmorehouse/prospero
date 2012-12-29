@@ -2,7 +2,7 @@
 
 /*THIS PROPERTY INFORMATION CLASS IS TO BE LOADED SO THAT EACH AND EVERY DATA MEMBER CAN BE CALLED FROM A MEMBER IN THIS CLASS*/
 
-class Property_search{
+class Property_search {
 	
 	var $CI;
 	var $numbers;

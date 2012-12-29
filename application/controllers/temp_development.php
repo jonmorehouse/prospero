@@ -12,15 +12,10 @@ class Temp_development extends CI_Controller {
 
 	public function temp() {
 
-		$insert = array(
-			array("page_id" => "homepage", "status" => false, "url" => "resources/javascript/modules/pages/bumpbox.js", "type" => "pages"),
-			array("page_id" => "homepage", "status" => false, "url" => "resources/javascript/modules/pages/homepage.js", "type" => "pages"),
-		);//
+		$libraries = array("property/base_filter", "property/property_filter");
+		$this->load->library($libraries, array("category" => "type", "filter" => "rent"));
 
-		foreach ($insert as $data)
-			$this->db->insert("javascript_modules", $data);
-
-
+		$this->property_filter->get_thumbnails("new");				
 
 	}
 
@@ -91,9 +86,8 @@ class Temp_development extends CI_Controller {
 		$insert_data = array(
 
 			'url' => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false",
-			'page_id' => "browse",
+			'page_id' => "property",
 			'status' => false,	
-			// 'type' => 'site_wide',		
 		);
 
 		$this->db->insert("javascript_resources", $insert_data);

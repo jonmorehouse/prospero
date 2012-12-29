@@ -67,7 +67,7 @@ class Property extends CI_Controller{
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
 		// initialize
-		$this->thumbnails = $this->browse
+		
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
