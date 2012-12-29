@@ -39,7 +39,6 @@ class Media{
 	public function get_thumbnail($property_id) {
 
 		$media_id = $this->get_media($property_id);
-		
 		return array(
 
 			'alt' => $this->CI->general->get_category($property_id, 'name'),
