@@ -41,11 +41,11 @@ class Property extends CI_Controller{
 			$this->category_filter = 'all';//category_filter corresponds to how we want to category_filter properties ie: a certain location_category, a price range etc
 		
 			// Determine if category/category_filter is passed
-			if(isset($uri[0]))
+			if(isset($uri[0]) && strlen($uri[0]) > 0)
 				$this->category = $uri[0];
-			if(isset($uri[1]))
+			if(isset($uri[1]) && strlen($uri[1]) > 0)
 				$this->category_filter = $uri[1];
-		
+
 			// Output/Redirection
 			$this->output();
 		}
@@ -63,7 +63,7 @@ class Property extends CI_Controller{
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
 		// load models
-		$this->load->model(array("utilities/background_images", "property/headers");
+		$this->load->model(array("utilities/background_images", "pages/headers", "pages/messages"));
 
 
 		// get the basic header
@@ -78,7 +78,7 @@ class Property extends CI_Controller{
 		$this->thumbnails = $this->get_thumbnails();//seperate the logic out into another method for grabbing the proper thumbnail!
 
 		// this is the box in the middle of the screen the user sees
-		$this->thumbnail_label = $this->header("browse", $this->)
+		$this->thumbnail_label = ($this->id === "search") ? ($this->headers->search_header()) : ($this->headers->browse_header($this->id, $this->category));
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
@@ -100,7 +100,6 @@ class Property extends CI_Controller{
 			$this->load->library("property/property_search");
 
 			$properties = $this->property_search->general_search($this->input->post("search"));
-
 		}
 
 		else {
@@ -108,8 +107,12 @@ class Property extends CI_Controller{
 			// load property search classes
 			$libraries = array("property/base_filter", "property/property_filter");
 			$this->load->library($libraries, array("category" => "type_category", "filter" => $this->id));//initialize the category_filter library for the type of page this is
-			$properties = $this->property_filter->filter_properties($this->category, $this->filter);
+
+			$properties = $this->property_filter->filter_properties($this->category, $this->category_filter);
 		}
+
+		if (!count($properties))
+			return $this->messages->no_listings();
 
 		return $this->base_filter->get_thumbnails($properties);
 	}

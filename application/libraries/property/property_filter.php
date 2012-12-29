@@ -64,6 +64,7 @@ class Property_filter extends Base_filter {
 		foreach ($unfiltered as $property_id) {
 
 			$query = $this->CI->db->where($where)->where(array("property_id" => $property_id))->select('property_id')->get($table);
+
 			if ($query->num_rows() === 1) 
 				array_push($filtered, $property_id);
 		}

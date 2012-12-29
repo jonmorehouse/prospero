@@ -57,6 +57,8 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 	// trigger a change in the element -- need to ensure that the map is created
 	function change_trigger(id) {
 
+
+
 		if (maps[id] === undefined || !maps[id]['ready']) {//init is not finished
 
 			return setTimeout(function() {change_trigger(id)}, 200);//we're still waiting on all data to be initialized

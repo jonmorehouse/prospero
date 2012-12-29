@@ -10,26 +10,7 @@ class Temp_development extends CI_Controller {
 
 	}	
 
-	public function search_category() {
-
-		$table = "search_categories";
-
-		$type = "similar";
-		$categories = array("rent_price", "address", "type_category", "type", "location_category", "priced_from", "price_per_month", "price_per_square", "city", "postal_code", "thumbnail_blurb", "amenities", "operating_costs", "number_baths", "sized_from");
-
-		foreach ($categories as $category) {
-
-			$data = array(
-				"category" => $category,
-				"search_type" => $type
-			);
-
-			$this->db->insert($table, $data);
-		}
-
-
-
-	}
+		
 
 	public function insert_message() {
 

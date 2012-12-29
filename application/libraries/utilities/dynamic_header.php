@@ -28,7 +28,7 @@ class Dynamic_header extends Header{
 
 		if ($this->page_id === "listing" && isset($parameters['property_id']) && array_key_exists($parameters['property_id'])) $this->property_id = $parameters['property_id'];
 
-		$this->CI->load->model('general');
+		$this->CI->load->model(array("general", "pages/headers"));
 
 	}
 
@@ -140,24 +140,9 @@ class Dynamic_header extends Header{
 
 	private function get_page_title() {
 
-		if ($this->page_id === "listing")
-			return $this->CI->format->word_format($this->CI->general->get_category($this->property_id, "name"));
+		if ($this->page_id === "listing") return $this->CI->headers->listing_page_title($property_id);
+			
+		else return $this->CI->headers->page_title($this->page_id);		
 
-		else {//run a custom query to get the proper page title
-
-			$filter = ($this->page_id === "property") ? ($this->page_filter) : ($this->page_id);
-			try {
-				$query = $this->CI->db->where(array("page_id" => $filter))->select("title")->get("page_titles");
-
-				if ($query->num_rows() == 0) throw new Exception();
-
-				else return $page_title = $query->row()->title;
-
-			} catch (Exception $e) {
-
-				return $this->CI->format->word_format($this->page_id);
-			}//end of the catch statement
-		}//end of else method
-	//end method
 	}//end of page title function
 };
