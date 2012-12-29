@@ -36,7 +36,8 @@ class Team_member extends CI_Model {
 		$member_id = "${member_id}_thumbnail";
 		$query = $this->db->select('url')->where(array('image_id'=> $member_id))->get($this->image_table);
 
-		return $query->row()->url;
+
+		return base_url($query->row()->url);
 	}
 
 	public function get_image_alt($member_id) {

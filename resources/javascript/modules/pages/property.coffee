@@ -2,7 +2,7 @@ do Project.Pages.Property = () ->
 
 	elements = [$('#navigation_browse'), $('#navigation_top'), $('#logo'), $('#search'), $('#header')]
 
-	Project.Pages.bumpbox elements
+	Project.Pages.Bumpbox elements
 	
 
 

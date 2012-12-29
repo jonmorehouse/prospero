@@ -12,6 +12,13 @@ class Temp_development extends CI_Controller {
 
 	public function temp() {
 
+		$insert = array(
+			array("page_id" => "homepage", "status" => false, "url" => "resources/javascript/modules/pages/bumpbox.js", "type" => "pages"),
+			array("page_id" => "homepage", "status" => false, "url" => "resources/javascript/modules/pages/homepage.js", "type" => "pages"),
+		);//
+
+		foreach ($insert as $data)
+			$this->db->insert("javascript_modules", $data);
 
 
 

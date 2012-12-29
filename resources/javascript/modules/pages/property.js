@@ -4,7 +4,7 @@
   (Project.Pages.Property = function() {
     var elements;
     elements = [$('#navigation_browse'), $('#navigation_top'), $('#logo'), $('#search'), $('#header')];
-    return Project.Pages.bumpbox(elements);
+    return Project.Pages.Bumpbox(elements);
   })();
 
 }).call(this);
