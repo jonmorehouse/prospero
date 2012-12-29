@@ -51,8 +51,8 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 			maps[id] = data;
 		});//end of each loop
 
-		// end of init function
-		}());
+	// end of init function
+	}());
 		
 	// trigger a change in the element -- need to ensure that the map is created
 	function change_trigger(id) {
@@ -73,7 +73,7 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 			}(id));//
 
 		}//end of if loop
-		};//end of function
+	};//end of function
 
 	return {
 

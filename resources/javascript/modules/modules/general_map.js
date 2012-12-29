@@ -33,6 +33,5 @@ Project.modules.general_map = function(element, data) {
 		}//end of for loop
 		}(data));//end of marker initialization
 
-
 };
 

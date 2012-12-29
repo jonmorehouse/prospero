@@ -66,8 +66,8 @@ class Property extends CI_Controller{
 		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
-		//List of thumbnails that should be displayed for this id, this category and this filter
-		$this->thumbnail_list = $this->browse->browse_thumbnail($this->id, $this->category, $this->filter);
+		// initialize
+		$this->thumbnails = $this->browse
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
