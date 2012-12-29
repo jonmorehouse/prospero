@@ -7,6 +7,7 @@
 	$this->load->view('site_wide/logo');
 
 	$this->load->view('navigation/navigation_' . $this->id);
+	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 
 ?>
 
 

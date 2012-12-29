@@ -85,12 +85,5 @@ Project.Pages.Homepage = (function() {
 		var search_bar_animation = new Project.Modules.form_animation($('#search'));
 
 	}());
-	
-	var test = (function() {
-
-		// $('#navigation_top li.map').trigger('click');
-
-	}());
-
 
 }());

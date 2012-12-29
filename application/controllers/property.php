@@ -69,7 +69,6 @@ class Property extends CI_Controller{
 		//List of thumbnails that should be displayed for this id, this category and this filter
 		$this->thumbnail_list = $this->browse->browse_thumbnail($this->id, $this->category, $this->filter);
 
-
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
 	}

@@ -56,7 +56,6 @@ Project.Modules.bumpbox = function(in_trigger, container) {
 
 	return {
 
-		'test': this.test,
 		'config' : config,//returns the config element so that we can set variables for this element
 
 	};
