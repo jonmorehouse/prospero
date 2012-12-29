@@ -33,6 +33,7 @@ class Homepage extends CI_Controller{
 		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 
+		
 		//load and compile the view
 		$this->load->view('homepage/homepage_base');//main view for this page
 	}

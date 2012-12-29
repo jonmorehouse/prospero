@@ -25,6 +25,18 @@
 	$this->load->view('navigation/search');
 ?>
 
+<div id='page_container'>
+	<div id='page_content'>
+		<div id='thumbnail_container'>
+			<?php
+
+						
+
+			?>
+		</div>
+	</div> <!--THIS IS THE END OF THE PAGE_CONTENT-->
+</div>
+
 
 
 <?php

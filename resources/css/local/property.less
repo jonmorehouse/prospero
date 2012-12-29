@@ -25,7 +25,6 @@
 	max-width:100%;
 	margin:none;
 	padding-top:0;
-
 }
 
 #navigation_browse{
@@ -93,24 +92,10 @@
 
 #thumbnail_container{
 	
-	position:relative;
-	width:100%;
-	padding:0;
-	overflow:auto;
-	
-	.header{
-		width:100%;
-		position:relative;
-		top:100px;
-		max-width:50%;
-		display:block;
-		margin:0 auto;
-		text-align:center;
-		overflow:auto;
-		.base_font();
-		color:black;
-		background-color:transparent;
-	}
+	overflow-y: auto;
+	position: relative;
+	width: 100%;
+	height:2000px;
 
 }
 
@@ -209,8 +194,9 @@
 	overflow:auto;
 	.base_font();
 	color:white;
+	font-size:0.8em;
 	border-radius: 20px;
-	padding: 1em;
+	padding: 0.5em;
 }
 
 /*MEDIA QUERIES*/
@@ -229,6 +215,7 @@
 	#header{
 		position:relative;
 		top:120px;
+		font-size:0.7em;
 	}
 }
 
