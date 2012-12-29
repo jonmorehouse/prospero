@@ -4,12 +4,12 @@ class Base_filter {
 
 	var $CI;
 
-	public function __construct() {
+	function __construct() {
 
 		$this->CI =& get_instance();//get the codeigniter instance
 
 		// load proper models for this element
-		$models = array('general', 'property/filter', 'property/geographical_information');
+		$models = array('general', 'property/filter', 'property/geographical_information', 'property/search');
 		$this->CI->load->model($models);
 	}
 
@@ -31,4 +31,45 @@ class Base_filter {
 
 		return $this->CI->filter->get_all();
 	}
+
+	// this function breaks down a raw list with multiple versions of the same number to a map of the correct elements
+	protected function sort_prepare($raw_list) {
+
+		// sample = array (
+
+		// 	0 => array ("id" => 0, "occurrences" => 5);			
+		// );
+
+		$elements = array();
+
+		foreach ($raw_list as $id) {
+
+			$found = false;
+
+			foreach ($list as $element) {
+
+				if ($element['id'] === $id) {
+
+					$element['occurrences'] += 1;
+					$found = true;//was found
+					break;//end the for loop
+				}
+			}
+
+			if (!$found)
+				array_push($elements, array("id" => $id, "occurrences" => 1));
+		} 
+
+	}
+
+	protected function sort($list) {
+
+
+
+		return true;
+
+	}
+
+
+
 }

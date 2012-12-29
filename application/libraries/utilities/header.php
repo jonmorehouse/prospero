@@ -28,10 +28,6 @@ class Header{
 		// DECLARATIONS AND LOADING
 		$this->CI =& get_instance();
 
-		// LOADING LIBRARIES
-		$libraries = array('property/property_get');
-		$this->CI->load->library($libraries);
-		
 		// LOADING MODELS
 		$models = array('general');
 		$this->CI->load->model($models);

@@ -8,6 +8,27 @@ class Temp_development extends CI_Controller {
 		$this->load->model('general');
 		$this->load->library('utilities/format');
 
+	}	
+
+	public function search_category() {
+
+		$table = "search_categories";
+
+		$type = "general";
+		$categories = array("name", "address", "type", "type_category", "location_category");
+
+		foreach ($categories as $category) {
+
+			$data = array(
+				"category" => $category,
+				"search_type" => $type
+			);
+
+			$this->db->insert($table, $data);
+		}
+
+
+
 	}
 
 	public function insert_message() {

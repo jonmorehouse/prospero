@@ -8,7 +8,7 @@ class Property extends CI_Controller{
 		$this->id = '';
 		
 		// LIBRARY LOADING
-		$libraries = array('property/browse', 'property/property_get', 'utilities/header');
+		$libraries = array('property/browse', 'utilities/header');
 		$this->load->library($libraries);
 			
 
@@ -52,7 +52,7 @@ class Property extends CI_Controller{
 	}
 	
 	private function browse(){
-			
+				
 		// load general libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "homepage/bumpbox_content");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
