@@ -9,7 +9,7 @@ class Homepage extends CI_Controller{
 		$this->load->library(array('utilities/header', 'utilities/dynamic_header'), array("page_id" => "homepage"));
 		$this->load->library('homepage/bumpbox_content');
 
-		$this->load->model("utilities/background_images");
+		$this->load->model(array("pages/elements", "pages/navigation"));
 	}
 	
 	public function _remap($uri) {
@@ -23,7 +23,9 @@ class Homepage extends CI_Controller{
 		$this->header = $this->dynamic_header->get_header();//gets the dynamic header - not the tables that define the resources included
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the javascript modules for this homepage
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
-		$this->background_images = $this->background_images->get_images();
+		$this->background_images = $this->elements->get_background_images();
+		$this->logo = $this->navigation->get_logo();
+
 
 		// left side bumpboxes
 		$this->team_bumpbox = $this->bumpbox_content->get_team();//this is the team 

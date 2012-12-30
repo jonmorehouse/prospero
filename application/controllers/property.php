@@ -63,7 +63,7 @@ class Property extends CI_Controller{
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
 		// load models
-		$this->load->model(array("utilities/background_images", "pages/headers", "pages/messages"));
+		$this->load->model(array("pages/elements", "pages/headers", "pages/messages", "pages/navigation"));
 
 
 		// get the basic header
@@ -71,7 +71,9 @@ class Property extends CI_Controller{
 		// now get the basic modules
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the current javascript modules for this page
 		// get the background image information
-		$this->background_images = $this->background_images->get_images();
+		$this->background_images = $this->elements->get_background_images();
+		$this->logo = $this->navigation->get_logo($this->id);
+
 		// map bumpbox
 		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
 

@@ -33,8 +33,10 @@ class Temp_development extends CI_Controller {
 	public function css() {
 
 		$resources = array(
-			"resources/css/local/listing.less",
+
 			"resources/css/local/bumpbox.less",
+
+			"resources/css/local/listing.less",
 
 		);
 
@@ -70,7 +72,7 @@ class Temp_development extends CI_Controller {
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/bumpbox.js"),
 			array("type" => "site_wide", "url" => "resources/javascript/modules/site_wide/site_wide.js"),
 			array("type" => "pages", "url" => "resources/javascript/modules/pages/site_wide.js"),
-			// array("type" => "pages", "url" => "resources/javascript/modules/pages/homepage.js"),
+			array("type" => "pages", "url" => "resources/javascript/modules/pages/listing.js"),
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/background_gallery.js"),
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/thumbnail_controller.js"),
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/contact.js"),

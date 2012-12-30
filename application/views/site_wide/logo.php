@@ -1,10 +1,5 @@
 <div id='logo'>
-	<a href='<?php
-		if(strtolower($this->id)=='homepage')
-			echo '#';
-		else
-			echo site_url();
-	?>'>
-	<img alt='Prospero logo' src='<?php echo base_url('resources/images/site_wide/logo.png');?>' />
+	<a href='<?php echo $this->logo['link'];?>'>
+	<img alt='<?php echo $this->logo['alt'];?>' src='<?php echo $this->logo['url'];?>' />
 	</a>
 </div>

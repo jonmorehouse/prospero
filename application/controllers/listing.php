@@ -104,16 +104,18 @@ class Listing extends CI_Controller {
 		$this->load->library($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
 
 		// initialize proper models
-		$this->load->model(array("pages/navigation"));
+		$this->load->model(array("pages/navigation", "pages/elements"));
 
 		// initilialize basic elements
 		$this->header = $this->dynamic_header->get_header();
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
+		$this->logo = $this->navigation->get_logo();
+		$this->background_images = $this->elements->get_background_images();
+		$this->navigation_top = $this->navigation->get_navigation("global_top");
+		$this->navigation_left = $this->navigation->get_listing($this->property_id);
 
-		$this->top_navigation = $this->navigation->get_navigation("global_top");
-		$this->left_navigation = $this->navigation->get_listing($this->property_id);
 
-
+		// 
 		$this->load->view("listing/listing_base");
 	}
 

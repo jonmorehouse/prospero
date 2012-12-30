@@ -21,9 +21,9 @@ class Navigation_development extends CI_Controller {
 		$table = "navigation_elements";
 
 		$element = array(
-			"element_id"=>"home",
+			"element_id"=>"home_home",
 			"name" => "Home",
-			"link" => "",			
+			"link" => "#",			
 			"relative" => false,
 			"data_bumpbox"=>false,
 			"data_link" => ""

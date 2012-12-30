@@ -8,14 +8,14 @@ class Navigation extends CI_Model {
 		$this->map_table = "navigation_mapper";
 		$this->element_table = "navigation_elements";
 		$this->load->model("general");
-
 	}	
 
 	// public apis
+	// can send in selected if there is a specific element
+	public function get_navigation($page_id = "global_top", $selected = "") {
 
-	public function get_navigation($page_id) {
-
-		return $this->generate_element_data($this->menu_elements($page_id));
+		//pass in a selected element_id if you want that element to be selected
+		return $this->generate_element_data($this->menu_elements($page_id), $selected);
 
 	}
 
@@ -25,10 +25,26 @@ class Navigation extends CI_Model {
 
 	}
 
+	public function get_logo($page_id = "home") {//
 
+		if ($page_id == "home" || $page_id == "homepage")
+			$query = $this->db->where(array("element_id" => "home_home"))->get($this->element_table, 1);
+
+		else 
+			$query = $this->db->where(array("element_id" => "home"))->get($this->element_table, 1);
+
+		$image_query = $this->db->where(array("image_id" => "logo"))->get("general_images", 1);
+
+		return array(
+
+			"link" => ($query->row()->relative) ? ($query->row()->link) : (site_url($query->row()->link)),//initialize the url
+			"url" => base_url($image_query->row()->url),
+			"alt" => $image_query->row()->alt,
+		);//has an element and an array
+	}
 
 	// element data needed for views. name, link, data-link, data-bumpbox
-	private function generate_element_data($element_ids) {
+	private function generate_element_data($element_ids, $selected = "") {
 
 		// generate a element object for each id 
 		$elements = array();
@@ -44,12 +60,13 @@ class Navigation extends CI_Model {
 			$element = array(
 
 				"name" => $data->name,//a label
+				"class" => ($selected == $element_id) ? ("selected") : (""),//whether or not this particular element should be flagged as selected from the origin!
 				"link" => $data->link,//link for when the user clicks can be # as well
 				"relative" => ($data->relative) ? (true) : (false),//whether or not to attach a site-url to the link				
 				"element_id" => $element_id,//useful for backend purposes
 				"data_link" => $data->data_link,//useful for mapping clicks to front-end actions
 				"data_bumpbox" => ($data->data_bumpbox) ? (true) : (false),//true / false for whether or not a bumpbox element
-				);
+			);
 
 			// push in the element
 			array_push($elements, $element);
