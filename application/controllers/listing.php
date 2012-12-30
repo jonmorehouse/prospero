@@ -99,15 +99,22 @@ class Listing extends CI_Controller {
 	// dynamic listing is the last step -- should not happen for any live pages
 	private function dynamic_listing() {
 
+		// initialize libraries
 		$libraries = array("utilities/header", "utilities/dynamic_header");
-		$this->load->libraries($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
+		$this->load->library($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
 
+		// initialize proper models
+		$this->load->model(array("pages/navigation"));
+
+		// initilialize basic elements
 		$this->header = $this->dynamic_header->get_header();
+		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
 
-		
+		$this->top_navigation = $this->navigation->get_navigation("global_top");
+		$this->left_navigation = $this->navigation->get_listing($this->property_id);
 
 
-
+		$this->load->view("listing/listing_base");
 	}
 
 

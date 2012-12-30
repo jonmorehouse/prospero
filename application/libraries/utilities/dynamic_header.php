@@ -26,7 +26,7 @@ class Dynamic_header extends Header{
 		// only use page id for the actual listing pages
 		$this->property_id = -1;
 
-		if ($this->page_id === "listing" && isset($parameters['property_id']) && array_key_exists($parameters['property_id'])) $this->property_id = $parameters['property_id'];
+		if ($this->page_id === "listing" && isset($parameters['property_id']) && array_key_exists("property_id", $parameters)) $this->property_id = $parameters['property_id'];
 
 		$this->CI->load->model(array("general", "pages/headers"));
 
@@ -140,7 +140,7 @@ class Dynamic_header extends Header{
 
 	private function get_page_title() {
 
-		if ($this->page_id === "listing") return $this->CI->headers->listing_page_title($property_id);
+		if ($this->page_id === "listing") return $this->CI->headers->listing_page_title($this->property_id);
 			
 		else return $this->CI->headers->page_title($this->page_id);		
 

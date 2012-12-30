@@ -36,16 +36,15 @@ class Navigation_development extends CI_Controller {
 	public function map() {
 
 		$table = "navigation_mapper";
-		$name = "listing";
+		$name = "global_top";
 
 		$elements = array(
 
-			"similar_properties",
-			"listing_map",
-			"listing_pdf",
-			"listing_video",
-			"listing_inquire"
-		
+			"office_industrial",
+			"retail",
+			"residential",
+			"general_maps",
+			"contact"
 		);
 
 		foreach ($elements as $element_id) {
