@@ -33,14 +33,14 @@ class Temp_development extends CI_Controller {
 	public function css() {
 
 		$resources = array(
-			"resources/css/local/property.less",
+			"resources/css/local/listing.less",
 			"resources/css/local/bumpbox.less",
 
 		);
 
 		foreach ($resources as $resource) {
 
-			$data = array("url" => $resource, "file_type" => "stylesheet/less", "status" => false, "page_id" => "property");
+			$data = array("url" => $resource, "file_type" => "stylesheet/less", "status" => false, "page_id" => "listing");
 			$this->db->insert("stylesheets", $data);
 
 		}
@@ -59,7 +59,7 @@ class Temp_development extends CI_Controller {
 
 		foreach ($resources as $resource) {
 
-			$insert = array("url" => $resource, "status" => false, "page_id" => "property");
+			$insert = array("url" => $resource, "status" => false, "page_id" => "listing");
 			$this->db->insert("javascript_resources", $insert);
 		}	
 	}
@@ -70,7 +70,7 @@ class Temp_development extends CI_Controller {
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/bumpbox.js"),
 			array("type" => "site_wide", "url" => "resources/javascript/modules/site_wide/site_wide.js"),
 			array("type" => "pages", "url" => "resources/javascript/modules/pages/site_wide.js"),
-			array("type" => "pages", "url" => "resources/javascript/modules/pages/homepage.js"),
+			// array("type" => "pages", "url" => "resources/javascript/modules/pages/homepage.js"),
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/background_gallery.js"),
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/thumbnail_controller.js"),
 			array("type" => "modules", "url" => "resources/javascript/modules/modules/contact.js"),
@@ -83,7 +83,7 @@ class Temp_development extends CI_Controller {
 		foreach ($modules as $module) {
 
 			$module['status'] = false;
-			$module['page_id'] = "property";
+			$module['page_id'] = "listing";
 
 			$this->db->insert("javascript_modules", $module);
 
@@ -96,7 +96,7 @@ class Temp_development extends CI_Controller {
 		$insert_data = array(
 
 			'url' => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false",
-			'page_id' => "property",
+			'page_id' => "listing",
 			'status' => false,	
 		);
 

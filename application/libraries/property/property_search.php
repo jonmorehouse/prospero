@@ -17,7 +17,7 @@ class Property_search extends Base_filter {
 		// check if input is int already ... probably not but makes our life easier...
 		if (gettype($input) === "integer") {
 			if ($this->CI->general->live($input))
-				return true;
+				return $input;
 
 		}
 
@@ -27,13 +27,13 @@ class Property_search extends Base_filter {
 			// if so do the conversion and check live
 			$int = $this->CI->data_helper->input_to_integer($input);
 			if ($this->CI->general->live($int))
-				return true;
+				return $int;
 		}
 
 		// return matches!
 		$matches = $this->CI->search->listing_verification($input);
 
-		if (count($matches) === 1) return true;
+		if (count($matches) === 1) return $matches[0];//return the first match!
 
 		return false;
 	}

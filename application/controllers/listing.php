@@ -5,29 +5,33 @@ class Listing extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 
-		$this->load->model('general');
+		$this->load->model("general");//load this for status check -- interesting note if this doesn't exist, using it inside an if statement will just return false, not throw an error
 
 		// LIBRARY LOADING -- these are universal 
-		$libraries = array('property/property_search', 'property/browse', 'session');
+		$libraries = array('property/base_filter', 'property/property_search', 'session');
 		$this->load->library($libraries);
+
 
 	}
 	
 	public function _remap($uri) { //uri is the number or title etc
 		
-		// MEANS THEY JUST WENT TO LISTING/
-		if(!$uri || $uri === 'index')
-			$this->redirect();
-		
+		//check than an initial listing url was handled
+		if(!$uri || $uri === 'index') return $this->redirect();
+
 		// verify the listing uri with property_search--allows for searching by name
 		$this->property_id = $this->property_search->listing_verification($uri);
 
-		// if the property id exists, we need to show it!
-		if($this->property_id) $this->listing();
+		// if not a valid property id then redirect
+		if (!$this->property_id) return $this->redirect();
 
-		else
-			$this->redirect();
+		// ensure that we are working with a live property for this site
+		if (!$this->general->live($this->property_id)) return $this->redirect();
+
+		// return the listing elements
+		$this->listing();//run the actual listing page because this is a valid request
 	}
+
 		
 	public function redirect() {
 		// THIS IS TO REDIRECT TO ANOTHER SITE--THIS IS SO IT CAN BE CHANGED EASILY!
@@ -37,9 +41,6 @@ class Listing extends CI_Controller {
 /******** LISTING CONTROLLER ***********/
 	
 	public function listing() {
-
-		if (!$this->general->get_category('property_status'))
-			redirect();
 
 		$this->listing_view();
 
@@ -51,7 +52,6 @@ class Listing extends CI_Controller {
 	}
 
 /*********** IMPLEMENTATION OF THE LISTING *************/
-
 //listing view is responsible for setting whether or not a listing was viewed by a user
 	private function listing_view() { 
 
@@ -85,6 +85,7 @@ class Listing extends CI_Controller {
 	// static listing will generate the static page status and will return the contents if it exists
 	private function static_listing() {//this will return the listing content if the static page exists, otherwise will return false
 
+		return false;//this functionality can come later
 		// this is the file name of the localized static pages!
 		$file_name = "property_static_pages/{$this->property_id}";
 
@@ -98,27 +99,23 @@ class Listing extends CI_Controller {
 	// dynamic listing is the last step -- should not happen for any live pages
 	private function dynamic_listing() {
 
-		// CLASS DEPENDENCIES
-		$header_libraries = array('utilities/header', 'utilities/dynamic_header');//header only
-		$listing_libraries = array('listing/listing_base', 'listing/listing_inquiry', 'listing/listing_content', 'listing/listing_media', 'listing/listing_drawers');//various listing pieces
+		$libraries = array("utilities/header", "utilities/dynamic_header");
+		$this->load->libraries($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
 
-		// load the actual libraries
-		$this->load->library($listing_libraries, array('property_id' => $this->property_id));
-		$this->load->library($header_libraries, array('property_id' => $this->property_id));
-
-		// load additional needed libraries
-		$this->load->model('general');
-
-		/***** GENERATE CONTENT FOR THE LISTING_BASE VIEW *******/
-		// header / meta information
 		$this->header = $this->dynamic_header->get_header();
-		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
 
-		// LISTING INFORMATION
-		$this->slideshow_images = $this->listing_media->slideshow_images();//get the slideshow image urls
-		$this->slideshow_thumbnail_images = $this->listing_media->slideshow_thumbnails();//get the small thumbnails for the individual slideshow for this property		
+		
 
-		// VIEW OUTPUT
-		$this->load->view('listing/listing_base');
-	} 
+
+
+	}
+
+
+
+
+
+
+
+
+
 }

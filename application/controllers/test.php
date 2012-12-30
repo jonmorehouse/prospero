@@ -14,14 +14,9 @@ class Test extends CI_Controller {
 	public function index() {
 
 
-		$this->load->library('property/similar_properties');
+		$this->load->model("pages/navigation");
 
-		print_r($this->similar_properties->similar_properties(56));
-		
-
-
-
-		echo "\n\n\n";
+		print_r($this->navigation->listing_elements(55));
 
 	}
 

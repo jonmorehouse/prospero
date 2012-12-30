@@ -313,6 +313,18 @@ class General extends CI_Model{
 
 	}
 
+	public function media_status($property_id, $type = "pdf_id") {
+
+		$table = $this->get_category_table($type);
+
+		$query = $this->db->where(array("property_id" => $property_id))->select("status")->get($table);
+
+		if ($query->num_rows() === 0) return false;
+
+		else return $query->row()->status;		
+
+	}
+
 }
 
 ?>
