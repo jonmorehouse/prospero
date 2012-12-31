@@ -1,6 +1,6 @@
 do Project.Pages.Listing = () ->
 
-	elements = [$('#navigation_browse'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#page_content')]
+	elements = [$('#navigation_browse'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')]
 
 	Project.Pages.Bumpbox elements
 

@@ -2,6 +2,8 @@
 @import "mixins";
 @import "site_wide";
 
+@width: 75%;
+
 #navigation_left {
 
 	li {
@@ -15,19 +17,216 @@
 #header {
 
 	position: relative;
+	display:block;
 	top: 4.5em;
-	width: 60%;
-	left: 20%;
+	left: 200px;
+	width: 74%;
 	.dark_background();
-	.border_radius();
+	.simple_radius();
+	height: 3.5em;
 
 	> span {
 
+		float: left;
+		position: relative;
+		height: 100%;
+
+		&:first-child {
+
+			margin-left:0.5%;
+			img {
+				.simple_radius(5px);
+				position: relative;
+				top:5%;
+				height:90%;
+				margin:0 auto;
+			}
+		}
+
+		&:nth-child(2) {
+
+			color: white;
+			height: 100%;
+			width:85%;
+			position:relative;
+
+			> h1 {
+
+				display:block;
+				position: relative;
+				height:100%;
+				.base_font();
+				background-color:transparent;
+				font-size:1.5em;
+				text-align:center;
+				vertical-align:top;
+			}
+		}
+	}
+}
 
 
+/********** BASIC LAYOUT **********/
+#content {
+
+	display:block;
+	position: relative;
+	top:5em;
+	.dark_background();
+	.simple_radius();
+	left: 200px;
+	width: 80%;
+	max-height: 500px;
+	overflow-y:auto;
+	padding-bottom:200px;
+
+	> div {
+
+		position:relative;
+		float: left;
+
+		// slideshow container
+		// total width 64%
+		&:first-child {//this corresponds to the slideshow images class
+
+			margin: 0em 0% 1.2em 2%;
+			width: 62%;
+		}
+
+		// total width 26%
+		&:nth-child(2) {//description div
+
+			margin: 1.2em 0% 1.2em 2%;
+			width: 32%;
+		}
+
+		&:nth-child(3) {
+
+			width:96%;
+			margin: 1.2em 2% 1.2em 2%;
+		}
+	}
+}
+
+/************ SLIDESHOW SECTION *********/
+// slideshow image container / basic layout of the images etc
+#slideshow {
+	
+	height:300px;//center each image agains this!
+
+	> div {
+
+		position: relative;
+		float: left;
+		height: 100%;
+	}
+	// total width 64%
+	.content {//this corresponds to the slideshow images class
+
+		margin: 1.2em 2% 1.2em 0%;
+		width: 62%;
+	}
+
+	// total width 26%
+	.thumbnails {
+
+		margin: 1.2em 0% 1.2em 0%;
+		width: 36%;
+		overflow-y:auto;
+	}
+}
+
+#slideshow .content > div {//individual slides
+
+	position:absolute;
+	top:0;
+	left:0;
+	height: 100%;
+	width:100%;
+	.dark_background(0.8);
+
+	img {
+
+		position:relative;
+		display:block;
+		height:96%;
+		top: 2%;
+		max-width:96%;
+		margin:0 auto;
 	}
 
 
 }
 
+#slideshow .thumbnails > div{//individual thumbnails
 
+	float: left;
+	width: 50%;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+	cursor:pointer;
+	.simple_radius(5px);
+
+	img {
+
+		position:relative;
+		display:block;
+		max-width:90%;
+		margin:0 auto;
+	}
+}
+
+#slideshow > .thumbnails > div.selected, #slideshow > .thumbnails > div:hover{
+
+	.dark_background(0.8);
+}
+
+
+/************** DESCRIPTION *********/
+#description {
+
+	.dark_background(0.8);
+	color: white;
+	overflow-y:auto;
+
+	>h1 {
+		.base_font(1.2em);
+		text-align:center;
+	}
+
+	> p {
+
+		position:relative;
+		display:block;
+		width:80%;
+		margin:0.5em auto;
+		.base_font(1em);
+	}
+}
+
+
+
+/********* ELEMENTS ***************/
+#elements {
+
+	background-color:white;
+	height:2000px;
+
+
+}
+
+
+@media screen and (max-width: 960px) {
+
+	#header {
+
+		> span:nth-child(2) > h1 {
+
+			top: 0.5em;
+			font-size:1em;
+		}
+
+	}
+
+
+}
