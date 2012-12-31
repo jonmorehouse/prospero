@@ -347,10 +347,11 @@ class General extends CI_Model{
 		$table = $this->get_category_table("property_status");
 
 		// had some trouble returning boolean values from mysql mapping- using mysql properties so we don't have to map
-		$query = $this->db->where(array('property_status' => true, 'property_id' => $property_id))->get($table);
+		$query = $this->db->where(array('property_status' => true, 'property_id' => $property_id))->get($table, 1);
+		$name = $this->get_category($property_id, "name");
 
 		// returstatus
-		if ($query->num_rows() > 0) return true;
+		if ($query->num_rows() === 1 && $name) return true;
 
 		return false;
 

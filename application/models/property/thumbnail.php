@@ -7,7 +7,6 @@ class Thumbnail extends CI_Model {
 		parent::__construct();
 		$this->load->model("general");
 		$this->load->library('property/media');
-
 	}
 
 	/***** COMPILED THUMBNAILS *****/
@@ -19,6 +18,7 @@ class Thumbnail extends CI_Model {
 			"header" => $this->get_name($property_id),
 			"name" => $this->get_name($property_id),
 			"blurb" => $this->get_blurb($property_id)
+			
 		);
 	}
 
@@ -38,7 +38,7 @@ class Thumbnail extends CI_Model {
 
 	public function get_image($property_id) {
 
-		$image_id = $this->media->get_thumbnail($property_id);
+		return $this->media->get_thumbnail($property_id);
 
 	}
 

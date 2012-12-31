@@ -130,8 +130,11 @@ class Listing extends CI_Controller {
 		$this->top_bumpboxes = $this->navigation->get_bumpboxes();//gets a list of the navigation_top bumpboxes
 
 		// initialize a library that will output the proper bumpboxes based on what bumpboxes that the navigation elements return
+		//bumpboxes are responsible for passing their own data		
 		$this->top_bumpbox_content = $this->navigation->get_bumpboxes();//get the top bumpboxes
 		$this->left_bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
+
+
 
 		// initialize main page elements
 		$this->thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
@@ -142,16 +145,16 @@ class Listing extends CI_Controller {
 		$this->slideshow_images = $this->listing_media->slideshow_images();
 		$this->thumbnail_images = $this->listing_media->slideshow_image_thumbnails();
 
+		$this->data = array(
+			"property_id" => $this->property_id,
+			"slideshow_images" => $this->slideshow_images,
+			"slideshow_thumbnail_images" => $this->thumbnail_images,
+			"listing_bumpboxes" => $this->left_bumpbox_content,
+		);
+
 		// load the views
 		$this->load->view("listing/listing_base");
 	}
-
-
-
-
-
-
-
 
 
 }

@@ -90,7 +90,7 @@ CREATE TABLE `category_type_categories` (
 
 LOCK TABLES `category_type_categories` WRITE;
 /*!40000 ALTER TABLE `category_type_categories` DISABLE KEYS */;
-INSERT INTO `category_type_categories` VALUES ('weekend_manager_first_name','general','Default Weekend Manager First Name',5001,NULL,0,1,1),('weekend_manager_last_name','general','Default Weekend Manager Last Name',5002,NULL,0,1,1),('weekend_manager_email','general','Default Weekend Manager Email',5003,NULL,0,1,1),('weekend_manager_phone','general','Default Weekend Manager Phone',5004,NULL,0,1,1),('price_per_month','rent','Default Price Per Month',5000,NULL,0,1,1),('sized_from','buy','Default Sized From',5000,NULL,0,1,1),('year_built','buy','Default Year Built',5000,NULL,0,1,1),('price_per_night','other','Default Price Per Night',5000,NULL,0,1,1),('amenities','other','Default Property Content',5000,NULL,0,1,1),('link','other','Default Link',5000,NULL,0,1,1),('operating_costs','office_industrial','9999',5000,NULL,0,1,1),('number_beds','residential','Default Number Beds',5000,NULL,0,1,1),('number_baths','residential','Default Number Baths',5000,NULL,0,1,1),('square_feet','residential','9999',5000,NULL,0,1,1),('features','residential','Default Features',5000,NULL,0,1,1),('priced_from','residential','Default Name',5000,NULL,0,1,1),('amenities','residential','Default Property Content',5000,NULL,0,1,1),('operating_costs','retail','9999',5000,NULL,0,1,1),('square_feet','retail','9999',5000,NULL,0,1,1),('weekend_manager','general','false',5000,NULL,0,1,1),('name','general','Default Property name',1,NULL,0,1,1),('property_content','general','Default Property Description',2,NULL,0,0,1),('thumbnail_blurb','general','Default Thumbnail Blurb',3,NULL,0,0,1),('type','general','rent',4,NULL,1,1,1),('type_category','general','office_industrial',5,NULL,1,1,1),('location_category','general','downtown/chinatown/west_end',6,'Location',0,1,0),('address','general','Default Address',7,NULL,0,1,1),('city','general','Default Address City',8,NULL,0,1,1),('postal_code','general','a9a9a9',9,NULL,0,1,1),('manager_first_name','general','Default Manager First Name',10,NULL,0,1,1),('manager_last_name','general','Default Manager Last Name',11,NULL,0,1,1),('manager_email','general','Default Manager Email',12,NULL,0,1,1),('manager_phone','general','999-999-9999',13,NULL,0,1,1),('meta_description','general','Meta Description',14,NULL,1,0,1),('meta_keywords','general','Meta Keywords',15,NULL,1,0,1),('new_property','general','false',1000,NULL,1,1,1),('price_per_square','buy','9999',1000,NULL,0,1,1),('price_per_square','office_industrial','Default price per square foot',1000,NULL,0,1,1),('price_per_square','retail','Default price per square foot',1000,NULL,0,1,1),('square_feet','retail',NULL,1000,NULL,0,1,1),('no_vacancies','general','false',1000,NULL,1,1,1);
+INSERT INTO `category_type_categories` VALUES ('weekend_manager_first_name','general','Default Weekend Manager First Name',5001,NULL,0,1,1),('weekend_manager_last_name','general','Default Weekend Manager Last Name',5002,NULL,0,1,1),('weekend_manager_email','general','Default Weekend Manager Email',5003,NULL,0,1,1),('weekend_manager_phone','general','Default Weekend Manager Phone',5004,NULL,0,1,1),('price_per_month','rent','Default Price Per Month',5000,NULL,0,1,1),('sized_from','buy','Default Sized From',5000,NULL,0,1,1),('year_built','buy','Default Year Built',5000,NULL,0,1,1),('price_per_night','other','Default Price Per Night',5000,NULL,0,1,1),('amenities','other','Default Property Content',5000,NULL,0,1,1),('link','other','Default Link',5000,NULL,0,1,1),('operating_costs','office_industrial','9999',5000,NULL,0,1,1),('number_beds','residential','Default Number Beds',5000,NULL,0,1,1),('number_baths','residential','Default Number Baths',5000,NULL,0,1,1),('square_feet','residential','9999',5000,NULL,0,1,1),('features','residential','Default Features',5000,NULL,0,1,1),('priced_from','residential','Default Name',5000,NULL,0,1,1),('amenities','residential','Default Property Content',5000,NULL,0,1,1),('operating_costs','retail','9999',5000,NULL,0,1,1),('square_feet','retail','9999',5000,NULL,0,1,1),('weekend_manager','general','false',5000,NULL,0,1,1),('name','general','Default Property Name',1,NULL,0,1,1),('property_content','general','Default Property Description',2,NULL,0,0,1),('thumbnail_blurb','general','Default Thumbnail Blurb',3,NULL,0,0,1),('type','general','rent',4,NULL,1,1,0),('type_category','general','office_industrial',5,NULL,1,1,0),('location_category','general','downtown/chinatown/west_end',6,'Location',0,1,0),('address','general','Default Address',7,NULL,0,1,1),('city','general','Default Address City',8,NULL,0,1,1),('postal_code','general','a9a9a9',9,NULL,0,1,1),('manager_first_name','general','Default Manager First Name',10,NULL,0,1,1),('manager_last_name','general','Default Manager Last Name',11,NULL,0,1,1),('manager_email','general','Default Manager Email',12,NULL,0,1,1),('manager_phone','general','999-999-9999',13,NULL,0,1,1),('meta_description','general','Meta Description',14,NULL,1,0,1),('meta_keywords','general','Meta Keywords',15,NULL,1,0,1),('new_property','general','false',1000,NULL,1,1,1),('price_per_square','buy','9999',1000,NULL,0,1,1),('price_per_square','office_industrial','Default price per square foot',1000,NULL,0,1,1),('price_per_square','retail','Default price per square foot',1000,NULL,0,1,1),('square_feet','retail',NULL,1000,NULL,0,1,1),('no_vacancies','general','false',1000,NULL,1,1,1);
 /*!40000 ALTER TABLE `category_type_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,6 +117,30 @@ LOCK TABLES `category_types` WRITE;
 /*!40000 ALTER TABLE `category_types` DISABLE KEYS */;
 INSERT INTO `category_types` VALUES ('buy',2,'Purchase Details'),('general',1,'General Details'),('office_industrial',8,'Office/Industrial Details'),('other',9,'Other Details'),('rent',2,'Rent Details'),('residential',8,'Residential Details'),('retail',8,'Retail Details');
 /*!40000 ALTER TABLE `category_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `config_settings`
+--
+
+DROP TABLE IF EXISTS `config_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `config_settings` (
+  `element_id` varchar(255) NOT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`element_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `config_settings`
+--
+
+LOCK TABLES `config_settings` WRITE;
+/*!40000 ALTER TABLE `config_settings` DISABLE KEYS */;
+INSERT INTO `config_settings` VALUES ('cgi_url','http://localhost:8888/cgi-bin/'),('default_pdf_thumbnail_url','resources/images/defaults/pdf.png'),('default_slideshow_image_url','resources/images/defaults/slideshow.png'),('default_thumbnail_image','resources/images/defaults/thumbnail.png'),('default_video_thumbnail_url','resources/images/defaults/video.png'),('max_file','100M'),('site_status','local'),('walkscore_api_key','60aaf442c1061e1c1bf69eb7b42ee627'),('webmaster_email','morehousej09@gmail.com');
+/*!40000 ALTER TABLE `config_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -344,7 +368,7 @@ CREATE TABLE `listing_views` (
 
 LOCK TABLES `listing_views` WRITE;
 /*!40000 ALTER TABLE `listing_views` DISABLE KEYS */;
-INSERT INTO `listing_views` VALUES (4,'2012-12-29 18:22:50'),(5,'2012-12-29 18:30:38'),(5,'2012-12-29 18:30:59'),(5,'2012-12-29 18:31:10'),(2,'2012-12-29 19:07:27'),(10,'2012-12-29 21:20:41'),(2,'2012-12-30 17:22:03'),(4,'2012-12-30 17:34:18'),(10,'2012-12-30 17:34:28'),(3,'2012-12-30 18:37:55');
+INSERT INTO `listing_views` VALUES (4,'2012-12-29 18:22:50'),(5,'2012-12-29 18:30:38'),(5,'2012-12-29 18:30:59'),(5,'2012-12-29 18:31:10'),(2,'2012-12-29 19:07:27'),(10,'2012-12-29 21:20:41'),(2,'2012-12-30 17:22:03'),(4,'2012-12-30 17:34:18'),(10,'2012-12-30 17:34:28'),(3,'2012-12-30 18:37:55'),(4,'2012-12-30 23:14:40'),(5,'2012-12-30 23:26:15'),(2,'2012-12-31 00:05:56');
 /*!40000 ALTER TABLE `listing_views` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1052,7 +1076,7 @@ CREATE TABLE `thumbnail_images` (
 
 LOCK TABLES `thumbnail_images` WRITE;
 /*!40000 ALTER TABLE `thumbnail_images` DISABLE KEYS */;
-INSERT INTO `thumbnail_images` VALUES (1,1,'resources/images/defaults/thumbnail.png',1),(2,1,'property_images/2/thumbnail/2.jpeg',2),(3,1,'property_images/5/thumbnail/3.jpeg',5),(4,1,'property_images/4/thumbnail/4.jpeg',4),(5,1,'property_images/7/thumbnail/5.jpeg',7),(6,1,'property_images/6/thumbnail/6.jpeg',6),(7,1,'property_images/8/thumbnail/7.jpeg',8),(8,1,'property_images/9/thumbnail/8.jpeg',9),(9,1,'property_images/11/thumbnail/9.jpeg',11),(10,1,'property_images/12/thumbnail/10.jpeg',12),(11,1,'property_images/13/thumbnail/11.jpeg',13),(12,1,'property_images/14/thumbnail/12.jpeg',14),(13,1,'property_images/15/thumbnail/13.jpeg',15),(14,1,'property_images/17/thumbnail/14.jpeg',17),(15,1,'property_images/18/thumbnail/15.jpeg',18),(16,1,'property_images/20/thumbnail/16.jpeg',20),(17,1,'property_images/21/thumbnail/17.jpeg',21),(18,1,'property_images/22/thumbnail/18.jpeg',22),(19,1,'property_images/23/thumbnail/19.jpeg',23),(20,1,'property_images/24/thumbnail/20.jpeg',24),(21,1,'property_images/25/thumbnail/21.jpeg',25),(22,1,'property_images/26/thumbnail/22.jpeg',26),(23,1,'property_images/27/thumbnail/23.jpeg',27),(24,1,'property_images/28/thumbnail/24.jpeg',28),(25,1,'property_images/29/thumbnail/25.jpeg',29),(26,1,'property_images/30/thumbnail/26.jpeg',30),(27,1,'property_images/31/thumbnail/27.jpeg',31),(28,1,'property_images/32/thumbnail/28.jpeg',32),(29,1,'property_images/34/thumbnail/29.jpeg',34),(30,1,'property_images/35/thumbnail/30.jpeg',35),(31,0,'property_images/36/thumbnail/31.jpeg',36),(32,1,'property_images/36/thumbnail/32.jpeg',36),(33,1,'property_images/36/thumbnail/33.jpeg',36),(34,1,'property_images/38/thumbnail/34.jpeg',38),(35,1,'property_images/40/thumbnail/35.jpeg',40),(36,1,'property_images/37/thumbnail/36.jpeg',37),(37,1,'property_images/39/thumbnail/37.jpeg',39),(38,1,'property_images/41/thumbnail/38.jpeg',41),(39,1,'property_images/42/thumbnail/39.jpeg',42),(40,1,'property_images/43/thumbnail/40.jpeg',43),(41,1,'property_images/44/thumbnail/41.jpeg',44),(42,1,'property_images/45/thumbnail/42.jpeg',45),(43,1,'property_images/46/thumbnail/43.jpeg',46),(44,1,'property_images/48/thumbnail/44.jpeg',48),(45,1,'property_images/49/thumbnail/45.jpeg',49),(46,1,'property_images/50/thumbnail/46.jpeg',50),(47,1,'property_images/51/thumbnail/47.jpeg',51),(48,1,'property_images/53/thumbnail/48.jpeg',53),(49,1,'property_images/54/thumbnail/49.jpeg',54),(50,1,'property_images/52/thumbnail/50.jpeg',52),(51,1,'property_images/55/thumbnail/51.jpeg',55);
+INSERT INTO `thumbnail_images` VALUES (1,1,'resources/images/defaults/thumbnail.png',1);
 /*!40000 ALTER TABLE `thumbnail_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1143,4 +1167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-12-31  1:13:11
+-- Dump completed on 2012-12-31  3:20:56

@@ -28,10 +28,6 @@ class Listing_base {
 		// LIBRARY LOADING 
 		$libraries = array('property/media', 'utilities/format');
 		$this->CI->load->library($libraries);
-
 	}
-		
-
-
 
 };

@@ -15,6 +15,7 @@
 ?>
 
 <?php
-	$this->load->view("site_wide/javascript_module_loader");
-	$this->load->view("site_wide/footer");
+	$this->load->view("site_wide/data");//responsible for echoing out the proper data
+	$this->load->view("site_wide/javascript_module_loader");//responsible for echoing out the proper modules to be loaded
+	$this->load->view("site_wide/footer");//responsible for the footer and html closing tags
 ?>

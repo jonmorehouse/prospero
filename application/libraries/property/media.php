@@ -39,10 +39,16 @@ class Media{
 	public function get_thumbnail($property_id) {
 
 		$media_id = $this->get_media($property_id);
+
+		$url = ($media_id) ? ($this->get_url("thumbnail_image", $media_id)) : ($this->CI->general->config("default_thumbnail_image"));
+
+		$url = base_url($url);
+
 		return array(
 
 			'alt' => $this->CI->general->get_category($property_id, 'name'),
-			'url' => $this->get_url('thumbnail_image', $media_id),
+			'url' => $url,
+			'src' => $url,
 		);
 	}
 
