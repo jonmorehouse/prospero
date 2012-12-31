@@ -29,8 +29,8 @@
     (init = function() {
       var controller, controllers, key, modules, setConfig;
       controllers = {
-        map: new Project.Modules.bumpbox($('#navigation_top li.map'), $('.bumpbox.map')),
-        contact: new Project.Modules.bumpbox($('#navigation_top li.contact'), $('.bumpbox.contact'))
+        map: new Project.Modules.bumpbox($('#navigation_top li[data-link="map"]'), $('.bumpbox.map')),
+        contact: new Project.Modules.bumpbox($('#navigation_top li[data-link="contact"]'), $('.bumpbox.contact'))
       };
       modules = {
         map: new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),

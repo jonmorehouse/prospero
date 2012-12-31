@@ -2,11 +2,14 @@
 	$this->load->view("site_wide/background");
 	$this->load->view("site_wide/border");
 	$this->load->view("site_wide/navigation");//handles logo, top and left navigation!
+	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 
 ?>
 
 <?php
-	//echo out the proper bumpboxes as sent from the controller. Did this to offset logic from the views back into the controllers and libraries
-	foreach ($this->top_bumpboxes as $bumpbox) echo $bumpbox;//loop through the top bumpboxes - logic built out in the bumpbox.js page
+	// initialize the default bumpboxes!
+	$this->load->view('navigation/bumpboxes/contact');
+	$this->load->view('navigation/bumpboxes/map');
+
 	foreach ($this->left_bumpboxes as $bumpbox) echo $bumpbox;//need to loop out some bumpbox js objects to help our front end. Will send everything
 ?>
 

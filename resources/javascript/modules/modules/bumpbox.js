@@ -1,5 +1,6 @@
 Project.Modules.bumpbox = function(in_trigger, container) {
 
+
 	var config = {
 
 		'speed': 500,

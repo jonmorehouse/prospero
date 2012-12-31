@@ -21,6 +21,6 @@
 
 		</form>
 
-		<div class='message'>asdlkjasdfl;jk</div>
+		<div class='message'>Email Message Here</div>
 	</div>
 </div>

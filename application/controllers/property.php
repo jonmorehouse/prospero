@@ -59,7 +59,7 @@ class Property extends CI_Controller{
 	private function output(){
 				
 		// load general libraries
-		$libraries = array("utilities/header","utilities/dynamic_header", "homepage/bumpbox_content");
+		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
 		// load models
@@ -75,7 +75,7 @@ class Property extends CI_Controller{
 		$this->logo = $this->navigation->get_logo($this->id);
 
 		// map bumpbox
-		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
+		$this->map_bumpbox = $this->top_bumpboxes->get_maps();//returns the map data etc
 
 		$this->thumbnails = $this->get_thumbnails();//seperate the logic out into another method for grabbing the proper thumbnail!
 

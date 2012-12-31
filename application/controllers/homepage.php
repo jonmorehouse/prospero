@@ -7,7 +7,7 @@ class Homepage extends CI_Controller{
 		$this->id = 'homepage';
 		
 		$this->load->library(array('utilities/header', 'utilities/dynamic_header'), array("page_id" => "homepage"));
-		$this->load->library('homepage/bumpbox_content');
+		$this->load->library(array('general/top_bumpboxes', "homepage/homepage_bumpboxes"));
 
 		$this->load->model(array("pages/elements", "pages/navigation"));
 	}
@@ -28,12 +28,12 @@ class Homepage extends CI_Controller{
 
 
 		// left side bumpboxes
-		$this->team_bumpbox = $this->bumpbox_content->get_team();//this is the team 
-		$this->services_bumpbox = $this->bumpbox_content->get_services();//get the services for the navigation_left elements!
-		$this->about_bumpbox = $this->bumpbox_content->get_about();//get about page
+		$this->team_bumpbox = $this->homepage_bumpboxes->get_team();//this is the team 
+		$this->services_bumpbox = $this->homepage_bumpboxes->get_services();//get the services for the navigation_left elements!
+		$this->about_bumpbox = $this->homepage_bumpboxes->get_about();//get about page
 
 		// map bumpbox
-		$this->map_bumpbox = $this->bumpbox_content->get_maps();//returns the map data etc
+		$this->map_bumpbox = $this->top_bumpboxes->get_maps();//returns the map data etc
 
 		
 		//load and compile the view

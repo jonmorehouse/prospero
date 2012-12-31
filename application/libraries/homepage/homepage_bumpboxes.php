@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-
-class Bumpbox_content {
+class Homepage_bumpboxes {
 
 	protected $CI;
 
@@ -13,16 +12,13 @@ class Bumpbox_content {
 		$this->CI->load->library('utilities/format');
 
 		// initialize all models
-		$models = array('bumpbox/team_member', 'bumpbox/service', 'bumpbox/about', 'bumpbox/map');
-
+		$models = array('bumpbox/team_member', 'bumpbox/service', 'bumpbox/about');
 		$this->CI->load->model($models);//this corresponds to a small member
-
 
 		// set proper elements
 		$this->team = $this->set_team();//get the team members
 		$this->services = $this->set_services();//
 		$this->about = $this->set_about();//this sets the about page
-		$this->maps = $this->set_maps();//sets the maps about page
 
 	}
 
@@ -85,26 +81,6 @@ class Bumpbox_content {
 		return $_abouts;
 	}
 
-	private function set_maps()  {
-
-		$map_ids = $this->CI->map->get_map_ids();
-
-		$_maps = array();
-
-		foreach ($map_ids as $map_id) {
-
-			$data = array();
-
-			$data['id'] = $map_id;
-			$data['title'] = $this->CI->map->get_map_title($map_id);
-			$data['url'] = site_url($this->CI->map->get_map_url($map_id));
-			$data['filter'] = $this->CI->map->get_map_category($map_id);
-
-			array_push($_maps, $data);
-		}
-
-		return $_maps;
-	}
 /********* PUBLIC FUNCTIONS ********/
 
 	public function get_team() {

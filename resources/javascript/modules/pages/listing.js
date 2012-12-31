@@ -2,10 +2,9 @@
 (function() {
 
   (Project.Pages.Listing = function() {
-    var elements, search_bar_animation;
-    elements = [$('#navigation_browse'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#page_content')];
-    Project.Pages.Bumpbox(elements);
-    return search_bar_animation = new Project.Modules.form_animation($('#search'));
+    var elements;
+    elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')];
+    return Project.Pages.Bumpbox(elements);
   })();
 
 }).call(this);

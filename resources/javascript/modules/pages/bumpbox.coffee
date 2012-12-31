@@ -25,11 +25,12 @@ Project.Pages.Bumpbox = (elements) =>
 				element.animate css, animationTime
 
 	do init = () =>
+
 		# controllers actually control the visual configuration of each bumpbox
 		controllers = 
 
-			map : new Project.Modules.bumpbox $('#navigation_top li.map'), $('.bumpbox.map')
-			contact : new Project.Modules.bumpbox $('#navigation_top li.contact'), $('.bumpbox.contact')
+			map : new Project.Modules.bumpbox $('#navigation_top li[data-link="map"]'), $('.bumpbox.map')
+			contact : new Project.Modules.bumpbox $('#navigation_top li[data-link="contact"]'), $('.bumpbox.contact')
 
 		# now initialize all of the proper module's
 		modules =
