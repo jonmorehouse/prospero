@@ -13,8 +13,8 @@ class General extends CI_Model{
 		parent::__construct();
 		$this->load->library('utilities/developer_contact');
 	}
-/****** GENERAL DATABASE ABSTRACTION ********/
-
+	
+	/****** GENERAL DATABASE ABSTRACTION ********/
 	public function delete($table, $data) {//delete from database
 		
 		$this->db->where($data)->delete($table);
@@ -239,16 +239,20 @@ class General extends CI_Model{
 		if(!$query || !$query->row()->$category || $query->num_rows() ==0)
 			return false;
 
+		// value exists now use logic to ensure that it is an allowed value (non-default) and return a formatted version if needed
 		// make sure default not allowed
 		$category_traits = $this->db->where(array("category" => $category))->get("category_type_categories", 1);
 
+		// see if it needs formatted. Also note that the format_class relies on a db table for some further value mapping. This is extremely specific and a last resort, used mainly for things like the location_category etc
+		$value = ($category_traits->row()->formatted) ? ($query->row()->$category) : ($this->format->word_format($query->row()->$category));
+		$default_value = $category_traits->row()->default_value;
+
 		// not check if default allowed if it is then move on
-		if ($category_traits->row()->default_allowed) return $query->row()->$category;
+		if ($category_traits->row()->default_allowed) return $value;
 
-		// if default not allowed and the default value equals our value, return false
-		if ($category_traits->row()->default_value == $query->row()->$category) return false;
+		if ($default_value == $value || $default_value == $query->row()->$category) return false;
 
-		return $query->row()->$category;
+		return $value;
 	}
 	
 	public function get_category_type_categories($category_type) {//returns an array of all category_types
