@@ -113,8 +113,8 @@ class Listing extends CI_Controller {
 			"pages/navigation",
 			"pages/elements",
 			"property/thumbnail",
-
 		);
+
 		$this->load->model($models);
 
 		// initilialize basic elements
@@ -133,8 +133,6 @@ class Listing extends CI_Controller {
 		//bumpboxes are responsible for passing their own data		
 		$this->top_bumpbox_content = $this->navigation->get_bumpboxes();//get the top bumpboxes
 		$this->left_bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
-
-
 
 		// initialize main page elements
 		$this->thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 

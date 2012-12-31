@@ -85,6 +85,5 @@ class Listing_content extends Listing_base{
 
 		return $content;
 	}
-
 };
 

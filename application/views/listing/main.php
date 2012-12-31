@@ -32,11 +32,15 @@
 	</div>
 
 	<div id='elements'>
+		<?php 
+			foreach ($this->elements as $element) {
+				echo "<div><h1>{$element['header']}</h1><hr />";
 
+				foreach ($element['elements'] as $_element)
+					echo "<div><span>{$_element['title']}:</span><span>{$_element['value']}</span></div>";
 
+				echo "</div>";
+			}
+		?>
 	</div>
-
-
-
-
 </div>
