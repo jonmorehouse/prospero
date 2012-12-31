@@ -1,4 +1,4 @@
-<div class='bumpbox inquire'>
+<div class='bumpbox listing_inquire' data-link='listing_inquire'>
 	<div>
 		<h1><?php echo $data['name'];?> Inquire</h1>
 

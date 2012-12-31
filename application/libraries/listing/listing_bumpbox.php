@@ -10,7 +10,7 @@ class Listing_bumpbox extends Listing_base {
 		$libraries = array(
 
 			"property/similar_properties",//very small and subclassed but useful for show 
-
+			"property/media",
 		);
 
 		// declare model dependencies - direct db access through these libraries
@@ -72,8 +72,23 @@ class Listing_bumpbox extends Listing_base {
 
 	private function get_pdf() {
 
+		$pdf_status = $this->CI->media->get_media($this->property_id, "pdf");
 
-		
+		$data = array(
+
+			"name" => $this->CI->general->get_category($this->property_id, "name"),
+			"status" => $pdf_status,
+		);
+
+		if (!$pdf_status) $data['message'] = $this->CI->messages->general_message("no_pdf");
+
+		else 
+			$data['link'] = $this->CI->media->get_pdf($this->property_id);
+
+
+		$html = $this->CI->load->view("bumpboxes/listing_pdf", array("data" => $data), true);
+
+		return $html;
 
 	}
 

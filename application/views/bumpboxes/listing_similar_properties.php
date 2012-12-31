@@ -1,4 +1,4 @@
-<div class='bumpbox similar_properties'>
+<div class='bumpbox similar_properties' data-link='similar_properties'>
 
 <?php foreach ($thumbnails as $thumbnail):?>
 	<div>

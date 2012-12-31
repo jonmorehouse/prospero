@@ -244,7 +244,7 @@ CREATE TABLE `general_messages` (
 
 LOCK TABLES `general_messages` WRITE;
 /*!40000 ALTER TABLE `general_messages` DISABLE KEYS */;
-INSERT INTO `general_messages` VALUES ('no_listings','<div class=\'message\'>\n	<h1>No Results Found.</h1>\n	<p>Sorry, there were no results found for this particular search. Please try again.</p>\n</div>'),('no_listings','<div>\n	There was an error. Please contact an admin.\n</div>'),('default_inquire_body','Thanks for inquiring. We will be back to you shortly'),('manager_inquire_body','A customer has inquired about one of your properties. Please follow up.'),('manager_inquire_subject','Property inquiry.');
+INSERT INTO `general_messages` VALUES ('no_listings','<div class=\'message\'>\n	<h1>No Results Found.</h1>\n	<p>Sorry, there were no results found for this particular search. Please try again.</p>\n</div>'),('no_listings','<div>\n	There was an error. Please contact an admin.\n</div>'),('default_inquire_body','Thanks for inquiring. We will be back to you shortly'),('manager_inquire_body','A customer has inquired about one of your properties. Please follow up.'),('manager_inquire_subject','Property inquiry.'),('no_pdf','Sorry. No PDF Brochure is currently available for this property.');
 /*!40000 ALTER TABLE `general_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1167,4 +1167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-12-31 10:41:51
+-- Dump completed on 2012-12-31 11:00:03

@@ -52,6 +52,19 @@ class Media{
 		);
 	}
 
+	public function get_pdf($property_id) {
+
+		$id = $this->get_media($property_id, "pdf");
+
+		if ($id)
+			return $this->get_url("pdf", $id);
+
+		return false;
+
+
+
+	}
+
 	//this is for retrieving a single media id!
 	public function get_media($property_id, $type = 'thumbnail_image', $status = true) {//type is pdf/video/thumbnail -- returns a single media_id
 		

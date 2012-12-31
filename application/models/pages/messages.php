@@ -11,6 +11,16 @@ class Messages extends CI_Model {
 
 	}
 
+	public function general_message($message_id) {
+
+		$query = $this->db->where(array("message_id" => $message_id))->select("message")->get($this->table, 1);
+
+		if ($query->num_rows() === 0) return $this->default_message();
+
+		return $query->row()->message;		
+
+	}
+
 	public function default_message () {
 
 		$query = $this->db->select("message")->where(array("message_id" => "default"))->get($this->table, 1);
