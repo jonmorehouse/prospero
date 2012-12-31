@@ -30,7 +30,7 @@ class Map_rest extends CI_Controller{
 			$map_data['points'] = $points;
 		}
 
-		// echo json_encode($map_data);//this is the return data
+		echo json_encode($map_data);//this is the return data
 	}
 
 	
