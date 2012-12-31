@@ -233,7 +233,6 @@ class General extends CI_Model{
 		
 		$table = $this->get_category_table($category);//need to do some
 
-
 		$query = $this->db->where(array('property_id' => $property_id))->select($category)->get($table, 1);
 
 		// make sure the query exists
@@ -246,7 +245,7 @@ class General extends CI_Model{
 
 		// check if category_traits formatted exists or default value exist!
 		// some properties accessed through this api are for backend only and not mapped to the category_Type_categories table
-		if (!isset($category_traits->formatted) || !isset($category_traits->default_value)) return $query->row()->$category;
+		if (!isset($category_traits->row()->formatted) || !isset($category_traits->row()->default_value)) return $query->row()->$category;
 
 		// see if it needs formatted. Also note that the format_class relies on a db table for some further value mapping. This is extremely specific and a last resort, used mainly for things like the location_category etc
 		$value = ($category_traits->row()->formatted) ? ($query->row()->$category) : ($this->format->word_format($query->row()->$category));

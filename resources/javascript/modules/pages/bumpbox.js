@@ -53,7 +53,10 @@
         }
         return _results;
       })();
-      return modules['map']['config']['change_trigger'] = modules['map_controller']['change_trigger'];
+      modules['map']['config']['change_trigger'] = modules['map_controller']['change_trigger'];
+      return $('#navigation_top li[data-link="map"]').click(function() {
+        return modules['map_controller']['change_trigger'](0);
+      });
     })();
     return {
       fade: fade

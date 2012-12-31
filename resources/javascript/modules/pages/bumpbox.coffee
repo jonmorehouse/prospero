@@ -5,7 +5,6 @@ Project.Pages.Bumpbox = (elements) =>
 	fadedOpacity = 0.3
 
 	fade = 
-
 		fadeIn : () =>
 
 			elements.map (element) => 
@@ -52,7 +51,13 @@ Project.Pages.Bumpbox = (elements) =>
 			if modules[key] and modules[key]["reset"]
 				controller["reset"] = modules[key]["reset"]
 
+		#when someone clicks on a thumbnail controller -- signal a change in the map controller to load the approriate module!
 		modules['map']['config']['change_trigger'] = modules['map_controller']['change_trigger']
+
+		# edge case and we shouldn't change the other elements for this
+		# need to manually map the click elements to the change_trigger in the map controller to ensure that when we call on the particular maps, they get loaded
+		$('#navigation_top li[data-link="map"]').click () ->
+			modules['map_controller']['change_trigger'](0);
 
 	#return the fade element
 	fade : fade

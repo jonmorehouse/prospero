@@ -8,7 +8,6 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 		loop through each element in the the container list,
 		grab data and 
 	*/
-
 	var maps = {};//map data and modules contained -- will contain objects!
 
 	var init = (function() {
@@ -55,8 +54,6 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 		
 	// trigger a change in the element -- need to ensure that the map is created
 	function change_trigger(id) {
-
-
 
 		if (maps[id] === undefined || !maps[id]['ready']) {//init is not finished
 
