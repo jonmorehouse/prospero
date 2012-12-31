@@ -10,13 +10,28 @@ class Listing_content extends Listing_base{
 
 		parent::__construct($parameters);
 		
-		$this->init();
+		$this->banned_categories = $this->CI->general->non_global_categories();//return the non-global categories that should not be in the main list
+
+		$this->init();//initialize the list!
 	}
 
 	// public content
-	public function content() {
+	public function elements() {
 
 		return $this->elements;
+	}	
+
+	public function content() {
+
+		$content = array(
+
+				"name" => $this->CI->general->get_category($this->property_id, "name"),
+				"header" => $this->CI->general->get_category_title("property_content"),
+				"content" => $this->CI->general->get_category($this->property_id, "property_content"),
+			);
+
+		return $content;
+
 	}
 
 	// initialize the entire element
@@ -27,8 +42,13 @@ class Listing_content extends Listing_base{
 
 		$this->elements = array();//holds all elements and types!
 
-		foreach (array("general", $type, $type_category, "other") as $category_type)
-			array_push($this->elements, $this->get_category_type($category_type));//
+		foreach (array("general", $type, $type_category, "other") as $category_type) {
+
+			// grab the category type content and then add the elemnets to the list if there are more than one element
+			$_category_type = $this->get_category_type($category_type);
+			if (count($_category_type['elements']) > 0)
+				array_push($this->elements, $this->get_category_type($category_type));//
+		}		
 	}
 
 	// return an entire category_type
@@ -48,6 +68,8 @@ class Listing_content extends Listing_base{
 		$content = array();
 
 		foreach ($category_list as $category) {
+
+			if (in_array($category, $this->banned_categories)) continue;//check if the elements should be in the list of master elements
 
 			$value = $this->CI->general->get_category($this->property_id, $category);//generate the value
 			$title = $this->CI->general->get_category_title($category, $category_type);//maps the category title to clean it up

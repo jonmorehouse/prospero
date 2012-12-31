@@ -200,7 +200,7 @@ class General extends CI_Model{
 			return false;
 
 		}
-		
+
 		else return $query->row()->location;
 	}
 
@@ -233,17 +233,22 @@ class General extends CI_Model{
 		
 		$table = $this->get_category_table($category);//need to do some
 		
-		$this->db->where(array('property_id' => $property_id))->select($category);
+		$query = $this->db->where(array('property_id' => $property_id))->select($category)->get($table, 1);
 
-		$query = $this->db->get($table);
-
-		if ($query->num_rows() == 0)
+		// make sure the query exists
+		if(!$query || !$query->row()->$category || $query->num_rows() ==0)
 			return false;
 
-		else if(!$query || !$query->row()->$category || $query->num_rows() ==0)
-			return false;
-		else
-			return $query->row()->$category;
+		// make sure default not allowed
+		$category_traits = $this->db->where(array("category" => $category))->get("category_type_categories", 1);
+
+		// not check if default allowed if it is then move on
+		if ($category_traits->row()->default_allowed) return $query->row()->$category;
+
+		// if default not allowed and the default value equals our value, return false
+		if ($category_traits->row()->default_value == $query->row()->$category) return false;
+
+		return $query->row()->$category;
 	}
 	
 	public function get_category_type_categories($category_type) {//returns an array of all category_types
@@ -319,6 +324,18 @@ class General extends CI_Model{
 		return false;//was not found
 
 	} 
+
+	public function non_global_categories() {
+
+		$query = $this->db->select("category")->where(array("global_content" => false))->get("category_type_categories");
+
+		$categories = array();
+
+		foreach ($query->result() as $row) 
+			array_push($categories, $row->category);
+
+		return $categories;		
+	}
 
 	public function live($property_id) {
 

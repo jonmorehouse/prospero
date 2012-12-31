@@ -10,6 +10,25 @@ class Temp_development extends CI_Controller {
 
 	}	
 
+	public function global_categories() {
+
+
+		$global = array("property_content", "meta_description", "meta_keywords", "thumbnail_blurb");
+
+		foreach ($global as $category) 
+			$this->db->where(array("category" => $category))->update("category_type_categories", array("global_content" => false));
+
+	}
+
+	public function allow_defaults() {
+
+		$allowed = array("type", "type_category", "no_vacancies", "new_property", "meta_keywords", "meta_description");
+
+		foreach ($allowed as $category) 
+			$this->db->where(array("category" => $category))->update("category_type_categories", array("default_allowed" => true));
+		
+	}
+
 	public function insert_message() {
 
 		$message = file_get_contents("temp");

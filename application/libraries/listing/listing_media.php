@@ -16,25 +16,29 @@ class Listing_media extends Listing_base{
 		$this->CI->load->library('property/media');
 
 		$this->init();
+
 	}
 
-	public function listing_thumbnail() {
+	public function thumbnail() {
 
-		return $this->CI->media->get_thumbnail($this->property_id);
+		$thumbnail = $this->CI->media->get_thumbnail($this->property_id);
+
 	}
 
 	// return an array of the slideshow images
 	public function slideshow_images() {
 
 		return $this->slideshow_images;
+
+
 	}
 
 	// return an array of the slideshow images
-	public function thumbnail_images() {
+	public function slideshow_thumbnails() {
 
 		// return an array of alts / src / media_id for each elements
-		// will add in functionality for image updating etc later on
 		return $this->thumbnail_images;
+
 	}
 
 	private function init() {
@@ -50,14 +54,14 @@ class Listing_media extends Listing_base{
 
 			$url = $this->CI->media->get_url("slideshow_image", $image_id);
 
-			$image = array (
-
+			$image = array(
 				"alt" => $alt,
-				"url" => $url,
+				"url" => $url
 			);
 
-			array_push($this->thumbnail_images, $image);
+			array_push($this->thumbnail_images,$image);
 			array_push($this->slideshow_images, $image);
+
 		}
 	}
 
