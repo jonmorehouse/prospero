@@ -13,9 +13,9 @@ class Test extends CI_Controller {
 
 	public function index() {
 
-		$this->load->library(array("listing/listing_base", "listing/listing_media", "listing/listing_content"), array("property_id" => 5));
+		$this->load->library(array("listing/listing_base", "listing/listing_media", "listing/listing_content", "listing/listing_bumpbox"), array("property_id" => 5));
 			
-		print_r($this->listing_content->elements());		
+		$this->listing_bumpbox->content(array("inquire"));
 
 	}
 

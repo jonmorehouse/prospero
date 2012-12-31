@@ -6,44 +6,80 @@ class Listing_bumpbox extends Listing_base {
 
 		parent::__construct($parameters);//call the parent element and initialize
 
+		// declare dependencies for both libraries and models. Everything will be loaded up here to help with future development
+		$libraries = array(
+
+			"property/similar_properties",//very small and subclassed but useful for show 
+
+		);
+
+		// declare model dependencies - direct db access through these libraries
+		$models = array(
+
+			"general",//general settings
+			"bumpbox/bumpbox_thumbnails",//bumpbox thumbnails for different elements
+			"pages/inquire," //general inquire information
+		);
+
+		$this->CI->load->library($libraries);
+		$this->CI->load->model($models);
 	}
 
+	// responsible for returning an array of the proper html. We don't want to have to mess with this in the controller since there is more complex logic going on here
 	public function content($bumpboxes) {
 
-		foreach ($bumpboxes as $value) {
+		$html = array();//an array of all the bumpboxes' data
 
-			echo $value;
+		// check if function exists etc
+		foreach ($bumpboxes as $key => $bumpbox) {
+
+			$method = "get_{$bumpbox}";
+
+			if (!method_exists($this, $method)) {
+			
+				unset($bumpboxes[$key]);
+				$bumpboxes = array_values($bumpbox);
+			}
+
+			$html[$bumpbox] = $this->{$method}();			
 		}
+
 	}	
 
-	private function generate_html() {
+	private function get_similar_properties() {
 
-		// load in the proper views etc
+		// gather the relevant properties
+		$property_ids = $this->CI->similar_properties->similar_properties($this->property_id);//
+	
+		$thumbnails = array();
+
+		foreach ($property_ids as $property_id)
+			array_push($thumbnails, $this->CI->bumpbox_thumbnails->similar_property($property_id));		
+
+
+		echo $this->CI->load->view("bumpboxes/listing_similar_properties", array("thumbnails" => $thumbnails), true);//return the raw html to the element
+
+		return;
+	}
+
+	private function get_inquire() {
+
+		$data = $this->CI->inquire->inquire_data($this->property_id);
+	}
+
+	private function get_pdf() {
+
+		// get the pdf and name etc
 
 	}
 
-	private function set_similar_properties() {
+	private function get_listing_map() {//should be offloaded to another library for eas
 
+		// 1.) Nearby properties
+		// 2.) Directions
+		// 3.) 
+		// will have a walk score api etc for this -- get nearby places
 		// 
-		
-
-
-	}
-
-	private function set_inquire() {
-
-
-
-	}
-
-	private function set_pdf() {
-
-
-	}
-
-	private function set_listing_map() {
-
-
 	}
 
 }

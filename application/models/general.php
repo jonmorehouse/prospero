@@ -361,6 +361,13 @@ class General extends CI_Model{
 
 	}
 
+	public function listing_link($property_id) {
+
+		// for now, no special listing mapping functionality required
+		return site_url("listing/{$property_id}");
+
+	}
+
 	public function media_status($property_id, $type = "pdf_id") {
 
 		$table = $this->get_category_table($type);
