@@ -40,7 +40,6 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 
 					}).done(function(_data) {
 
-
 						data['data'] = _data;//initialize data!
 						data['ready'] = true;//data is processed
 

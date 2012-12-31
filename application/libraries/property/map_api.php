@@ -17,6 +17,7 @@ class Map_api extends Base_filter {
 
 		$properties = $this->property_filter($filter);
 
+
 		$map_data = array();
 
 		foreach ($properties as $property_id) {

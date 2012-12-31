@@ -45,6 +45,7 @@ class Top_bumpboxes {
 
 		return $_maps;
 	}
+
 /********* PUBLIC FUNCTIONS ********/
 
 	public function get_maps() {
