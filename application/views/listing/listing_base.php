@@ -10,9 +10,9 @@
 	foreach ($this->left_bumpboxes as $bumpbox) echo $bumpbox;//need to loop out some bumpbox js objects to help our front end. Will send everything
 ?>
 
-
-
-
+<?php
+	$this->load->view("listing/main");//load the main content
+?>
 
 <?php
 	$this->load->view("site_wide/javascript_module_loader");

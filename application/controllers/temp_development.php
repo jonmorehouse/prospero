@@ -10,6 +10,20 @@ class Temp_development extends CI_Controller {
 
 	}	
 
+	public function config_settings() {
+
+		$config(
+
+
+
+
+		);
+
+		foreach ($config as $key => $value)
+			$this->db->insert("config_settings", array("element_id" => $key, "value" => $value));		
+
+	}
+
 	public function global_categories() {
 
 

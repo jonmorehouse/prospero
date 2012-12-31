@@ -160,9 +160,9 @@ class Header{
 		$keywords = "";
 		$keywords .= $this->CI->general->get_column("page_type_meta_information", array('page_type' => $page_type), 'keywords');
 
-		if($property_id){
+		if($property_id && $property_id !== -1){
 			foreach((array)$property_id as $value) {
-
+				
 				$raw_keywords = $this->CI->general->get_category($value, "meta_keywords");
 
 				$keywords .= ' ' . $this->CI->format->keywords($raw_keywords);

@@ -6,11 +6,24 @@ class Thumbnail extends CI_Model {
 
 		parent::__construct();
 		$this->load->model("general");
-
 		$this->load->library('property/media');
 
 	}
 
+	/***** COMPILED THUMBNAILS *****/
+	public function general_thumbnail($property_id) {
+
+		return array(
+
+			"image" => $this->get_image($property_id),
+			"header" => $this->get_name($property_id),
+			"name" => $this->get_name($property_id),
+			"blurb" => $this->get_blurb($property_id)
+		);
+	}
+
+
+	/******* THUMBNAIL ELEMENTS *******/
 	public function get_status($property_id) {
 
 		return $this->general->live($property_id);

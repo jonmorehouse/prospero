@@ -223,7 +223,7 @@ class General extends CI_Model{
 	}
 	
 	public function get_category($property_id, $category) {//database abstraction to get the individual category at any time
-		
+
 		if (is_numeric($category)) {
 
 			$temp = $category;	
@@ -365,6 +365,16 @@ class General extends CI_Model{
 		if ($query->num_rows() === 0) return false;
 
 		else return $query->row()->status;		
+
+	}
+
+	public function config($element_id) {
+
+		$query = $this->db->where(array("element_id" => $element_id))->select("value")->get("config_settings", 1);
+
+		if ($query->num_rows() == 0) return false;
+
+		return $query->row()->value;		
 
 	}
 

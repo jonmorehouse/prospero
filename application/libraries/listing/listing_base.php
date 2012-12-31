@@ -30,49 +30,8 @@ class Listing_base {
 		$this->CI->load->library($libraries);
 
 	}
-	
-/*****PUBLIC FUNCTIONS ***************/	
+		
 
-/******* PROTECTED FUNCTIONS **********/
-	
-	protected function get($category) {
-		
-		$category_value = $this->CI->general->get_category($this->property_id, $category);
-		
-		$datatype = gettype($category_value);
-		
-		if($datatype === 'boolean' || $datatype === 'integer')
-			return $category_value;
-			
-		else
-			return $this->CI->format->word_format($category_value);
-		
-		return $category_value;
-	}
 
-	protected function category($category) {
-		
-		return $this->CI->general->get_category($this->property_id, $category);
-		
-	}
-	
-	protected function managers() {//will return an array of the managers attached to this property
-		
-		$weekend_manager_status = $this->get('weekend_manager');
 
-		if ($weekend_manager_status == "True" || $weekend_manager_status == "True") $weekend_manager = true; 
-
-		else $weekend_manager_status = false;
-
-		$manager = "{$this->get('manager_first_name')} {$this->get('manager_last_name')}";
-		
-		$managers = array($manager);//all managers attached to this property
-		
-		if($weekend_manager_status) {
-
-			$weekend_manager = "{$this->get('weekend_manager_first_name')} {$this->get('weekend_manager_last_name')}";
-			
-			array_push($managers, $weekend_manager);
-		}
-	}
 };

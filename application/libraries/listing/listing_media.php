@@ -34,7 +34,7 @@ class Listing_media extends Listing_base{
 	}
 
 	// return an array of the slideshow images
-	public function slideshow_thumbnails() {
+	public function slideshow_image_thumbnails() {
 
 		// return an array of alts / src / media_id for each elements
 		return $this->thumbnail_images;
@@ -55,6 +55,7 @@ class Listing_media extends Listing_base{
 			$url = $this->CI->media->get_url("slideshow_image", $image_id);
 
 			$image = array(
+				"data-id" => $image_id,
 				"alt" => $alt,
 				"url" => $url
 			);

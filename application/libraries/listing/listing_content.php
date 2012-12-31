@@ -31,7 +31,11 @@ class Listing_content extends Listing_base{
 			);
 
 		return $content;
+	}
 
+	public function header() {
+
+		return $this->CI->general->get_category($this->property_id, "name");
 	}
 
 	// initialize the entire element

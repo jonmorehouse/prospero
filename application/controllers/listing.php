@@ -10,8 +10,6 @@ class Listing extends CI_Controller {
 		// LIBRARY LOADING -- these are universal 
 		$libraries = array('property/base_filter', 'property/property_search', 'session');
 		$this->load->library($libraries);
-
-
 	}
 	
 	public function _remap($uri) { //uri is the number or title etc
@@ -99,14 +97,25 @@ class Listing extends CI_Controller {
 	// dynamic listing is the last step -- should not happen for any live pages
 	private function dynamic_listing() {
 
-		// initialize libraries
-		$libraries = array("utilities/header", "utilities/dynamic_header");
+		// initialize library dependencies
+		$libraries = array(
+			"utilities/header", 
+			"utilities/dynamic_header",
+			"listing/listing_base",
+			"listing/listing_bumpbox",
+			"listing/listing_content",
+			"listing/listing_media",
+		);
+
 		$this->load->library($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
 
-		//initialize libraries
+		$models = array(
+			"pages/navigation",
+			"pages/elements",
+			"property/thumbnail",
 
-		// initialize proper models
-		$this->load->model(array("pages/navigation", "pages/elements"));
+		);
+		$this->load->model($models);
 
 		// initilialize basic elements
 		$this->header = $this->dynamic_header->get_header();
@@ -122,9 +131,16 @@ class Listing extends CI_Controller {
 
 		// initialize a library that will output the proper bumpboxes based on what bumpboxes that the navigation elements return
 		$this->top_bumpbox_content = $this->navigation->get_bumpboxes();//get the top bumpboxes
-		$this->left_bumpbox_content = $this->listing_bumpbox->bumpbox_content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
+		$this->left_bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
 
-		// 
+		// initialize main page elements
+		$this->thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
+		$this->content = $this->listing_content->content();//returns the description, header etc
+		$this->elements = $this->listing_content->elements();//returns the name of the element
+
+		//images
+		$this->slideshow_images = $this->listing_media->slideshow_images();
+		$this->thumbnail_images = $this->listing_media->slideshow_image_thumbnails();
 
 		// load the views
 		$this->load->view("listing/listing_base");

@@ -8,7 +8,7 @@ class Listing_bumpbox extends Listing_base {
 
 	}
 
-	public function bumpbox_content($bumpboxes) {
+	public function content($bumpboxes) {
 
 		return $bumpboxes;//
 	}

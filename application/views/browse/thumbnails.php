@@ -1,5 +1,4 @@
 <?php
-	
 	foreach ($this->thumbnails as $thumbnail) {
 
 		echo "<div class='thumbnail'>
