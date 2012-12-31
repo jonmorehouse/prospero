@@ -6,7 +6,7 @@ class Inquire extends CI_Model {
 
 		parent::__construct();//ensure that the parent is called
 
-		$this->load->model("general");
+		$this->load->model(array("general", "pages/messages"));
 	}
 
 	public function inquire_data($property_id) {
@@ -18,7 +18,6 @@ class Inquire extends CI_Model {
 			"body" => $this->default_body(),
 			"link" => base_url($this->general->config("inquire_url")),
 		);
-
 	} 
 
 

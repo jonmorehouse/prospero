@@ -18,7 +18,7 @@ class Listing_bumpbox extends Listing_base {
 
 			"general",//general settings
 			"bumpbox/bumpbox_thumbnails",//bumpbox thumbnails for different elements
-			"pages/inquire," //general inquire information
+			"pages/inquire" //general inquire information
 		);
 
 		$this->CI->load->library($libraries);
@@ -57,29 +57,33 @@ class Listing_bumpbox extends Listing_base {
 			array_push($thumbnails, $this->CI->bumpbox_thumbnails->similar_property($property_id));		
 
 
-		echo $this->CI->load->view("bumpboxes/listing_similar_properties", array("thumbnails" => $thumbnails), true);//return the raw html to the element
-
-		return;
+		return $this->CI->load->view("bumpboxes/listing_similar_properties", array("thumbnails" => $thumbnails), true);//return the raw html to the element
+	
 	}
 
 	private function get_inquire() {
 
 		$data = $this->CI->inquire->inquire_data($this->property_id);
+		$html = $this->CI->load->view("bumpboxes/listing_inquire", array("data" => $data), true);
+
+		return $html;
+
 	}
 
 	private function get_pdf() {
 
-		// get the pdf and name etc
+
+		
 
 	}
 
 	private function get_listing_map() {//should be offloaded to another library for eas
 
-		// 1.) Nearby properties
-		// 2.) Directions
-		// 3.) 
-		// will have a walk score api etc for this -- get nearby places
-		// 
+		// 1.) Nearby properties -- based off of the walking triangle ? 
+		// 2.) Directions -- will be through the google directions api
+		// 3.) NearBy places -- put the walkscore information there as well
+
+
 	}
 
 }

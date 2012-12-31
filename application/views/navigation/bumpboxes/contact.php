@@ -11,13 +11,13 @@
 	<div>	
 		<h1>Contact</h1>
 		
-		<form>
+		<form destination='<?php echo site_url("general_rest/submit_email");?>' method='post'>
 			
 			<input type='text' value='Email Address' name="email"></input>
 
 			<textarea rows='3' cols='40' name="message">General Contact Message.</textarea>
 			
-			<button>Submit Message</button>
+			<button type='submit'>Submit Message</button>
 
 		</form>
 
