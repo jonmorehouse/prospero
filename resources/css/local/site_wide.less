@@ -135,6 +135,7 @@ body{
 }
 
 #search{
+
 	/*VARIABLES*/
 	@icon_width:50px; /*this is so that we can have an image for the search bar icon*/
 	@icon_height:25px;
@@ -143,8 +144,6 @@ body{
 	position:absolute;
 	right:@border_width;
 	top:100px;
-	.dark_background();
-/*	overflow:auto;*/
 
 	form{
 		input[name="search"]{
@@ -156,7 +155,8 @@ body{
 			@dim: 2px;
 			padding: @dim @icon_width @dim 25px;
 			height:@icon_height;
-			
+			.dark_background(0.5);
+
 			&:focus{
 				.dark_background();
 				outline:none;
@@ -165,7 +165,6 @@ body{
 		
 		input[type="image"]{
 			cursor:pointer;
-			.light_background();
 			position:absolute;
 			top:4px;
 			bottom:2px;

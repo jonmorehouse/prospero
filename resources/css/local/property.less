@@ -8,11 +8,12 @@
 	top:220px;
 	right:0;
 	left:@page_container_left;
-	right:-@border_width*1.5;
-	padding-right:@border_width*2;
+	right:3%;
 	bottom:@border_width;
-	min-width:@thumbnail_dimension*2;
 	overflow-y:auto;
+	.dark_background(0.6);
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
 }
 
 #page_content{
@@ -21,6 +22,7 @@
 	max-width:100%;
 	margin:none;
 	padding-top:0;
+
 }
 
 #navigation_browse{
@@ -98,7 +100,7 @@
 #header{
 	width:30%;
 	position:relative;
-	top:100px;
+	top:90px;
 	max-width:50%;
 	display:block;
 	margin:0 auto;
@@ -108,7 +110,9 @@
 	color:white;
 	font-size:0.8em;
 	border-radius: 20px;
-	padding: 0.5em;
+	padding: 0.42em;
+	.dark_background();
+
 }
 
 /* THUMBNAIL CONTENTS FOR THIS PAGE ***/
@@ -149,8 +153,8 @@
 
 	position: relative;
 	float:left;
-	width: 200px;
-	height: 200px;
+	width: 195px;
+	height: 190px;
 	background-color: orange;
 	display:hidden;
 	margin: 1em 1% 1em 1%;
@@ -245,7 +249,7 @@
 	
 	#header{
 		position:relative;
-		top:120px;
+		top:110px;
 		font-size:0.7em;
 	}
 }

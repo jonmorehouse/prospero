@@ -1,6 +1,5 @@
 <div id='header'>
-	<span><img src='<?php echo $this->thumbnail['image']['url'] ?>' /></span>
-	<span><h1><?php echo $this->thumbnail['name'];?></h1></span>
+	<h1><?php echo $this->thumbnail['name'];?></h1>
 <!-- responsible for having a thumbnail image and header content -->
 </div>
 
@@ -34,8 +33,8 @@
 
 	<div id='elements'>
 
+
 	</div>
-</div>
 
 
 
