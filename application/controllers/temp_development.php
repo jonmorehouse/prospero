@@ -10,8 +10,6 @@ class Temp_development extends CI_Controller {
 
 	}	
 
-		
-
 	public function insert_message() {
 
 		$message = file_get_contents("temp");

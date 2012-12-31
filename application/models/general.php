@@ -260,6 +260,28 @@ class General extends CI_Model{
 		return $categories;
 	}
 
+	public function get_category_title($category, $category_type = false) {
+
+		// sends back the proper category title based on element!
+		$where = ($category_type) ? (array()) : (array("category_type" => $category_type));
+
+		$query = $this->db->where($where)->where(array("category" => $category))->select("category_title")->get("category_type_categories");
+
+		if ($query->num_rows() === 1 && $query->row()->category_title) return $query->row()->category_title;
+
+		return $this->format->word_format($category);		 
+
+	}
+
+	public function get_category_type_header($category_type) {
+
+		$query = $this->db->where(array("category_type" => $category_type))->select("header")->get("category_types");
+
+		if ($query->num_rows() === 0) return $this->format->word_format($category_type);
+
+		else return $query->row()->header;
+	}
+
 	public function get_default_options($category) {
 
 		$table = "default_options";

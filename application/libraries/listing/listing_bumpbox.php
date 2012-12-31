@@ -2,7 +2,7 @@
 
 class Listing_bumpbox extends Listing_base {
 
-	parent __construct($parameters) {
+	function __construct($parameters) {
 
 		parent::__construct($parameters);//call the parent element and initialize
 

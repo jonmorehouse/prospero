@@ -27,7 +27,6 @@ class Listing_media extends Listing_base{
 	public function slideshow_images() {
 
 		return $this->slideshow_images;
-
 	}
 
 	// return an array of the slideshow images
@@ -36,7 +35,6 @@ class Listing_media extends Listing_base{
 		// return an array of alts / src / media_id for each elements
 		// will add in functionality for image updating etc later on
 		return $this->thumbnail_images;
-
 	}
 
 	private function init() {
