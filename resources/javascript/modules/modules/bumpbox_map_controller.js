@@ -14,44 +14,58 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 
 		container.children('div').each(function() {
 
-			var current = $(this),
+			var current = $(this);
+
+
+			maps[current.attr('data-id')] = (function (current){
+
 				id = current.attr('data-id'),
 				category = current.attr('data-category'),
 				url = current.attr('data-url');
 
-			var data = {
+				var data = {
 
-				element: current,//cache the element so that we can store stuff in it
-				id: id,//cache the id -- this is the element id -- not completely necessary but helpful
-				created: false,//map not created yet
-				ready: false,//data is not recieved -- not ready to be created
+					element: current,//cache the element so that we can store stuff in it
+					id: id,//cache the id -- this is the element id -- not completely necessary but helpful
+					created: false,//map not created yet
+					ready: false,//data is not recieved -- not ready to be created
 
-			};//end of data
+				};//end of data
 
-			(function() {//initialize the data
+				(function(id) {//initialize the data
 
-					$.ajax({
+						$.ajax({
 
-						url: url,
-						data: {filter: category},
-						dataType: 'JSON',
-						method: 'post'
+							url: url,
+							data: {filter: category},
+							dataType: 'JSON',
+							method: 'post'
 
-					}).done(function(_data) {
+						}).done(function(_data) {
 
-						data['data'] = _data;//initialize data!
-						data['ready'] = true;//data is processed
+							data['data'] = _data;//initialize data!
+							data['ready'] = true;//data is processed
 
-						return true;
-					});
-				}()),
+							return true;
+						});//end ajax cal
+				}(id));
 
-			maps[id] = data;
+				return data;
+			}(current));
+		
+
 		});//end of each loop
 
 	// end of init function
 	}());
 		
+	function test() {
+
+
+
+	}
+
+
 	// trigger a change in the element -- need to ensure that the map is created
 	function change_trigger(id) {
 

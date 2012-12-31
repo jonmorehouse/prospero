@@ -1,5 +1,4 @@
 <?php
-
 class Listing extends CI_Controller { 
 	
 	function __construct() {
@@ -150,7 +149,7 @@ class Listing extends CI_Controller {
 			"property_id" => $this->property_id,
 			"slideshow_images" => $this->slideshow_images,
 			"slideshow_thumbnail_images" => $this->thumbnail_images,
-			"listing_bumpboxes" => $this->left_bumpbox_content,
+			"listing_bumpboxes" => $this->left_bumpboxes,
 		);
 
 		// load the views

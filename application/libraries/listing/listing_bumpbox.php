@@ -10,14 +10,40 @@ class Listing_bumpbox extends Listing_base {
 
 	public function content($bumpboxes) {
 
-		return $bumpboxes;//
+		foreach ($bumpboxes as $value) {
+
+			echo $value;
+		}
+	}	
+
+	private function generate_html() {
+
+		// load in the proper views etc
+
 	}
 
-	// create a function for all of our different bumpboxes down here!
+	private function set_similar_properties() {
 
-	//will then load views from the listing/ view category etc -- will return them as html to the controller calling
+		// 
+		
 
-	// this is used to offset app logic for this from the calling controller
 
+	}
+
+	private function set_inquire() {
+
+
+
+	}
+
+	private function set_pdf() {
+
+
+	}
+
+	private function set_listing_map() {
+
+
+	}
 
 }

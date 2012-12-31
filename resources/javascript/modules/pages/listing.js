@@ -2,9 +2,25 @@
 (function() {
 
   (Project.Pages.Listing = function() {
-    var elements;
+    var bumpboxes, elements, listingBumpboxes;
     elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')];
-    return Project.Pages.Bumpbox(elements);
+    Project.Pages.Bumpbox(elements);
+    bumpboxes = pageData.listing_bumpboxes;
+    return (listingBumpboxes = function() {
+      var bumpbox, containers, contentModules, listeners, modules, _i, _len, _results;
+      listeners = {};
+      containers = {};
+      modules = {};
+      contentModules = {};
+      _results = [];
+      for (_i = 0, _len = bumpboxes.length; _i < _len; _i++) {
+        bumpbox = bumpboxes[_i];
+        listeners[bumpbox] = $("#navigation_left li[data-link=\"" + bumpbox + "\"]");
+        containers[bumpbox] = $(".bumpbox." + bumpbox);
+        _results.push(modules[bumpbox] = new Project.Modules.bumpbox(listeners[bumpbox], containers[bumpbox]));
+      }
+      return _results;
+    })();
   })();
 
 }).call(this);

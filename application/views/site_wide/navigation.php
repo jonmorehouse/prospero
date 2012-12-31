@@ -8,6 +8,6 @@
 <div id='navigation_left'>
 	<?php
 		foreach ($this->navigation_left as $link)
-			echo "<li data-bumpbox='{$link['data_bumpbox']}' data-link='{$link['data_link']} class='{$link['class']} {$link['data_bumpbox']}'><a href='{$link['link']}'>{$link['name']}</a></li>\n\t";
+			echo "<li data-bumpbox='{$link['data_bumpbox']}' data-link='{$link['data_link']}' class='{$link['class']}'><a href='{$link['link']}'>{$link['name']}</a></li>\n\t";
 	?>
 </div>

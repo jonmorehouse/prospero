@@ -13,6 +13,7 @@
 	foreach ($this->left_bumpboxes as $bumpbox) echo $bumpbox;//need to loop out some bumpbox js objects to help our front end. Will send everything
 ?>
 
+
 <?php
 	$this->load->view("listing/main");//load the main content
 ?>
