@@ -13,10 +13,11 @@ class Test extends CI_Controller {
 
 	public function index() {
 
+		$this->load->library(array("listing/listing_base", "listing/listing_media"), array("property_id" => 5));
 
-		$this->load->model("pages/navigation");
-
-		$this->navigation->get_bumpboxes();
+		print_r($this->listing_media->slideshow_images());
+		print_r($this->listing_media->listing_thumbnail());
+		print_r($this->listing_media->slideshow_images());
 
 	}
 

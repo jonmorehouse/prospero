@@ -122,8 +122,6 @@ class Bumpbox_content {
 	public function get_history() {
 
 		return $this->history;
-
-
 	}
 
 	public function get_services() {
@@ -135,9 +133,8 @@ class Bumpbox_content {
 	public function get_about() {
 
 		return $this->about;
-
-
 	}
+
 
 };
 

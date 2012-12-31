@@ -103,6 +103,8 @@ class Listing extends CI_Controller {
 		$libraries = array("utilities/header", "utilities/dynamic_header");
 		$this->load->library($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
 
+		//initialize libraries
+
 		// initialize proper models
 		$this->load->model(array("pages/navigation", "pages/elements"));
 
@@ -114,10 +116,15 @@ class Listing extends CI_Controller {
 		$this->navigation_top = $this->navigation->get_navigation("global_top");
 		$this->navigation_left = $this->navigation->get_listing($this->property_id);
 
-		// initialize a library that will output the proper bumpboxes based on what bumpboxes that the navigation elements return
+		// get the bumpbox list
+		$this->left_bumpboxes = $this->navigation->get_listing_bumpboxes($this->property_id);//get the listing specific bumpboxes for this particular element 
+		$this->top_bumpboxes = $this->navigation->get_bumpboxes();//gets a list of the navigation_top bumpboxes
 
-		$this->bumpboxes = $this->navigation->get_bumpboxes("navigation_top");
-		$this->bumpboxes = 
+		// initialize a library that will output the proper bumpboxes based on what bumpboxes that the navigation elements return
+		$this->top_bumpbox_content = $this->navigation->get_bumpboxes();//get the top bumpboxes
+		$this->left_bumpbox_content = $this->listing_bumpbox->bumpbox_content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
+
+		// 
 
 		// load the views
 		$this->load->view("listing/listing_base");

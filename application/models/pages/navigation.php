@@ -16,11 +16,30 @@ class Navigation extends CI_Model {
 	public function get_bumpboxes($page_id = "global_top") {//gets the bumpboxes for this particular id!
 
 		$bumpboxes = array();
+
 		// join navigation_mapper on element id where page_id =
 		$query = $this->db->join($this->map_table, "{$this->map_table}.element_id = {$this->element_table}.element_id")->where(array("page_id" => $page_id, "data_bumpbox"=>true))->select("{$this->element_table}.element_id")->get($this->element_table);//select the element_table id to avoid ambigous call
 
+		// 
 		foreach ($query->result() as $row)
 			array_push($bumpboxes, $row->element_id);
+
+		return $bumpboxes;
+	}
+
+	// this returns the ids of bumpboxes that we need to use for this page
+	public function get_listing_bumpboxes($property_id) {
+
+		$elements = $this->listing_elements($property_id);
+
+		$bumpboxes = array();//basic container for all bumpboxes to be returned
+
+		foreach ($elements as $element_id) {
+
+			$query = $this->db->where(array("data_bumpbox" => true, "element_id" => $element_id))->select("element_id")->get($this->element_table);
+
+			if ($query->num_rows() === 1) array_push($bumpboxes, $element_id);			
+		}
 
 		return $bumpboxes;
 	}
