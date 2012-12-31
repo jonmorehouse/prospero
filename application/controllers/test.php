@@ -16,7 +16,7 @@ class Test extends CI_Controller {
 
 		$this->load->model("pages/navigation");
 
-		print_r($this->navigation->listing_elements(55));
+		$this->navigation->get_bumpboxes();
 
 	}
 

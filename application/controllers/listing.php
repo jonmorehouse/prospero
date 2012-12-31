@@ -114,8 +114,12 @@ class Listing extends CI_Controller {
 		$this->navigation_top = $this->navigation->get_navigation("global_top");
 		$this->navigation_left = $this->navigation->get_listing($this->property_id);
 
+		// initialize a library that will output the proper bumpboxes based on what bumpboxes that the navigation elements return
 
-		// 
+		$this->bumpboxes = $this->navigation->get_bumpboxes("navigation_top");
+		$this->bumpboxes = 
+
+		// load the views
 		$this->load->view("listing/listing_base");
 	}
 

@@ -10,21 +10,40 @@ class Navigation extends CI_Model {
 		$this->load->model("general");
 	}	
 
-	// public apis
+	// public apis 
+
+	// get a list of the bumpboxes attached to a certain element
+	public function get_bumpboxes($page_id = "global_top") {//gets the bumpboxes for this particular id!
+
+		$bumpboxes = array();
+		// join navigation_mapper on element id where page_id =
+		$query = $this->db->join($this->map_table, "{$this->map_table}.element_id = {$this->element_table}.element_id")->where(array("page_id" => $page_id, "data_bumpbox"=>true))->select("{$this->element_table}.element_id")->get($this->element_table);//select the element_table id to avoid ambigous call
+
+		foreach ($query->result() as $row)
+			array_push($bumpboxes, $row->element_id);
+
+		return $bumpboxes;
+	}
+
 	// can send in selected if there is a specific element
 	public function get_navigation($page_id = "global_top", $selected = "") {
 
 		//pass in a selected element_id if you want that element to be selected
-		return $this->generate_element_data($this->menu_elements($page_id), $selected);
+		$elements = array_reverse($this->menu_elements($page_id));
+
+
+		return $this->generate_element_data($elements, $selected);
 
 	}
 
+	// get the navigation_left element for a particular property -- handles all the proper elements etc
 	public function get_listing($property_id) {
 
 		return $this->generate_element_data($this->listing_elements($property_id));
-
 	}
 
+	
+	// 
 	public function get_logo($page_id = "home") {//
 
 		if ($page_id == "home" || $page_id == "homepage")
@@ -61,7 +80,7 @@ class Navigation extends CI_Model {
 
 				"name" => $data->name,//a label
 				"class" => ($selected == $element_id) ? ("selected") : (""),//whether or not this particular element should be flagged as selected from the origin!
-				"link" => $data->link,//link for when the user clicks can be # as well
+				"link" => ($data->relative) ? ($data->link) : (site_url($data->link)),//link for when the user clicks can be # as well
 				"relative" => ($data->relative) ? (true) : (false),//whether or not to attach a site-url to the link				
 				"element_id" => $element_id,//useful for backend purposes
 				"data_link" => $data->data_link,//useful for mapping clicks to front-end actions

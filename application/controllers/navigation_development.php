@@ -9,12 +9,6 @@ class Navigation_development extends CI_Controller {
 
 	}
 
-	public function test() {
-
-		
-
-	}
-
 	// similar properties, map, pdf, video inquire
 	public function element() {
 
