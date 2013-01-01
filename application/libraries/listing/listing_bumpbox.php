@@ -10,7 +10,8 @@ class Listing_bumpbox extends Listing_base {
 		$libraries = array(
 
 			"property/similar_properties",//very small and subclassed but useful for show 
-			"property/media",
+			"property/media",//media
+			"property/nearby_properties"//
 		);
 
 		// declare model dependencies - direct db access through these libraries
@@ -44,6 +45,7 @@ class Listing_bumpbox extends Listing_base {
 			$html[$bumpbox] = $this->{$method}();			
 		}
 
+		return $html;
 	}	
 
 	private function get_similar_properties() {
@@ -76,6 +78,7 @@ class Listing_bumpbox extends Listing_base {
 
 		$data = array(
 
+			"thumbnail" => $this->CI->thumbnail->general_thumbnail($this->property_id),
 			"name" => $this->CI->general->get_category($this->property_id, "name"),
 			"status" => $pdf_status,
 		);
@@ -94,10 +97,12 @@ class Listing_bumpbox extends Listing_base {
 
 	private function get_listing_map() {//should be offloaded to another library for eas
 
-		// 1.) Nearby properties -- based off of the walking triangle ? 
+		// 1.) Nearby properties -- based off of the walking triangle?
 		// 2.) Directions -- will be through the google directions api
 		// 3.) NearBy places -- put the walkscore information there as well
-
+		$nearby_properties = $this->CI->nearby_properties->nearby_properties($this->property_id);//
+		$walkscore = $this->CI->walkscore->walkscore($this->property_id);
+		// $directions = //get the center etc
 
 	}
 

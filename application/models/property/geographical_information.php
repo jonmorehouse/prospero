@@ -18,7 +18,7 @@ class Geographical_information extends CI_Model {
 
 		if (!$latitude || !$longitude) return False;
 
-		return array("longitude" => $longitude, "latitude" => $latitude);
+		return array("longitude" => (float) $longitude, "latitude" => (float) $latitude);
 	}
 
 	function get_triangle($property_id) {
@@ -35,6 +35,16 @@ class Geographical_information extends CI_Model {
 			array_push($coordinates, array('longitude'=> $row->longitude, 'latitude'=>$row->latitude));
 		
 		return $coordinates;
+	}
+
+	function nearby_properties($latitudes, $longitudes) {
+
+		// send in a max and min for each
+		$table = "property_triangle_coordinates";
+
+		print_r($latitudes);
+		print_r($longitudes);
+
 	}
 
 }

@@ -134,7 +134,7 @@ class Listing extends CI_Controller {
 
 		// initialize a library that will output the proper bumpboxes based on what bumpboxes that the navigation elements return
 		//bumpboxes are responsible for passing their own data		
-		$this->left_bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
+		// $this->left_bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);//generates the bumpoxes for the view ... will be an array of pure content
 
 		// initialize main page elements
 		$this->thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
