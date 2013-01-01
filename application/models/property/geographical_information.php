@@ -40,10 +40,20 @@ class Geographical_information extends CI_Model {
 	function nearby_properties($latitudes, $longitudes) {
 
 		// send in a max and min for each
-		$table = "property_triangle_coordinates";
+		$table = "property_geographical_information";
 
-		print_r($latitudes);
-		print_r($longitudes);
+		// 
+		$where = array("latitude >" => $latitudes['min'], 
+			"latitude <" => $latitudes['max'], 
+			"longitude >" => $longitudes['min'], 
+			"longitude <" => $longitudes['max']
+		);
+
+		$query = $this->db->where($where)->select("property_id")->get($table);
+
+		print_r($query);
+
+
 
 	}
 

@@ -28,4 +28,20 @@ class Elements extends CI_Model {
 
 		return $backgrounds;
 	}
+
+	public function get_image($image_id) {
+
+		$query = $this->db->where(array("image_id" => $image_id))->select("url, alt")->get($this->image_table, 1);
+
+		if ($query->num_rows() === 0) return false;
+
+		$url = (strstr($query->row()->url, "http")) ? ($query->row()->url) : (base_url($query->row()->url));
+
+		return array(
+
+			"alt" => $query->row()->alt,
+			"url" => $url,
+			"src" => $url,
+		);
+	}
 }

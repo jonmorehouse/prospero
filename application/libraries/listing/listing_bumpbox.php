@@ -19,7 +19,8 @@ class Listing_bumpbox extends Listing_base {
 
 			"general",//general settings
 			"bumpbox/bumpbox_thumbnails",//bumpbox thumbnails for different elements
-			"pages/inquire" //general inquire information
+			"pages/inquire", //general inquire information
+			"bumpbox/walkscore"
 		);
 
 		$this->CI->load->library($libraries);
