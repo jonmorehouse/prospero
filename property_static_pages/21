@@ -1,0 +1,404 @@
+	
+<!DOCTYPE html>
+<head>
+	<title>Old Orchard Shopping Centre</title>		
+
+	<meta http-equiv="X-UA-Compatible" value="IE=9">
+	<meta http-equiv="X-UA-Compatible" value="IE=8">
+	<meta http-equiv="X-UA-Compatible" value="IE=7">
+	<meta name='keywords' content='Prospero, Property, Meta, Keywords' />
+	<meta name='description' content='Meta Description' />
+
+	
+	<link rel='shortcut icon' href='http://localhost:8888/Prospero/current/resources/images/favicon.ico' type='image/x-icon' />	
+	
+	<link rel='stylesheet/less' type='text/css' href='http://localhost:8888/Prospero/current/resources/css/local/bumpbox.less' />
+	<link rel='stylesheet/less' type='text/css' href='http://localhost:8888/Prospero/current/resources/css/local/listing.less' />
+	<link rel='stylesheet/less' type='text/css' href='http://localhost:8888/Prospero/current/resources/css/local/listing_bumpboxes.less' />
+
+	<script type='text/javascript'>var base_url='http://localhost:8888/Prospero/current/';</script>
+
+	<script type='text/javascript'>var site_url='http://localhost:8888/Prospero/current/index.php/';</script>
+
+	<script type='text/javascript'>var cgi_url='http://localhost:8888/cgi-bin/';</script>
+
+
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/jquery-1.7.1.min.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/jquery-ui-1.8.18.custom.min.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/less-1.3.0.min.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/modernizr.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/jquery-1.7.1.min.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/jquery-ui-1.8.18.custom.min.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/less-1.3.0.min.js'></script>
+	<script type='text/javascript' src='http://localhost:8888/Prospero/current/resources/javascript/resources/modernizr.js'></script>
+	<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false'></script>	
+</head>
+
+<body>
+
+<script type='text/javascript'>
+	
+	var pageData = {"property_id":21,"slideshow_images":[],"slideshow_thumbnail_images":[],"listing_bumpboxes":["similar_properties","listing_map","listing_pdf","listing_inquire"]}
+</script><div id='background'>
+
+	<div data-id='0'>
+	<img src="http://localhost:8888/Prospero/current/resources/images/background/1.png" alt="Prospero Real Estate" />	</div>
+</div>
+
+<script type='text/javascript'>
+	
+	var background_images = {};
+	background_images[1] = {};
+	background_images[1]['alt'] = "Prospero Real Estate";
+	background_images[1]['url'] = "http://localhost:8888/Prospero/current/resources/images/background/2.png";
+	background_images[2] = {};
+	background_images[2]['alt'] = "Prospero Real Estate";
+	background_images[2]['url'] = "http://localhost:8888/Prospero/current/resources/images/background/3.png";
+	background_images[3] = {};
+	background_images[3]['alt'] = "Prospero Real Estate";
+	background_images[3]['url'] = "http://localhost:8888/Prospero/current/resources/images/background/4.png";
+	
+</script>
+<div id='top_border'></div>
+<div id='right_border'></div>
+<div id='left_border'></div>
+<div id='bottom_border'></div>
+<div id='navigation_top'>
+	<li data-bumpbox='1' data-link='contact' class=''><a href='#contact'>Contact</a></li>
+	<li data-bumpbox='1' data-link='map' class=''><a href='#general_map'>Map</a></li>
+	<li data-bumpbox='' data-link='' class=''><a href='http://localhost:8888/Prospero/current/index.php/property/residential'>Residential</a></li>
+	<li data-bumpbox='' data-link='' class=''><a href='http://localhost:8888/Prospero/current/index.php/property/retail'>Retail</a></li>
+	<li data-bumpbox='' data-link='' class=''><a href='http://localhost:8888/Prospero/current/index.php/property/office_industrial'>Office/Industrial</a></li>
+	</div>
+
+<div id='navigation_left'>
+	<li data-bumpbox='' data-link='' class=''><a href='http://localhost:8888/Prospero/current/index.php'>Home</a></li>
+	<li data-bumpbox='1' data-link='similar_properties' class=''><a href='#similar_properties'>Similar Properties</a></li>
+	<li data-bumpbox='1' data-link='listing_map' class=''><a href='#listing_map'>Listing Map</a></li>
+	<li data-bumpbox='1' data-link='listing_pdf' class=''><a href='#listing_pdf'>PDF Brochure</a></li>
+	<li data-bumpbox='1' data-link='listing_inquire' class=''><a href='#listing_inquire'>Inquire</a></li>
+	</div><div id='bumpbox_out_trigger'>
+
+</div>
+<div class='bumpbox contact'>
+	<div>
+		<address>
+			<h1>Prospero</h1>
+			<span> Suite 517, 1177</span><br />
+			<span>West Hastings St.</span><br />
+			<span>Vancouver, British Columbia V6E 2K3</span><br />
+		</address>
+	</div>
+	
+	<div>	
+		<h1>Contact</h1>
+		
+		<form destination='http://localhost:8888/Prospero/current/index.php/general_rest/submit_email' method='post'>
+			
+			<input type='text' value='Email Address' name="email"></input>
+
+			<textarea rows='3' cols='40' name="message">General Contact Message.</textarea>
+			
+			<button type='submit'>Submit Message</button>
+
+		</form>
+
+		<div class='message'>Email Message Here</div>
+	</div>
+</div>
+<div class='bumpbox map'>
+	<div class='content'>
+	
+		<div data-id='0' data-filter='new' data-url='http://localhost:8888/Prospero/current/index.php/ajax/map_rest/general_map_points'><h1>New</h1><div></div></div>
+
+		<div data-id='1' data-filter='all' data-url='http://localhost:8888/Prospero/current/index.php/ajax/map_rest/general_map_points'><h1>All</h1><div></div></div>
+
+		<div data-id='2' data-filter='office_industrial' data-url='http://localhost:8888/Prospero/current/index.php/ajax/map_rest/general_map_points'><h1>Office/Industrial</h1><div></div></div>
+
+		<div data-id='3' data-filter='retail' data-url='http://localhost:8888/Prospero/current/index.php/ajax/map_rest/general_map_points'><h1>Retail</h1><div></div></div>
+
+		<div data-id='4' data-filter='residential' data-url='http://localhost:8888/Prospero/current/index.php/ajax/map_rest/general_map_points'><h1>Residential</h1><div></div></div>
+	</div>
+
+	<div class='thumbnails'>
+		<ul>
+		
+		<li data-id='0'>New</li>
+
+		<li data-id='1'>All</li>
+
+		<li data-id='2'>Office/Industrial</li>
+
+		<li data-id='3'>Retail</li>
+
+		<li data-id='4'>Residential</li>
+		</ul>
+	</div>
+</div>
+
+<div class='bumpbox similar_properties' data-link='similar_properties'>
+	<div class='content'>
+		<h1>Old Orchard Shopping Centre</h1>
+		<h2>Similar Properties</h2>
+			<div>
+			<div>
+				<a href='http://localhost:8888/Prospero/current/index.php/listing/27'>
+					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Large Retail Space on Willingdon Avenue'/>
+				</a>
+			</div>
+
+			<div>
+				<h1>Large Retail Space on Willingdon Avenue</h1>
+
+				<p>Located at the intersection of Halifax and Willingdon across from Brentwood Shopping Centre in Burnaby.</p>
+			</div>
+		</div>
+			<div>
+			<div>
+				<a href='http://localhost:8888/Prospero/current/index.php/listing/46'>
+					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mission Hills Shops'/>
+				</a>
+			</div>
+
+			<div>
+				<h1>Mission Hills Shops</h1>
+
+				<p>Conveniently located at the intersection of the Lougheed Hwy and Sumas Hwy which connects to Hwy 1.</p>
+			</div>
+		</div>
+			<div>
+			<div>
+				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
+					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+				</a>
+			</div>
+
+			<div>
+				<h1>Oakridge Place</h1>
+
+				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
+			</div>
+		</div>
+			<div>
+			<div>
+				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
+					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
+				</a>
+			</div>
+
+			<div>
+				<h1>Monticello Apartments</h1>
+
+				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
+			</div>
+		</div>
+			<div>
+			<div>
+				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
+					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
+				</a>
+			</div>
+
+			<div>
+				<h1>Olive Court</h1>
+
+				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
+			</div>
+		</div>
+		</div>
+</div><div class='bumpbox listing_map'>
+
+	<div class='content'>
+
+		<div data-link='walkscore'></div>
+
+		<div data-link='directions'></div>
+
+		<div data-link='nearby_properties'></div>
+
+	</div>
+
+	<div class='thumbnails'>
+		<ul>
+			<li data-link='walkscore'>WalkScore</li>
+			<li data-link='directions'>Directions</li>
+			<li data-link='nearby_properties'>Nearby Properties</li>
+		</ul>
+	</div>
+
+</div>
+
+<script type='text/javascript'>
+	
+	pageData.listing_map = {
+
+		"walkscore": {"center":{"longitude":-123.005,"latitude":49.2314},"triangle":[{"longitude":"47.5819","latitude":"-122.325"},{"longitude":"47.5819","latitude":"-122.333"},{"longitude":"47.584","latitude":"-122.328"},{"longitude":"47.5862","latitude":"-122.326"},{"longitude":"47.5882","latitude":"-122.329"},{"longitude":"47.5882","latitude":"-122.33"},{"longitude":"47.5903","latitude":"-122.332"},{"longitude":"47.5903","latitude":"-122.334"},{"longitude":"47.5904","latitude":"-122.337"},{"longitude":"47.584","latitude":"-122.337"},{"longitude":"47.5818","latitude":"-122.337"},{"longitude":"47.5771","latitude":"-122.34"},{"longitude":"47.5744","latitude":"-122.34"},{"longitude":"47.5717","latitude":"-122.337"},{"longitude":"47.5714","latitude":"-122.334"},{"longitude":"47.5733","latitude":"-122.331"},{"longitude":"47.5744","latitude":"-122.33"},{"longitude":"47.5755","latitude":"-122.329"},{"longitude":"47.5777","latitude":"-122.328"},{"longitude":"47.5777","latitude":"-122.325"},{"longitude":"47.5798","latitude":"-122.323"},{"longitude":"47.5812","latitude":"-122.326"},{"longitude":"47.5819","latitude":"-122.325"}],"walkscore_logo":{"alt":"Walkscore Logo","url":"http:\/\/www2.walkscore.com\/images\/api-logo.gif","src":"http:\/\/www2.walkscore.com\/images\/api-logo.gif"},"thumbnail":{"image":{"alt":"Old Orchard Shopping Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Old Orchard Shopping Centre","name":"Old Orchard Shopping Centre","blurb":"The property is ideally located in Burnaby adjacent to Metrotown and is centered in one of the busiest areas of Metro Vancouver. "}},
+		"directions": {"center":{"longitude":-123.005,"latitude":49.2314},"thumbnail":{"image":{"alt":"Old Orchard Shopping Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Old Orchard Shopping Centre","name":"Old Orchard Shopping Centre","blurb":"The property is ideally located in Burnaby adjacent to Metrotown and is centered in one of the busiest areas of Metro Vancouver. "}},
+		"nearby_properties": [{"distance":0.0069999999999979,"coordinates":{"longitude":-123.011,"latitude":49.2304},"thumbnail":{"image":{"alt":"Olive Court","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Olive Court","name":"Olive Court","blurb":"An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. "}},{"distance":0.0090000000000074,"coordinates":{"longitude":-123.013,"latitude":49.2324},"thumbnail":{"image":{"alt":"Monticello Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Monticello Apartments","name":"Monticello Apartments","blurb":"An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station."}},{"distance":0.038299999999992,"coordinates":{"longitude":-123.003,"latitude":49.2677},"thumbnail":{"image":{"alt":"Large Retail Space on Willingdon Avenue","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Large Retail Space on Willingdon Avenue","name":"Large Retail Space on Willingdon Avenue","blurb":"Located at the intersection of Halifax and Willingdon across from Brentwood Shopping Centre in Burnaby."}},{"distance":0.054300000000005,"coordinates":{"longitude":-123.024,"latitude":49.2667},"thumbnail":{"image":{"alt":"1995 Boundary Road","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"1995 Boundary Road","name":"1995 Boundary Road","blurb":"This space enjoys good visual exposure from Boundary and is best for office\/showroom\/retail\/warehouse use. "}},{"distance":0.063500000000012,"coordinates":{"longitude":-123.058,"latitude":49.2419},"thumbnail":{"image":{"alt":"Green Living Condo","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Green Living Condo","name":"Green Living Condo","blurb":"Developed by The Wall Group the 2 residential towers in Phase 1 are due to be completed before summer 2013. "}},{"distance":0.07330000000001,"coordinates":{"longitude":-123.066,"latitude":49.2191},"thumbnail":{"image":{"alt":"7151-7161 Victoria Drive","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"7151-7161 Victoria Drive","name":"7151-7161 Victoria Drive","blurb":"Single-storey concrete block retail\/commercial building with a partial basement."}},{"distance":0.1067,"coordinates":{"longitude":-122.92,"latitude":49.2097},"thumbnail":{"image":{"alt":"Cudworth Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Cudworth Apartments","name":"Cudworth Apartments","blurb":"Four-storey building located near 8th St. and 6th Ave. in New Westminster. \n"}},{"distance":0.10889999999999,"coordinates":{"longitude":-122.918,"latitude":49.2095},"thumbnail":{"image":{"alt":"Lori Ann Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Lori Ann Apartments","name":"Lori Ann Apartments","blurb":"Three storey building located at 4 Ave &amp; 7th St. in New Westminster. "}},{"distance":0.11360000000001,"coordinates":{"longitude":-123.116,"latitude":49.234},"thumbnail":{"image":{"alt":"Oakridge Place","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Oakridge Place","name":"Oakridge Place","blurb":"Popular Office Space Located On Cambie Just Across Oakridge Centre. "}},{"distance":0.1149,"coordinates":{"longitude":-122.895,"latitude":49.2265},"thumbnail":{"image":{"alt":"Parkside Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Parkside Apartments","name":"Parkside Apartments","blurb":"48-suite four-storey building located close to the water in New Westminster."}},{"distance":0.12230000000001,"coordinates":{"longitude":-123.087,"latitude":49.2717},"thumbnail":{"image":{"alt":"Strata Warehouse Units","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Strata Warehouse Units","name":"Strata Warehouse Units","blurb":"The Warehouse Unit Is Located One Block North Of Terminal Avenue Between The Lexus Car Dealership And The Cool King Refrigeration."}},{"distance":0.12389999999999,"coordinates":{"longitude":-122.902,"latitude":49.2105},"thumbnail":{"image":{"alt":"Royal Clinton","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Royal Clinton","name":"Royal Clinton","blurb":"Four-storey building that has views of the Fraser River from the upper floors. "}},{"distance":0.1252,"coordinates":{"longitude":-122.901,"latitude":49.2102},"thumbnail":{"image":{"alt":"The Birches","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"The Birches","name":"The Birches","blurb":"This smaller four-storey building is located on a quiet side-street near Royal Avenue and 1st Street."}},{"distance":0.1443,"coordinates":{"longitude":-123.1,"latitude":49.2807},"thumbnail":{"image":{"alt":"Main &amp; Pender Building","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Main &amp; Pender Building","name":"Main &amp; Pender Building","blurb":"Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. "}},{"distance":0.14510000000001,"coordinates":{"longitude":-123.101,"latitude":49.2805},"thumbnail":{"image":{"alt":"Lee Building","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Lee Building","name":"Lee Building","blurb":"Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic."}},{"distance":0.14579999999999,"coordinates":{"longitude":-122.888,"latitude":49.2602},"thumbnail":{"image":{"alt":"Braemar Court Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Braemar Court Apartments","name":"Braemar Court Apartments","blurb":"Nine Three-storey Wood-frame Apartment Buildings Located In Coquitlam West. "}},{"distance":0.1474,"coordinates":{"longitude":-123.148,"latitude":49.2358},"thumbnail":{"image":{"alt":"Kerrisdale Parc","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Kerrisdale Parc","name":"Kerrisdale Parc","blurb":"Strata Highrise Building Located One Block From The Kerrisdale Shopping Area Of West 41st Ave."}},{"distance":0.1489,"coordinates":{"longitude":-123.122,"latitude":49.2633},"thumbnail":{"image":{"alt":"Willow Medical Building","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Willow Medical Building","name":"Willow Medical Building","blurb":"Office units are ideal for medical practice as it is close to Vancouver General Hospital."}},{"distance":0.15260000000001,"coordinates":{"longitude":-123.066,"latitude":49.323},"thumbnail":{"image":{"alt":"Lions Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Lions Apartments","name":"Lions Apartments","blurb":"103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants."}},{"distance":0.15300000000001,"coordinates":{"longitude":-123.129,"latitude":49.2604},"thumbnail":{"image":{"alt":"Mistletoe Manor","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Mistletoe Manor","name":"Mistletoe Manor","blurb":"65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave."}},{"distance":0.15450000000001,"coordinates":{"longitude":-123.159,"latitude":49.2319},"thumbnail":{"image":{"alt":"Vincent Manor","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Vincent Manor","name":"Vincent Manor","blurb":"A smaller attractive building located in the heart of the peaceful Kerrisdale neighbourhood."}},{"distance":0.1611,"coordinates":{"longitude":-123.075,"latitude":49.3225},"thumbnail":{"image":{"alt":"Tuckton Place","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Tuckton Place","name":"Tuckton Place","blurb":"Three-storey building conveniently located in the heart of North Vancouver."}},{"distance":0.16490000000001,"coordinates":{"longitude":-123.075,"latitude":49.3263},"thumbnail":{"image":{"alt":"Mark Loma Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Mark Loma Apartments","name":"Mark Loma Apartments","blurb":"Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. "}},{"distance":0.16650000000001,"coordinates":{"longitude":-123.143,"latitude":49.2599},"thumbnail":{"image":{"alt":"Pine Villa","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Pine Villa","name":"Pine Villa","blurb":"39-suite three-storey building located in the quiet part of the South Granville community. "}},{"distance":0.16760000000001,"coordinates":{"longitude":-123.143,"latitude":49.261},"thumbnail":{"image":{"alt":"Edinburgh Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Edinburgh Apartments","name":"Edinburgh Apartments","blurb":"15-suite four-storey building located in Westside Vancouver on 12th Avenue."}},{"distance":0.174,"coordinates":{"longitude":-123.127,"latitude":49.2834},"thumbnail":{"image":{"alt":"Barclay Viking","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Barclay Viking","name":"Barclay Viking","blurb":"Quiet Concrete High-rise Building Located At Thurlow &amp; Barclay St. Two Blocks From Robson St."}},{"distance":0.17750000000001,"coordinates":{"longitude":-123.129,"latitude":49.2849},"thumbnail":{"image":{"alt":"Baron&#039;s Court","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Baron&#039;s Court","name":"Baron&#039;s Court","blurb":"Located Two Short Blocks From Robson Street - A Great Location In The West End. "}},{"distance":0.1782,"coordinates":{"longitude":-123.134,"latitude":49.2806},"thumbnail":{"image":{"alt":"Paul Y. Mansion Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Paul Y. Mansion Apartments","name":"Paul Y. Mansion Apartments","blurb":"Twenty-one storey concrete high-rise tower near Thurlow and Davie."}},{"distance":0.17840000000001,"coordinates":{"longitude":-123.132,"latitude":49.2828},"thumbnail":{"image":{"alt":"Connaught Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Connaught Apartments","name":"Connaught Apartments","blurb":"17-storey building located on Pendrell Street near Davie Street."}},{"distance":0.17950000000001,"coordinates":{"longitude":-123.132,"latitude":49.2839},"thumbnail":{"image":{"alt":"Delroy Place","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Delroy Place","name":"Delroy Place","blurb":"20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets."}},{"distance":0.1799,"coordinates":{"longitude":-123.13,"latitude":49.2863},"thumbnail":{"image":{"alt":"Jervis Towers","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Jervis Towers","name":"Jervis Towers","blurb":"Eleven-storey high-rise building located at the corner of Jervis &amp; Haro St. "}},{"distance":0.18290000000001,"coordinates":{"longitude":-123.135,"latitude":49.1785},"thumbnail":{"image":{"alt":"Commercial\/Office Space on Alexander Road","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Commercial\/Office Space on Alexander Road","name":"Commercial\/Office Space on Alexander Road","blurb":"Ideal property for dance studio\/gym\/health club\/spa use. "}},{"distance":0.18390000000001,"coordinates":{"longitude":-123.153,"latitude":49.2673},"thumbnail":{"image":{"alt":"Arbutus Lodge","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Arbutus Lodge","name":"Arbutus Lodge","blurb":"An attractive three-storey building at Arbutus and 5th Avenue in Kitsilano. "}},{"distance":0.1856,"coordinates":{"longitude":-123.14,"latitude":49.282},"thumbnail":{"image":{"alt":"Beachview Tower","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Beachview Tower","name":"Beachview Tower","blurb":"Twelve-story Building Located In Vancouver&#039;s Famous West End."}},{"distance":0.1883,"coordinates":{"longitude":-123.139,"latitude":49.2857},"thumbnail":{"image":{"alt":"Broughton Manor","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Broughton Manor","name":"Broughton Manor","blurb":"Fully renovated suites located on the corner of Broughton Street and Davie Street. "}},{"distance":0.18850000000001,"coordinates":{"longitude":-123.141,"latitude":49.2839},"thumbnail":{"image":{"alt":"Vivian Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Vivian Apartments","name":"Vivian Apartments","blurb":"A Quiet Building Located In The West End Close To English Bay And Alexandra Park. "}},{"distance":0.1911,"coordinates":{"longitude":-123.091,"latitude":49.3365},"thumbnail":{"image":{"alt":"Delbrook Gardens","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Delbrook Gardens","name":"Delbrook Gardens","blurb":"This resort style townhouse complex is surrounded by beautiful Japanese influenced gardens and walking paths."}},{"distance":0.19160000000001,"coordinates":{"longitude":-123.158,"latitude":49.27},"thumbnail":{"image":{"alt":"Las Salinas Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Las Salinas Apartments","name":"Las Salinas Apartments","blurb":"Ten-storey concrete tower located in Kitsilano."}},{"distance":0.19490000000001,"coordinates":{"longitude":-123.138,"latitude":49.2933},"thumbnail":{"image":{"alt":"Knightsbridge Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Knightsbridge Apartments","name":"Knightsbridge Apartments","blurb":"Concrete high-rise building located one block from Lost Lagoon and Stanley Park. "}},{"distance":0.1952,"coordinates":{"longitude":-123.142,"latitude":49.2896},"thumbnail":{"image":{"alt":"Kenmore Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Kenmore Apartments","name":"Kenmore Apartments","blurb":"A character building nestled on a tree-lined corner on Gilford St. &amp; Comox St. "}},{"distance":0.1953,"coordinates":{"longitude":-123.14,"latitude":49.2917},"thumbnail":{"image":{"alt":"Edgemont Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Edgemont Apartments","name":"Edgemont Apartments","blurb":"Eight-storey building conveniently located at Barclay &amp; Chilco St."}},{"distance":0.19860000000001,"coordinates":{"longitude":-123.143,"latitude":49.292},"thumbnail":{"image":{"alt":"Silhouette Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Silhouette Apartments","name":"Silhouette Apartments","blurb":"high-rise building consisting of 96 units located on Nelson St. near Stanley Park. "}},{"distance":0.2542,"coordinates":{"longitude":-123.16,"latitude":49.3306},"thumbnail":{"image":{"alt":"Whitehall Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Whitehall Apartments","name":"Whitehall Apartments","blurb":"Six-storey concrete highrise building located on a quiet West Vancouver street."}},{"distance":0.258,"coordinates":{"longitude":-123.166,"latitude":49.3284},"thumbnail":{"image":{"alt":"Westwind Apartments","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Westwind Apartments","name":"Westwind Apartments","blurb":"A Quiet Senior-oriented Building Conveniently Located Within Walking Distance To The West Vancouver Shops Seawall Numerous Parks And The West Vancouver Memorial Library."}},{"distance":0.3238,"coordinates":{"longitude":-122.69,"latitude":49.2226},"thumbnail":{"image":{"alt":"Solaris at Meadows Gate Village","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Solaris at Meadows Gate Village","name":"Solaris at Meadows Gate Village","blurb":"Retail and office space now available at the Solaris a brand new development home to the new Public Library. "}},{"distance":0.6157,"coordinates":{"longitude":-123.152,"latitude":49.7001},"thumbnail":{"image":{"alt":"Squamish Pad Opportunity","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Squamish Pad Opportunity","name":"Squamish Pad Opportunity","blurb":"Located at the NW corner of Cleveland Ave and Winnepeg St in the downtown Squamish just one block from the Sea-to-Sky Hwy this property is ideal for a drive-through facility."}},{"distance":0.61700000000001,"coordinates":{"longitude":-123.153,"latitude":49.7004},"thumbnail":{"image":{"alt":"MacKenzie Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"MacKenzie Centre","name":"MacKenzie Centre","blurb":"Great location in the downtown Squamish between 2nd Ave and Cleveland Ave on Winnipeg Street."}},{"distance":0.78249999999999,"coordinates":{"longitude":-122.322,"latitude":49.1319},"thumbnail":{"image":{"alt":"Mission Hills Shops","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Mission Hills Shops","name":"Mission Hills Shops","blurb":"Conveniently located at the intersection of the Lougheed Hwy and Sumas Hwy which connects to Hwy 1."}},{"distance":0.9987,"coordinates":{"longitude":-123.94,"latitude":49.1677},"thumbnail":{"image":{"alt":"City Centre Plaza","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"City Centre Plaza","name":"City Centre Plaza","blurb":"This retail mall is prominently located on Island Hwy which is the major arterial route in Nanaimo B.C."}},{"distance":1.4368,"coordinates":{"longitude":-124.343,"latitude":49.3302},"thumbnail":{"image":{"alt":"Wembley Mall","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Wembley Mall","name":"Wembley Mall","blurb":"Located Along Island Highway 19A Between The 2 Popular Year-round Vacation Resorts - Parksville And Qualicum Beach."}},{"distance":4.1112,"coordinates":{"longitude":-120.359,"latitude":50.6966},"thumbnail":{"image":{"alt":"Northills Shopping Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Northills Shopping Centre","name":"Northills Shopping Centre","blurb":"This shopping centre is bounded by Tranquille Road Vernon Ave Fortune Dr. and Sydney Ave providing excellent access from all 4 directions."}},{"distance":4.1773,"coordinates":{"longitude":-119.477,"latitude":49.8807},"thumbnail":{"image":{"alt":"Capri Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Capri Centre","name":"Capri Centre","blurb":"Located at the major intersection of Highway 97 and Gordon Drive in the City centre of Kelowna."}}]	};
+	
+</script><div class='bumpbox listing_pdf' data-link='listing_pdf'>
+
+	<div class='header'>
+		<h1>Old Orchard Shopping Centre	</div>	
+
+			<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Old Orchard Shopping Centre' />
+		<a href=''>Download PDF</a>
+
+	
+</div>
+
+<script type='text/javascript'>
+	pageData.pdf = {"thumbnail":{"image":{"alt":"Old Orchard Shopping Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"Old Orchard Shopping Centre","name":"Old Orchard Shopping Centre","blurb":"The property is ideally located in Burnaby adjacent to Metrotown and is centered in one of the busiest areas of Metro Vancouver. "},"name":"Old Orchard Shopping Centre","status":"10","link":null};
+</script><div class='bumpbox listing_inquire' data-link='listing_inquire'>
+	<div>
+		<h1>Old Orchard Shopping Centre Inquire</h1>
+
+		<form destination='http://localhost:8888/Prospero/current/listing_rest/inquire' method='post'>
+
+			<input type='text' name='email' value='Email Address'>
+
+			<textarea name='body'>Thanks for inquiring. We will be back to you shortly</textarea>
+
+			<button type='submit'>Submit Inquire</button>	
+
+		</form>
+	</div>
+</div>
+<script type='text/javascript'>
+	pageData.inquireRecipients = ["morehousej09@gmail.com",false];
+</script>
+<div id='header'>
+	<h1>Old Orchard Shopping Centre</h1>
+<!-- responsible for having a thumbnail image and header content -->
+</div>
+
+<div id='content'>
+	<div id='slideshow'>
+
+		<div class='content'>
+
+			<div data-id='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: listing/main.php</p>
+<p>Line Number: 11</p>
+
+</div>'>
+				<img src='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: listing/main.php</p>
+<p>Line Number: 12</p>
+
+</div>' alt='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: listing/main.php</p>
+<p>Line Number: 12</p>
+
+</div>' />
+			</div>
+			<!-- dynamically add more divs into this at runtime with coffee -->
+		</div>
+
+		<div class='thumbnails double'>
+
+			<div data-id='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: listing/main.php</p>
+<p>Line Number: 19</p>
+
+</div>'>
+				<img src='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: listing/main.php</p>
+<p>Line Number: 20</p>
+
+</div>' alt='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: listing/main.php</p>
+<p>Line Number: 20</p>
+
+</div>' />
+			</div>				
+			<!-- will dynamically add more elements into this later -->
+		</div>
+	</div>
+
+	<div id='description'>
+		<!-- this is the property content! -->
+		<h1>Old Orchard Shopping Centre</h1>
+
+		<p>Large retail spaces and small offices are available. The property is ideally located in Burnaby adjacent to Metrotown. It is centered in one of the busiest areas of Metro Vancouver. Kingsway is a four lane thoroughfare. There are a large number of high rises in the immediate area. Anchor tenants are: Rogers Video Canada Trust Liquor Store Shoppers Drug Mart. IGA Marketplace is also located in the same shopping centre.</p>
+
+	</div>
+
+	<div id='elements'>
+		<div><h1>General Details</h1><hr /><div><span>Property Name:</span><span>Old Orchard Shopping Centre</span></div><div><span>Type:</span><span>Rent</span></div><div><span>Type Category:</span><span>Retail</span></div><div><span>Location:</span><span>Burnaby/Coquitlam/New Westminister</span></div><div><span>Property Address:</span><span>4429 Kingsway</span></div><div><span>City:</span><span>Burnaby</span></div><div><span>Property Postal Code:</span><span>V5H 2A1</span></div><div><span>New Property:</span><span>1</span></div><div><span>No Vacancies:</span><span>false</span></div></div><div><h1>Retail Details</h1><hr /><div><span>Property Taxes and Operating Costs:</span><span>20.30</span></div></div>	</div>
+</div>
+
+<script type='text/javascript'>
+
+(function () {
+
+	var file_list = {};	
+	
+	var load_script = function (url) {
+
+	    if (url) {
+	        var doc = document,
+	        t = doc.createElement("script"),
+	        s = doc.getElementsByTagName("script")[0];
+	        t.type = "text/javascript";
+	
+	        // Keep script order!
+	        t.async = false;
+	        t.src = url;
+	        s.parentNode.insertBefore(t, s);
+	    }
+	
+	};
+
+	
+	file_list[0]='http://localhost:8888/Prospero/current/resources/javascript/modules/site_wide/site_wide.js';
+	file_list[1]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/bumpbox.js';
+	file_list[2]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/background_gallery.js';
+	file_list[3]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/thumbnail_controller.js';
+	file_list[4]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/contact.js';
+	file_list[5]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/form_animation.js';
+	file_list[6]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/bumpbox_map_controller.js';
+	file_list[7]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/general_map.js';
+	file_list[8]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
+	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
+	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
+	for (var index in file_list) {
+		
+		var url = file_list[index];
+		load_script(url);
+
+	}
+}());
+
+</script>	</body>
+</html>

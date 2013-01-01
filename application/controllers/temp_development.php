@@ -10,12 +10,16 @@ class Temp_development extends CI_Controller {
 
 	}	
 
+
+	public function compile() {
+
+		$this->load->library("general/page_management");
+		$this->page_management->compile_all();
+	}
+
 	public function config_settings() {
 
 		$config(
-
-
-
 
 		);
 

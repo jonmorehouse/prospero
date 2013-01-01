@@ -7,7 +7,7 @@ class Listing extends CI_Controller {
 		$this->load->model("general");//load this for status check -- interesting note if this doesn't exist, using it inside an if statement will just return false, not throw an error
 
 		// LIBRARY LOADING -- these are universal 
-		$libraries = array('property/base_filter', 'property/property_search', 'session');
+		$libraries = array('property/base_filter', 'property/property_search', 'session', "general/page_management");
 		$this->load->library($libraries);
 	}
 	
@@ -41,7 +41,8 @@ class Listing extends CI_Controller {
 
 		$this->listing_view();
 
-		$static = $this->static_listing();
+		// attempt to get the static content
+		$static = $this->page_management->get($this->property_id);
 
 		if (!$static) $this->dynamic_listing();
 
@@ -77,20 +78,6 @@ class Listing extends CI_Controller {
 			$this->session->set_userdata(array('properties_visited' => $properties_visited));//update the session with visited properties
 		
 		} //end of array
-	}
-
-	// static listing will generate the static page status and will return the contents if it exists
-	private function static_listing() {//this will return the listing content if the static page exists, otherwise will return false
-
-		return false;//this functionality can come later
-		// this is the file name of the localized static pages!
-		$file_name = "property_static_pages/{$this->property_id}";
-
-		// check if this file exists
-		if (file_exists($file_name)) return file_get_contents($file_name);//clean up later-- check safe for production
-			
-		// if not return false and the dynamic page will be loaded
-		else return false;	
 	}
 
 	// dynamic listing is the last step -- should not happen for any live pages

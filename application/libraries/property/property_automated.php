@@ -22,6 +22,7 @@ class Property_automated {
 		// CODEIGNITER INITIATION
 		$this->CI =& get_instance();
 		$this->CI->load->model('general');
+		$this->CI->load->library("general/static");
 
 		//Variable INITIATION
 		$this->property_id = $parameters['property_id'];
@@ -29,7 +30,6 @@ class Property_automated {
 		$this->geocoded_address = $this->get_geocoded_address();//geocode our address
 
 		//Class - Wide library initiation -- we only instantiate if the geocoding went through properly
-
 		if ($this->geocoded_address['latitude'] && $this->geocoded_address['longitude'])
 			$this->CI->load->library('walkscore/walkscore', array('address' => $this->address, 'latitude' => $this->geocoded_address['latitude'], 'longitude' => $this->geocoded_address['longitude']));
 	}
@@ -50,23 +50,7 @@ class Property_automated {
 
 	public function update_static() {
 
-		// this will get page contents and save them to a directory
-		$url = site_url('listing/' . $this->property_id);
-
-		//this is the file name to save the contents too
-		$file_name = "property_static_pages/{$this->property_id}";
-
-		// delete the current file -- to force a new dynamic regeneration
-		if (file_exists($file_name))
-			unlink($file_name);
-
-		//get the url contents -- this is the dynamically generated one("")
-		$contents = file_get_contents($url);
-
-		// save contents to a file
-		file_put_contents($file_name, $contents);	
-
-		return $this;
+		$this->CI->static->compile($this->property_id);
 	}
 
 /***** PRIVATE FUNCTIONS *******/
