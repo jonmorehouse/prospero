@@ -139,14 +139,13 @@
 	<div class='content'>
 		<h1>Kenmore Apartments</h1>
 		<h2>Similar Properties</h2>
+	
 			<div>
 			<div>
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Delroy Place</h1>
 
 				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
@@ -157,9 +156,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Parkside Apartments</h1>
 
 				<p>48-suite four-storey building located close to the water in New Westminster.</p>
@@ -170,9 +167,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/43'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Paul Y. Mansion Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Paul Y. Mansion Apartments</h1>
 
 				<p>Twenty-one storey concrete high-rise tower near Thurlow and Davie.</p>
@@ -183,9 +178,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Olive Court</h1>
 
 				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
@@ -196,9 +189,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Monticello Apartments</h1>
 
 				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>

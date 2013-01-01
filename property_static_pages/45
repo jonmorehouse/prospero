@@ -139,14 +139,13 @@
 	<div class='content'>
 		<h1>Royal Clinton</h1>
 		<h2>Similar Properties</h2>
+	
 			<div>
 			<div>
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/31'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lori Ann Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Lori Ann Apartments</h1>
 
 				<p>Three storey building located at 4 Ave &amp; 7th St. in New Westminster. </p>
@@ -157,9 +156,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Parkside Apartments</h1>
 
 				<p>48-suite four-storey building located close to the water in New Westminster.</p>
@@ -170,9 +167,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/16'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Cudworth Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Cudworth Apartments</h1>
 
 				<p>Four-storey building located near 8th St. and 6th Ave. in New Westminster. 
@@ -184,9 +179,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Monticello Apartments</h1>
 
 				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
@@ -197,9 +190,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Olive Court</h1>
 
 				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>

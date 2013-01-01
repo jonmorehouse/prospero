@@ -6,14 +6,20 @@ class Temp_development extends CI_Controller {
 
 		parent::__construct();//call parent constructor
 		$this->load->model('general');
-		$this->load->library('utilities/format');
+		$this->load->library(array("utilities/format", "general/page_management"));
 
 	}	
 
-
 	public function compile() {
 
-		$this->load->library("general/page_management");
+		$property_id = $this->uri->segment(3);
+		$this->page_management->compile($property_id);
+
+
+	}
+
+	public function compile_all() {
+
 		$this->page_management->compile_all();
 	}
 

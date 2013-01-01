@@ -137,73 +137,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>7151-7161 Victoria Drive</h1>
 		<h2>Similar Properties</h2>
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
-				</a>
-			</div>
+	</div>
 
+	<div class='content'>
 			<div>
-				<h1>Oakridge Place</h1>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+			</a>
 
-				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
-			</div>
+			<h1>Oakridge Place</h1>
+
+			<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
-				</a>
-			</div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
+			</a>
 
-			<div>
-				<h1>Lee Building</h1>
+			<h1>Lee Building</h1>
 
-				<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
-			</div>
+			<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
-			</div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-			<div>
-				<h1>Delroy Place</h1>
+			<h1>Delroy Place</h1>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/54'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Wembley Mall'/>
-				</a>
-			</div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/54'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Wembley Mall'/>
+			</a>
 
-			<div>
-				<h1>Wembley Mall</h1>
+			<h1>Wembley Mall</h1>
 
-				<p>Located Along Island Highway 19A Between The 2 Popular Year-round Vacation Resorts - Parksville And Qualicum Beach.</p>
-			</div>
+			<p>Located Along Island Highway 19A Between The 2 Popular Year-round Vacation Resorts - Parksville And Qualicum Beach.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/28'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Las Salinas Apartments'/>
-				</a>
-			</div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/28'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Las Salinas Apartments'/>
+			</a>
 
-			<div>
-				<h1>Las Salinas Apartments</h1>
+			<h1>Las Salinas Apartments</h1>
 
-				<p>Ten-storey concrete tower located in Kitsilano.</p>
-			</div>
+			<p>Ten-storey concrete tower located in Kitsilano.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

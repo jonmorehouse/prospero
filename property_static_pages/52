@@ -139,14 +139,13 @@
 	<div class='content'>
 		<h1>Westwind Apartments</h1>
 		<h2>Similar Properties</h2>
+	
 			<div>
 			<div>
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/55'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Whitehall Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Whitehall Apartments</h1>
 
 				<p>Six-storey concrete highrise building located on a quiet West Vancouver street.</p>
@@ -157,9 +156,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Monticello Apartments</h1>
 
 				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
@@ -170,9 +167,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Olive Court</h1>
 
 				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
@@ -183,9 +178,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Mistletoe Manor</h1>
 
 				<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
@@ -196,9 +189,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/31'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lori Ann Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Lori Ann Apartments</h1>
 
 				<p>Three storey building located at 4 Ave &amp; 7th St. in New Westminster. </p>

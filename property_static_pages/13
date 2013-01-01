@@ -140,14 +140,13 @@
 	<div class='content'>
 		<h1>City Centre Plaza</h1>
 		<h2>Similar Properties</h2>
+	
 			<div>
 			<div>
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/36'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Northills Shopping Centre'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Northills Shopping Centre</h1>
 
 				<p>This shopping centre is bounded by Tranquille Road Vernon Ave Fortune Dr. and Sydney Ave providing excellent access from all 4 directions.</p>
@@ -158,9 +157,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Oakridge Place</h1>
 
 				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
@@ -171,9 +168,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/46'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mission Hills Shops'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Mission Hills Shops</h1>
 
 				<p>Conveniently located at the intersection of the Lougheed Hwy and Sumas Hwy which connects to Hwy 1.</p>
@@ -184,9 +179,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>7151-7161 Victoria Drive</h1>
 
 				<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
@@ -197,9 +190,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/32'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='MacKenzie Centre'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>MacKenzie Centre</h1>
 
 				<p>Great location in the downtown Squamish between 2nd Ave and Cleveland Ave on Winnipeg Street.</p>

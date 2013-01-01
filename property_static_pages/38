@@ -140,14 +140,13 @@
 	<div class='content'>
 		<h1>Oakridge Place</h1>
 		<h2>Similar Properties</h2>
+	
 			<div>
 			<div>
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Lee Building</h1>
 
 				<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
@@ -158,9 +157,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Delroy Place</h1>
 
 				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
@@ -171,9 +168,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>7151-7161 Victoria Drive</h1>
 
 				<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
@@ -184,9 +179,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/22'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Squamish Pad Opportunity'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Squamish Pad Opportunity</h1>
 
 				<p>Located at the NW corner of Cleveland Ave and Winnepeg St in the downtown Squamish just one block from the Sea-to-Sky Hwy this property is ideal for a drive-through facility.</p>
@@ -197,9 +190,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Main &amp; Pender Building</h1>
 
 				<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>

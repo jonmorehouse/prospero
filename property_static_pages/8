@@ -139,14 +139,13 @@
 	<div class='content'>
 		<h1>Baron&#039;s Court</h1>
 		<h2>Similar Properties</h2>
+	
 			<div>
 			<div>
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Delroy Place</h1>
 
 				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
@@ -157,9 +156,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Mistletoe Manor</h1>
 
 				<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
@@ -170,9 +167,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Mark Loma Apartments</h1>
 
 				<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
@@ -183,9 +178,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Lions Apartments</h1>
 
 				<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
@@ -196,9 +189,7 @@
 				<a href='http://localhost:8888/Prospero/current/index.php/listing/26'>
 					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Knightsbridge Apartments'/>
 				</a>
-			</div>
 
-			<div>
 				<h1>Knightsbridge Apartments</h1>
 
 				<p>Concrete high-rise building located one block from Lost Lagoon and Stanley Park. </p>
