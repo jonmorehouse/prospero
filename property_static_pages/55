@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Whitehall Apartments</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/52'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Westwind Apartments'/>
-				</a>
+	</div>
 
-				<h1>Westwind Apartments</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/52'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Westwind Apartments'/>
+			</a>
 
-				<p>A Quiet Senior-oriented Building Conveniently Located Within Walking Distance To The West Vancouver Shops Seawall Numerous Parks And The West Vancouver Memorial Library.</p>
-			</div>
+			<h1>Westwind Apartments</h1>
+
+			<p>A Quiet Senior-oriented Building Conveniently Located Within Walking Distance To The West Vancouver Shops Seawall Numerous Parks And The West Vancouver Memorial Library.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
+			</a>
 
-				<h1>Monticello Apartments</h1>
+			<h1>Monticello Apartments</h1>
 
-				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
-			</div>
+			<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
+			</a>
 
-				<h1>Olive Court</h1>
+			<h1>Olive Court</h1>
 
-				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
-			</div>
+			<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
+			</a>
 
-				<h1>Mistletoe Manor</h1>
+			<h1>Mistletoe Manor</h1>
 
-				<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
-			</div>
+			<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/31'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lori Ann Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/31'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lori Ann Apartments'/>
+			</a>
 
-				<h1>Lori Ann Apartments</h1>
+			<h1>Lori Ann Apartments</h1>
 
-				<p>Three storey building located at 4 Ave &amp; 7th St. in New Westminster. </p>
-			</div>
+			<p>Three storey building located at 4 Ave &amp; 7th St. in New Westminster. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

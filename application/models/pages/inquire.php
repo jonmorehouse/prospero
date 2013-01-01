@@ -13,7 +13,10 @@ class Inquire extends CI_Model {
 
 		return array(
 
-			"recipients" => $this->recipients($property_id),
+			"server_data" => array(
+				"recipients" => $this->recipients($property_id),
+				"property_id" => $this->recipients($property_id)
+			),
 			"name" => $this->general->get_category($property_id, "name"),
 			"body" => $this->default_body(),
 			"link" => base_url($this->general->config("inquire_url")),

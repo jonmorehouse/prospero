@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Paul Y. Mansion Apartments</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+	</div>
 
-				<h1>Delroy Place</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<h1>Delroy Place</h1>
+
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
+			</a>
 
-				<h1>Lions Apartments</h1>
+			<h1>Lions Apartments</h1>
 
-				<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
-			</div>
+			<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
+			</a>
 
-				<h1>Mark Loma Apartments</h1>
+			<h1>Mark Loma Apartments</h1>
 
-				<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
-			</div>
+			<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/28'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Las Salinas Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/28'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Las Salinas Apartments'/>
+			</a>
 
-				<h1>Las Salinas Apartments</h1>
+			<h1>Las Salinas Apartments</h1>
 
-				<p>Ten-storey concrete tower located in Kitsilano.</p>
-			</div>
+			<p>Ten-storey concrete tower located in Kitsilano.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/25'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Kerrisdale Parc'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/25'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Kerrisdale Parc'/>
+			</a>
 
-				<h1>Kerrisdale Parc</h1>
+			<h1>Kerrisdale Parc</h1>
 
-				<p>Strata Highrise Building Located One Block From The Kerrisdale Shopping Area Of West 41st Ave.</p>
-			</div>
+			<p>Strata Highrise Building Located One Block From The Kerrisdale Shopping Area Of West 41st Ave.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

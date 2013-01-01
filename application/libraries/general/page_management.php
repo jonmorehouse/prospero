@@ -27,6 +27,7 @@ class Page_management {
 
 	public function get($property_id) {
 
+		return false;
 		$file_name = "property_static_pages/{$property_id}";
 
 		if (!file_exists($file_name)) return false;

@@ -67,6 +67,7 @@ class Listing_bumpbox extends Listing_base {
 	private function get_listing_inquire() {
 
 		$data = $this->CI->inquire->inquire_data($this->property_id);
+
 		$html = $this->CI->load->view("bumpboxes/listing_inquire", array("data" => $data), true);
 
 		return $html;

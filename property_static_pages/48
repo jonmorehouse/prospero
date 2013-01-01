@@ -137,64 +137,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Solaris at Meadows Gate Village</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
-				</a>
+	</div>
 
-				<h1>Oakridge Place</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+			</a>
 
-				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
-			</div>
+			<h1>Oakridge Place</h1>
+
+			<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/37'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/37'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+			</a>
 
-				<h1>Oakridge Place</h1>
+			<h1>Oakridge Place</h1>
 
-				<p></p>
-			</div>
+			<p></p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
+			</a>
 
-				<h1>Main &amp; Pender Building</h1>
+			<h1>Main &amp; Pender Building</h1>
 
-				<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>
-			</div>
+			<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
+			</a>
 
-				<h1>Olive Court</h1>
+			<h1>Olive Court</h1>
 
-				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
-			</div>
+			<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
+			</a>
 
-				<h1>Parkside Apartments</h1>
+			<h1>Parkside Apartments</h1>
 
-				<p>48-suite four-storey building located close to the water in New Westminster.</p>
-			</div>
+			<p>48-suite four-storey building located close to the water in New Westminster.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

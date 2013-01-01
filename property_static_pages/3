@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Green Living Condo</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/24'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Kenmore Apartments'/>
-				</a>
+	</div>
 
-				<h1>Kenmore Apartments</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/24'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Kenmore Apartments'/>
+			</a>
 
-				<p>A character building nestled on a tree-lined corner on Gilford St. &amp; Comox St. </p>
-			</div>
+			<h1>Kenmore Apartments</h1>
+
+			<p>A character building nestled on a tree-lined corner on Gilford St. &amp; Comox St. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<h1>Delroy Place</h1>
+			<h1>Delroy Place</h1>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/43'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Paul Y. Mansion Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/43'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Paul Y. Mansion Apartments'/>
+			</a>
 
-				<h1>Paul Y. Mansion Apartments</h1>
+			<h1>Paul Y. Mansion Apartments</h1>
 
-				<p>Twenty-one storey concrete high-rise tower near Thurlow and Davie.</p>
-			</div>
+			<p>Twenty-one storey concrete high-rise tower near Thurlow and Davie.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/44'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Pine Villa'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/44'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Pine Villa'/>
+			</a>
 
-				<h1>Pine Villa</h1>
+			<h1>Pine Villa</h1>
 
-				<p>39-suite three-storey building located in the quiet part of the South Granville community. </p>
-			</div>
+			<p>39-suite three-storey building located in the quiet part of the South Granville community. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/45'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Royal Clinton'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/45'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Royal Clinton'/>
+			</a>
 
-				<h1>Royal Clinton</h1>
+			<h1>Royal Clinton</h1>
 
-				<p>Four-storey building that has views of the Fraser River from the upper floors. </p>
-			</div>
+			<p>Four-storey building that has views of the Fraser River from the upper floors. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>
@@ -228,19 +220,22 @@
 	
 </script><div class='bumpbox listing_inquire' data-link='listing_inquire'>
 	<div>
-		<h1>Green Living Condo Inquire</h1>
+		<h1>Inquire about Green Living Condo</h1>
 
 		<form destination='http://localhost:8888/Prospero/current/listing_rest/inquire' method='post'>
 
 			<input type='text' name='email' value='Email Address'>
 
-			<textarea name='body'>Thanks for inquiring. We will be back to you shortly</textarea>
+			<textarea rows='5' cols='40' name='body'>Thanks for inquiring. We will be back to you shortly</textarea>
 
 			<button type='submit'>Submit Inquire</button>	
-
 		</form>
+
+		<div class='message'>Email Message Here</div>
+
 	</div>
 </div>
+
 <script type='text/javascript'>
 	pageData.inquireRecipients = ["morehousej09@gmail.com","jchu@prospero.ca"];
 </script>

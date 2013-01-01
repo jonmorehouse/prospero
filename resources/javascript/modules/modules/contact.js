@@ -9,7 +9,7 @@ Project.Modules.contact = function(container, url) {
 	var config = {
 
 		'submit' : container.find("button"),
-		'url' : url,
+		'url' : container.children("form").attr("destination"),
 		'error': error_message,
 		'success' : success_message,
 		'animation_time' : 1000,
@@ -22,14 +22,12 @@ Project.Modules.contact = function(container, url) {
 		var result = submit(data());//submit returns the result of the ajax request
 
 		return false;
-
 	});
 
 
 	function data() {
 
 		return {};
-
 
 	};
 

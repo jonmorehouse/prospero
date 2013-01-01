@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Large Retail Space on Willingdon Avenue</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/21'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Old Orchard Shopping Centre'/>
-				</a>
+	</div>
 
-				<h1>Old Orchard Shopping Centre</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/21'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Old Orchard Shopping Centre'/>
+			</a>
 
-				<p>The property is ideally located in Burnaby adjacent to Metrotown and is centered in one of the busiest areas of Metro Vancouver. </p>
-			</div>
+			<h1>Old Orchard Shopping Centre</h1>
+
+			<p>The property is ideally located in Burnaby adjacent to Metrotown and is centered in one of the busiest areas of Metro Vancouver. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/46'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mission Hills Shops'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/46'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mission Hills Shops'/>
+			</a>
 
-				<h1>Mission Hills Shops</h1>
+			<h1>Mission Hills Shops</h1>
 
-				<p>Conveniently located at the intersection of the Lougheed Hwy and Sumas Hwy which connects to Hwy 1.</p>
-			</div>
+			<p>Conveniently located at the intersection of the Lougheed Hwy and Sumas Hwy which connects to Hwy 1.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+			</a>
 
-				<h1>Oakridge Place</h1>
+			<h1>Oakridge Place</h1>
 
-				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
-			</div>
+			<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
+			</a>
 
-				<h1>Monticello Apartments</h1>
+			<h1>Monticello Apartments</h1>
 
-				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
-			</div>
+			<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/36'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Northills Shopping Centre'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/36'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Northills Shopping Centre'/>
+			</a>
 
-				<h1>Northills Shopping Centre</h1>
+			<h1>Northills Shopping Centre</h1>
 
-				<p>This shopping centre is bounded by Tranquille Road Vernon Ave Fortune Dr. and Sydney Ave providing excellent access from all 4 directions.</p>
-			</div>
+			<p>This shopping centre is bounded by Tranquille Road Vernon Ave Fortune Dr. and Sydney Ave providing excellent access from all 4 directions.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

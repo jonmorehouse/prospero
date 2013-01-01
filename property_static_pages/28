@@ -1,4 +1,4 @@
-	
+
 <!DOCTYPE html>
 <head>
 	<title>Las Salinas Apartments</title>		
@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Las Salinas Apartments</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+	</div>
 
-				<h1>Delroy Place</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<h1>Delroy Place</h1>
+
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
+			</a>
 
-				<h1>Mark Loma Apartments</h1>
+			<h1>Mark Loma Apartments</h1>
 
-				<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
-			</div>
+			<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
+			</a>
 
-				<h1>Mistletoe Manor</h1>
+			<h1>Mistletoe Manor</h1>
 
-				<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
-			</div>
+			<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
+			</a>
 
-				<h1>Lions Apartments</h1>
+			<h1>Lions Apartments</h1>
 
-				<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
-			</div>
+			<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/25'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Kerrisdale Parc'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/25'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Kerrisdale Parc'/>
+			</a>
 
-				<h1>Kerrisdale Parc</h1>
+			<h1>Kerrisdale Parc</h1>
 
-				<p>Strata Highrise Building Located One Block From The Kerrisdale Shopping Area Of West 41st Ave.</p>
-			</div>
+			<p>Strata Highrise Building Located One Block From The Kerrisdale Shopping Area Of West 41st Ave.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>
@@ -338,7 +330,6 @@ There are views from the upper suites of English Bay or Downtown Vancouver. </p>
 	<div id='elements'>
 		<div><h1>General Details</h1><hr /><div><span>Property Name:</span><span>Las Salinas Apartments</span></div><div><span>Type:</span><span>Rent</span></div><div><span>Type Category:</span><span>Residential</span></div><div><span>Location:</span><span>West Side</span></div><div><span>Property Address:</span><span>2310 West 2nd Avenue</span></div><div><span>City:</span><span>Vancouver</span></div><div><span>Property Postal Code:</span><span>V6K 1J5</span></div><div><span>Manager First Name:</span><span>Michelle</span></div><div><span>Manager Phone:</span><span>604-736-4180</span></div><div><span>New Property:</span><span>1</span></div><div><span>No Vacancies:</span><span>true</span></div></div><div><h1>Residential Details</h1><hr /><div><span>Number Beds:</span><span>Studio 1 &amp; 2</span></div><div><span>Features:</span><span>Hardwood Floors</span></div></div>	</div>
 </div>
-
 <script type='text/javascript'>
 
 (function () {
@@ -383,3 +374,4 @@ There are views from the upper suites of English Bay or Downtown Vancouver. </p>
 
 </script>	</body>
 </html>
+	

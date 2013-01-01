@@ -107,6 +107,21 @@ class Temp_development extends CI_Controller {
 		}	
 	}
 
+	public function javascript_module() {
+
+		$module = array(
+
+			"url" => "resources/javascript/modules/modules/inquire_controller.js",
+			"type" => "modules",
+			"page_id" => "listing",
+			"status" => false
+		);
+
+		$this->db->insert("javascript_modules", $module);
+
+
+	}
+
 	public function javascript_modules() {
 
 		$modules = array(

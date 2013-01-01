@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>The Birches</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
-				</a>
+	</div>
 
-				<h1>Monticello Apartments</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/35'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Monticello Apartments'/>
+			</a>
 
-				<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
-			</div>
+			<h1>Monticello Apartments</h1>
+
+			<p>An attractive three-storey building ideally located next to Burnaby Central Park and one block from the Patterson Skytrain Station.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
+			</a>
 
-				<h1>Olive Court</h1>
+			<h1>Olive Court</h1>
 
-				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
-			</div>
+			<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
+			</a>
 
-				<h1>Parkside Apartments</h1>
+			<h1>Parkside Apartments</h1>
 
-				<p>48-suite four-storey building located close to the water in New Westminster.</p>
-			</div>
+			<p>48-suite four-storey building located close to the water in New Westminster.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/34'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mistletoe Manor'/>
+			</a>
 
-				<h1>Mistletoe Manor</h1>
+			<h1>Mistletoe Manor</h1>
 
-				<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
-			</div>
+			<p>65-suite three-storey building located in West side Vancouver near Oak St. &amp; 12th Ave.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
+			</a>
 
-				<h1>Mark Loma Apartments</h1>
+			<h1>Mark Loma Apartments</h1>
 
-				<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
-			</div>
+			<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

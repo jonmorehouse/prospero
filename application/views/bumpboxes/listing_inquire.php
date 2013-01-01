@@ -6,13 +6,15 @@
 
 			<input type='text' name='email' value='Email Address'>
 
-			<textarea name='body'><?php echo $data['body'];?></textarea>
+			<textarea rows='5' cols='40' name='message'><?php echo $data['body'];?></textarea>
 
 			<button type='submit'>Submit Inquire</button>	
-
 		</form>
+
+		<div class='message'>Email Message Here</div>
 	</div>
 </div>
+
 <script type='text/javascript'>
-	pageData.inquireRecipients = <?php echo json_encode($data['recipients']);?>;
+	pageData.listingInquireData = <?php echo json_encode($data['server_data']);?>;
 </script>

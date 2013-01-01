@@ -137,64 +137,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Lee Building</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+	</div>
 
-				<h1>Delroy Place</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<h1>Delroy Place</h1>
+
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
+			</a>
 
-				<h1>7151-7161 Victoria Drive</h1>
+			<h1>7151-7161 Victoria Drive</h1>
 
-				<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
-			</div>
+			<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+			</a>
 
-				<h1>Oakridge Place</h1>
+			<h1>Oakridge Place</h1>
 
-				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
-			</div>
+			<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
+			</a>
 
-				<h1>Main &amp; Pender Building</h1>
+			<h1>Main &amp; Pender Building</h1>
 
-				<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>
-			</div>
+			<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/26'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Knightsbridge Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/26'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Knightsbridge Apartments'/>
+			</a>
 
-				<h1>Knightsbridge Apartments</h1>
+			<h1>Knightsbridge Apartments</h1>
 
-				<p>Concrete high-rise building located one block from Lost Lagoon and Stanley Park. </p>
-			</div>
+			<p>Concrete high-rise building located one block from Lost Lagoon and Stanley Park. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

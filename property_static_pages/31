@@ -136,65 +136,57 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Lori Ann Apartments</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
-				</a>
+	</div>
 
-				<h1>Parkside Apartments</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
+			</a>
 
-				<p>48-suite four-storey building located close to the water in New Westminster.</p>
-			</div>
+			<h1>Parkside Apartments</h1>
+
+			<p>48-suite four-storey building located close to the water in New Westminster.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/45'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Royal Clinton'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/45'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Royal Clinton'/>
+			</a>
 
-				<h1>Royal Clinton</h1>
+			<h1>Royal Clinton</h1>
 
-				<p>Four-storey building that has views of the Fraser River from the upper floors. </p>
-			</div>
+			<p>Four-storey building that has views of the Fraser River from the upper floors. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/16'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Cudworth Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/16'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Cudworth Apartments'/>
+			</a>
 
-				<h1>Cudworth Apartments</h1>
+			<h1>Cudworth Apartments</h1>
 
-				<p>Four-storey building located near 8th St. and 6th Ave. in New Westminster. 
+			<p>Four-storey building located near 8th St. and 6th Ave. in New Westminster. 
 </p>
-			</div>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
+			</a>
 
-				<h1>Olive Court</h1>
+			<h1>Olive Court</h1>
 
-				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
-			</div>
+			<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/55'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Whitehall Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/55'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Whitehall Apartments'/>
+			</a>
 
-				<h1>Whitehall Apartments</h1>
+			<h1>Whitehall Apartments</h1>
 
-				<p>Six-storey concrete highrise building located on a quiet West Vancouver street.</p>
-			</div>
+			<p>Six-storey concrete highrise building located on a quiet West Vancouver street.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

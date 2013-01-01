@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Oakridge Place</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+	</div>
 
-				<h1>Delroy Place</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<h1>Delroy Place</h1>
+
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/56'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt=''/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/56'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt=''/>
+			</a>
 
-				<h1></h1>
+			<h1></h1>
 
-				<p></p>
-			</div>
+			<p></p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/1'>
-					<img src='http://localhost:8888/Prospero/current/http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Default Property name'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/1'>
+				<img src='http://localhost:8888/Prospero/current/http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Default Property name'/>
+			</a>
 
-				<h1>Default Property name</h1>
+			<h1>Default Property name</h1>
 
-				<p></p>
-			</div>
+			<p></p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/57'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt=''/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/57'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt=''/>
+			</a>
 
-				<h1></h1>
+			<h1></h1>
 
-				<p></p>
-			</div>
+			<p></p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/39'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Willow Medical Building'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/39'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Willow Medical Building'/>
+			</a>
 
-				<h1>Willow Medical Building</h1>
+			<h1>Willow Medical Building</h1>
 
-				<p>Office units are ideal for medical practice as it is close to Vancouver General Hospital.</p>
-			</div>
+			<p>Office units are ideal for medical practice as it is close to Vancouver General Hospital.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

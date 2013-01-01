@@ -137,64 +137,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Mission Hills Shops</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/32'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='MacKenzie Centre'/>
-				</a>
+	</div>
 
-				<h1>MacKenzie Centre</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/32'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='MacKenzie Centre'/>
+			</a>
 
-				<p>Great location in the downtown Squamish between 2nd Ave and Cleveland Ave on Winnipeg Street.</p>
-			</div>
+			<h1>MacKenzie Centre</h1>
+
+			<p>Great location in the downtown Squamish between 2nd Ave and Cleveland Ave on Winnipeg Street.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/36'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Northills Shopping Centre'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/36'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Northills Shopping Centre'/>
+			</a>
 
-				<h1>Northills Shopping Centre</h1>
+			<h1>Northills Shopping Centre</h1>
 
-				<p>This shopping centre is bounded by Tranquille Road Vernon Ave Fortune Dr. and Sydney Ave providing excellent access from all 4 directions.</p>
-			</div>
+			<p>This shopping centre is bounded by Tranquille Road Vernon Ave Fortune Dr. and Sydney Ave providing excellent access from all 4 directions.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/38'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Oakridge Place'/>
+			</a>
 
-				<h1>Oakridge Place</h1>
+			<h1>Oakridge Place</h1>
 
-				<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
-			</div>
+			<p>Popular Office Space Located On Cambie Just Across Oakridge Centre. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
+			</a>
 
-				<h1>7151-7161 Victoria Drive</h1>
+			<h1>7151-7161 Victoria Drive</h1>
 
-				<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
-			</div>
+			<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
+			</a>
 
-				<h1>Lee Building</h1>
+			<h1>Lee Building</h1>
 
-				<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
-			</div>
+			<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

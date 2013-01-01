@@ -9,7 +9,7 @@ Project.Modules.background_gallery = function (images, container, template) {
 	var config = {
 
 		"playing" : true,
-		"interval" : 3000,
+		"interval" : 4000,
 		"animation_speed": 1000,
 		"total_images" : 1,
 		"counter" : 0,

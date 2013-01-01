@@ -136,64 +136,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Tuckton Place</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/17'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delbrook Gardens'/>
-				</a>
+	</div>
 
-				<h1>Delbrook Gardens</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/17'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delbrook Gardens'/>
+			</a>
 
-				<p>This resort style townhouse complex is surrounded by beautiful Japanese influenced gardens and walking paths.</p>
-			</div>
+			<h1>Delbrook Gardens</h1>
+
+			<p>This resort style townhouse complex is surrounded by beautiful Japanese influenced gardens and walking paths.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/33'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Mark Loma Apartments'/>
+			</a>
 
-				<h1>Mark Loma Apartments</h1>
+			<h1>Mark Loma Apartments</h1>
 
-				<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
-			</div>
+			<p>Three-storey building consisting of 34 suites located near Lonsdale Avenue &amp; E 19th Street. </p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/30'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lions Apartments'/>
+			</a>
 
-				<h1>Lions Apartments</h1>
+			<h1>Lions Apartments</h1>
 
-				<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
-			</div>
+			<p>103 suites in 2 separate low-rise buildings located two blocks from Central Lonsdale boasting shopping cafes and restaurants.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/42'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Parkside Apartments'/>
+			</a>
 
-				<h1>Parkside Apartments</h1>
+			<h1>Parkside Apartments</h1>
 
-				<p>48-suite four-storey building located close to the water in New Westminster.</p>
-			</div>
+			<p>48-suite four-storey building located close to the water in New Westminster.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/41'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Olive Court'/>
+			</a>
 
-				<h1>Olive Court</h1>
+			<h1>Olive Court</h1>
 
-				<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
-			</div>
+			<p>An Attractive 70-unit Three-storey Building Ideally Located Next To Burnaby Central Park. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

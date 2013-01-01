@@ -137,64 +137,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>1995 Boundary Road</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+	</div>
 
-				<h1>Delroy Place</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<h1>Delroy Place</h1>
+
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/51'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Vincent Manor'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/51'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Vincent Manor'/>
+			</a>
 
-				<h1>Vincent Manor</h1>
+			<h1>Vincent Manor</h1>
 
-				<p>A smaller attractive building located in the heart of the peaceful Kerrisdale neighbourhood.</p>
-			</div>
+			<p>A smaller attractive building located in the heart of the peaceful Kerrisdale neighbourhood.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/28'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Las Salinas Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/28'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Las Salinas Apartments'/>
+			</a>
 
-				<h1>Las Salinas Apartments</h1>
+			<h1>Las Salinas Apartments</h1>
 
-				<p>Ten-storey concrete tower located in Kitsilano.</p>
-			</div>
+			<p>Ten-storey concrete tower located in Kitsilano.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
+			</a>
 
-				<h1>Lee Building</h1>
+			<h1>Lee Building</h1>
 
-				<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
-			</div>
+			<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/26'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Knightsbridge Apartments'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/26'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Knightsbridge Apartments'/>
+			</a>
 
-				<h1>Knightsbridge Apartments</h1>
+			<h1>Knightsbridge Apartments</h1>
 
-				<p>Concrete high-rise building located one block from Lost Lagoon and Stanley Park. </p>
-			</div>
+			<p>Concrete high-rise building located one block from Lost Lagoon and Stanley Park. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>

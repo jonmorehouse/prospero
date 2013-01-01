@@ -137,64 +137,56 @@
 </div>
 
 <div class='bumpbox similar_properties' data-link='similar_properties'>
-	<div class='content'>
+	<div class='header'>
 		<h1>Oakridge Place</h1>
 		<h2>Similar Properties</h2>
-	
-			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
-				</a>
+	</div>
 
-				<h1>Lee Building</h1>
+	<div class='content'>
+			<div>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/29'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Lee Building'/>
+			</a>
 
-				<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
-			</div>
+			<h1>Lee Building</h1>
+
+			<p>Rear Building Space For Office Retail Or Warehouse Purpose Located In The Heart Of Chinatown With Busy Foot Traffic.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/18'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Delroy Place'/>
+			</a>
 
-				<h1>Delroy Place</h1>
+			<h1>Delroy Place</h1>
 
-				<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
-			</div>
+			<p>20-suite Low-rise Building That Is Conveniently Located In The West End Close To All Shops On Denman Davie &amp; Robson Streets.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/5'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='7151-7161 Victoria Drive'/>
+			</a>
 
-				<h1>7151-7161 Victoria Drive</h1>
+			<h1>7151-7161 Victoria Drive</h1>
 
-				<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
-			</div>
+			<p>Single-storey concrete block retail/commercial building with a partial basement.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/22'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Squamish Pad Opportunity'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/22'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Squamish Pad Opportunity'/>
+			</a>
 
-				<h1>Squamish Pad Opportunity</h1>
+			<h1>Squamish Pad Opportunity</h1>
 
-				<p>Located at the NW corner of Cleveland Ave and Winnepeg St in the downtown Squamish just one block from the Sea-to-Sky Hwy this property is ideal for a drive-through facility.</p>
-			</div>
+			<p>Located at the NW corner of Cleveland Ave and Winnepeg St in the downtown Squamish just one block from the Sea-to-Sky Hwy this property is ideal for a drive-through facility.</p>
 		</div>
 			<div>
-			<div>
-				<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
-					<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
-				</a>
+			<a href='http://localhost:8888/Prospero/current/index.php/listing/40'>
+				<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='Main &amp; Pender Building'/>
+			</a>
 
-				<h1>Main &amp; Pender Building</h1>
+			<h1>Main &amp; Pender Building</h1>
 
-				<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>
-			</div>
+			<p>Located in the heart of Chinatown at the busy corner of Main and East Pender Streets. </p>
 		</div>
 		</div>
 </div><div class='bumpbox listing_map'>
