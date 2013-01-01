@@ -1,0 +1,86 @@
+@import "variables";
+@import "mixins";
+@import "site_wide";
+
+.general_thumbnail {
+
+	position: relative;
+	float:left;
+	width: 195px;
+	height: 190px;
+	background-color: orange;
+	display:hidden;
+	margin: 1em 1% 1em 1%;
+	@border : 1em;
+	.border_radius(@border,@border,@border,@border,@border);
+	.light_background(0.2);
+
+	> a {
+	
+		.border_radius(@border,@border,@border,@border,@border);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 90%;
+		height: 90%;
+		cursor: pointer;
+		padding: 5%;
+		overflow:none;
+
+		&:hover {
+
+			.dark_background();
+
+		}
+
+		> img {
+
+			position:relative;
+			margin:0 auto;
+			height:100%;
+			width:100%;
+
+		}
+
+		>h1 {
+
+			position: absolute;
+			top: 0;
+			width: 80%;
+			left:10%;
+			text-align:center;
+			font-size:1em;
+		}
+
+		> div {
+
+			position: absolute;
+			max-height: 0;
+			bottom: 0%;
+			left:5%;
+			width:85%;
+			display:none;
+			padding:1em 2.5% 1em 2.5%;
+			text-align:center;
+
+			border-top-right-radius:@border;
+			border-top-left-radius:@border;
+			.dark_background();
+		}
+
+		&:hover {
+
+			
+			>div {
+
+				max-height: 50%;
+				overflow-y:auto;
+				display:block;
+
+			}
+
+
+
+		}
+	}
+}

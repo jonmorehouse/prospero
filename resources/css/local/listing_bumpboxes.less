@@ -1,0 +1,29 @@
+@import "variables";
+@import "mixins";
+@import "site_wide";
+@import "thumbnail.less";//include the general thumbnail elemnents
+
+@max_height: 12em;
+
+.bumpbox.similar_properties {
+
+	> div.content {
+
+		height: @max_height;
+		overflow-y:auto;
+
+		> h1, h2 {
+
+			text-align:center;
+
+		}
+
+		> div {
+
+			display: none;
+
+		}
+
+	}
+
+}

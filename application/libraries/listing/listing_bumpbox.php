@@ -60,7 +60,7 @@ class Listing_bumpbox extends Listing_base {
 			array_push($thumbnails, $this->CI->bumpbox_thumbnails->similar_property($property_id));		
 
 
-		return $this->CI->load->view("bumpboxes/listing_similar_properties", array("thumbnails" => $thumbnails), true);//return the raw html to the element
+		return $this->CI->load->view("bumpboxes/listing_similar_properties", array("thumbnails" => $thumbnails, "property" => $this->CI->thumbnail->general_thumbnail($this->property_id)), true);//return the raw html to the element
 	
 	}
 

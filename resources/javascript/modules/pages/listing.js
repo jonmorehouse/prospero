@@ -2,24 +2,26 @@
 (function() {
 
   (Project.Pages.Listing = function() {
-    var bumpboxes, elements, listingBumpboxes;
+    var bumpboxes, elements, fade, listingBumpboxes, topBumpbox;
     elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')];
-    Project.Pages.Bumpbox(elements);
+    topBumpbox = Project.Pages.Bumpbox(elements);
+    fade = topBumpbox.fade;
     bumpboxes = pageData.listing_bumpboxes;
     return (listingBumpboxes = function() {
-      var bumpbox, containers, contentModules, listeners, modules, _i, _len, _results;
+      var bumpbox, containers, contentModules, listeners, modules, _i, _len;
       listeners = {};
       containers = {};
       modules = {};
       contentModules = {};
-      _results = [];
       for (_i = 0, _len = bumpboxes.length; _i < _len; _i++) {
         bumpbox = bumpboxes[_i];
         listeners[bumpbox] = $("#navigation_left li[data-link=\"" + bumpbox + "\"]");
         containers[bumpbox] = $(".bumpbox." + bumpbox);
-        _results.push(modules[bumpbox] = new Project.Modules.bumpbox(listeners[bumpbox], containers[bumpbox]));
+        modules[bumpbox] = new Project.Modules.bumpbox(listeners[bumpbox], containers[bumpbox]);
+        modules[bumpbox]['config']['in_callback'] = fade.fadeOut;
+        modules[bumpbox]['config']['out_callback'] = fade.fadeIn;
       }
-      return _results;
+      return listeners['similar_properties'].trigger("click");
     })();
   })();
 

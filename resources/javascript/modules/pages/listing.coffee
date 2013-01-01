@@ -2,7 +2,9 @@ do Project.Pages.Listing = () ->
 
 	elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')]
 
-	Project.Pages.Bumpbox elements
+	topBumpbox = Project.Pages.Bumpbox elements
+
+	fade = topBumpbox.fade
 
 	bumpboxes = pageData.listing_bumpboxes #this is the list of elements
 
@@ -20,9 +22,19 @@ do Project.Pages.Listing = () ->
 		for bumpbox in bumpboxes
 			 listeners[bumpbox] = $("#navigation_left li[data-link=\"#{bumpbox}\"]")
 			 containers[bumpbox] = $(".bumpbox.#{bumpbox}")
-
 			 # 
 			 modules[bumpbox] = new Project.Modules.bumpbox listeners[bumpbox], containers[bumpbox]
-			 
-			 
+			 modules[bumpbox]['config']['in_callback'] = fade.fadeOut
+			 modules[bumpbox]['config']['out_callback'] = fade.fadeIn
+
+		listeners['similar_properties'].trigger "click"
 	
+
+
+
+
+
+
+
+
+
