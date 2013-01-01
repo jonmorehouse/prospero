@@ -15,7 +15,7 @@ class Test extends CI_Controller {
 
 		$this->load->library(array("listing/listing_base", "listing/listing_media", "listing/listing_content", "listing/listing_bumpbox"), array("property_id" => 5));
 			
-		echo $this->listing_bumpbox->content(array("listing_map"));
+		print_r($this->listing_bumpbox->content(array("listing_map")));
 
 	}
 

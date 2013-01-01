@@ -8,10 +8,11 @@ class General extends CI_Model{
 	-in theory, this would be the only place we would have to implement memcached in 
 
 */
-
 	function __construct(){
+
 		parent::__construct();
 		$this->load->library('utilities/developer_contact');
+		
 	}
 	
 	/****** GENERAL DATABASE ABSTRACTION ********/

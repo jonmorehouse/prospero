@@ -27,6 +27,22 @@ class Filter extends CI_Model {
 		$this->base_table = "table_schema";
 	}
 
+	// get the live properties, can include a property to exclude
+	public function get_live_properties($property_id = false) {
+
+		$where = (!$property_id) ? (array()) : (array("property_id !=" => $property_id));
+
+		$query = $this->db->where($where)->select("property_id")->get("property_name");
+
+		$properties = array();
+
+		foreach ($query->result() as $row)
+			array_push($properties, $row->property_id);
+
+		return $properties;
+	}
+
+	// get all properties!
 	public function get_all() {
 
 		$table = $this->db->where(array('category' => 'property_status'))->select('location')->get($this->base_table)->row()->location;

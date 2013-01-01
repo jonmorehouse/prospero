@@ -101,10 +101,23 @@ class Listing_bumpbox extends Listing_base {
 		// 1.) Nearby properties -- based off of the walking triangle?
 		// 2.) Directions -- will be through the google directions api
 		// 3.) NearBy places -- put the walkscore information there as well
-		$nearby_properties = $this->CI->nearby_properties->nearby_properties($this->property_id);//
-		$walkscore = $this->CI->walkscore->walkscore($this->property_id);
-		// $directions = //get the center etc
+		// most of this content is hard coded in the view because its so specialized
 
+		$data = array(
+
+			"nearby_properties" => $this->CI->nearby_properties->get_content($this->property_id, $this->CI->general->config("max_nearby_properties")),
+
+			"walkscore" => $this->CI->walkscore->walkscore($this->property_id),
+
+			"directions" => array(
+				"center" => $this->CI->geographical_information->get_coordinates($this->property_id),
+				"thumbnail" => $this->CI->thumbnail->general_thumbnail($this->property_id),
+			),
+		);
+
+		$html = $this->CI->load->view("bumpboxes/listing_map",$data,true);//return the parsed html
+
+		return $html;
 	}
 
 }
