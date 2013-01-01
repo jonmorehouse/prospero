@@ -11,6 +11,7 @@
 			<button type='submit'>Submit Inquire</button>	
 
 		</form>
+	</div>
 </div>
 <script type='text/javascript'>
 	pageData.inquireRecipients = <?php echo json_encode($data['recipients']);?>;

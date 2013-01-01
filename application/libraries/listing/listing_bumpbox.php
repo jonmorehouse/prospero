@@ -38,7 +38,7 @@ class Listing_bumpbox extends Listing_base {
 			$method = "get_{$bumpbox}";
 
 			if (!method_exists($this, $method)) {
-			
+
 				unset($bumpboxes[$key]);
 				$bumpboxes = array_values($bumpbox);
 			}
@@ -64,7 +64,7 @@ class Listing_bumpbox extends Listing_base {
 	
 	}
 
-	private function get_inquire() {
+	private function get_listing_inquire() {
 
 		$data = $this->CI->inquire->inquire_data($this->property_id);
 		$html = $this->CI->load->view("bumpboxes/listing_inquire", array("data" => $data), true);
@@ -73,7 +73,7 @@ class Listing_bumpbox extends Listing_base {
 
 	}
 
-	private function get_pdf() {
+	private function get_listing_pdf() {
 
 		$pdf_status = $this->CI->media->get_media($this->property_id, "pdf");
 

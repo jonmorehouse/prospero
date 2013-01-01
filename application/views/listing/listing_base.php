@@ -10,7 +10,7 @@
 	$this->load->view('navigation/bumpboxes/contact');
 	$this->load->view('navigation/bumpboxes/map');
 
-	foreach ($this->left_bumpboxes as $bumpbox) echo $bumpbox;//need to loop out some bumpbox js objects to help our front end. Will send everything
+	foreach ($this->bumpbox_content as $bumpbox) echo $bumpbox;//need to loop out some bumpbox js objects to help our front end. Will send everything
 ?>
 
 

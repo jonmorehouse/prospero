@@ -5,7 +5,7 @@
 	</div>	
 
 	<?php if ($data['status']): ?>
-		<img src='<?php echo $data['thumbnail']['url'];?>' alt='<?php echo $data['thumbnail']['alt']?>' />
+		<img src='<?php echo $data['thumbnail']['image']['url'];?>' alt='<?php echo $data['thumbnail']['image']['alt'];?>' />
 		<a href='<?php echo $data['link']; ?>'>Download PDF</a>
 
 	<?php else: ?>
