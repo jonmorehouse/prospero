@@ -220,24 +220,23 @@
 	
 </script><div class='bumpbox listing_inquire' data-link='listing_inquire'>
 	<div>
-		<h1>Inquire about Green Living Condo</h1>
+		<h1>Green Living Condo Inquire</h1>
 
-		<form destination='http://localhost:8888/Prospero/current/listing_rest/inquire' method='post'>
+		<form destination='http://localhost:8888/Prospero/current/index.php/ajax/listing_rest/inquire' method='post'>
 
 			<input type='text' name='email' value='Email Address'>
 
-			<textarea rows='5' cols='40' name='body'>Thanks for inquiring. We will be back to you shortly</textarea>
+			<textarea rows='5' cols='40' name='message'>Thanks for inquiring. We will be back to you shortly</textarea>
 
 			<button type='submit'>Submit Inquire</button>	
 		</form>
 
 		<div class='message'>Email Message Here</div>
-
 	</div>
 </div>
 
 <script type='text/javascript'>
-	pageData.inquireRecipients = ["morehousej09@gmail.com","jchu@prospero.ca"];
+	pageData.listingInquireData = {"recipients":["morehousej09@gmail.com","jchu@prospero.ca"],"property_id":["morehousej09@gmail.com","jchu@prospero.ca"]};
 </script>
 <div id='header'>
 	<h1>Green Living Condo</h1>
@@ -374,9 +373,10 @@ Public Transportation</span></div><div><span>Priced From:</span><span>364900</sp
 	file_list[5]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/form_animation.js';
 	file_list[6]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/bumpbox_map_controller.js';
 	file_list[7]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/general_map.js';
-	file_list[8]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
-	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
-	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
+	file_list[8]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/inquire_controller.js';
+	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
+	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
+	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
 	for (var index in file_list) {
 		
 		var url = file_list[index];

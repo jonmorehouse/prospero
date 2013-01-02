@@ -3,9 +3,9 @@ Project.Modules.inquire_controller = (listener, container) ->
 	config = 
 
 		# basic elements
-		form : container.children "form"
-		destination : container.children("form").attr "destination"
-		messageContainer : 	container.children("form").attr "destination"
+		form : container.find "form"
+		destination : container.find("form").attr "destination"
+		messageContainer : 	container.find(".message")
 		submitButton : container.find "button[type='submit']"
 
 		# extra data
@@ -26,36 +26,48 @@ Project.Modules.inquire_controller = (listener, container) ->
 				config.messageContainer.fadeIn config.animationTime, () ->
 
 					timer = () ->
-						config.messageContainer.fadeOut config.animationTime
+						$('#bumpbox_out_trigger').trigger "click"
+						config.messageContainer.html response.final_message
 
 					setTimeout timer, config.messageHold
 
-		failure : (response) ->
-
+		error : (response) ->
+			
 			config.messageContainer.html response.message
+
 			config.messageContainer.fadeIn config.animationTime, () ->
 
 				timer = () ->
 					config.messageContainer.fadeOut config.animationTime
 
-				setTimeout time, config.messageHold
-
+				setTimeout timer, config.messageHold
 
 	data = () ->
 
-
 		_data = config.serverData
-		_data.message = config.form.find("textarea").html()
-		_data.email = config.form.find("input[name='email']")
+		_data.message = config.form.find("textarea").attr "value"
+		_data.email = config.form.find("input").attr "value"
 
 		return _data
 
-
 	config.submitButton.click () ->
 
-		data = do data
-		console.log data
+		$.ajax
+			url: config.destination
+			data: do data
+			type: 'POST'
+			dataType: 'json' 
 
+			error: (response) ->
+
+				console.log response
+
+			success: (response) ->
+
+				if response.status
+					config.success response
+
+				else 
+					config.error response
+		
 		return false
-
-

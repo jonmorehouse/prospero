@@ -31,7 +31,7 @@
       if (__indexOf.call(bumpboxes, "listing_inquire") >= 0) {
         inquireAnimation = new Project.Modules.form_animation(containers["listing_inquire"]);
       }
-      return listeners['listing_inquire'].trigger("click");
+      return listeners['listing_pdf'].trigger("click");
     })();
   })();
 

@@ -22,6 +22,7 @@
 		text-align:center;
 	}
 }
+
 .bumpbox.similar_properties > div.content {
 
 	position:relative;
@@ -96,4 +97,58 @@
 		// target specific elements!
 	}//end individual content
 }
+
+/*********** PDF VIEW -- THIS IS TEMPORARY FOR NOW! ************/
+.bumpbox.listing_pdf > div{
+
+	&:first-child {
+		position: relative;
+		width: 80%;
+		margin: 0 auto;
+
+		> h1 {
+
+			text-align:middle;
+		}
+	}
+
+	&:nth-child(2) {
+
+		display:block;
+		position:relative;
+		width:40%;
+		margin:0 auto;
+		padding: 1em;
+		.dark_background;
+
+		> a {	
+
+			width: 100%;
+			position:relative;
+
+			> img {
+				position:relative;
+				width:100%;
+			}
+			
+			> span {
+
+				width:100%;
+				display:block;
+				text-align:center;
+				transition: color 2s;
+				-webkit-transition:color 2s;
+
+				&:hover {
+					color: gray;
+				}
+			}
+
+		}
+	}
+}
+
+
+
+
 

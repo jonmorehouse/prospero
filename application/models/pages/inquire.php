@@ -19,7 +19,7 @@ class Inquire extends CI_Model {
 			),
 			"name" => $this->general->get_category($property_id, "name"),
 			"body" => $this->default_body(),
-			"link" => base_url($this->general->config("inquire_url")),
+			"link" => site_url($this->general->config("inquire_url")),
 		);
 	} 
 

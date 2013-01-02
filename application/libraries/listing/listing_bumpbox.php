@@ -88,7 +88,9 @@ class Listing_bumpbox extends Listing_base {
 		if (!$pdf_status) $data['message'] = $this->CI->messages->general_message("no_pdf");
 
 		else 
-			$data['link'] = $this->CI->media->get_pdf($this->property_id);
+			$data['link'] = site_url();
+
+		// $this->CI->media->get_pdf($this->property_id);
 
 
 		$html = $this->CI->load->view("bumpboxes/listing_pdf", array("data" => $data), true);

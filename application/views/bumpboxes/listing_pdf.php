@@ -1,12 +1,16 @@
 <div class='bumpbox listing_pdf' data-link='listing_pdf'>
 
 	<div class='header'>
-		<h1><?php echo $data['name'];?>
-	</div>	
+		<h1><?php echo $data['name'];?> Brochure</h1>
+	</div>
 
 	<?php if ($data['status']): ?>
-		<img src='<?php echo $data['thumbnail']['image']['url'];?>' alt='<?php echo $data['thumbnail']['image']['alt'];?>' />
-		<a href='<?php echo $data['link']; ?>'>Download PDF</a>
+	<div>
+		<a href='<?php echo $data['link']; ?>'>
+			<img src='<?php echo $data['thumbnail']['image']['url'];?>' alt='<?php echo $data['thumbnail']['image']['alt'];?>' />
+			<span>Download PDF</span>
+		</a>
+	</div>
 
 	<?php else: ?>
 		<?php echo $data['message'];?>

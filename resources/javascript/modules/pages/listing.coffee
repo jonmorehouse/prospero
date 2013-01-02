@@ -44,7 +44,7 @@ do Project.Pages.Listing = () ->
 			inquireAnimation = new Project.Modules.form_animation containers["listing_inquire"]
 
 		# development work
-		listeners['listing_inquire'].trigger "click"
+		listeners['listing_pdf'].trigger "click"
 		
 
 

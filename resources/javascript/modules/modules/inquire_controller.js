@@ -4,9 +4,9 @@
   Project.Modules.inquire_controller = function(listener, container) {
     var config, data;
     config = {
-      form: container.children("form"),
-      destination: container.children("form").attr("destination"),
-      messageContainer: container.children("form").attr("destination"),
+      form: container.find("form"),
+      destination: container.find("form").attr("destination"),
+      messageContainer: container.find(".message"),
       submitButton: container.find("button[type='submit']"),
       serverData: pageData.listingInquireData,
       animationTime: 1000,
@@ -17,33 +17,48 @@
           return config.messageContainer.fadeIn(config.animationTime, function() {
             var timer;
             timer = function() {
-              return config.messageContainer.fadeOut(config.animationTime);
+              $('#bumpbox_out_trigger').trigger("click");
+              return config.messageContainer.html(response.final_message);
             };
             return setTimeout(timer, config.messageHold);
           });
         });
       },
-      failure: function(response) {
+      error: function(response) {
         config.messageContainer.html(response.message);
         return config.messageContainer.fadeIn(config.animationTime, function() {
           var timer;
           timer = function() {
             return config.messageContainer.fadeOut(config.animationTime);
           };
-          return setTimeout(time, config.messageHold);
+          return setTimeout(timer, config.messageHold);
         });
       }
     };
     data = function() {
       var _data;
       _data = config.serverData;
-      _data.message = config.form.find("textarea").html();
-      _data.email = config.form.find("input[name='email']");
+      _data.message = config.form.find("textarea").attr("value");
+      _data.email = config.form.find("input").attr("value");
       return _data;
     };
     return config.submitButton.click(function() {
-      data = data();
-      console.log(data);
+      $.ajax({
+        url: config.destination,
+        data: data(),
+        type: 'POST',
+        dataType: 'json',
+        error: function(response) {
+          return console.log(response);
+        },
+        success: function(response) {
+          if (response.status) {
+            return config.success(response);
+          } else {
+            return config.error(response);
+          }
+        }
+      });
       return false;
     });
   };
