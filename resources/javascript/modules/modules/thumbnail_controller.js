@@ -11,6 +11,7 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container) 
 		'animation_speed': 1000,//how quickly the animations run once initialized
 		'thumbnail_tag': "data-id",//this should in general, not be overwritten 
 		'container_tag': "data-id",//see above
+		'default_id': 0,
 		'change_trigger': false,//this is a change trigger for contacting other elements
 		'current_id' : 0,//assuming that the first one is showing -- overwrite for different scenarios
 		'current_content': container.children(":first-child"),
@@ -18,33 +19,14 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container) 
 
 	};
 
-	var reset = function () {
+	var change = function(id) {
 
-		if (config.current_thumbnail !== undefined) config.current_thumbnail.removeClass(config.selection_class);
-		
-
-		config.current_id = 0;
-		config.current_content = container.children(":first-child");
-		config.current_thumbnail = thumbnail_container.children(":first-child");
-
-		// check to see if any other objects need to be contacted on this element
-		if (config.change_trigger) config.change_trigger(0);
-
-		// add the proper class to the element
-		config.current_thumbnail.addClass(config.selection_class);
-	};
-
-	reset();//run the file -- can't use it as a seaf because it won't return in factory / self revealing pattern
-
-	var listen = thumbnail_container.children().click(function() {
-
-
-		var id = $(this).attr(config.thumbnail_tag),//this is the tag id
+		var thumbnail = thumbnail_container.children("li[data-id=" + id + "]"),
 			next = container.children("div[data-id=" + id + "]");//this is the next element -- 
 
 		config.current_content.fadeOut(config.animation_speed, function() {
 
-			$(this).addClass(config.selection_class);
+			thumbnail.addClass(config.selection_class);
 			next.fadeIn(config.animation_speed);
 
 			if (config.change_trigger)
@@ -53,10 +35,25 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container) 
 		});
 
 		config.current_thumbnail.removeClass(config.selection_class);
-		config.current_thumbnail = $(this);
+		config.current_thumbnail = thumbnail;
 		config.current_thumbnail.addClass(config.selection_class);
 		config.current_content = next;
 		config.current_id = id;
+	};
+
+
+	var reset = function () {
+
+		change(config.default_id);
+	};
+
+	reset();//run the file -- can't use it as a seaf because it won't return in factory / self revealing pattern
+
+	var listen = thumbnail_container.children().click(function() {
+
+		var id = $(this).attr(config.thumbnail_tag);
+
+		change(id);
 
 	});
 

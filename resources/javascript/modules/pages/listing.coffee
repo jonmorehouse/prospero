@@ -47,8 +47,20 @@ do Project.Pages.Listing = () ->
 
 		if "listing_map" in bumpboxes
 
+			# need to map the bumpbox listner to the thumbnail controller
+			# need to map the thumbnail controller to the listingMapController
 			listingMapThumbnailController = new Project.Modules.thumbnail_controller containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content") #return a change trigger
+			listingMapThumbnailController.config.default_id = "walkscore"
+
+			# connect the bumpbox click to listingMapThumbnailController to target a change_trigger that can be used to contact the actual code base later
+			modules.listing_map.config.in_callback = () ->
+
+				# do the normal element, but also do a reset on the actual caller etc!
+				do fade.fadeOut
+				do listingMapThumbnailController.reset
+
 			listingMapController = new Project.Modules.listing_map_controller()
+			listingMapThumbnailController.config.change_trigger = listingMapController.change_trigger
 
 
 		# development work

@@ -57,7 +57,7 @@ Project.Pages.Bumpbox = (elements) =>
 		# edge case and we shouldn't change the other elements for this
 		# need to manually map the click elements to the change_trigger in the map controller to ensure that when we call on the particular maps, they get loaded
 		$('#navigation_top li[data-link="map"]').click () ->
-			modules['map_controller']['change_trigger'](0);
+			do controllers.map.reset
 
 	#return the fade element
 	fade : fade

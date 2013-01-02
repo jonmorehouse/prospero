@@ -33,7 +33,13 @@
       }
       if (__indexOf.call(bumpboxes, "listing_map") >= 0) {
         listingMapThumbnailController = new Project.Modules.thumbnail_controller(containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content"));
+        listingMapThumbnailController.config.default_id = "walkscore";
+        modules.listing_map.config.in_callback = function() {
+          fade.fadeOut();
+          return listingMapThumbnailController.reset();
+        };
         listingMapController = new Project.Modules.listing_map_controller();
+        listingMapThumbnailController.config.change_trigger = listingMapController.change_trigger;
       }
       return listeners['listing_map'].trigger("click");
     })();

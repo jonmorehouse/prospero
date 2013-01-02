@@ -2,9 +2,9 @@
 (function() {
 
   Project.Modules.listing_map_controller = function() {
-    var data;
-    data = pageData;
-    return console.log(data);
+    return {
+      change_trigger: function() {}
+    };
   };
 
 }).call(this);
