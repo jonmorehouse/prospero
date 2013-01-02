@@ -30,16 +30,14 @@
 			</div>
 
 			<!-- map content / this is the second floated div -->
-			<div>
-				
-				
-			</div>
+			<div></div>
 		</div>
 
 		<div data-id='directions'>
 			<!-- similar to before -->
 			<!-- thumbnail at top -->
 			<!-- search for directions and append at bottom -->
+			
 
 		</div>
 

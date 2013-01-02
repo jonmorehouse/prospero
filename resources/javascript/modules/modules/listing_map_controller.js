@@ -3,8 +3,8 @@
 
   Project.Modules.listing_map_controller = function() {
     var data;
-    data = pageData.listing_map;
-    return console.log(data.walkscore);
+    data = pageData;
+    return console.log(data);
   };
 
 }).call(this);
