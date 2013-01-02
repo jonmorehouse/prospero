@@ -108,7 +108,7 @@ class Listing extends CI_Controller {
 		// initilialize basic elements
 		$this->header = $this->dynamic_header->get_header();
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
-		$this->logo = $this->navigation->get_logo();
+		$this->logo = $this->navigation->get_logo("listing");
 		$this->background_images = $this->elements->get_background_images();
 		$this->navigation_top = $this->navigation->get_navigation("global_top");
 		$this->navigation_left = $this->navigation->get_listing($this->property_id);
