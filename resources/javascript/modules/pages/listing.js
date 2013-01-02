@@ -39,9 +39,8 @@
           return listingMapThumbnailController.reset();
         };
         listingMapController = new Project.Modules.listing_map_controller();
-        listingMapThumbnailController.config.change_trigger = listingMapController.change_trigger;
+        return listingMapThumbnailController.config.change_trigger = listingMapController.change_trigger;
       }
-      return listeners['listing_map'].trigger("click");
     })();
     return (listingSlideshow = function() {
       var containers, controller, image_template;
@@ -54,7 +53,7 @@
       };
       Project.Modules.Slideshow_loader(pageData.slideshow_images.slice(1), containers.slideshow, image_template);
       Project.Modules.Slideshow_loader(pageData.slideshow_thumbnail_images.slice(1), containers.thumbnails, image_template);
-      return controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow);
+      return controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']);
     })();
   })();
 

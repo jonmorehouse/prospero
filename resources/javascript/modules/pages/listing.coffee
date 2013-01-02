@@ -62,9 +62,8 @@ do Project.Pages.Listing = () ->
 			listingMapController = new Project.Modules.listing_map_controller()
 			listingMapThumbnailController.config.change_trigger = listingMapController.change_trigger
 
-
 		# development work
-		listeners['listing_map'].trigger "click"
+		# listeners['listing_map'].trigger "click"
 	
 	do listingSlideshow = () ->
 
@@ -81,8 +80,10 @@ do Project.Pages.Listing = () ->
 		Project.Modules.Slideshow_loader pageData.slideshow_images[1..], containers.slideshow, image_template
 		Project.Modules.Slideshow_loader pageData.slideshow_thumbnail_images[1..], containers.thumbnails, image_template
 
-		# initialize slideshow controller!
-		controller = new Project.Modules.thumbnail_controller containers.thumbnails, containers.slideshow
+		# initialize slideshow controller -- initialize it with a default id -- ie: a first element to show!
+		controller = new Project.Modules.thumbnail_controller containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']
+
+		# let the slideshow controller know the first element to show / default element
 
 
 
