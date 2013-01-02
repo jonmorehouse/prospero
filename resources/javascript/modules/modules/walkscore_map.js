@@ -2,11 +2,75 @@
 (function() {
 
   Project.Modules.walkscore_map = function(container, center, triangle) {
-    var options;
-    return options = {
-      center: new google.maps.LatLng(center.latitude, center.longitude),
-      zoom: 8,
-      mapTypeId: google.maps.Map
+    var createWalkingPolygon, initCenter, test,
+      _this = this;
+    this.container = container;
+    this.center = center;
+    this.triangle = triangle;
+    console.log(this.center);
+    console.log(this.triangle);
+    this.options = {
+      center: new google.maps.LatLng(this.center.latitude, this.center.longitude),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.container, this.options);
+    (initCenter = function() {
+      var centerOptions;
+      centerOptions = {
+        position: _this.options.center,
+        draggable: true,
+        map: _this.map
+      };
+      return _this.centerMarker = new google.maps.Marker(centerOptions);
+    })();
+    (test = function() {
+      var element, marker, markers;
+      marker = function(coordinate) {
+        var options, _marker;
+        options = {
+          position: new google.maps.LatLng(coordinate.latitude, coordinate.longitude),
+          draggable: true,
+          map: _this.map
+        };
+        _marker = new google.maps.Marker(options);
+        return console.log(_this.centerMarker);
+      };
+      return markers = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.triangle;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          element = _ref[_i];
+          _results.push(marker(element));
+        }
+        return _results;
+      }).call(_this);
+    })();
+    return createWalkingPolygon = function() {
+      var coordinates, element, marker, walkingTriangle;
+      marker = function(coordinate) {
+        return new google.maps.LatLng(coordinate.latitude, coordinate.longitude);
+      };
+      coordinates = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.triangle;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          element = _ref[_i];
+          _results.push(marker(element));
+        }
+        return _results;
+      }).call(_this);
+      walkingTriangle = new google.maps.Polygon({
+        paths: coordinates,
+        strokeColor: "black",
+        strokeOpacity: 1,
+        strokeWeight: 2,
+        fillColor: "blue",
+        fillOpacity: 1
+      });
+      return walkingTriangle.setMap(_this.map);
     };
   };
 
