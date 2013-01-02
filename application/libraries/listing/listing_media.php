@@ -56,6 +56,7 @@ class Listing_media extends Listing_base{
 
 			$image = array(
 				"data-id" => $image_id,
+				"id" => $image_id,
 				"alt" => $alt,
 				"url" => $url
 			);

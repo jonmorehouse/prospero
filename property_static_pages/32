@@ -222,16 +222,21 @@
 </script><div class='bumpbox listing_pdf' data-link='listing_pdf'>
 
 	<div class='header'>
-		<h1>MacKenzie Centre	</div>	
+		<h1>MacKenzie Centre Brochure</h1>
+	</div>
 
+		<div>
+		<a href='http://localhost:8888/Prospero/current/index.php'>
 			<img src='http://localhost:8888/Prospero/current/resources/images/defaults/thumbnail.png' alt='MacKenzie Centre' />
-		<a href=''>Download PDF</a>
+			<span>Download PDF</span>
+		</a>
+	</div>
 
 	
 </div>
 
 <script type='text/javascript'>
-	pageData.pdf = {"thumbnail":{"image":{"alt":"MacKenzie Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"MacKenzie Centre","name":"MacKenzie Centre","blurb":"Great location in the downtown Squamish between 2nd Ave and Cleveland Ave on Winnipeg Street."},"name":"MacKenzie Centre","status":"12","link":null};
+	pageData.pdf = {"thumbnail":{"image":{"alt":"MacKenzie Centre","url":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png","src":"http:\/\/localhost:8888\/Prospero\/current\/resources\/images\/defaults\/thumbnail.png"},"header":"MacKenzie Centre","name":"MacKenzie Centre","blurb":"Great location in the downtown Squamish between 2nd Ave and Cleveland Ave on Winnipeg Street."},"name":"MacKenzie Centre","status":"12","link":"http:\/\/localhost:8888\/Prospero\/current\/index.php"};
 </script><div class='bumpbox listing_inquire' data-link='listing_inquire'>
 	<div>
 		<h1>MacKenzie Centre Inquire</h1>
@@ -254,7 +259,7 @@
 </script>
 <div id='header'>
 	<h1>MacKenzie Centre</h1>
-<!-- responsible for having a thumbnail image and header content -->
+	<!-- responsible for having a thumbnail image and header content -->
 </div>
 
 <div id='content'>
@@ -345,6 +350,7 @@ Zoning is C-4 (Downtown Commercial) which allows a wide variety of retail and co
 		<div><h1>General Details</h1><hr /><div><span>Property Name:</span><span>MacKenzie Centre</span></div><div><span>Type:</span><span>Rent</span></div><div><span>Type Category:</span><span>Retail</span></div><div><span>Location:</span><span>North Shore</span></div><div><span>Property Address:</span><span>1410 Winnipeg Street</span></div><div><span>City:</span><span>Squamish</span></div><div><span>Property Postal Code:</span><span>V8B 0C3</span></div><div><span>New Property:</span><span>1</span></div><div><span>No Vacancies:</span><span>false</span></div></div><div><h1>Retail Details</h1><hr /><div><span>Price per Sq. Ft.:</span><span>15</span></div><div><span>Square Feet:</span><span>9000</span></div><div><span>Property Taxes and Operating Costs:</span><span>5.27</span></div><div><span>Square Feet:</span><span>9000</span></div></div>	</div>
 </div>
 
+
 <script type='text/javascript'>
 
 (function () {
@@ -377,9 +383,10 @@ Zoning is C-4 (Downtown Commercial) which allows a wide variety of retail and co
 	file_list[6]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/bumpbox_map_controller.js';
 	file_list[7]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/general_map.js';
 	file_list[8]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/inquire_controller.js';
-	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
-	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
-	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
+	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/slideshow_loader.js';
+	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
+	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
+	file_list[12]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
 	for (var index in file_list) {
 		
 		var url = file_list[index];

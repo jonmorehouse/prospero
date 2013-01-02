@@ -44,8 +44,26 @@ do Project.Pages.Listing = () ->
 			inquireAnimation = new Project.Modules.form_animation containers["listing_inquire"]
 
 		# development work
-		listeners['listing_pdf'].trigger "click"
-		
+		listeners['listing_map'].trigger "click"
+	
+	do listingSlideshow = () ->
+
+		containers = 
+			thumbnails : $("#slideshow > div.thumbnails")
+			slideshow : $("#slideshow > div.content")
+
+		# want an 
+		image_template = (image) ->
+
+			return "<div data-id='#{image.id}'>\n\t<img src='#{image.url}' alt='#{image.alt}' />\n</div>"
+
+		# initialize the images 
+		Project.Modules.Slideshow_loader pageData.slideshow_images[1..], containers.slideshow, image_template
+		Project.Modules.Slideshow_loader pageData.slideshow_thumbnail_images[1..], containers.thumbnails, image_template
+
+		# initialize slideshow controller!
+		controller = new Project.Modules.thumbnail_controller containers.thumbnails, containers.slideshow
+
 
 
 

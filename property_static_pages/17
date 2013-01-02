@@ -240,7 +240,7 @@
 </script>
 <div id='header'>
 	<h1>Delbrook Gardens</h1>
-<!-- responsible for having a thumbnail image and header content -->
+	<!-- responsible for having a thumbnail image and header content -->
 </div>
 
 <div id='content'>
@@ -333,6 +333,7 @@ Delbrook is conveniently located near the Trans Canada Highway Delbrook Park Wil
 		<div><h1>General Details</h1><hr /><div><span>Property Name:</span><span>Delbrook Gardens</span></div><div><span>Type:</span><span>Rent</span></div><div><span>Type Category:</span><span>Residential</span></div><div><span>Location:</span><span>North Shore</span></div><div><span>Property Address:</span><span>777 West Queens Road</span></div><div><span>City:</span><span>North Vancouver</span></div><div><span>Property Postal Code:</span><span>V7N 2L4</span></div><div><span>Manager First Name:</span><span>Curt</span></div><div><span>Manager Phone:</span><span>604-990-2971</span></div><div><span>New Property:</span><span>1</span></div><div><span>No Vacancies:</span><span>false</span></div><div><span>Weekend Manager First Name:</span><span>Meta</span></div><div><span>Weekend Manager Phone:</span><span>604-985-2876</span></div></div><div><h1>Residential Details</h1><hr /><div><span>Number Beds:</span><span>Studio 1 2 &amp; 3</span></div></div>	</div>
 </div>
 
+
 <script type='text/javascript'>
 
 (function () {
@@ -365,9 +366,10 @@ Delbrook is conveniently located near the Trans Canada Highway Delbrook Park Wil
 	file_list[6]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/bumpbox_map_controller.js';
 	file_list[7]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/general_map.js';
 	file_list[8]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/inquire_controller.js';
-	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
-	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
-	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
+	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/slideshow_loader.js';
+	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
+	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
+	file_list[12]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
 	for (var index in file_list) {
 		
 		var url = file_list[index];

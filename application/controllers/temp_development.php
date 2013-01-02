@@ -111,7 +111,7 @@ class Temp_development extends CI_Controller {
 
 		$module = array(
 
-			"url" => "resources/javascript/modules/modules/inquire_controller.js",
+			"url" => "resources/javascript/modules/modules/slideshow_loader.js",
 			"type" => "modules",
 			"page_id" => "listing",
 			"status" => false

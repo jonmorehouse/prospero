@@ -1,6 +1,6 @@
 <div id='header'>
 	<h1><?php echo $this->thumbnail['name'];?></h1>
-<!-- responsible for having a thumbnail image and header content -->
+	<!-- responsible for having a thumbnail image and header content -->
 </div>
 
 <div id='content'>
@@ -14,7 +14,7 @@
 			<!-- dynamically add more divs into this at runtime with coffee -->
 		</div>
 
-		<div class='thumbnails <?php echo (count($this->thumbnail_images) > 5) ? ("single") : ("double");?>'>
+		<div class='thumbnails'>
 
 			<div data-id='<?php echo $this->thumbnail_images[0]['data-id'];?>'>
 				<img src='<?php echo $this->thumbnail_images[0]['url'];?>' alt='<?php echo $this->thumbnail_images[0]['alt']; ?>' />
@@ -44,3 +44,4 @@
 		?>
 	</div>
 </div>
+

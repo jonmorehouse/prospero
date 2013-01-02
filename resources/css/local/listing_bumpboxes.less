@@ -11,7 +11,9 @@
 	right: 5%;
 	bottom: 5%;
 	height:90%;
-
+	width:90%;
+	padding-right:0;
+	padding-left:0;
 
 }
 
@@ -145,6 +147,32 @@
 			}
 
 		}
+	}
+}
+
+/*********** LISITNG MAP BUMPBOX ********/
+.bumpbox.listing_map {
+
+	width:90%;
+	height:100%;
+	> div.content {
+
+		position:relative;
+		left:15%;
+		width:70%;
+		.light_background;
+		height:70%;
+		display:none;
+		&:first-child {
+
+			display:block;
+		}
+
+	}
+
+	> div.thumbnails {
+		width:70%;
+		overflow-x:hidden;
 	}
 }
 

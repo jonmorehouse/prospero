@@ -240,7 +240,7 @@
 </script>
 <div id='header'>
 	<h1>Green Living Condo</h1>
-<!-- responsible for having a thumbnail image and header content -->
+	<!-- responsible for having a thumbnail image and header content -->
 </div>
 
 <div id='content'>
@@ -342,6 +342,7 @@ Controlled Access
 Public Transportation</span></div><div><span>Priced From:</span><span>364900</span></div><div><span>Amenities:</span><span>The development features a 2-level fitness centre and green living components enhancing water and heat savings with green roofs on both towers. Phase 2 includes a daycare facility.</span></div></div><div><h1>Other Details</h1><hr /><div><span>Amenities:</span><span>The development features a 2-level fitness centre and green living components enhancing water and heat savings with green roofs on both towers. Phase 2 includes a daycare facility.</span></div></div>	</div>
 </div>
 
+
 <script type='text/javascript'>
 
 (function () {
@@ -374,9 +375,10 @@ Public Transportation</span></div><div><span>Priced From:</span><span>364900</sp
 	file_list[6]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/bumpbox_map_controller.js';
 	file_list[7]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/general_map.js';
 	file_list[8]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/inquire_controller.js';
-	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
-	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
-	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
+	file_list[9]='http://localhost:8888/Prospero/current/resources/javascript/modules/modules/slideshow_loader.js';
+	file_list[10]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/site_wide.js';
+	file_list[11]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/bumpbox.js';
+	file_list[12]='http://localhost:8888/Prospero/current/resources/javascript/modules/pages/listing.js';	
 	for (var index in file_list) {
 		
 		var url = file_list[index];

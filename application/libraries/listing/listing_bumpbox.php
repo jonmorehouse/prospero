@@ -40,7 +40,8 @@ class Listing_bumpbox extends Listing_base {
 			if (!method_exists($this, $method)) {
 
 				unset($bumpboxes[$key]);
-				$bumpboxes = array_values($bumpbox);
+				// $bumpboxes = array_values($bumpbox);
+				continue;
 			}
 
 			$html[$bumpbox] = $this->{$method}();			

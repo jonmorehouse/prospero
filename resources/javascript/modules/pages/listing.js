@@ -3,7 +3,7 @@
   var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   (Project.Pages.Listing = function() {
-    var bumpboxDependencies, bumpboxes, elements, fade, listingBumpboxes, topBumpbox;
+    var bumpboxDependencies, bumpboxes, elements, fade, listingBumpboxes, listingSlideshow, topBumpbox;
     elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')];
     topBumpbox = Project.Pages.Bumpbox(elements);
     fade = topBumpbox.fade;
@@ -11,7 +11,7 @@
     bumpboxDependencies = {
       listing_inquire: Project.Modules.inquire_controller
     };
-    return (listingBumpboxes = function() {
+    (listingBumpboxes = function() {
       var bumpbox, containers, contentModules, inquireAnimation, listeners, modules, _i, _len;
       listeners = {};
       containers = {};
@@ -31,7 +31,20 @@
       if (__indexOf.call(bumpboxes, "listing_inquire") >= 0) {
         inquireAnimation = new Project.Modules.form_animation(containers["listing_inquire"]);
       }
-      return listeners['listing_pdf'].trigger("click");
+      return listeners['listing_map'].trigger("click");
+    })();
+    return (listingSlideshow = function() {
+      var containers, controller, image_template;
+      containers = {
+        thumbnails: $("#slideshow > div.thumbnails"),
+        slideshow: $("#slideshow > div.content")
+      };
+      image_template = function(image) {
+        return "<div data-id='" + image.id + "'>\n\t<img src='" + image.url + "' alt='" + image.alt + "' />\n</div>";
+      };
+      Project.Modules.Slideshow_loader(pageData.slideshow_images.slice(1), containers.slideshow, image_template);
+      Project.Modules.Slideshow_loader(pageData.slideshow_thumbnail_images.slice(1), containers.thumbnails, image_template);
+      return controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow);
     })();
   })();
 
