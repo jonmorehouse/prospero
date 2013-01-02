@@ -124,4 +124,14 @@ class Listing_bumpbox extends Listing_base {
 		return $html;
 	}
 
+	private function get_manager_contact() {
+
+		$data = array();
+		$html = $this->CI->load->view("bumpboxes/listing_manager_contact", $data, true);
+
+		return $html;
+
+
+	}
+
 }
