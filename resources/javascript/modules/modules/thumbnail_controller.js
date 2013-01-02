@@ -3,7 +3,7 @@
 	*	pass in callback so that when the click happens I can do something else -- ie most likely a pause function
 	*	eventually will create a system where I can manually set the div tags with the configuration
 */
-Project.Modules.thumbnail_controller = function(thumbnail_container, container, callback) {
+Project.Modules.thumbnail_controller = function(thumbnail_container, container) {
 
 	var config = {
 
@@ -38,9 +38,9 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 
 	var listen = thumbnail_container.children().click(function() {
 
+
 		var id = $(this).attr(config.thumbnail_tag),//this is the tag id
 			next = container.children("div[data-id=" + id + "]");//this is the next element -- 
-
 
 		config.current_content.fadeOut(config.animation_speed, function() {
 

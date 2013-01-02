@@ -162,12 +162,15 @@
 		width:70%;
 		.light_background;
 		height:70%;
-		display:none;
-		&:first-child {
 
-			display:block;
+		> div {
+
+			display:none;
+			&:first-child {
+
+				display:block;
+			}
 		}
-
 	}
 
 	> div.thumbnails {
@@ -176,6 +179,148 @@
 	}
 }
 
+/*********** LISTING MAP WALKSCORE BUMPBOX ***********/
+div.bumpbox.listing_map > div.content > div[data-id="walkscore"] {
+
+	height:100%;
+	width:100%;
+
+	> div {
+
+		display:block;
+		position:relative;
+		float:left;
+		width:47.5%;
+		height:100%;
+		.dark_background();
+		.border_radius;
+
+	}
+
+	> div:last-child {
+
+		// map goes here! -- not much css needed
+		margin-left:5%;
+	}
+	clear:both;
+}
+	
+// walkscore left side element
+div.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-child > div{
+
+	position:relative;
+	float:left;
+
+	// initialize thumbnail for the property
+	&:first-child {
+		// walkscore logo goes here
+		width:100%;
+		margin:0 auto;
+		position: relative;
+
+		> img {
+
+			float:left;
+			width:25%;
+			border-top-left-radius:20px;
+		}
+
+		> h1 {
+
+			float:left;
+			width:75%;
+		}
+	}
+
+	// walkscore image 
+	&:nth-child(2) {
+
+		width:100%;
+		height:2.5em;
+
+		> a {
+
+			position:relative;
+			float:left;
+			margin-left:0.5em;
+			height:100%;
+			> span {
+				display:block;
+				height:100%;
+				font-size: 2em;
+				margin-top:0.15em;
+			}
+			> img {
+
+				height:100%;
+			}	
+		}
+	}
+
+	// third child -- results
+	&:nth-child(3) {
+
+		width:100%;
+		position:relative;
+		margin-top:0.5em;
+		height:50%;
+		overflow-y:auto;
+
+		// span element
+		> span {
+
+			font-size:1em;
+			width:100%;
+			display:block;
+			position:relative;
+			text-align:center;
+			margin-bottom:1em;
+
+		}
+
+
+		// search bar
+		> input[type="text"] {
+
+			float:left;
+			position:relative;
+			width:70%;
+			left:1em;
+			margin-top:1.5em;
+			display:block;
+			margin:0 auto;
+			padding: 0.25em 0 0.25em 0;
+		}
+
+		> button[type="submit"] {
+
+			position:relative;
+			display:block;
+			float:left;
+			margin-left:1em;
+			border-radius:0;
+			padding: 0.5em 1em 0.50em 1em;
+			top:-0.25em;
+			left:1em;
+			cursor:pointer;
+		}
+
+		> button[type="submit"] {
+
+			&:hover {
+
+				.dark_background(0.1);
+				color:white;
+			}
+		}
+		div {
+			// search results are changed here
+			width:100%;
+		}
+	}
+}
+
+/*********** */
 
 
 

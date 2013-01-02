@@ -18,7 +18,6 @@ class Thumbnail extends CI_Model {
 			"header" => $this->get_name($property_id),
 			"name" => $this->get_name($property_id),
 			"blurb" => $this->get_blurb($property_id)
-			
 		);
 	}
 

@@ -1,4 +1,4 @@
-	
+
 <!DOCTYPE html>
 <head>
 	<title>The Birches</title>		
@@ -38,7 +38,7 @@
 
 <script type='text/javascript'>
 	
-	var pageData = {"property_id":49,"slideshow_images":[],"slideshow_thumbnail_images":[],"listing_bumpboxes":["similar_properties","listing_map","listing_inquire"]}
+	var pageData = {"property_id":49,"slideshow_images":[],"slideshow_thumbnail_images":[],"listing_bumpboxes":["similar_properties","listing_map","listing_inquire","manager_contact"]}
 </script><div id='background'>
 
 	<div data-id='0'>
@@ -76,6 +76,7 @@
 	<li data-bumpbox='1' data-link='similar_properties' class=''><a href='#similar_properties'>Similar Properties</a></li>
 	<li data-bumpbox='1' data-link='listing_map' class=''><a href='#listing_map'>Listing Map</a></li>
 	<li data-bumpbox='1' data-link='listing_inquire' class=''><a href='#listing_inquire'>Inquire</a></li>
+	<li data-bumpbox='1' data-link='manager_contact' class=''><a href='#manager_contact'>Manager Contact</a></li>
 	</div><div id='bumpbox_out_trigger'>
 
 </div>
@@ -237,7 +238,11 @@
 
 <script type='text/javascript'>
 	pageData.listingInquireData = {"recipients":["morehousej09@gmail.com",false],"property_id":["morehousej09@gmail.com",false]};
-</script>
+</script><div class='bumpbox manager_contact'>
+
+	<h1>aSDFasdf</h1>
+
+</div>
 <div id='header'>
 	<h1>The Birches</h1>
 	<!-- responsible for having a thumbnail image and header content -->
@@ -281,7 +286,7 @@
 			<!-- dynamically add more divs into this at runtime with coffee -->
 		</div>
 
-		<div class='thumbnails double'>
+		<div class='thumbnails'>
 
 			<div data-id='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 
@@ -331,7 +336,6 @@ The Birches features secured underground parking nicely updated common areas and
 		<div><h1>General Details</h1><hr /><div><span>Property Name:</span><span>The Birches</span></div><div><span>Type:</span><span>Rent</span></div><div><span>Type Category:</span><span>Residential</span></div><div><span>Location:</span><span>Burnaby/Coquitlam/New Westminister</span></div><div><span>Property Address:</span><span>73 Coburg Street </span></div><div><span>City:</span><span>New Westminster</span></div><div><span>Property Postal Code:</span><span>V3L 1G7</span></div><div><span>Manager First Name:</span><span>Carmen</span></div><div><span>Manager Phone:</span><span>778-881-4816</span></div><div><span>New Property:</span><span>1</span></div><div><span>No Vacancies:</span><span>false</span></div></div><div><h1>Residential Details</h1><hr /><div><span>Number Beds:</span><span>1 &amp; 2</span></div><div><span>Features:</span><span>Hardwood flooring in most units</span></div><div><span>Amenities:</span><span>Underground parking and nicely updated common areas</span></div></div><div><h1>Other Details</h1><hr /><div><span>Amenities:</span><span>Underground parking and nicely updated common areas</span></div></div>	</div>
 </div>
 
-
 <script type='text/javascript'>
 
 (function () {
@@ -378,3 +382,4 @@ The Birches features secured underground parking nicely updated common areas and
 
 </script>	</body>
 </html>
+	

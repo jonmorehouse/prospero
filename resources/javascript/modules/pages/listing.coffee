@@ -40,8 +40,16 @@ do Project.Pages.Listing = () ->
 
 
 		#special cases for bumpboxes here!
+		# these are generally hard - coded non reusuable front-end modules for this application
+		# responsible for interacting with the pageData global
 		if "listing_inquire" in bumpboxes
 			inquireAnimation = new Project.Modules.form_animation containers["listing_inquire"]
+
+		if "listing_map" in bumpboxes
+
+			listingMapThumbnailController = new Project.Modules.thumbnail_controller containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content") #return a change trigger
+			listingMapController = new Project.Modules.listing_map_controller()
+
 
 		# development work
 		listeners['listing_map'].trigger "click"

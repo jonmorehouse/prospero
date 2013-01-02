@@ -1,5 +1,5 @@
 <?php
-	
+
 class Temp_development extends CI_Controller {
 
 	function __construct() {
@@ -111,7 +111,7 @@ class Temp_development extends CI_Controller {
 
 		$module = array(
 
-			"url" => "resources/javascript/modules/modules/slideshow_loader.js",
+			"url" => "resources/javascript/modules/modules/map_controller.js",
 			"type" => "modules",
 			"page_id" => "listing",
 			"status" => false

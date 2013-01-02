@@ -12,7 +12,7 @@
       listing_inquire: Project.Modules.inquire_controller
     };
     (listingBumpboxes = function() {
-      var bumpbox, containers, contentModules, inquireAnimation, listeners, modules, _i, _len;
+      var bumpbox, containers, contentModules, inquireAnimation, listeners, listingMapController, listingMapThumbnailController, modules, _i, _len;
       listeners = {};
       containers = {};
       modules = {};
@@ -30,6 +30,10 @@
       }
       if (__indexOf.call(bumpboxes, "listing_inquire") >= 0) {
         inquireAnimation = new Project.Modules.form_animation(containers["listing_inquire"]);
+      }
+      if (__indexOf.call(bumpboxes, "listing_map") >= 0) {
+        listingMapThumbnailController = new Project.Modules.thumbnail_controller(containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content"));
+        listingMapController = new Project.Modules.listing_map_controller();
       }
       return listeners['listing_map'].trigger("click");
     })();

@@ -6,7 +6,7 @@
 
 	<?php if ($data['status']): ?>
 	<div>
-		<a href='<?php echo $data['link']; ?>'>
+		<a href='<?php echo $data['link']; ?>' target='new'>
 			<img src='<?php echo $data['thumbnail']['image']['url'];?>' alt='<?php echo $data['thumbnail']['image']['alt'];?>' />
 			<span>Download PDF</span>
 		</a>

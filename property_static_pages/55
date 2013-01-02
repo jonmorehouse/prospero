@@ -38,7 +38,7 @@
 
 <script type='text/javascript'>
 	
-	var pageData = {"property_id":55,"slideshow_images":[],"slideshow_thumbnail_images":[],"listing_bumpboxes":["similar_properties","listing_map","listing_inquire"]}
+	var pageData = {"property_id":55,"slideshow_images":[],"slideshow_thumbnail_images":[],"listing_bumpboxes":["similar_properties","listing_map","listing_inquire","manager_contact"]}
 </script><div id='background'>
 
 	<div data-id='0'>
@@ -76,6 +76,7 @@
 	<li data-bumpbox='1' data-link='similar_properties' class=''><a href='#similar_properties'>Similar Properties</a></li>
 	<li data-bumpbox='1' data-link='listing_map' class=''><a href='#listing_map'>Listing Map</a></li>
 	<li data-bumpbox='1' data-link='listing_inquire' class=''><a href='#listing_inquire'>Inquire</a></li>
+	<li data-bumpbox='1' data-link='manager_contact' class=''><a href='#manager_contact'>Manager Contact</a></li>
 	</div><div id='bumpbox_out_trigger'>
 
 </div>
@@ -237,7 +238,11 @@
 
 <script type='text/javascript'>
 	pageData.listingInquireData = {"recipients":["morehousej09@gmail.com",false],"property_id":["morehousej09@gmail.com",false]};
-</script>
+</script><div class='bumpbox manager_contact'>
+
+	<h1>aSDFasdf</h1>
+
+</div>
 <div id='header'>
 	<h1>Whitehall Apartments</h1>
 	<!-- responsible for having a thumbnail image and header content -->
@@ -281,7 +286,7 @@
 			<!-- dynamically add more divs into this at runtime with coffee -->
 		</div>
 
-		<div class='thumbnails double'>
+		<div class='thumbnails'>
 
 			<div data-id='<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 

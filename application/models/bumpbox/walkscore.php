@@ -19,6 +19,7 @@ class Walkscore extends CI_Model {
 			"triangle" => $this->geographical_information->get_triangle($property_id),
 
 			"walkscore_logo" => $this->elements->get_image("walkscore_logo"),
+			"walkscore" => $this->general->get_category($property_id, "walkscore"),
 
 			"thumbnail" => $this->thumbnail->general_thumbnail($property_id),
 		);
