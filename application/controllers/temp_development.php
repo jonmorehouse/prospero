@@ -102,7 +102,7 @@ class Temp_development extends CI_Controller {
 
 		foreach ($resources as $resource) {
 
-			$insert = array("url" => $resource, "status" => false, "page_id" => "listing");
+			$insert = array("url" => $resource, "status" => false, "page_id" => "management");
 			$this->db->insert("javascript_resources", $insert);
 		}	
 	}
