@@ -15,12 +15,11 @@ class Management_forms{
 		$this->admin_rights = $parameters['admin_rights'];
 		$this->username = $parameters['username'];
 
-		$library = array('utilities/format', 'property/property_get');
-		$models = array('general');
+		$library = array('utilities/format');
+		$models = array('general', "management/management_data");
 		
 		$this->CI->load->model($models);
 		$this->CI->load->library($library);
-		$this->CI->config->load('database_configuration');
 		
 	}
 
@@ -206,9 +205,9 @@ class Management_forms{
 			
 			$categories = array('general');
 
-			$type_category = $this->CI->property_get->type_category($this->property_id);
+			$type_category = $this->CI->general->get_category($this->property_id, "type_category");
 
-			$type = $this->CI->property_get->type($this->property_id);
+			$type = $this->CI->general->get_category($this->property_id, "type");
 			
 			array_push($categories, $type, $type_category);
 		}
@@ -244,7 +243,6 @@ class Management_forms{
 		
 		$query = $this->CI->general->get('table_schema', array('category' => $category));
 
-
 		if($query && $query->row()->description && strlen($query->row()->description > 0))
 			return "\n\t<span>{$query->row()->comment}</span>";
 		else
@@ -258,10 +256,10 @@ class Management_forms{
 
 		if ($category === "property_id") return $this->property_id;
 		
-		$value = $this->CI->general->get_category($this->property_id, $category);
+		$value = $this->CI->management_data->get_category($this->property_id, $category);
 
-		if (!$value) //if the column is empty! -- need to get the default from the table_schema section
-			$value = $this->CI->general->get_column("table_schema", array('category' => $category), 'default_value');
+		if (!$value) // need to get the default!
+			$value = $this->CI->management_data->get_default($category);//returns the default value for this particular query!
 
 		return $this->CI->format->word_format($value);//return the cleaned value
 	}

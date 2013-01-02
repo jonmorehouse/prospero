@@ -24,11 +24,12 @@ class Media{
 		
 		$models = array('general');
 		$this->CI->load->model($models);
-		
-		$this->CI->load->config('site_status');
-		
-		$this->default_thumbnail_image_url = base_url($this->CI->config->item('default_thumbnail_image_url'));
-		$this->default_slideshow_image_url = base_url($this->CI->config->item('default_slideshow_image_url'));
+			
+		// initialize defaults
+		$this->default_thumbnail_image_url = base_url($this->CI->general->config("default_thumbnail"));
+		$this->default_slideshow_image_url = base_url($this->CI->general->config('default_slideshow_image'));
+		$this->default_video_thumbnail_url = base_url($this->CI->general->config("default_video_thumbnail"));
+		$this->default_pdf_thumbnail_url = base_url($this->CI->general->config("default_pdf_thumbnail"));
 	
 		$this->search_configuration('thumbnail_image');
 	}
@@ -40,9 +41,7 @@ class Media{
 
 		$media_id = $this->get_media($property_id);
 
-		$url = ($media_id) ? ($this->get_url("thumbnail_image", $media_id)) : ($this->CI->general->config("default_thumbnail_image"));
-
-		$url = base_url($url);
+		$url = ($media_id) ? (base_url($this->get_url("thumbnail_image", $media_id))) : ($this->default_thumbnail_image_url);
 
 		return array(
 

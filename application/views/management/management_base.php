@@ -28,5 +28,7 @@
 	</div> <!--THIS IS THE END OF THE PAGE_CONTENT-->
 </div>
 <?php
-// $this->load->view('resources/footer');
+	
+$this->load->view("site_wide/javascript_module_loader");
+$this->load->view('site_wide/footer');
 ?>

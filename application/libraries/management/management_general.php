@@ -10,8 +10,9 @@ class Management_general extends Management_forms {
 	function __construct($parameters){
 		
 		parent::__construct($parameters);
-		$this->CI->load->library('user_access/admin');
-		
+		$this->CI->load->library(array('user_access/admin', 'property/media'));
+		$this->CI->load->model("management/management_properties");
+
 		$this->url = site_url('management');
 		$this->property_list = $this->CI->admin->property_list($this->username);
 		
@@ -23,11 +24,9 @@ class Management_general extends Management_forms {
 	public function search($tool) {
 
 		$this->set_configuration($tool);
-		$this->CI->load->library('property/browse');//load the browse library
 		$this->set_header();
-		
-		$categorized_properties = $this->CI->browse->categorized_properties($this->property_list);
-			
+
+		$categorized_properties = $this->CI->management_properties->categorized_properties($this->property_list);
 
 		// SEARCH FORM CLASSES
 		$search_form = "\n<h1>{$this->CI->format->word_format($tool)}</h1>";
@@ -56,7 +55,7 @@ class Management_general extends Management_forms {
 		$this->set_configuration('remove_listing');
 		
 		$form = "\n";
-		$form .= "\n<h1>Remove {$this->CI->property_get->name($property_id)}</h1>";
+		$form .= "\n<h1>Remove {$this->CI->general->get_category($property_id, "name")}</h1>";
 		$form .= "\n<form action='{$this->process_url}/{$property_id}' method='post'>";
 		$form .= "\n\t<button type='submit'>Remove</button>";
 		$form .= "\n</form>";
@@ -73,12 +72,12 @@ class Management_general extends Management_forms {
 		$destination = site_url('management/process/' . $property_id);
 		
 		// Form creation
-		$form = "\n<h1>Upload Media for {$this->CI->property_get->name($property_id)}</h1>";
+		$form = "\n<h1>Upload Media for {$this->CI->general->get_category($property_id, "name")}</h1>";
 		$form .= "\n<form action='{$destination}' method='post' enctype='multipart/form-data'>";
 		$form .= "\n<span>Media Type:</span>";
 		$form .= $this->dropdown($media_categories, 'type');
 		$form .= "\n<input type='file' name='media' />";
-		$form .= "\n<span>Maximum File Size: {$this->CI->format->max_file($this->CI->config->item('max_file'))}</span>";
+		$form .= "\n<span>Maximum File Size: {$this->CI->format->max_file($this->CI->general->config('max_file'))}</span>";
 		$form .= "\n<input type='submit' name='submit' />";
 		$form .= "\n</form>"; 
 		$form .= "\n<div id='preview'>Please visit media status page to activate/deactivate media</div>";//please note controllers/ajax/management for the thumbnail preview!
@@ -113,7 +112,7 @@ class Management_general extends Management_forms {
 			foreach($media_id_list as $media_id) {
 				
 				$form .= "\n<div>";
-				$form .= "\n\t<span>{$this->CI->property_get->get_media_thumbnail($media_type, $media_id)}</span>";//create thumbnail
+				$form .= "\n\t<span><div class='thumbnail'><img src='{$this->CI->media->get_url($media_type, $media_id)}' alt='Management Thumbnail' /></div></span>";//create thumbnail
 				// special form with data values for form submission
 				//javascript creates an object with key of category and then has members inside with media_id and true or false
 				$form .= "\n\t<span>{$this->media_status_form($category, $media_id)}</span>";//actual form section

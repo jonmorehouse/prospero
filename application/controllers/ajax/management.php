@@ -7,22 +7,23 @@ class Management extends CI_Controller{
 		parent::__construct();
 
 		// LOAD LIBRARIES
-		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header', 'property/property_set', 'property/property_get');
+		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header', 'property/property_set');
 		$this->load->library($libraries);
 		
-		// Load Configuration Files
-		$this->load->config('database_configuration');
-		
-		// If the user_status is validated, we will then load session data to be used around the controller
-		if($this->user_status->current_status()){
-			$username = $this->session->userdata('username');
-			$admin_rights = $this->session->userdata('admin_rights');
-			$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
-		}
+
+		// // If the user_status is validated, we will then load session data to be used around the controller
+		// if($this->user_status->current_status()){
+		// 	$username = $this->session->userdata('username');
+		// 	$admin_rights = $this->session->userdata('admin_rights');
+		// 	$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
+		// }
 	}
 
 	/******* USED TO MAKE A PROPERTY NOT LIVE ********/
 	public function listing_status() {
+
+
+		return;
 
 		$this->load->model('general');
 
@@ -39,6 +40,7 @@ class Management extends CI_Controller{
 
 			else 
 				$status = true;
+
 			$this->general->update($table, array('property_id' => $property_id), array('property_status' => $status));
 		}
 

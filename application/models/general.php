@@ -11,7 +11,7 @@ class General extends CI_Model{
 	function __construct(){
 
 		parent::__construct();
-		$this->load->library('utilities/developer_contact');
+
 		
 	}
 	

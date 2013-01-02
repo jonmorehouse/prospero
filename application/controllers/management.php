@@ -1,6 +1,7 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+
 class Management extends CI_Controller{
-	
+
 /******************* MANAGEMENT CONSTRUCT *************************/
 
 /* Note the management_forms, management_create_update and management_general class
@@ -12,7 +13,6 @@ class Management extends CI_Controller{
 */
 
 /************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
-
 	public function __construct(){
 		parent::__construct();
 		
@@ -23,12 +23,12 @@ class Management extends CI_Controller{
 		$this->content = "";
 
 		// LOAD LIBRARIES
-		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header');
-		$this->load->library($libraries);
-		
-		// Load Configuration Files
-		$this->load->config('database_configuration');
-		
+		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header', "utilities/dynamic_header");
+		$this->load->library($libraries, array("page_id" => "management"));
+
+		$models = array("pages/navigation", "pages/elements");
+		$this->load->model($models);
+
 		// If the user_status is validated, we will then load session data to be used around the controller
 		if($this->user_status->current_status()){
 			$username = $this->session->userdata('username');
@@ -38,7 +38,13 @@ class Management extends CI_Controller{
 		}
 
 		// load header information-this will be passed into management_base and echoed from there
-		$this->header = $this->header->header_creation($this->page_type, $page_title, false, array(), array('animation'));//pass css as array or js as array if desired
+		// initialize view elements
+		$this->header = $this->dynamic_header->get_header();
+		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
+		$this->logo = $this->navigation->get_logo("listing");
+		$this->background_images = $this->elements->get_background_images();
+
+		// management variables
 		$this->dashboard = false;
 		$this->property_status_dashboard = false;
 	}
