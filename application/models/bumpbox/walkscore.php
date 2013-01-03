@@ -29,8 +29,5 @@ class Walkscore extends CI_Model {
 		// -- will then build in the places to find points in the area
 	}
 
-
-
-
 } 
 	

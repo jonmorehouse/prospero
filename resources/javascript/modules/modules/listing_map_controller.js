@@ -13,7 +13,8 @@
       data = pageData.listing_map.walkscore;
       leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore" > div:first-child');
       mapElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)');
-      return map = new Project.Modules.walkscore_map(mapElement[0], data.center, data.triangle);
+      console.log(data.boundary);
+      return map = new Project.Modules.walkscore_map(mapElement[0], data);
     })();
   };
 
