@@ -2,33 +2,24 @@
 (function() {
 
   Project.Modules.walkscore_map = function(container, data) {
-    var initBounds, initCenter,
+    var boundsInit, mapInit,
       _this = this;
     this.container = container;
     this.data = data;
-    this.center = {
-      latitude: parseFloat(this.data.center.latitude),
-      longitude: parseFloat(this.data.center.longitude)
-    };
-    this.boundary = parseFloat(this.data.boundary);
-    this.options = {
-      center: new google.maps.LatLng(this.center.latitude, this.center.longitude),
-      zoom: 14,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.container, this.options);
-    (initCenter = function() {
-      var centerOptions;
-      centerOptions = {
-        position: _this.options.center,
-        draggable: true,
-        icon: _this.data.thumbnail.image.url,
-        title: _this.data.thumbnail.title,
-        map: _this.map
+    (mapInit = function() {
+      _this.center = {
+        latitude: parseFloat(_this.data.center.latitude),
+        longitude: parseFloat(_this.data.center.longitude)
       };
-      return _this.centerMarker = new google.maps.Marker(centerOptions);
+      _this.boundary = parseFloat(_this.data.boundary);
+      _this.options = {
+        center: new google.maps.LatLng(_this.center.latitude, _this.center.longitude),
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+      };
+      return _this.map = new google.maps.Map(_this.container, _this.options);
     })();
-    return (initBounds = function() {
+    return (boundsInit = function() {
       var createMarker, element, options;
       createMarker = function(point) {
         var options;

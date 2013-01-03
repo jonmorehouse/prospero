@@ -109,7 +109,11 @@ class Listing_bumpbox extends Listing_base {
 
 		$data = array(
 
-			"nearby_properties" => $this->CI->nearby_properties->get_content($this->property_id, $this->CI->general->config("max_nearby_properties")),
+			"nearby_properties" => array(
+				"properties" => $this->CI->nearby_properties->get_content($this->property_id, $this->CI->general->config("max_nearby_properties")),
+				"center" => $this->CI->geographical_information->get_coordinates($this->property_id),
+				"thumbnail" => $this->CI->thumbnail->general_thumbnail($this->property_id),
+			),
 
 			"walkscore" => $this->CI->walkscore->walkscore($this->property_id),
 

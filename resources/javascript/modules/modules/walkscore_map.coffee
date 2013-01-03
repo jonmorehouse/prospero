@@ -1,37 +1,26 @@
 Project.Modules.walkscore_map = (@container, @data) ->
 
-	# make the points proper datatypes
-	@center = 
-		latitude : parseFloat @data.center.latitude
-		longitude : parseFloat @data.center.longitude
+	do mapInit = () =>
 
-	@boundary = parseFloat @data.boundary
+		# make the points proper datatypes
+		@center = 
+			latitude : parseFloat @data.center.latitude
+			longitude : parseFloat @data.center.longitude
 
-	# initialize basic map options
-	@options = 
+		@boundary = parseFloat @data.boundary
 
-		center: new google.maps.LatLng @center.latitude, @center.longitude
-		zoom: 14
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+		# initialize basic map options
+		@options = 
 
-	@map = new google.maps.Map @container, @options
+			center: new google.maps.LatLng @center.latitude, @center.longitude
+			zoom: 14
+			mapTypeId: google.maps.MapTypeId.SATELLITE
 
-	# initialize center
-	do initCenter = () =>
+		@map = new google.maps.Map @container, @options
 
-		centerOptions =
-			position: @options.center
-			draggable: true
-			icon: @data.thumbnail.image.url
-			title: @data.thumbnail.title
-
-			map: @map
-
-		# create the marker!
-		@centerMarker = new google.maps.Marker centerOptions
 
   	# create the overlay and then initialize a bounds object!
-	do initBounds = () =>
+	do boundsInit = () =>
 
 		createMarker = (point) =>
 
@@ -60,9 +49,6 @@ Project.Modules.walkscore_map = (@container, @data) ->
 		# create the polygon shape
 		@rect = new google.maps.Polygon options
 		@rect.setMap @map
-
-
-
 
 
 	

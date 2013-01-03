@@ -2,20 +2,33 @@
 (function() {
 
   Project.Modules.listing_map_controller = function() {
-    var walkscore_init;
-    ({
-      change_trigger: function(id) {
-        return console.log(id);
+    var changeTrigger, nearbyPropertiesInit, walkscoreInit,
+      _this = this;
+    changeTrigger = function(id) {
+      if (id === "walkscore") {
+        return walkscoreInit();
+      } else if (id === "nearby_properties") {
+        return nearbyPropertiesInit();
+      } else {
+        return alert("functionality not built yet!");
       }
-    });
-    return (walkscore_init = function() {
+    };
+    walkscoreInit = function() {
       var data, leftElement, map, mapElement;
       data = pageData.listing_map.walkscore;
       leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore" > div:first-child');
       mapElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)');
-      console.log(data.boundary);
       return map = new Project.Modules.walkscore_map(mapElement[0], data);
-    })();
+    };
+    nearbyPropertiesInit = function() {
+      var container, data, map;
+      data = pageData.listing_map.nearby_properties;
+      container = $('.bumpbox.listing_map > div.content > div[data-id="nearby_properties"]');
+      return map = new Project.Modules.nearby_properties(container[0], data);
+    };
+    return {
+      changeTrigger: changeTrigger
+    };
   };
 
 }).call(this);
