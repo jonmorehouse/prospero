@@ -15,12 +15,11 @@ class Walkscore extends CI_Model {
 
 		return array(
 
-			"center" => $this->geographical_information->get_coordinates($property_id),
-			"triangle" => $this->geographical_information->get_triangle($property_id),
-
+			"center" => $this->geographical_information->get_coordinates($property_id),//center of property = center of map!
+			"triangle" => $this->geographical_information->get_triangle($property_id),//not currently available, implement later?
+			"boundary" => $this->general->config("places_bounds"),//how far out we can look in each direction
 			"walkscore_logo" => $this->elements->get_image("walkscore_logo"),
 			"walkscore" => $this->general->get_category($property_id, "walkscore"),
-
 			"thumbnail" => $this->thumbnail->general_thumbnail($property_id),
 		);
 		// get walkscore image

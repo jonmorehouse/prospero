@@ -7,14 +7,31 @@ class Temp_development extends CI_Controller {
 		parent::__construct();//call parent constructor
 		$this->load->model('general');
 		$this->load->library(array("utilities/format", "general/page_management"));
-
 	}	
+
+	public function test() {
+
+		$property_id = 5;
+		$this->load->library("walkscore/walkscore");
+
+		$this->walkscore->get_walkscore($property_id);
+
+
+	}
+
+	public function update_geo() {
+
+
+		$this->load->library("property/property_automated", array("property_id" => 5));
+
+		for ($i = 0, $z = 60; $i < $z; $i++)
+			$this->property_automated->update_property($i);
+	}
 
 	public function compile() {
 
 		$property_id = $this->uri->segment(3);
 		$this->page_management->compile($property_id);
-
 
 	}
 

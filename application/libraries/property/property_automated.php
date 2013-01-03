@@ -13,53 +13,50 @@ class Property_automated {
 
 	private $CI;
 
-	private $property_id,
-		$address,
-		$geocoded_address;
-
 	public function __construct($parameters) {
 
 		// CODEIGNITER INITIATION
 		$this->CI =& get_instance();
 		$this->CI->load->model('general');
-		$this->CI->load->library("general/static");
+
+		// initialize dependencies
+		$this->CI->load->library(array("general/page_management", "google/geocoding", "walkscore/walkscore"));
+		$this->CI->load->model(array("general", "property/save_geographical_information"));
 
 		//Variable INITIATION
 		$this->property_id = $parameters['property_id'];
-		$this->address = $this->get_address();
-		$this->geocoded_address = $this->get_geocoded_address();//geocode our address
-
-		//Class - Wide library initiation -- we only instantiate if the geocoding went through properly
-		if ($this->geocoded_address['latitude'] && $this->geocoded_address['longitude'])
-			$this->CI->load->library('walkscore/walkscore', array('address' => $this->address, 'latitude' => $this->geocoded_address['latitude'], 'longitude' => $this->geocoded_address['longitude']));
 	}
 
 /****** PUBLIC FUNCTIONS *******/
 
-	public function update_property() {
+	public function update_property($property_id) {
+			
 
-		if ($this->geocoded_address['latitude'] && $this->geocoded_address['longitude']) {
+		// save teh lat / lon elements for this particular property
+		// $this->save_geocoded_address($property_id);
 
-			$this->update_geocoded_address();
-			$this->update_walkscore();
-			$this->update_walking_distance();
-		}
+		// save walkscore api data!
+		// $this->save_walkscore($property_id);
+		$this->save_walking_distance($property_id);
 
-		return $this;
+		// save a static cache
+		// $this->save_static($property_id);
 	}
 
-	public function update_static() {
+	public function save_static() {
 
-		$this->CI->static->compile($this->property_id);
+		$this->CI->page_management->compile($this->property_id);
+		
+
 	}
 
 /***** PRIVATE FUNCTIONS *******/
 
-	private function get_address() {
+	private function get_address($property_id) {
 
-		$address = $this->CI->general->get_category($this->property_id, "address");
-		$city = $this->CI->general->get_category($this->property_id, "city");
-		$postal_code = $this->CI->general->get_category($this->property_id, "postal_code");
+		$address = $this->CI->general->get_category($property_id, "address");
+		$city = $this->CI->general->get_category($property_id, "city");
+		$postal_code = $this->CI->general->get_category($property_id, "postal_code");
 
 		$full_address = "${address} ${city} ${postal_code}";
 
@@ -67,57 +64,35 @@ class Property_automated {
 
 	}
 
-	private function get_geocoded_address() {
+	private function save_geocoded_address($property_id) {
 
-		$this->CI->load->library('google/geocoding', array('address' => $this->address));
+		$address = $this->get_address($property_id);
+		$geocoded_address = $this->CI->geocoding->get_geocoded_address($address);
 
-		$geocoded_address = array();
-		$geocoded_address['latitude'] = $this->CI->geocoding->get_latitude();
-		$geocoded_address['longitude'] = $this->CI->geocoding->get_longitude();
+		if (!$geocoded_address) return false;
 
-		return $geocoded_address;
-	}
-
-	private function update_geocoded_address() {
-
-		$table = $this->CI->general->get_category_table("latitude");
-
-		$update_data = array('latitude' => $this->geocoded_address['latitude'], 'longitude' => $this->geocoded_address['longitude']);
-
-		$this->CI->general->update($table, array('property_id' => $this->property_id), $update_data);
-	}
-
-	private function update_walkscore() {
-
-		$table = $this->CI->general->get_category_table("walkscore");
-
-		$walkscore = $this->CI->walkscore->get_walkscore();
-
-		$update_data = array('walkscore' => $walkscore);
-
-		$this->CI->general->update($table, array('property_id' => $this->property_id), $update_data);
+		$this->CI->save_geographical_information->save_geocoded_address($property_id, $geocoded_address);
 
 	}
 
-	private function update_walking_distance() {
+	private function save_walkscore($property_id) {
 
-		// this is going to loop through an array of values and will insert each one into this!~
-		$table = "property_triangle_coordinates";
+		$walkscore = $this->CI->walkscore->get_walkscore($property_id);
 
-		// get the coordinate triangle
-		$coordinates = $this->CI->walkscore->get_walking_distance();
+		$this->CI->save_geographical_information->save_walkscore($property_id, $walkscore["walkscore"]);
+		$this->CI->save_geographical_information->save_walkscore_description($property_id, $walkscore["description"]);
 
-		//check coordinates to see if they exist for this element
-		if ($coordinates) {
-			// remove all coordiantes that exist
-			$this->CI->general->delete($table, array('property_id' => $this->property_id));
+	}
 
-			// add all new coordinates
-			foreach ($coordinates as $coordinate) {
+	// for now, all the properties are returning a status of 2 == not available yet -- fml
+	private function save_walking_distance($property_id) {
 
-				$insert_data = array('property_id' => $this->property_id, 'latitude' => $coordinate[0], 'longitude' => $coordinate[1]);
-				$this->CI->general->insert($table, $insert_data);
-			}//end foreach loop
-		}
-	}//end method
+		$request = $this->CI->walkscore->get_walking_distance($property_id);
+
+		echo "Need to implement functionality later when walkscore has proper responses for properties";
+
+		// if ($request) 
+			// $this->CI->save_geographical_information->save_walking_distance()
+
+	}
 }

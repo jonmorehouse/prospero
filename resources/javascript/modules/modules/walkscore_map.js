@@ -11,7 +11,7 @@
     console.log(this.triangle);
     this.options = {
       center: new google.maps.LatLng(this.center.latitude, this.center.longitude),
-      zoom: 14,
+      zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.container, this.options);

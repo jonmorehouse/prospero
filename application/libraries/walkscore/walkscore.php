@@ -12,79 +12,76 @@ class Walkscore {
 	// VARIABLE DECLARATIONS
 	private $CI; //this is the codeigniter install -- useful for loading in the configuration file for walkscore
 
-	// class variables
-	private $address, 
-		$latitude,//y position on map
-		$longitude,//x position on map
-		$api_key,//walk score api key as set in site_status
-		$walkscore_response,//base walkscore response from api
-		$walking_distance_response;//walking distance response from api
-
-/****** CONSTRUCTORS / DESTRUCTORS *******/
-
-	public function __construct($parameters) {
+	public function __construct() {
 
 		//initiate the codeigniter instance
 		$this->CI =& get_instance();//initialize the codeigniter instance to be used in this class
-		$this->CI->config->load('site_status');//this contains various api keys etc
 
-		//generate class wide variables
-		$this->address = urlencode($parameters['address']);//get the address and initialize throughout the class
-		$this->latitude = $parameters['latitude'];//horizontal line / y position
-		$this->longitude = $parameters['longitude'];//this is the vertical line / x position on the map
-		$this->api_key = $this->CI->config->item('walkscore_api_key');//get the walkscore api key into this element
+		// iniitalize dependencies
+		$models = array("general", "property/geographical_information");
+		$this->CI->load->model($models);		
 
-		// run the walkscore apis
-		$this->walkscore_response = $this->set_walkscore();//this is the set walk score method
-		$this->walking_distance_response = $this->set_walking_distance();//this will set the triangle of points around the area that are considered within walking distance
+		$this->api_key = $this->CI->general->config('walkscore_api_key');//get the walkscore api key into this element
 
 	}
 
 /****** PUBLIC ACCESS FUNCTIONS ******/
 
-	public function get_walkscore() {
+	public function get_walkscore($property_id) {
 
-		if ($this->walkscore_response['status'] === 2) return false;
+		$request = $this->walkscore_request($property_id);
 
-		else return $this->walkscore_response['walkscore'];
+		if ($request['status'] == 2) return false;
+
+		return $request;
 
 	}
 
-	public function get_walking_distance() {
+	public function get_walking_distance($property_id) {
 
-		if ($this->walking_distance_response['status'] === 2) return false;
+		$request = $this->walking_distance_request($property_id);
 
-		else return $this->walking_distance_response['walk_shed']['geometry']['coordinates'][0];//this returns an array of all the coordiantes
+		print_r($request);
+
+		if ($request['status'] === 2) return false;
+
+		// else return $this->walking_distance_response['walk_shed']['geometry']['coordinates'][0];//this returns an array of all the coordiantes
+		return $request;
 
 	}
 
 /***** PRIVATE FUNCTIONS *******/
 
-	private function set_walkscore() {
+	private function walkscore_request($property_id) {
 
-		$url = "http://api.walkscore.com/score?format=json&address={$this->address}&lat={$this->latitude}&lon={$this->longitude}&wsapikey={$this->api_key}";
+ 		$address = urlencode($this->CI->general->get_category($property_id, "address"));
+ 		$geocoded_address = $this->CI->geographical_information->get_coordinates($property_id);
 
-		$raw_response = file_get_contents($url);//get the raw response from walkscore
+ 		if (!$address || !$geocoded_address) return false;
 
-		$raw_response = json_decode($raw_response, true);
+		$url = "http://api.walkscore.com/score?format=json&address={$address}&lat={$geocoded_address['latitude']}&lon={$geocoded_address['longitude']}&wsapikey={$this->api_key}";
 
-		return $raw_response;
+		$response = file_get_contents($url);//get the raw response from walkscore
 
+		$response = json_decode($response, true);
+
+		return $response;
 	}
 
 	// FOLLOWING GETS THE WALKING TRIANGEL FROM THE WALKSCORE API
-	private function set_walking_distance() {
+	private function walking_distance_request($property_id) {
 
-		// this is the base url -- note walkscore api for information regarding this--we request this as json
-		// $url = "http://api.walkscore.com/walk_shed?lat={$this->latitude}&lon={$this->longitude}&wsapikey={$this->api_key}";
-		$url = "http://api.walkscore.com/walk_shed?lat=47.5815&lon=-122.335&wsapikey={$this->api_key}";
-		// get the results of the element
-		$raw_response = file_get_contents($url);
+ 		$geocoded_address = $this->CI->geographical_information->get_coordinates($property_id);
 
+ 		if (!$geocoded_address) return false;
 
-		$raw_response = json_decode($raw_response, true);
+ 		// request url
+		$url = "http://api.walkscore.com/walk_shed?lat={$geocoded_address['latitude']}&lon={$geocoded_address['longitude']}&wsapikey={$this->api_key}";
 
-		return $raw_response;
+		// 
+		$response = file_get_contents($url);
+
+		return json_decode($response, true);
 	}
 
 }
