@@ -22,19 +22,26 @@
       }
     };
     walkscoreInit = function() {
-      var data, leftElement, map, mapElement;
+      var animation, data, leftElement, mapElement;
       data = pageData.listing_map.walkscore;
       leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore" > div:first-child');
       mapElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)');
-      return map = new Project.Modules.walkscore_map(mapElement[0], data);
+      return animation = new Project.Modules.form_animation(leftElement.children());
     };
     nearbyPropertiesInit = function() {
       var container, data, map;
       data = pageData.listing_map.nearby_properties;
       container = $('.bumpbox.listing_map > div.content > div[data-id="nearby_properties"]');
-      return map = new Project.Modules.nearby_properties(container[0], data);
+      return map = new Project.Modules.nearby_properties(container.get(0), data);
     };
-    directionsInit = function() {};
+    directionsInit = function() {
+      var animation, container, controller, data, leftElement;
+      data = pageData.listing_map.directions;
+      leftElement = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:first-child');
+      container = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:nth-child(2)');
+      animation = new Project.Modules.form_animation(leftElement);
+      return controller = new Project.Modules.listing_directions(leftElement, container, data);
+    };
     return {
       changeTrigger: changeTrigger
     };

@@ -35,19 +35,33 @@
 
 		<div data-id='directions'>
 			<div>
+				<!-- initialize property_thumbnail -->
 				<div>
-					<h1>Get Directions to this property.</h1>
-					<input type='text' value='<?php echo $directions['address'];?>'>
-					<input type='text' value='destination'>
-					<button type='submit' value='Find!'>Find!</button>
+					<img src='<?php echo $walkscore['thumbnail']['image']['url'];?>' alt='<?php echo $directions['thumbnail']['image']['alt']; ?>' />
+					<h1><?php echo $directions['thumbnail']['name']; ?></h1>
+				</div>
+				<div>	
+					<h1>Get Directions</h1>
+					<input type='text' name='origin' value='<?php echo $directions['address'];?>' /><br />
+					<input type='text' name='destination' value='<?php echo $this->general->get_category(13, "formatted_address");?>' /><br />
+					<button type='submit' name='submit'>Get Directions</button>
 					<div></div><!-- SEARCH RESULTS GO HERE! -->
 				</div>
 
 			</div>
 
 			<div>
+				<div class='thumbnails'>
+					<ul>
+						<li data-id='directions'>Directions</li>
+						<li data-id='map'>Map</li>
+					</ul>
+				</div>
 
-				<!-- map goes here -->
+				<div class='content'>
+					<div data-id="directions"></div>
+					<div data-id="map"></div>
+				</div>
 
 			</div>
 		</div>

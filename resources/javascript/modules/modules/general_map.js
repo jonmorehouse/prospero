@@ -2,7 +2,7 @@ Project.modules.general_map = function(element, data) {
 
 	var config = {	
 
-		map_container: element.children('div')[0],//can change this later if necessary!
+		map_container: element.children('div').get(0),//can change this later if necessary!
 		center: new google.maps.LatLng(data['center']['latitude'], data['center']['longitude']),
 		zoom: 7,
 		mapTypeId: google.maps.MapTypeId.ROADMAP

@@ -28,27 +28,37 @@ Project.Modules.listing_map_controller = () ->
 
 
 	walkscoreInit = () =>
-
 		# will be responsible for initializing the elements
 		data = pageData.listing_map.walkscore
 		leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore" > div:first-child')
 		mapElement =  $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)')
 
+		# initialize form animation
+		animation = new Project.Modules.form_animation leftElement.children()
 
 		# console.log Project.Modules.walkscore_map
 
-		map = new Project.Modules.walkscore_map mapElement[0], data
+		# map = new Project.Modules.walkscore_map mapElement.get(0), data
 
 	nearbyPropertiesInit = () => 
 
 		data = pageData.listing_map.nearby_properties
 		container = $('.bumpbox.listing_map > div.content > div[data-id="nearby_properties"]')
 
-		map = new Project.Modules.nearby_properties container[0], data
+		map = new Project.Modules.nearby_properties container.get(0), data
 
 	directionsInit = () =>
 
+		# will be responsible for initializing the elements
+		data = pageData.listing_map.directions
+		leftElement = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:first-child')
+		container =  $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:nth-child(2)')
 
+		# initialize form animation
+		animation = new Project.Modules.form_animation leftElement
+
+		# 
+		controller = new Project.Modules.listing_directions leftElement, container, data
 
 
 	changeTrigger: changeTrigger

@@ -33,7 +33,7 @@
       }
       if (__indexOf.call(bumpboxes, "listing_map") >= 0) {
         listingMapThumbnailController = new Project.Modules.thumbnail_controller(containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content"));
-        listingMapThumbnailController.config.default_id = "walkscore";
+        listingMapThumbnailController.config.default_id = "directions";
         modules.listing_map.config.in_callback = function() {
           fade.fadeOut();
           return listingMapThumbnailController.reset();
