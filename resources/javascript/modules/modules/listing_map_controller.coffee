@@ -30,15 +30,14 @@ Project.Modules.listing_map_controller = () ->
 	walkscoreInit = () =>
 		# will be responsible for initializing the elements
 		data = pageData.listing_map.walkscore
-		leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore" > div:first-child')
+		leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-child')
 		mapElement =  $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)')
 
 		# initialize form animation
 		animation = new Project.Modules.form_animation leftElement.children()
 
 		# console.log Project.Modules.walkscore_map
-
-		# map = new Project.Modules.walkscore_map mapElement.get(0), data
+		map = new Project.Modules.walkscore_map mapElement.get(0), data
 
 	nearbyPropertiesInit = () => 
 
@@ -53,11 +52,16 @@ Project.Modules.listing_map_controller = () ->
 		data = pageData.listing_map.directions
 		leftElement = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:first-child')
 		container =  $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:nth-child(2)')
+		map = container.find("> .content > div[data-id='map']")
+		directions = container.find("> .content > div[data-id='directions']")
 
 		# initialize form animation
 		animation = new Project.Modules.form_animation leftElement
-
-		# 
+		# initialize the right side thumbnail animations
+		thumbnailAnimation = new Project.Modules.thumbnail_controller container.children(".thumbnails").children("ul"), container.children(".content"), "map"
+		# iniitalize the rightside map
+		map = new Project.Modules.map map.get(0), data
+		# initialize the directions controller -- it will be passed the map so that it can work on it!
 		controller = new Project.Modules.listing_directions leftElement, container, data
 
 

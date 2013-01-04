@@ -2,11 +2,12 @@
 (function() {
   var _this = this;
 
-  Project.Modules.listing_directions = function(form, container, data) {
+  Project.Modules.listing_directions = function(form, container, data, map) {
     var getDirections, update;
     _this.form = form;
     _this.container = container;
     _this.data = data;
+    _this.map = map;
     _this.elements = {
       destination: _this.form.find("input[name='destination']"),
       origin: _this.form.find("input[name='origin']"),

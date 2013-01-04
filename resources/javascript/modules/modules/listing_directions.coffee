@@ -1,9 +1,10 @@
-Project.Modules.listing_directions = (@form, @container, @data) =>
+Project.Modules.listing_directions = (@form, @container, @data, @map) =>
 
 	@elements = 
 		destination: @form.find "input[name='destination']"
 		origin : @form.find "input[name='origin']"
-		submit : @form.find "[type='submit']"
+		submit : @form.find "[type='submit']"	
+
 
 	update = (data) =>
 

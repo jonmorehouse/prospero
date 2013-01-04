@@ -14,6 +14,7 @@ class Thumbnail extends CI_Model {
 
 		return array(
 
+			"property_url" => $this->general->listing_link($property_id),
 			"image" => $this->get_image($property_id),
 			"header" => $this->get_name($property_id),
 			"name" => $this->get_name($property_id),

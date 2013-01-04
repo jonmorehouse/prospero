@@ -22,11 +22,12 @@
       }
     };
     walkscoreInit = function() {
-      var animation, data, leftElement, mapElement;
+      var animation, data, leftElement, map, mapElement;
       data = pageData.listing_map.walkscore;
-      leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore" > div:first-child');
+      leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-child');
       mapElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)');
-      return animation = new Project.Modules.form_animation(leftElement.children());
+      animation = new Project.Modules.form_animation(leftElement.children());
+      return map = new Project.Modules.walkscore_map(mapElement.get(0), data);
     };
     nearbyPropertiesInit = function() {
       var container, data, map;
@@ -35,11 +36,15 @@
       return map = new Project.Modules.nearby_properties(container.get(0), data);
     };
     directionsInit = function() {
-      var animation, container, controller, data, leftElement;
+      var animation, container, controller, data, directions, leftElement, map, thumbnailAnimation;
       data = pageData.listing_map.directions;
       leftElement = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:first-child');
       container = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:nth-child(2)');
+      map = container.find("> .content > div[data-id='map']");
+      directions = container.find("> .content > div[data-id='directions']");
       animation = new Project.Modules.form_animation(leftElement);
+      thumbnailAnimation = new Project.Modules.thumbnail_controller(container.children(".thumbnails").children("ul"), container.children(".content"), "map");
+      map = new Project.Modules.map(map.get(0), data);
       return controller = new Project.Modules.listing_directions(leftElement, container, data);
     };
     return {

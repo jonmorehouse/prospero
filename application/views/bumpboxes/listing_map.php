@@ -53,14 +53,14 @@
 			<div>
 				<div class='thumbnails'>
 					<ul>
+						<li data-id='map' class='selected'>Map</li>
 						<li data-id='directions'>Directions</li>
-						<li data-id='map'>Map</li>
 					</ul>
 				</div>
 
 				<div class='content'>
-					<div data-id="directions"></div>
 					<div data-id="map"></div>
+					<div data-id="directions"></div>
 				</div>
 
 			</div>

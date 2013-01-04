@@ -16,7 +16,6 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 		'current_id' : (!default_id) ? 0 : default_id,//assuming that the first one is showing -- overwrite for different scenarios
 		'current_content': container.children(":first-child"),
 		'current_thumbnail': thumbnail_container.children(":first-child"),
-
 	};
 
 	var change = function(id) {
