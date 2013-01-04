@@ -3,51 +3,26 @@
   var _this = this;
 
   Project.Modules.nearby_properties = function(container, data) {
-    var propertyMarker;
     _this.container = container;
     _this.data = data;
-    _this.map = (function() {
-      var options;
-      _this.center = _this.data.center;
-      options = {
-        center: new google.maps.LatLng(_this.center.latitude, _this.center.longitude),
-        zoom: 14,
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-      };
-      return new google.maps.Map(_this.container, options);
-    })();
-    _this.centerMarker = (function() {
-      var options;
-      options = {
-        position: new google.maps.LatLng(_this.center.latitude, _this.center.longitude),
-        draggable: false,
-        map: _this.map
-      };
-      return new google.maps.Marker(options);
-    })();
-    propertyMarker = function(element) {
-      var options;
-      options = {
-        position: new google.maps.LatLng(element.coordinates.latitude, element.coordinates.longitude),
-        draggable: false,
-        map: _this.map
-      };
-      return new google.maps.Marker(options);
-    };
-    _this.thumbnails = (function() {
-      var element, _i, _len, _ref, _results;
+    _this.map = new Project.Modules.map(_this.container, _this.data);
+    return _this.thumbnails = (function() {
+      var box, element, marker, _i, _len, _ref, _results;
       _ref = _this.data.properties;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         element = _ref[_i];
-        _results.push({
-          marker: propertyMarker(element),
-          listener: "Not Yet Built"
+        marker = new google.maps.Marker({
+          map: _this.map.map,
+          draggable: false,
+          position: new google.maps.LatLng(element.coordinates.latitude, element.coordinates.longitude),
+          visible: true
         });
+        box = _this.map.createPropertyThumbnail(element.thumbnail);
+        _results.push(box.open(_this.map.map, marker));
       }
       return _results;
     })();
-    return console.log(_this.thumbnails);
   };
 
 }).call(this);

@@ -39,7 +39,8 @@
       return _this.centerBox.open(_this.map, _this.marker);
     })();
     return {
-      createPropertyThumbnail: createPropertyThumbnail
+      createPropertyThumbnail: createPropertyThumbnail,
+      map: map
     };
   };
 

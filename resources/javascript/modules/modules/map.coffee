@@ -40,4 +40,4 @@ Project.Modules.map = (@container, @data) =>
 		@centerBox.open @map, @marker
 
 	createPropertyThumbnail : createPropertyThumbnail
-		
+	map : map	
