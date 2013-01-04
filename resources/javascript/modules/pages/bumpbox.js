@@ -33,8 +33,8 @@
         contact: new Project.Modules.bumpbox($('#navigation_top li[data-link="contact"]'), $('.bumpbox.contact'))
       };
       modules = {
-        map: new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),
-        map_controller: new Project.Modules.bumpbox_map_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),
+        map: new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content'), "new"),
+        map_controller: new Project.Modules.general_maps($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),
         contact: new Project.Modules.contact($('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"),
         contact_animation: new Project.Modules.form_animation($('.bumpbox.contact'))
       };
@@ -44,19 +44,21 @@
         for (key in controllers) {
           controller = controllers[key];
           controller["config"]["in_callback"] = fade.fadeOut;
-          controller["config"]["out_callback"] = fade.fadeIn;
-          if (modules[key] && modules[key]["reset"]) {
-            _results.push(controller["reset"] = modules[key]["reset"]);
-          } else {
-            _results.push(void 0);
-          }
+          _results.push(controller["config"]["out_callback"] = fade.fadeIn);
         }
         return _results;
       })();
-      modules['map']['config']['change_trigger'] = modules['map_controller']['change_trigger'];
-      return $('#navigation_top li[data-link="map"]').click(function() {
-        return controllers.map.reset();
-      });
+      controllers.map.config.in_callback = function() {
+        fade.fadeOut();
+        modules.map.reset();
+        return modules.map_controller.changeTrigger("new");
+      };
+      controllers.map.config.out_callback = function() {
+        fade.fadeIn();
+        modules.map.reset();
+        return modules.map_controller.changeTrigger("new");
+      };
+      return modules.map.config.change_trigger = modules.map_controller.changeTrigger;
     })();
     return {
       fade: fade

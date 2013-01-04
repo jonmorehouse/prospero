@@ -11,9 +11,9 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 		'animation_speed': 1000,//how quickly the animations run once initialized
 		'thumbnail_tag': "data-id",//this should in general, not be overwritten 
 		'container_tag': "data-id",//see above
-		'default_id': (!default_id) ? 0 : default_id,//initialize the element
+		'default_id': (!default_id) ? "0" : default_id,//initialize the element
 		'change_trigger': false,//this is a change trigger for contacting other elements
-		'current_id' : (!default_id) ? 0 : default_id,//assuming that the first one is showing -- overwrite for different scenarios
+		'current_id' : (!default_id) ? "0" : default_id,//assuming that the first one is showing -- overwrite for different scenarios
 		'current_content': container.children(":first-child"),
 		'current_thumbnail': thumbnail_container.children(":first-child"),
 	};
@@ -22,6 +22,9 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 
 		var thumbnail = thumbnail_container.children("li[data-id=" + id + "]"),
 			next = container.children("div[data-id=" + id + "]");//this is the next element -- 
+
+		config.current_thumbnail.removeClass(config.selection_class);
+		thumbnail.addClass(config.selection_class);
 
 		if (id === config.current_id) return;
 

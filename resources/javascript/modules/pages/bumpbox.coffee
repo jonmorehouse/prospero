@@ -35,8 +35,8 @@ Project.Pages.Bumpbox = (elements) =>
 		modules =
 
 			# map include
-			map : new Project.Modules.thumbnail_controller $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content') #will create a pause function later -- this can be embedded in a different element
-			map_controller : new Project.Modules.bumpbox_map_controller $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')
+			map : new Project.Modules.thumbnail_controller $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content'), "new" #will create a pause function later -- this can be embedded in a different element
+			map_controller : new Project.Modules.general_maps $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')
 
 			# contact modules
 			contact: new Project.Modules.contact $('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"
@@ -48,16 +48,26 @@ Project.Pages.Bumpbox = (elements) =>
 			controller["config"]["in_callback"] = fade.fadeOut
 			controller["config"]["out_callback"] = fade.fadeIn
 
-			if modules[key] and modules[key]["reset"]
-				controller["reset"] = modules[key]["reset"]
 
-		#when someone clicks on a thumbnail controller -- signal a change in the map controller to load the approriate module!
-		modules['map']['config']['change_trigger'] = modules['map_controller']['change_trigger']
 
-		# edge case and we shouldn't change the other elements for this
-		# need to manually map the click elements to the change_trigger in the map controller to ensure that when we call on the particular maps, they get loaded
-		$('#navigation_top li[data-link="map"]').click () ->
-			do controllers.map.reset
+		# set up the in call back so that when we click on the bumpbox nav (top_nav) we reset the general thumbnail controller and then reset the specific bumpbox content controller
+		controllers.map.config.in_callback = () =>
+
+			do fade.fadeOut
+			do modules.map.reset
+			modules.map_controller.changeTrigger "new"
+
+		# what to do when we exit / close the bumpbox. Want to reset the controller and signal a reset in the map content controller
+		controllers.map.config.out_callback = () =>
+
+			do fade.fadeIn
+			do modules.map.reset
+			modules.map_controller.changeTrigger "new"
+
+
+		# now map the thumbnail controller change trigger to the general_maps so that when there isn't a show / hide of the entire bumpbox we still need to call the contnet update!
+		modules.map.config.change_trigger = modules.map_controller.changeTrigger
+
 
 	#return the fade element
 	fade : fade

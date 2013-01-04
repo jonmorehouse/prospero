@@ -18,26 +18,36 @@ Project.Pages.Homepage = (function() {
 		var bumpbox_modules = {
 
 
-			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails'), $('.bumpbox.team > .content')),//will create a pause function later -- this can be embedded in a different element
-			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails ul'), $('.bumpbox.services > .content')),//will create a pause function later -- this can be embedded in a different element
-			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails ul'), $('.bumpbox.about > .content')),//will create a pause function later -- this can be embedded in a different element
+			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails'), $('.bumpbox.team > .content'), 0),//will create a pause function later -- this can be embedded in a different element
+			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails ul'), $('.bumpbox.services > .content'), 0),//will create a pause function later -- this can be embedded in a different element
+			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails ul'), $('.bumpbox.about > .content'), 0),//will create a pause function later -- this can be embedded in a different element
 
 		}; 
 
 		// set the reset on each member here
-		for (var controller in bumpbox_controllers) {
+		// for (var controller in bumpbox_controllers) {
+		// 	(function() {
 
-			bumpbox_controllers[controller]["config"]["in_callback"] = fade.fadeOut;
-			bumpbox_controllers[controller]["config"]["out_callback"] = fade.fadeIn;
+		// 		bumpbox_controllers[controller]["config"]["in_callback"] = function() {
 
-		    bumpbox_controllers[controller]["config"]["reset"] = (function() {
+		// 			fade.fadeOut();
+		// 			bumpbox_modules[controller]["change_trigger"]("0");
 
-		    	if (bumpbox_modules[controller] !== undefined && bumpbox_modules[controller]["reset"] !== undefined) 
-		    		return bumpbox_modules[controller]["reset"];
+		// 		};
 
-		    	return false;
-		    })(controller);//end of closure
-		}//end loop
+		// 		bumpbox_controllers[controller]["config"]["out_callback"] = function() {
+
+		// 			fade.fadeIn();
+		// 			bumpbox_modules[controller]["change_trigger"]("0");
+
+		// 		};
+
+
+
+
+
+		// 	}(controller));
+		// }//end loop
 
 
 		}());//end of homepage initialization section

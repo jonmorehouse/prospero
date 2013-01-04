@@ -11,6 +11,8 @@ class Map_api extends Base_filter {
 
 		$libraries = array('property/media');
 		$this->CI->load->library($libraries);
+
+		$this->CI->load->model("property/thumbnail");
 	}
 
 	public function general_map_data($filters) {
@@ -26,7 +28,7 @@ class Map_api extends Base_filter {
 
 			$data[$filter] = array(
 
-				"center" => $this->get_center($properties),
+				"center" => $this->CI->geographical_information->get_default_coordinates(),
 				"properties" => $properties
 			);
 		}
@@ -45,9 +47,9 @@ class Map_api extends Base_filter {
 
 			$data = array("property_id" => $property_id,
 
-				"coordinates" => $this->CI->geographical_information->get_coordinates($property_id), 
+				"coordinates" => $this->CI->geographical_information->get_coordinates($property_id),
 				"title" => $this->CI->general->get_category($property_id, "name"),
-				"thumbnail" => $this->CI->media->get_thumbnail($property_id),
+				"thumbnail" => $this->CI->thumbnail->general_thumbnail($property_id)
 			);
 
 			if ($data['coordinates']['longitude'] && $data['coordinates']['latitude'])
@@ -59,6 +61,8 @@ class Map_api extends Base_filter {
 
 	public function get_center($points) {
 
+
+		// center not working for now
 		$lat = array('max' => $points[0]['coordinates']['latitude'], 'min' => $points[0]['coordinates']['latitude']);
 		$lon = array('max' => $points[0]['coordinates']['longitude'], 'min' => $points[0]['coordinates']['longitude']);
 			

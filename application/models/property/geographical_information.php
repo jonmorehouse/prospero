@@ -10,6 +10,18 @@ class Geographical_information extends CI_Model {
 
 	}
 
+	public function get_default_coordinates() {
+
+		return array(
+
+			"latitude" => $this->general->config("default_latitude"),
+			"longitude" => $this->general->config("default_longitude"),
+		);
+
+
+	}
+
+
 	function get_coordinates($property_id) {
 
 		$longitude = $this->general->get_category($property_id, "longitude");
