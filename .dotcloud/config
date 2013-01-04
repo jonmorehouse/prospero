@@ -1,0 +1,6 @@
+{
+    "push_branch": null, 
+    "application": "prospero", 
+    "version": "0.9.1", 
+    "push_protocol": "rsync"
+}
