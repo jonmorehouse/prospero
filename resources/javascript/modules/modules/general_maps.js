@@ -39,7 +39,6 @@
           visible: true,
           position: new google.maps.LatLng(property.coordinates.latitude, property.coordinates.longitude)
         });
-        console.log(property);
         markerBox = thumbnailMarker(property.thumbnail);
         markerBox.open(map, marker);
       }

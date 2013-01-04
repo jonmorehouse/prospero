@@ -46,17 +46,8 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 				visible: true			
 				position: new google.maps.LatLng property.coordinates.latitude, property.coordinates.longitude
 
-			console.log property
 			markerBox = thumbnailMarker property.thumbnail
 			markerBox.open map, marker			
-
-
-
-		# # create the info box and then open it for the marker!
-		# @centerBox = createPropertyThumbnail @data.thumbnail
-		# @centerBox.open @map, @marker
-
-
 
 		return true
 

@@ -12,11 +12,10 @@ class Map_api extends Base_filter {
 		$libraries = array('property/media');
 		$this->CI->load->library($libraries);
 
-		$this->CI->load->model("property/thumbnail");
+		$this->CI->load->model(array("general", "property/thumbnail"));
 	}
 
 	public function general_map_data($filters) {
-
 
 		$data = array();
 
@@ -44,6 +43,10 @@ class Map_api extends Base_filter {
 		$map_data = array();
 
 		foreach ($properties as $property_id) {
+
+			if (!$this->CI->general->live($property_id))
+				continue;
+
 
 			$data = array("property_id" => $property_id,
 

@@ -1,5 +1,5 @@
 <div id='header'>
-	<h1><?php echo $this->thumbnail['name'];?></h1>
+	<h1><?php echo $this->listing_thumbnail['name'];?></h1>
 	<!-- responsible for having a thumbnail image and header content -->
 </div>
 

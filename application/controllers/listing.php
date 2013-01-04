@@ -83,6 +83,9 @@ class Listing extends CI_Controller {
 	// dynamic listing is the last step -- should not happen for any live pages
 	private function dynamic_listing() {
 
+		// 
+		$this->output->cache(1440);
+
 		// initialize library dependencies
 		$libraries = array(
 			"utilities/header", 
@@ -123,7 +126,7 @@ class Listing extends CI_Controller {
 		$this->bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);
 
 		// initialize main page elements
-		$this->thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
+		$this->listing_thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
 		$this->content = $this->listing_content->content();//returns the description, header etc
 		$this->elements = $this->listing_content->elements();//returns the name of the element
 

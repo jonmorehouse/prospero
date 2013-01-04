@@ -18,37 +18,11 @@ Project.Pages.Homepage = (function() {
 		var bumpbox_modules = {
 
 
-			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails'), $('.bumpbox.team > .content'), 0),//will create a pause function later -- this can be embedded in a different element
-			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails ul'), $('.bumpbox.services > .content'), 0),//will create a pause function later -- this can be embedded in a different element
-			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails ul'), $('.bumpbox.about > .content'), 0),//will create a pause function later -- this can be embedded in a different element
+			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails > ul'), $('.bumpbox.team > .content'), 0),//will create a pause function later -- this can be embedded in a different element
+			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails > ul'), $('.bumpbox.services > .content'), 0),//will create a pause function later -- this can be embedded in a different element
+			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails > ul'), $('.bumpbox.about > .content'), 0),//will create a pause function later -- this can be embedded in a different element
 
 		}; 
-
-		// set the reset on each member here
-		// for (var controller in bumpbox_controllers) {
-		// 	(function() {
-
-		// 		bumpbox_controllers[controller]["config"]["in_callback"] = function() {
-
-		// 			fade.fadeOut();
-		// 			bumpbox_modules[controller]["change_trigger"]("0");
-
-		// 		};
-
-		// 		bumpbox_controllers[controller]["config"]["out_callback"] = function() {
-
-		// 			fade.fadeIn();
-		// 			bumpbox_modules[controller]["change_trigger"]("0");
-
-		// 		};
-
-
-
-
-
-		// 	}(controller));
-		// }//end loop
-
 
 		}());//end of homepage initialization section
 	//END OF BUMPBOX CONTROLLERS!

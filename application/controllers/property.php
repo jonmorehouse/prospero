@@ -57,14 +57,15 @@ class Property extends CI_Controller{
 	}
 	
 	private function output(){
-				
+					
+		$this->output->cache(1440);
+
 		// load general libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes", "property/base_filter", "property/map_api");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
 		// load models
 		$this->load->model(array("pages/elements", "pages/headers", "pages/messages", "pages/navigation"));
-
 
 		// get the basic header
 		$this->header = $this->dynamic_header->get_header();//get the current header element

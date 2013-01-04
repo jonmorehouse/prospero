@@ -46,7 +46,14 @@
 	overflow-y: auto;
 	padding-top:1.2em;
 
-	> div {
+	> ul {
+
+		width: 100%;
+		list-style-type:none;
+		padding:0;
+	}
+
+	> ul > li, > div {
 
 		width: 14.67%;
 		float:left;
@@ -95,10 +102,9 @@
 		}
 	}
 
-	> div.selected {
+	.selected {
 
 		.light_background(0.2);
-
 	}
 
 		
@@ -240,7 +246,7 @@
 	ul {
 		position:relative;
 		left:0;
-		left:-2em;
+		// left:-2em;
 
 		width: 100%;
 		list-style-type:none;
