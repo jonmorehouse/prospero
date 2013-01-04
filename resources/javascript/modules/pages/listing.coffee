@@ -59,6 +59,12 @@ do Project.Pages.Listing = () ->
 				do fade.fadeOut
 				do listingMapThumbnailController.reset
 
+			# connect the call out to ensure proper reset!
+			modules.listing_map.config.out_callback = () ->
+
+				do fade.fadeIn
+				do listingMapThumbnailController.reset
+
 			listingMapController = new Project.Modules.listing_map_controller()
 			listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger
 

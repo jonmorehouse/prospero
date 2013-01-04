@@ -1,6 +1,7 @@
 Project.Modules.places_controller = (form_container, @map, @data) =>
 
 	@searchInput = form_container.find "input[name='search']"
+	@typeInput = form_container.find "select[name='type']"
 	@searchSubmit = form_container.find "[type='submit']"
 
 
@@ -15,19 +16,18 @@ Project.Modules.places_controller = (form_container, @map, @data) =>
 		# append the elements below!
 
 
-	do getPlaces = () =>
+	getPlaces = (value, type) =>
 
 
-		console.log @data
-		# url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{@data.center.latitude},#{@data.center.longitude}&radius=500&types=#{@data.types}&name=#{value}&sensor=false&key=#{@data.api_key}"
 
-		console.log url
-
+		
 
 
 	@searchSubmit.click =>
-		alert @searchInput.attr "value"
 		
+		status = getPlaces @searchInput.attr("value"), @typeInput.attr("value")
+
+
 
 
 

@@ -6,6 +6,7 @@
     _this.container = container;
     _this.data = data;
     _this.map = new Project.Modules.map(_this.container, _this.data);
+    _this.map.map.setZoom(13);
     return _this.thumbnails = (function() {
       var box, element, marker, _i, _len, _ref, _results;
       _ref = _this.data.properties;

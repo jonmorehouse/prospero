@@ -7,15 +7,14 @@
     _this.map = map;
     _this.data = data;
     _this.searchInput = form_container.find("input[name='search']");
+    _this.typeInput = form_container.find("select[name='type']");
     _this.searchSubmit = form_container.find("[type='submit']");
     error = function(value) {};
     success = function() {};
-    (getPlaces = function() {
-      console.log(_this.data);
-      return console.log(url);
-    })();
+    getPlaces = function(value, type) {};
     return _this.searchSubmit.click(function() {
-      return alert(_this.searchInput.attr("value"));
+      var status;
+      return status = getPlaces(_this.searchInput.attr("value"), _this.typeInput.attr("value"));
     });
   };
 

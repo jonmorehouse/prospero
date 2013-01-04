@@ -4,6 +4,8 @@ Project.Modules.nearby_properties = (@container, @data) =>
 	# create a thumbnail for each one
 	@map = new Project.Modules.map @container, @data
 
+	@map.map.setZoom 13
+
 	@thumbnails = do () =>
 
 		# return a list comprehension!
@@ -17,5 +19,6 @@ Project.Modules.nearby_properties = (@container, @data) =>
 
 			box = @map.createPropertyThumbnail element.thumbnail
 			box.open @map.map, marker
+
 
 	

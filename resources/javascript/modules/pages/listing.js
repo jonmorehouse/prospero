@@ -38,6 +38,10 @@
           fade.fadeOut();
           return listingMapThumbnailController.reset();
         };
+        modules.listing_map.config.out_callback = function() {
+          fade.fadeIn();
+          return listingMapThumbnailController.reset();
+        };
         listingMapController = new Project.Modules.listing_map_controller();
         listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger;
       }

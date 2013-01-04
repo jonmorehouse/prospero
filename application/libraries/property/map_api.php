@@ -13,10 +13,31 @@ class Map_api extends Base_filter {
 		$this->CI->load->library($libraries);
 	}
 
+	public function general_map_data($filters) {
+
+
+		$data = array();
+
+		foreach ($filters as $filter) {
+
+			$filter = $filter['filter'];
+
+			$properties = $this->general_map($filter);
+
+			$data[$filter] = array(
+
+				"center" => $this->get_center($properties),
+				"properties" => $properties
+			);
+		}
+
+		return $data;
+
+	}
+
 	public function general_map($filter) {
 
 		$properties = $this->property_filter($filter);
-
 
 		$map_data = array();
 
@@ -64,13 +85,5 @@ class Map_api extends Base_filter {
 		
 	}
 	
-	public function nearby_properties() {
-
-		$property_id = $this->input->post("property_id");
-
-		// get a triangle of all points and then return thumbnails for each property in the vicinity / triangle of the elements
-		
-
-	}
 
 }

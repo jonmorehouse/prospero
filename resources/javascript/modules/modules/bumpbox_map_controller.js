@@ -14,10 +14,9 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 
 		container.children('div').each(function() {
 
-			var current = $(this);
+			var _current = $(this);
 
-
-			maps[current.attr('data-id')] = (function (current){
+			maps[_current.attr('data-id')] = (function (current){
 
 				id = current.attr('data-id'),
 				category = current.attr('data-category'),
@@ -51,7 +50,7 @@ Project.modules.bumpbox_map_controller = function(thumbnails, container) {
 				}(id));
 
 				return data;
-			}(current));
+			}(_current));
 		
 
 		});//end of each loop

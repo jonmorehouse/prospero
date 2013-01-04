@@ -92,6 +92,8 @@ class Listing extends CI_Controller {
 			"listing/listing_bumpbox",
 			"listing/listing_content",
 			"listing/listing_media",
+			"property/base_filter",
+			'property/map_api'//used to get general map data
 		);
 
 		$this->load->library($libraries, array("page_id" => "listing", "property_id" => $this->property_id));
@@ -130,6 +132,8 @@ class Listing extends CI_Controller {
 		$this->thumbnail_images = $this->listing_media->slideshow_image_thumbnails();
 
 		$this->data = array(
+
+			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
 			"property_id" => $this->property_id,
 			"slideshow_images" => $this->slideshow_images,
 			"slideshow_thumbnail_images" => $this->thumbnail_images,

@@ -1,5 +1,6 @@
 Project.modules.general_map = function(element, data) {
 
+	return;
 	var config = {	
 
 		map_container: element.children('div').get(0),//can change this later if necessary!

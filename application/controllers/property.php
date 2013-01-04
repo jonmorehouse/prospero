@@ -59,7 +59,7 @@ class Property extends CI_Controller{
 	private function output(){
 				
 		// load general libraries
-		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes");
+		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes", "property/base_filter", "property/map_api");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
 		// load models
@@ -81,6 +81,12 @@ class Property extends CI_Controller{
 
 		// this is the box in the middle of the screen the user sees
 		$this->thumbnail_label = ($this->id === "search") ? ($this->headers->search_header()) : ($this->headers->browse_header($this->id, $this->category));
+
+		$this->data = array(
+
+			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
+
+		);
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID

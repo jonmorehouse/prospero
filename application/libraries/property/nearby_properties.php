@@ -42,6 +42,7 @@ class Nearby_properties extends Base_filter {
 		return $content;
 	}
 
+	// returns the number of elements the array!
 	public function nearby_properties($property_id) {
 
 		$property_point = $this->CI->geographical_information->get_coordinates($property_id);
@@ -49,7 +50,9 @@ class Nearby_properties extends Base_filter {
 
 		$sorted_properties = $this->sort_by_distance($properties, $property_point);
 
-		return $sorted_properties;
+		if (count($sorted_properties) < $this->range) return $sorted_properties;
+
+		return array_slice($sorted_properties, 0, $this->range, true);
 	}
 
 	// get an average delta

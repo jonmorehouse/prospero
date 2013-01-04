@@ -1,5 +1,6 @@
 <?php
 	echo $this->header;
+	$this->load->view("site_wide/data");
 	$this->load->view('site_wide/background');//automatically loads in its images with proper js
 	$this->load->view('site_wide/border');//
 	$this->load->view('navigation/navigation_top');//takes care of its own bumpboxes assuming the correct content is passed

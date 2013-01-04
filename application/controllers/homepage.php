@@ -6,7 +6,7 @@ class Homepage extends CI_Controller{
 		parent::__construct();
 		$this->id = 'homepage';
 		
-		$this->load->library(array('utilities/header', 'utilities/dynamic_header'), array("page_id" => "homepage"));
+		$this->load->library(array('utilities/header', 'utilities/dynamic_header', 'property/base_filter', 'property/map_api'), array("page_id" => "homepage"));
 		$this->load->library(array('general/top_bumpboxes', "homepage/homepage_bumpboxes"));
 
 		$this->load->model(array("pages/elements", "pages/navigation"));
@@ -35,6 +35,10 @@ class Homepage extends CI_Controller{
 		// map bumpbox
 		$this->map_bumpbox = $this->top_bumpboxes->get_maps();//returns the map data etc
 
+		// generate map data
+		$this->data = array(
+			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
+		);
 		
 		//load and compile the view
 		$this->load->view('homepage/homepage_base');//main view for this page
