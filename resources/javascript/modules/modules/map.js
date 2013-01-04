@@ -16,7 +16,6 @@
     })();
     createPropertyThumbnail = function(thumbnail) {
       var options, parent;
-      console.log(thumbnail);
       parent = document.createElement("div");
       $(parent).html("<a href='" + thumbnail.property_url + "'><img width='50' height='50' src='" + thumbnail.image.url + "' alt='" + thumbnail.image.alt + "' /></a>");
       options = {

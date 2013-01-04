@@ -22,12 +22,13 @@
       }
     };
     walkscoreInit = function() {
-      var animation, data, leftElement, map, mapElement;
+      var animation, data, leftElement, map, mapElement, placesController;
       data = pageData.listing_map.walkscore;
       leftElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-child');
       mapElement = $('.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:nth-child(2)');
       animation = new Project.Modules.form_animation(leftElement.children());
-      return map = new Project.Modules.walkscore_map(mapElement.get(0), data);
+      map = new Project.Modules.walkscore_map(mapElement.get(0), data);
+      return placesController = new Project.Modules.places_controller(leftElement, _this.map, data);
     };
     nearbyPropertiesInit = function() {
       var container, data, map;

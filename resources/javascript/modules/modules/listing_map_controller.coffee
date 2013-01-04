@@ -38,6 +38,7 @@ Project.Modules.listing_map_controller = () ->
 
 		# console.log Project.Modules.walkscore_map
 		map = new Project.Modules.walkscore_map mapElement.get(0), data
+		placesController = new Project.Modules.places_controller leftElement, @map, data		
 
 	nearbyPropertiesInit = () => 
 

@@ -21,6 +21,8 @@ class Walkscore extends CI_Model {
 			"walkscore_logo" => $this->elements->get_image("walkscore_logo"),
 			"walkscore" => $this->general->get_category($property_id, "walkscore"),
 			"thumbnail" => $this->thumbnail->general_thumbnail($property_id),
+			"api_key" => $this->general->config("google_maps_api_key"),//
+			"types" => $this->get_places_types()
 		);
 		// get walkscore image
 		// get center
@@ -28,6 +30,19 @@ class Walkscore extends CI_Model {
 		// get walking triangle
 		// -- will then build in the places to find points in the area
 	}
+
+	private function get_places_types() {
+
+		$types = array();
+		$query = $this->db->get("places_types");
+
+		foreach ($query->result() as $row)
+			array_push($types, array("name" => $row->name, "value" => $row->value));
+
+		return $types;		
+	}
+
+
 
 } 
 	

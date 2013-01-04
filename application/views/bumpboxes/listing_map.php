@@ -21,9 +21,14 @@
 				</div>
 
 				<div>
-					<span>Find your favorite places within walking distance!</span>
-					<input type='text'>
+					<!-- initialize input form for walkscore search using google places! -->
+					<input type='text' name='search' value='Search for places nearby ...'>
 					<button type='submit' value='Find!'>Find!</button>
+					<select name='type'>
+					<?php foreach ($walkscore['types'] as $key=>$type): ?>
+						<option value='<?php echo $type['value'];?>'><?php echo $type['name'];?></option>
+					<?php endforeach;?>
+					</select>					
 					<div></div><!-- SEARCH RESULTS GO HERE! -->
 				</div>
 				<!-- left container end -->

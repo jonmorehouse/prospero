@@ -9,14 +9,44 @@ class Temp_development extends CI_Controller {
 		$this->load->library(array("utilities/format", "general/page_management"));
 	}	
 
-	public function update_geo() {
+	public function temp() {
+
+		$types = array(
+			"atm",
+			"bar",
+			"bus_station",
+			"cafe",
+			"campground",
+			"church",
+			"food",
+			"gas_station",
+			"grocery_or_supermarket",
+			"gym",
+			"hair_care",
+			"library",
+			"night_club",
+			"park",
+			"post_office",
+			"real_estate_agency",
+			"restaurant",
+			"rv_park",
+			"school",
+			"spa",
+			"store"
+		);
+
+		foreach ($types as $type) {
 
 
-		$this->load->library("property/property_automated", array("property_id" => 5));
+			$this->db->insert("places_types", array("formatted_value" => $this->format->word_format($type), "value"=>$type));
 
-		for ($i = 0, $z = 60; $i < $z; $i++)
-			$this->property_automated->update_property($i);
+		}
+
+
+
+
 	}
+
 
 	public function compile() {
 

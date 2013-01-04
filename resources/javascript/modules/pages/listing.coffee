@@ -50,7 +50,7 @@ do Project.Pages.Listing = () ->
 			# need to map the bumpbox listner to the thumbnail controller
 			# need to map the thumbnail controller to the listingMapController
 			listingMapThumbnailController = new Project.Modules.thumbnail_controller containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content") #return a change trigger
-			listingMapThumbnailController.config.default_id = "directions"
+			listingMapThumbnailController.config.default_id = "walkscore"
 
 			# connect the bumpbox click to listingMapThumbnailController to target a change_trigger that can be used to contact the actual code base later
 			modules.listing_map.config.in_callback = () ->
