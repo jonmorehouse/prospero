@@ -34,11 +34,22 @@
 		</div>
 
 		<div data-id='directions'>
-			<!-- similar to before -->
-			<!-- thumbnail at top -->
-			<!-- search for directions and append at bottom -->
-			
+			<div>
+				<div>
+					<h1>Get Directions to this property.</h1>
+					<input type='text' value='<?php echo $directions['address'];?>'>
+					<input type='text' value='destination'>
+					<button type='submit' value='Find!'>Find!</button>
+					<div></div><!-- SEARCH RESULTS GO HERE! -->
+				</div>
 
+			</div>
+
+			<div>
+
+				<!-- map goes here -->
+
+			</div>
 		</div>
 
 		<div data-id='nearby_properties'>

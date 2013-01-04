@@ -9,16 +9,6 @@ class Temp_development extends CI_Controller {
 		$this->load->library(array("utilities/format", "general/page_management"));
 	}	
 
-	public function test() {
-
-		$property_id = 5;
-		$this->load->library("walkscore/walkscore");
-
-		$this->walkscore->get_walkscore($property_id);
-
-
-	}
-
 	public function update_geo() {
 
 
@@ -38,36 +28,6 @@ class Temp_development extends CI_Controller {
 	public function compile_all() {
 
 		$this->page_management->compile_all();
-	}
-
-	public function config_settings() {
-
-		$config(
-
-		);
-
-		foreach ($config as $key => $value)
-			$this->db->insert("config_settings", array("element_id" => $key, "value" => $value));		
-
-	}
-
-	public function global_categories() {
-
-
-		$global = array("property_content", "meta_description", "meta_keywords", "thumbnail_blurb");
-
-		foreach ($global as $category) 
-			$this->db->where(array("category" => $category))->update("category_type_categories", array("global_content" => false));
-
-	}
-
-	public function allow_defaults() {
-
-		$allowed = array("type", "type_category", "no_vacancies", "new_property", "meta_keywords", "meta_description");
-
-		foreach ($allowed as $category) 
-			$this->db->where(array("category" => $category))->update("category_type_categories", array("default_allowed" => true));
-		
 	}
 
 	public function insert_message() {

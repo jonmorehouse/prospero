@@ -33,11 +33,11 @@ class Property_automated {
 			
 
 		// save teh lat / lon elements for this particular property
-		// $this->save_geocoded_address($property_id);
+		$this->save_geocoded_address($property_id);
 
 		// save walkscore api data!
 		// $this->save_walkscore($property_id);
-		$this->save_walking_distance($property_id);
+		// $this->save_walking_distance($property_id);
 
 		// save a static cache
 		// $this->save_static($property_id);
@@ -72,6 +72,7 @@ class Property_automated {
 		if (!$geocoded_address) return false;
 
 		$this->CI->save_geographical_information->save_geocoded_address($property_id, $geocoded_address);
+		$this->CI->save_geographical_information->save_formatted_address($property_id, $geocoded_address['formatted_address']);//this is the absolute address validated from google!
 
 	}
 

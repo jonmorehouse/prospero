@@ -2,15 +2,23 @@
 (function() {
 
   Project.Modules.listing_map_controller = function() {
-    var changeTrigger, nearbyPropertiesInit, walkscoreInit,
+    var changeTrigger, directionsInit, nearbyPropertiesInit, status, walkscoreInit,
       _this = this;
+    status = {
+      "walkscore": false,
+      "nearby_properties": false,
+      "directions": false
+    };
     changeTrigger = function(id) {
-      if (id === "walkscore") {
-        return walkscoreInit();
-      } else if (id === "nearby_properties") {
-        return nearbyPropertiesInit();
-      } else {
-        return alert("functionality not built yet!");
+      if (id === "walkscore" && !status.walkscore) {
+        walkscoreInit();
+        return status.walkscore = true;
+      } else if (id === "nearby_properties" && !status.nearby_properties) {
+        nearbyPropertiesInit();
+        return status.nearby_properties = true;
+      } else if (id === "directions" && !status.directions) {
+        directionsInit();
+        return status.directions = true;
       }
     };
     walkscoreInit = function() {
@@ -26,6 +34,7 @@
       container = $('.bumpbox.listing_map > div.content > div[data-id="nearby_properties"]');
       return map = new Project.Modules.nearby_properties(container[0], data);
     };
+    directionsInit = function() {};
     return {
       changeTrigger: changeTrigger
     };

@@ -42,5 +42,13 @@ class Save_geographical_information extends CI_Model {
 
 	}
 
+	public function save_formatted_address($property_id, $value) {
+
+		$table = $this->general->get_category_table("formatted_address");
+
+		$this->db->where(array("property_id" => $property_id))->update($table, array("formatted_address" => $value));
+
+	}
+
 
 }

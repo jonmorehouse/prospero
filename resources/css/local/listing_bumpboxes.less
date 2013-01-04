@@ -181,12 +181,15 @@ div.bumpbox.similar_properties, div.bumpbox.listing_map {
 	}
 }
 
+// 
+div.bumpbox.listing_map > div.content > div {
+
+		height:100%;
+		width:100%;
+}
+
 /*********** LISTING MAP WALKSCORE BUMPBOX ***********/
-div.bumpbox.listing_map > div.content > div[data-id="walkscore"] {
-
-	height:100%;
-	width:100%;
-
+div.bumpbox.listing_map > div.content > div[data-id="walkscore"], div.bumpbox.listing_map > div.content > div[data-id="directions"] {
 
 	> div {
 
@@ -209,7 +212,7 @@ div.bumpbox.listing_map > div.content > div[data-id="walkscore"] {
 }
 	
 // walkscore left side element
-div.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-child > div{
+div.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-child > div, div.bumpbox.listing_map > div.content > div[data-id="directions"] > div:first-child > div{
 
 	position:relative;
 	float:left;
@@ -323,14 +326,9 @@ div.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-chi
 	}
 }
 
-/*********** */
 
-div.bumpbox.listing_map > div.content > div[data-id="nearby_properties"] {
 
-		height:100%;
-		width:100%;
-		
-}
+
 
 
 

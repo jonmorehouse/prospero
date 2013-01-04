@@ -119,6 +119,7 @@ class Listing_bumpbox extends Listing_base {
 
 			"directions" => array(
 				"center" => $this->CI->geographical_information->get_coordinates($this->property_id),
+				"address" => $this->CI->general->get_category($this->property_id, "formatted_address"),//
 				"thumbnail" => $this->CI->thumbnail->general_thumbnail($this->property_id),
 			),
 		);
