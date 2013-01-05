@@ -38,7 +38,8 @@ Project.Modules.listing_map_controller = () ->
 
 		# console.log Project.Modules.walkscore_map
 		map = new Project.Modules.walkscore_map mapElement.get(0), data
-		placesController = new Project.Modules.places_controller leftElement, @map, data		
+		# initialize places controller
+		placesController = new Project.Modules.places_controller leftElement, map, data		
 
 	nearbyPropertiesInit = () => 
 
@@ -53,7 +54,7 @@ Project.Modules.listing_map_controller = () ->
 		data = pageData.listing_map.directions
 		leftElement = $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:first-child')
 		container =  $('.bumpbox.listing_map > div.content > div[data-id="directions"] > div:nth-child(2)')
-		map = container.find("> .content > div[data-id='map']")
+		mapElement = container.find("> .content > div[data-id='map']")
 		directions = container.find("> .content > div[data-id='directions']")
 
 		# initialize form animation
@@ -61,9 +62,9 @@ Project.Modules.listing_map_controller = () ->
 		# initialize the right side thumbnail animations
 		thumbnailAnimation = new Project.Modules.thumbnail_controller container.children(".thumbnails").children("ul"), container.children(".content"), "map"
 		# iniitalize the rightside map
-		map = new Project.Modules.map map.get(0), data
+		map = new Project.Modules.map mapElement.get(0), data
 		# initialize the directions controller -- it will be passed the map so that it can work on it!
-		controller = new Project.Modules.listing_directions leftElement, container, data
+		controller = new Project.Modules.listing_directions leftElement, container, data, map, thumbnailAnimation
 
 
 	changeTrigger: changeTrigger

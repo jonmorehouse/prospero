@@ -24,7 +24,7 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 	mapInit = (id) =>
 
 		_data = data[id]
-		_container = container.find("div[data-id='#{id}']").get 0
+		_container = container.find("div[data-id='#{id}'] > div").get 0
 
 		options =
 
@@ -55,10 +55,10 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 
 		if not maps[id]
 
-			maps[id] = mapInit id	
+			callback = () =>
+				maps[id] = mapInit id
 
-		
-
-
+			setTimeout callback, 500
+			
 
 	changeTrigger: changeTrigger

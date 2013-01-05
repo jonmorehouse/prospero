@@ -16,14 +16,12 @@
 					<a href='http://www.walkscore.com/about.shtml' target='new'>
 						<img src='<?php echo $walkscore['walkscore_logo']['url'];?>' alt='<?php echo $walkscore['walkscore_logo']['alt'];?>' />
 					</a>
-
 					<a href='http://www.walkscore.com/about.shtml' target='new'><span><?php echo $walkscore['walkscore']; ?></span></a>
 				</div>
 
 				<div>
 					<!-- initialize input form for walkscore search using google places! -->
-					<input type='text' name='search' value='Search for places nearby ...'>
-					<button type='submit' value='Find!'>Find!</button>
+					<h1>Find Places Nearby</h1>
 					<select name='type'>
 					<?php foreach ($walkscore['types'] as $key=>$type): ?>
 						<option value='<?php echo $type['value'];?>'><?php echo $type['name'];?></option>
@@ -48,7 +46,7 @@
 				<div>	
 					<h1>Get Directions</h1>
 					<input type='text' name='origin' value='<?php echo $directions['address'];?>' /><br />
-					<input type='text' name='destination' value='<?php echo $this->general->get_category(13, "formatted_address");?>' /><br />
+					<input type='text' name='destination' value='Destination' /><br />
 					<button type='submit' name='submit'>Get Directions</button>
 					<div></div><!-- SEARCH RESULTS GO HERE! -->
 				</div>
@@ -65,15 +63,17 @@
 
 				<div class='content'>
 					<div data-id="map"></div>
-					<div data-id="directions"></div>
+					<div data-id="directions">
+						<ul>
+							<!-- directions go here! -->
+						</ul>
+					</div>
 				</div>
 
 			</div>
 		</div>
 
-		<div data-id='nearby_properties'>
-			other element goes her
-		</div>
+		<div data-id='nearby_properties'></div>
 
 	</div>
 
@@ -84,7 +84,6 @@
 			<li data-id='nearby_properties'>Nearby Properties</li>
 		</ul>
 	</div>
-
 </div>
 
 <script type='text/javascript'>

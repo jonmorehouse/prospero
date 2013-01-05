@@ -58,12 +58,12 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 		var id = $(this).attr(config.thumbnail_tag);
 
 		change(id);
-
 	});
 
 
 	return {
 
+		"changeTrigger" : change,//only call if you know what you are doing
 		'reset': reset,//this is the function that is responsible for resetting the entire module
 		'config': config,//return the configuration object
 	};

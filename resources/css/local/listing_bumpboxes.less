@@ -170,7 +170,7 @@ div.bumpbox.similar_properties, div.bumpbox.listing_map {
 	
 			display:none;
 
-			&:nth-child(1) {
+			&:first-child {
 
 				display:block;
 			}
@@ -247,7 +247,6 @@ div.bumpbox.listing_map > div.content > div[data-id="walkscore"] > div:first-chi
 		position:relative;
 		margin-top:0.5em;
 		height:50%;
-		overflow-y:auto;
 
 		// span element
 		> span {
@@ -381,9 +380,11 @@ div.bumpbox.listing_map > div.content > div[data-id="directions"] > div {
 			position:relative;
 
 			ul {
+				padding:0;
 				width: 100%;
 				li {
 					width:45%;
+					margin-left:2.5%;
 				}
 			}
 		}
@@ -395,21 +396,21 @@ div.bumpbox.listing_map > div.content > div[data-id="directions"] > div {
 			margin:0 auto;
 			position:relative;
 			display:block;
-			
+				
 			> div {
 
 				position:absolute;
 				height:100%;
 				width:100%;	
 				display:none;
+				overflow-y:auto;
 
 				&:first-child {
 
 					display:block;
+					color: black;
 				}
-
 			}
-
 		}
 	}
 }

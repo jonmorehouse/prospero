@@ -23,7 +23,7 @@
     mapInit = function(id) {
       var map, marker, markerBox, options, property, _container, _data, _i, _len, _ref;
       _data = data[id];
-      _container = container.find("div[data-id='" + id + "']").get(0);
+      _container = container.find("div[data-id='" + id + "'] > div").get(0);
       options = {
         center: new google.maps.LatLng(_data.center.latitude, _data.center.longitude),
         zoom: 9,
@@ -45,8 +45,12 @@
       return true;
     };
     changeTrigger = function(id) {
+      var callback;
       if (!maps[id]) {
-        return maps[id] = mapInit(id);
+        callback = function() {
+          return maps[id] = mapInit(id);
+        };
+        return setTimeout(callback, 500);
       }
     };
     return {

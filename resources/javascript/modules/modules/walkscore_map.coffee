@@ -2,54 +2,57 @@ Project.Modules.walkscore_map = (@container, @data) ->
 
 	do mapInit = () =>
 
-		# make the points proper datatypes
-		@center = 
-			latitude : parseFloat @data.center.latitude
-			longitude : parseFloat @data.center.longitude
+		@center = new google.maps.LatLng @data.center.latitude, @data.center.longitude
 
-		@boundary = parseFloat @data.boundary
-
-		# initialize basic map options
 		@options = 
 
-			center: new google.maps.LatLng @center.latitude, @center.longitude
-			zoom: 14
-			mapTypeId: google.maps.MapTypeId.SATELLITE
+			center: @center
+			zoom: 16
+			mapTypeId: google.maps.MapTypeId.ROADMAP
 
 		@map = new google.maps.Map @container, @options
 
+	# basic helper function for generic thumbnail element
+	# link-destination, image-src, google.maps.marker
+	thumbnailMarker = (url, src, marker) =>
 
-  	# create the overlay and then initialize a bounds object!
-	do boundsInit = () =>
+		parent = document.createElement "div"
+		$(parent).html "<a target='new' href='#{url}'><img width='50' height='50' src='#{src}' /></a>" 
 
-		createMarker = (point) =>
+		options = 
+			content: parent
+			boxClass : "map_info_box"
+			disableAutoPan : false
+			enableEventPropagation : false
+			isHidden: false
 
-			options =
-				position: point
-				draggable: true
-				map: @map
-		
-			# create the marker!
-			@centerMarker = new google.maps.Marker options
+		infoBox = new InfoBox options
 
+		infoBox.open @map, marker
 
-		# initialize coordiantes!
-		@rectCoordinates = []
-		@rectCoordinates[0] = new google.maps.LatLng @center.latitude + @boundary, @center.longitude - @boundary
-		@rectCoordinates[1] = new google.maps.LatLng @center.latitude + @boundary, @center.longitude + @boundary
-		@rectCoordinates[3] = new google.maps.LatLng @center.latitude - @boundary, @center.longitude - @boundary
-		@rectCoordinates[2] = new google.maps.LatLng @center.latitude - @boundary, @center.longitude + @boundary
-
-		# create bounds markers!
-		@boundMarkers = (createMarker element for element in @rectCoordinates)
-
-		# initialize the options for this 
-		options = {paths: @rectCoordinates, strokeColor: "#FF0000", fillColor: "#FF0000", fillOpacity: 0.35, strokeOpacity: 0.35, strokeWeight: 2}
-
-		# create the polygon shape
-		@rect = new google.maps.Polygon options
-		@rect.setMap @map
+		return infoBox
 
 
-	
 
+
+	# basic marker element for the base markers - create own if needed
+	marker = (coordinates) =>
+
+		marker = new google.maps.Marker
+			map : @map
+			draggable: false
+			visible: true			
+			position: new google.maps.LatLng coordinates.latitude, coordinates.longitude
+
+		return marker			
+
+	# initialize center
+	do centerInit = () =>
+		# center = marker @data.center
+		markerBox = thumbnailMarker @data.thumbnail.property_url, @data.thumbnail.image.url, marker(@data.center)
+			
+
+
+	center: @center
+	map : @map
+	thumbnailMarker : thumbnailMarker

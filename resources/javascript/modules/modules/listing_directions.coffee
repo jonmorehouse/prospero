@@ -1,37 +1,59 @@
-Project.Modules.listing_directions = (@form, @container, @data, @map) =>
+Project.Modules.listing_directions = (@form, @container, @data, @map, @thumbnailController) =>
 
 	@elements = 
 		destination: @form.find "input[name='destination']"
 		origin : @form.find "input[name='origin']"
 		submit : @form.find "[type='submit']"	
+		directionsElement : @container.find "div[data-id='directions']" #find the ul that will hole the elements
 
+	@currentPoints = [] #this is the current array of points that are on the map!
 
-	update = (data) =>
+	do init = () =>
 
-		# clear the ul inside of maps
-		# append all steps
-		# clear the map points
-		# append all the map points
-		# add listners to switch between map / directions
+		@directionsService = new google.maps.DirectionsService()
+		@directionsDisplay = new google.maps.DirectionsRenderer()
+
+		# initialize the directions for the map!
+		@directionsDisplay.setMap @map.map
+
+		# create an element for the directions to go into
+		@directionsDisplay.setPanel @elements.directionsElement.get 0
 
 
 	getDirections = (origin, destination) =>
 
-		$.ajax
-			type: "get"
-			url: "http://maps.googleapis.com/maps/api/directions/json?origin=#{encodeURI origin}&destination=#{encodeURI destination}&sensor=false"
+		request = 
+			origin: origin
+			destination: destination
+			travelMode : google.maps.TravelMode.DRIVING
 
-			failure : (response) =>
+		@directionsService.route request, (response, status) =>
 
-				console.log "no elements found put message here!"
+		    if status == google.maps.DirectionsStatus.OK
+		    	@directionsDisplay.setDirections response
 
-			success : (response) =>
 
-				update response.routes[0].legs
-				
+	# listen on click!
 	@elements.submit.click =>
 
 		return getDirections @elements.origin.attr("value"), @elements.destination.attr("value")
+
+	redraw = () =>
+
+		_redraw = () =>
+			google.maps.event.trigger @map.map, 'resize'
+
+		setTimeout _redraw, 2000
+
+	@container.find(".thumbnails ul li").click () =>
+
+		do redraw
+
+	@container.find(".content div[data-id='directions']").click () =>
+
+		# need to switch over to the other elements
+		@thumbnailController.changeTrigger "map"
+		do redraw
 
 
 

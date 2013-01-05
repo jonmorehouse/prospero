@@ -2,32 +2,55 @@
 (function() {
   var _this = this;
 
-  Project.Modules.listing_directions = function(form, container, data, map) {
-    var getDirections, update;
+  Project.Modules.listing_directions = function(form, container, data, map, thumbnailController) {
+    var getDirections, init, redraw;
     _this.form = form;
     _this.container = container;
     _this.data = data;
     _this.map = map;
+    _this.thumbnailController = thumbnailController;
     _this.elements = {
       destination: _this.form.find("input[name='destination']"),
       origin: _this.form.find("input[name='origin']"),
-      submit: _this.form.find("[type='submit']")
+      submit: _this.form.find("[type='submit']"),
+      directionsElement: _this.container.find("div[data-id='directions']")
     };
-    update = function(data) {};
+    _this.currentPoints = [];
+    (init = function() {
+      _this.directionsService = new google.maps.DirectionsService();
+      _this.directionsDisplay = new google.maps.DirectionsRenderer();
+      _this.directionsDisplay.setMap(_this.map.map);
+      return _this.directionsDisplay.setPanel(_this.elements.directionsElement.get(0));
+    })();
     getDirections = function(origin, destination) {
-      return $.ajax({
-        type: "get",
-        url: "http://maps.googleapis.com/maps/api/directions/json?origin=" + (encodeURI(origin)) + "&destination=" + (encodeURI(destination)) + "&sensor=false",
-        failure: function(response) {
-          return console.log("no elements found put message here!");
-        },
-        success: function(response) {
-          return update(response.routes[0].legs);
+      var request;
+      request = {
+        origin: origin,
+        destination: destination,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+      return _this.directionsService.route(request, function(response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+          return _this.directionsDisplay.setDirections(response);
         }
       });
     };
-    return _this.elements.submit.click(function() {
+    _this.elements.submit.click(function() {
       return getDirections(_this.elements.origin.attr("value"), _this.elements.destination.attr("value"));
+    });
+    redraw = function() {
+      var _redraw;
+      _redraw = function() {
+        return google.maps.event.trigger(_this.map.map, 'resize');
+      };
+      return setTimeout(_redraw, 2000);
+    };
+    _this.container.find(".thumbnails ul li").click(function() {
+      return redraw();
+    });
+    return _this.container.find(".content div[data-id='directions']").click(function() {
+      _this.thumbnailController.changeTrigger("map");
+      return redraw();
     });
   };
 

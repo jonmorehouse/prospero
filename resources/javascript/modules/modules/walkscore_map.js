@@ -2,60 +2,52 @@
 (function() {
 
   Project.Modules.walkscore_map = function(container, data) {
-    var boundsInit, mapInit,
+    var centerInit, mapInit, marker, thumbnailMarker,
       _this = this;
     this.container = container;
     this.data = data;
     (mapInit = function() {
-      _this.center = {
-        latitude: parseFloat(_this.data.center.latitude),
-        longitude: parseFloat(_this.data.center.longitude)
-      };
-      _this.boundary = parseFloat(_this.data.boundary);
+      _this.center = new google.maps.LatLng(_this.data.center.latitude, _this.data.center.longitude);
       _this.options = {
-        center: new google.maps.LatLng(_this.center.latitude, _this.center.longitude),
-        zoom: 14,
-        mapTypeId: google.maps.MapTypeId.SATELLITE
+        center: _this.center,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       return _this.map = new google.maps.Map(_this.container, _this.options);
     })();
-    return (boundsInit = function() {
-      var createMarker, element, options;
-      createMarker = function(point) {
-        var options;
-        options = {
-          position: point,
-          draggable: true,
-          map: _this.map
-        };
-        return _this.centerMarker = new google.maps.Marker(options);
-      };
-      _this.rectCoordinates = [];
-      _this.rectCoordinates[0] = new google.maps.LatLng(_this.center.latitude + _this.boundary, _this.center.longitude - _this.boundary);
-      _this.rectCoordinates[1] = new google.maps.LatLng(_this.center.latitude + _this.boundary, _this.center.longitude + _this.boundary);
-      _this.rectCoordinates[3] = new google.maps.LatLng(_this.center.latitude - _this.boundary, _this.center.longitude - _this.boundary);
-      _this.rectCoordinates[2] = new google.maps.LatLng(_this.center.latitude - _this.boundary, _this.center.longitude + _this.boundary);
-      _this.boundMarkers = (function() {
-        var _i, _len, _ref, _results;
-        _ref = this.rectCoordinates;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          element = _ref[_i];
-          _results.push(createMarker(element));
-        }
-        return _results;
-      }).call(_this);
+    thumbnailMarker = function(url, src, marker) {
+      var infoBox, options, parent;
+      parent = document.createElement("div");
+      $(parent).html("<a target='new' href='" + url + "'><img width='50' height='50' src='" + src + "' /></a>");
       options = {
-        paths: _this.rectCoordinates,
-        strokeColor: "#FF0000",
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        strokeOpacity: 0.35,
-        strokeWeight: 2
+        content: parent,
+        boxClass: "map_info_box",
+        disableAutoPan: false,
+        enableEventPropagation: false,
+        isHidden: false
       };
-      _this.rect = new google.maps.Polygon(options);
-      return _this.rect.setMap(_this.map);
+      infoBox = new InfoBox(options);
+      infoBox.open(_this.map, marker);
+      return infoBox;
+    };
+    marker = function(coordinates) {
+      marker = new google.maps.Marker({
+        map: _this.map,
+        draggable: false,
+        visible: true,
+        position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude)
+      });
+      return marker;
+    };
+    (centerInit = function() {
+      var markerBox;
+      return markerBox = thumbnailMarker(_this.data.thumbnail.property_url, _this.data.thumbnail.image.url, marker(_this.data.center));
     })();
+    return {
+      center: this.center,
+      map: this.map,
+      thumbnailMarker: thumbnailMarker
+    };
   };
 
 }).call(this);
