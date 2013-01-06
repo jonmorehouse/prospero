@@ -208,19 +208,21 @@ class General extends CI_Model{
 	// useful for data changes
 	public function get_category_datatype($category) {//get individual category data-type such as boolean, integer etc
 		
-		$query = $this->db->where(array('category' => $category))->get('table_schema');
+		$query = $this->db->where(array('category' => $category))->select("data")->get('table_schema');
 
-
-		if($query->num_rows() == 0) {
-
-			return "text";
-		}
+		if($query->num_rows() == 0) return "text";
 		
-		else{
-	
-			$datatype = $query->row()->data;
-			return $datatype;
-		}
+		return $query->row()->data;
+	}
+
+	public function get_category_input_type($category) {
+
+		$query = $this->db->select("input_type")->where(array("category" => $category))->get("table_schema", 1);
+
+		if ($query->num_rows() == 0) return "text";
+
+		return $query->row()->input_type;		
+
 	}
 	
 	public function get_category($property_id, $category) {//database abstraction to get the individual category at any time
