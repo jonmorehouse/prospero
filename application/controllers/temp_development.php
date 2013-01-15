@@ -9,6 +9,22 @@ class Temp_development extends CI_Controller {
 		$this->load->library(array("utilities/format", "general/page_management"));
 	}	
 
+	public function map() {
+
+		$output = "map";
+
+		$query = $this->db->select("name, property_id")->get("property_name");
+
+		file_put_contents($output, "");
+
+		foreach ($query->result() as $row) {
+
+			$text = "{$row->name} ==> {$row->property_id}\n\n";
+			file_put_contents($output, $text, FILE_APPEND | LOCK_EX);
+		}
+	}
+
+
 	public function temp() {
 
 		$types = array(
