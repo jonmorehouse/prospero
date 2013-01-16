@@ -24,9 +24,17 @@ Project.Pages.Homepage = (function() {
 
 		}; 
 
-		}());//end of homepage initialization section
+
+		for (controller in bumpbox_controllers) 
+			(function(controller) {
+
+				bumpbox_controllers[controller]['config']['in_callback'] = fade.fadeOut;
+				bumpbox_controllers[controller]['config']['out_callback'] = fade.fadeIn;
+
+			}(controller));
+	}());//end of homepage initialization section
 	//END OF BUMPBOX CONTROLLERS!
-	
+
 	var global_animation = (function() {
 
 		var search_bar_animation = new Project.Modules.form_animation($('#search'));
