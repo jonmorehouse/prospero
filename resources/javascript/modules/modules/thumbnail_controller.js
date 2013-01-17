@@ -16,7 +16,9 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 		'current_id' : (!default_id) ? "0" : default_id,//assuming that the first one is showing -- overwrite for different scenarios
 		'current_content': container.children(":first-child"),
 		'current_thumbnail': thumbnail_container.children(":first-child"),
-	};
+	},
+
+	changing = false;//this is an element useful for determining if the element is still running to prevent overlap / errors in code
 
 	var change = function(id) {
 
@@ -36,6 +38,7 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 			if (config.change_trigger)
 				config.change_trigger(id);//contact another object to let it know that there was a change triggered
 
+			changing = false;//stop this after the final animation is complete -- to allow for other elements
 		});
 
 		config.current_thumbnail.removeClass(config.selection_class);
@@ -55,6 +58,9 @@ Project.Modules.thumbnail_controller = function(thumbnail_container, container, 
 
 	var listen = thumbnail_container.children().click(function() {
 
+		if (changing) return;//ensure that we are allowed to run the animation
+
+		changing = true;//the animation is running -- want to prevent any other elements from overlapping errors in the future
 		var id = $(this).attr(config.thumbnail_tag);
 
 		change(id);
