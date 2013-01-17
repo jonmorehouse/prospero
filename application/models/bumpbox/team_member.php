@@ -14,7 +14,7 @@ class Team_member extends CI_Model {
 	public function get_member_ids() {
 
 		// returns an array of all member ids using a distinct phrase
-		$query = $this->db->distinct()->get($this->member_table);
+		$query = $this->db->distinct()->order_by("member_order", "asc")->get($this->member_table);
 		$ids = array();
 
 		foreach ($query->result() as $row)

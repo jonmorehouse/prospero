@@ -24,7 +24,6 @@ Project.Pages.Homepage = (function() {
 
 		}; 
 
-
 		for (controller in bumpbox_controllers) 
 			(function(controller) {
 
