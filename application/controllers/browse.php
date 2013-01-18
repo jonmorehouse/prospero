@@ -82,10 +82,10 @@ class Browse extends CI_Controller{
 
 		// this is the box in the middle of the screen the user sees
 		$this->site_label = $this->elements->site_label();
-		$this->thumbnail_label = ($this->id === "search") ? ($this->headers->search_header()) : ($this->headers->browse_header($this->id, $this->category));
+		$this->thumbnail_label = ($this->id === "search") ? ($this->headers->search_header()) : ($this->headers->browse_header($this->id, $this->category, $this->category_filter));
 
 		$this->data = array(
-
+	
 			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
 
 		);

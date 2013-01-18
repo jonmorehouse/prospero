@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
 class Temp_development extends CI_Controller {
 
@@ -51,14 +51,13 @@ class Temp_development extends CI_Controller {
 				$data = array(
 
 					"page_id" => $type_category,
-					"category" => "type",
-					"filter" => $type,//the individual type
+					"category" => "location_category",
+					"filter" => $category,//the individual type
 					"title" => $title,
 				);	
 
 				$this->db->insert("browse_headers", $data);
 			} 
-
 
 			foreach (array("all", "new") as $element) {
 				$title = "{$this->format->word_format($element)} {$this->format->word_format($type_category)} Properties";
@@ -66,13 +65,31 @@ class Temp_development extends CI_Controller {
 				$data = array(
 
 					"page_id" => $type_category,
-					"category" => "type",
-					"filter" => $element,//the individual type
+					"category" => $element,
+					"filter" => "all",//the individual type
 					"title" => $title,
 				);	
 
 				$this->db->insert("browse_headers", $data);
 			}
+
+			foreach (array("under_1000", "over_1000") as $value) {
+
+				$helper = ($value === "under_1000") ? ("Less Than") : ("Greater Than");
+
+				$title = "{$this->format->word_format($type_category)} Properties {$helper} $1000 / Month.";
+
+				$data = array(
+
+					"page_id" => $type_category,
+					"category" => "rent_price",
+					"filter" => $value,//the individual type
+					"title" => $title,
+				);	
+
+				$this->db->insert("browse_headers", $data);
+			}
+
 
 		}
 

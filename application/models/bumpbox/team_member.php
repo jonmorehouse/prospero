@@ -25,7 +25,7 @@ class Team_member extends CI_Model {
 
 	public function get_content($member_id) {
 
-		$query = $this->db->select('content')->get($this->member_table);
+		$query = $this->db->select('content')->where(array('member_id' => $member_id))->get($this->member_table, 1);
 
 		return $query->row()->content;		
 

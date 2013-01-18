@@ -3,29 +3,29 @@
 	
 	<li>Type
 		<ul>
-			<li><a href='<?php echo site_url("property/{$this->id}/type/rent");?>'>Rent</a></li>
-			<li><a href='<?php echo site_url("property/{$this->id}/type/buy");?>'>Buy</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/type/rent");?>'>Rent</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/type/buy");?>'>Buy</a></li>
 		</ul>
 	</li>
 	
 	<li>Rental Price
 		<ul>
-			<li><a href='<?php echo site_url("property/{$this->id}/rent_price/over_1000");?>'>Over $1000</a></li>
-			<li><a href='<?php echo site_url("property/{$this->id}/rent_price/under_1000");?>'>Under $1000</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/rent_price/over_1000");?>'>Over $1000</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/rent_price/under_1000");?>'>Under $1000</a></li>
 		</ul>
 	</li>
 	
 	<li>Location
 		<ul>
-			<li><a href='<?php echo site_url("property/{$this->id}/location_category/vancouver");?>'>Vancouver</a></li>
-			<li><a href='<?php echo site_url("property/{$this->id}/location_category/richmond");?>'>Richmond</a></li>
-			<li><a href='<?php echo site_url("property/{$this->id}/location_category/burnaby");?>'>Burnaby</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/location_category/vancouver");?>'>Vancouver</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/location_category/richmond");?>'>Richmond</a></li>
+			<li><a href='<?php echo site_url("browse/{$this->id}/location_category/burnaby");?>'>Burnaby</a></li>
 		</ul>
 	</li>
 	
-	<li><a href='<?php echo site_url("property/{$this->id}/new");?>'>New</a></li>
+	<li><a href='<?php echo site_url("browse/{$this->id}/new");?>'>New</a></li>
 
-	<li><a href='<?php echo site_url("property/{$this->id}/all");?>'>All</a></li>
+	<li><a href='<?php echo site_url("browse/{$this->id}/all");?>'>All</a></li>
 </div>
 
 
