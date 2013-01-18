@@ -17,8 +17,8 @@
 
 <!-- INDIVIDUAL NAVIGATION BAR IS BELOW -->
 <div id='header'>
-	<h1>Prospero Real Estate</h1>
-	<h2><?php echo $this->thumbnail_label; ?></h2>
+	<h1><?php echo $this->site_label;?></h1>
+	<h2><?php echo $this->thumbnail_label;?></h2>
 </div>
 
 <?php

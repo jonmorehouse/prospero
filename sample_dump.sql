@@ -139,7 +139,7 @@ CREATE TABLE `config_settings` (
 
 LOCK TABLES `config_settings` WRITE;
 /*!40000 ALTER TABLE `config_settings` DISABLE KEYS */;
-INSERT INTO `config_settings` VALUES ('cgi_url','http://localhost:8888/cgi-bin/'),('default_latitude','49.2419'),('default_longitude','-123.058'),('default_pdf_thumbnail','resources/images/defaults/pdf.png'),('default_slideshow_image','resources/images/defaults/slideshow.png'),('default_thumbnail','resources/images/defaults/thumbnail.png'),('default_video_thumbnail','resources/images/defaults/video.png'),('general_email','morehousej09@gmail.com'),('google_maps_api_key','AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs'),('inquire_url','ajax/listing_rest/inquire'),('max_file','100M'),('max_nearby_properties','10'),('max_similar_properties','5'),('site_status','local'),('walkscore_api_key','60aaf442c1061e1c1bf69eb7b42ee627'),('webmaster_email','morehousej09@gmail.com');
+INSERT INTO `config_settings` VALUES ('cgi_url','http://localhost:8888/cgi-bin/'),('default_latitude','49.2419'),('default_longitude','-123.058'),('default_pdf_thumbnail','resources/images/defaults/pdf.png'),('default_slideshow_image','resources/images/defaults/slideshow.png'),('default_thumbnail','resources/images/defaults/thumbnail.png'),('default_video_thumbnail','resources/images/defaults/video.png'),('general_email','morehousej09@gmail.com'),('google_maps_api_key','AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs'),('inquire_url','ajax/listing_rest/inquire'),('max_file','100M'),('max_nearby_properties','10'),('max_similar_properties','5'),('site_label','Prospero International Realty'),('site_status','local'),('walkscore_api_key','60aaf442c1061e1c1bf69eb7b42ee627'),('webmaster_email','morehousej09@gmail.com');
 /*!40000 ALTER TABLE `config_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1193,4 +1193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-01-17 13:19:00
+-- Dump completed on 2013-01-17 16:06:22

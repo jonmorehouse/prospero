@@ -1,6 +1,6 @@
 <?php
 
-class Property extends CI_Controller{
+class Browse extends CI_Controller{
 	
 	function __construct(){
 		parent::__construct();
@@ -58,7 +58,7 @@ class Property extends CI_Controller{
 	
 	private function output(){
 					
-		$this->output->cache(1440);
+		// $this->output->cache(1440);
 
 		// load general libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes", "property/base_filter", "property/map_api");
@@ -81,6 +81,7 @@ class Property extends CI_Controller{
 		$this->thumbnails = $this->get_thumbnails();//seperate the logic out into another method for grabbing the proper thumbnail!
 
 		// this is the box in the middle of the screen the user sees
+		$this->site_label = $this->elements->site_label();
 		$this->thumbnail_label = ($this->id === "search") ? ($this->headers->search_header()) : ($this->headers->browse_header($this->id, $this->category));
 
 		$this->data = array(

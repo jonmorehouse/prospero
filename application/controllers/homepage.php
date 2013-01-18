@@ -19,7 +19,7 @@ class Homepage extends CI_Controller{
 	
 	function index() {
 					
-		// $this->output->cache(1440);
+		$this->output->cache(1440);
 
 		// data
 		$this->header = $this->dynamic_header->get_header();//gets the dynamic header - not the tables that define the resources included

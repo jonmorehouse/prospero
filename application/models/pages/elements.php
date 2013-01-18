@@ -44,4 +44,11 @@ class Elements extends CI_Model {
 			"src" => $url,
 		);
 	}
+
+	public function site_label() {
+
+		$query = $this->db->where(array('element_id' => "site_label"))->select("value")->get("config_settings");
+
+		return $query->row()->value;
+	}
 }
