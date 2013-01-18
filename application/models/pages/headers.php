@@ -23,7 +23,10 @@ class Headers extends CI_Model {
 		return $query->row()->title;
 	}
 
-	public function browse_header($page_id, $filter) {
+	public function browse_header($page_id, $category, $filter) {
+
+		// high level -- want to be able to initialize and maintain unique database driven headers for each different type_category /category / filter 
+
 
 		$query = $this->db->where(array("page_id" => $page_id, "filter" => $filter))->select("title")->get($this->table);
 

@@ -9,6 +9,77 @@ class Temp_development extends CI_Controller {
 		$this->load->library(array("utilities/format", "general/page_management"));
 	}	
 
+	public function browse_header() {
+
+		// 
+
+		// grab all of the proper 
+
+		foreach ($this->general->get_default_options("type_category") as $type_category) {
+
+			foreach ($this->general->get_default_options("type") as $type) {
+
+				if ($type == "rent") {
+
+					$title = "{$this->format->word_format($type_category)} Rental Properties";
+
+				}
+
+				else {
+
+					$title = "{$this->format->word_format($type_category)} Properties for Purchase";
+
+				}
+
+				$data = array(
+
+					"page_id" => $type_category,
+					"category" => "type",
+					"filter" => $type,//the individual type
+					"title" => $title,
+
+				);	
+
+				$this->db->insert("browse_headers", $data);
+			}
+			// end of location elements!
+
+			// generate the location property elements!
+			foreach ($this->general->get_default_options("location_category") as $category) {
+
+				$title = "{$this->format->word_format($type_category)} Properties Near {$this->format->word_format($category)}";
+				$data = array(
+
+					"page_id" => $type_category,
+					"category" => "type",
+					"filter" => $type,//the individual type
+					"title" => $title,
+				);	
+
+				$this->db->insert("browse_headers", $data);
+			} 
+
+
+			foreach (array("all", "new") as $element) {
+				$title = "{$this->format->word_format($element)} {$this->format->word_format($type_category)} Properties";
+
+				$data = array(
+
+					"page_id" => $type_category,
+					"category" => "type",
+					"filter" => $element,//the individual type
+					"title" => $title,
+				);	
+
+				$this->db->insert("browse_headers", $data);
+			}
+
+		}
+
+
+
+	}
+
 	public function map() {
 
 		$output = "map";
