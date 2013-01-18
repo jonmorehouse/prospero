@@ -18,15 +18,10 @@ class Upload extends CI_Controller {
 			"content" => "<p>H.B. (Beng) Gunn is our Vice President - Commercial Properties. Beng is responsible for a portfolio of shopping centres, industrial facilities, and apartment properties in Vancouver and the Fraser Valley. He has been with Prospero since 1993 and is a graduate of the University of British Columbia and the Thunderbird School of Global Management.</p>"
 		);
 
-
 		$this->db->where(array('member_id' => $data['member_id']))->update("team_bumpbox", $data);
-
-
-
-
-
-
 	}
+
+	
 
 
 }
