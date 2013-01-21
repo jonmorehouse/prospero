@@ -43,9 +43,8 @@
           return listingMapThumbnailController.reset();
         };
         listingMapController = new Project.Modules.listing_map_controller();
-        listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger;
+        return listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger;
       }
-      return listeners['listing_map'].trigger("click");
     })();
     return (listingSlideshow = function() {
       var containers, controller, image_template;

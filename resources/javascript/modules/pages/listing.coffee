@@ -69,7 +69,7 @@ do Project.Pages.Listing = () ->
 			listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger
 
 		# development work
-		listeners['listing_map'].trigger "click"
+########### listeners['listing_map'].trigger "click"
 	
 	do listingSlideshow = () ->
 

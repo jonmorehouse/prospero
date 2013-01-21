@@ -41,7 +41,7 @@ class Media{
 
 		$media_id = $this->get_media($property_id);
 
-		$url = ($media_id) ? (base_url($this->get_url("thumbnail_image", $media_id))) : ($this->default_thumbnail_image_url);
+		$url = ($media_id) ? ($this->get_url("thumbnail_image", $media_id)) : ($this->default_thumbnail_image_url);
 
 		return array(
 

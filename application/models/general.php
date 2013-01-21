@@ -393,6 +393,22 @@ class General extends CI_Model{
 
 	}
 
+	public function get_live_properties() {
+
+		$query = $this->db->select("property_id")->distinct()->where(array("property_status" => True))->get("status");
+
+		if ($query->num_rows() == 0) return false;
+
+		$properties = array();
+
+		foreach ($query->result() as $row)
+			array_push($properties, $row->property_id);
+
+
+		return $properties;
+
+	}
+
 }
 
 ?>
