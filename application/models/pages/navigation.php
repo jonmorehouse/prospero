@@ -8,7 +8,9 @@ class Navigation extends CI_Model {
 		$this->map_table = "navigation_mapper";
 		$this->element_table = "navigation_elements";
 		$this->load->model("general");
-	}	
+		$this->load->library('utilities/format');
+	
+	}
 
 	// public apis 
 
@@ -50,8 +52,8 @@ class Navigation extends CI_Model {
 		//pass in a selected element_id if you want that element to be selected
 		$elements = array_reverse($this->menu_elements($page_id));
 
-
-		return $this->generate_element_data($elements, $selected);
+		// now grab the actual element data!
+		return $this->generate_element_data($elements, $this->format->comparison_format($selected));
 
 	}
 

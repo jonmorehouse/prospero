@@ -84,7 +84,7 @@ class Listing extends CI_Controller {
 	private function dynamic_listing() {
 
 		// 
-		$this->output->cache(1440);
+		// $this->output->cache(1440);
 
 		// initialize library dependencies
 		$libraries = array(
@@ -115,7 +115,9 @@ class Listing extends CI_Controller {
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
 		$this->logo = $this->navigation->get_logo("listing");
 		$this->background_images = $this->elements->get_background_images();
-		$this->navigation_top = $this->navigation->get_navigation("global_top");
+		$this->navigation_top = $this->navigation->get_navigation("global_top", $this->general->get_category($this->property_id, "type_category"));
+
+		// generate the top elements!
 		$this->navigation_left = $this->navigation->get_listing($this->property_id);
 
 		// global bumpbox content

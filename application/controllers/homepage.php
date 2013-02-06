@@ -25,7 +25,7 @@ class Homepage extends CI_Controller{
 		$this->header = $this->dynamic_header->get_header();//gets the dynamic header - not the tables that define the resources included
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the javascript modules for this homepage
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
-		$this->background_images = $this->elements->get_background_images();
+		$this->background_images = $this->elements->get_background_images("homepage_background");
 		$this->logo = $this->navigation->get_logo();
 
 

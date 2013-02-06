@@ -16,11 +16,6 @@
 
 
 <!-- INDIVIDUAL NAVIGATION BAR IS BELOW -->
-<div id='header'>
-	<h1><?php echo $this->site_label;?></h1>
-	<h2><?php echo $this->thumbnail_label;?></h2>
-</div>
-
 <?php
 	$this->load->view('navigation/search');
 ?>

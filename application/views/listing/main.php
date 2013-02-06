@@ -1,8 +1,3 @@
-<div id='header'>
-	<h1><?php echo $this->listing_thumbnail['name'];?></h1>
-	<!-- responsible for having a thumbnail image and header content -->
-</div>
-
 <div id='content'>
 	<div id='slideshow'>
 

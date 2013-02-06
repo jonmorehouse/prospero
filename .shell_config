@@ -1,0 +1,5 @@
+# Framework specific nav helpers
+alias view='cd application/views/'
+alias model='cd application/models'
+alias controller='cd application/controllers'
+alias library='cd application/libraries'

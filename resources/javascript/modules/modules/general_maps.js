@@ -21,7 +21,7 @@
       return new InfoBox(options);
     };
     mapInit = function(id) {
-      var map, marker, markerBox, options, property, _container, _data, _i, _len, _ref;
+      var map, marker, options, property, _container, _data, _i, _len, _ref;
       _data = data[id];
       _container = container.find("div[data-id='" + id + "'] > div").get(0);
       options = {
@@ -39,8 +39,6 @@
           visible: true,
           position: new google.maps.LatLng(property.coordinates.latitude, property.coordinates.longitude)
         });
-        markerBox = thumbnailMarker(property.thumbnail);
-        markerBox.open(map, marker);
       }
       return true;
     };

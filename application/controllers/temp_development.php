@@ -252,5 +252,21 @@ class Temp_development extends CI_Controller {
 
 	}
 
+	public function imageless_properties() {
+
+		$writer = fopen("images_needed", "a");
+
+		$property_ids = file("imageless_properties", FILE_IGNORE_NEW_LINES);
+
+		foreach ($property_ids as $property_id) {
+
+			$name = $this->general->get_category($property_id, "name");
+			fwrite($writer, "$property_id ==> $name\n");
+		}		
+
+		fclose($writer);
+	}
+
+	
 
 }

@@ -23,7 +23,7 @@
 			height:100%;
 
 		}
-		&:hover{
+		&:hover, &.current, &.selected {
 
 			box-shadow:none;
 			.dark_background(1.0);
@@ -149,6 +149,20 @@
 			display:block;
 		}
 	}
+}
+
+.large_bumpbox_geometry {
+
+	position:fixed;
+	top:5%;
+	left: 10%;
+	right: 10%;
+	bottom: 5%;
+	height:90%;
+	width:80%;
+	padding-right:0;
+	padding-left:0;
+
 }
 
 .inner_text_shadow(@color:@dark_shadow, @inset:1.5px, @size:0.5px){

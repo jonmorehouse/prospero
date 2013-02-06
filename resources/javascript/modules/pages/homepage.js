@@ -34,10 +34,14 @@ Project.Pages.Homepage = (function() {
 	}());//end of homepage initialization section
 	//END OF BUMPBOX CONTROLLERS!
 
+	// initialize the global animations
 	var global_animation = (function() {
 
 		var search_bar_animation = new Project.Modules.form_animation($('#search'));
 
 	}());
+
+	// initialize the homepage gallery -- not needed on any other pages
+	var homepage_gallery = new Project.Pages.Site_wide();
 
 }());

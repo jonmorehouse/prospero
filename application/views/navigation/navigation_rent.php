@@ -26,8 +26,6 @@
 		</ul>
 	</li>
 	
-	<li><a href='<?php echo site_url('browse/rent/new');?>'>New</a></li>
-
 	<li><a href='<?php echo site_url('browse/rent/all');?>'>All</a></li>
 </div>
 

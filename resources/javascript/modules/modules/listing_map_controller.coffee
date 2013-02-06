@@ -17,10 +17,12 @@ Project.Modules.listing_map_controller = () ->
 			do walkscoreInit
 			status.walkscore = true
 
+
+		# functionality was built in here, but not wanted by the client.
 		# iniitalize the nearby properties only if they haven't been initialized yet!
-		else if id == "nearby_properties"  and not status.nearby_properties
-			do nearbyPropertiesInit
-			status.nearby_properties = true
+		# else if id == "nearby_properties"  and not status.nearby_properties
+		# 	do nearbyPropertiesInit
+		# 	status.nearby_properties = true
 
 		else if id == "directions" and not status.directions
 			do directionsInit

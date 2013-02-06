@@ -28,7 +28,6 @@
 		</ul>
 	</li>
 	
-	<li><a href='<?php echo site_url("property/{$this->id}/new");?>'>New</a></li>
 
 	<li><a href='<?php echo site_url("property/{$this->id}/all");?>'>All</a></li>
 </div>

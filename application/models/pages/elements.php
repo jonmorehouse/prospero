@@ -9,9 +9,9 @@ class Elements extends CI_Model {
 
 	}
 
-	public function get_background_images() {
+	public function get_background_images($background_type = "general_background") {
 
-		$query = $this->db->select("url")->select("alt")->where(array("image_id" => "general_background"))->get($this->image_table);
+		$query = $this->db->select("url")->select("alt")->where(array("image_id" => $background_type))->get($this->image_table);
 
 		$backgrounds = array();
 

@@ -23,8 +23,6 @@
 		</ul>
 	</li>
 	
-	<li><a href='<?php echo site_url("browse/{$this->id}/new");?>'>New</a></li>
-
 	<li><a href='<?php echo site_url("browse/{$this->id}/all");?>'>All</a></li>
 </div>
 

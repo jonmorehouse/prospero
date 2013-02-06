@@ -13,9 +13,6 @@
       if (id === "walkscore" && !status.walkscore) {
         walkscoreInit();
         return status.walkscore = true;
-      } else if (id === "nearby_properties" && !status.nearby_properties) {
-        nearbyPropertiesInit();
-        return status.nearby_properties = true;
       } else if (id === "directions" && !status.directions) {
         directionsInit();
         return status.directions = true;

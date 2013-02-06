@@ -28,7 +28,9 @@
 
 #navigation_browse{
 	z-index:100;
-	@li_width:130px;
+
+	// changed this to allow for the navigation properties to not be so large
+	@li_width:250px;
 	position:absolute;
 	bottom:2*@border_width;
 	left:0.5*@border_width;
@@ -153,6 +155,7 @@
 #thumbnail_container > div.thumbnail {
 
 	.general_thumbnail;//include the thumbnail mixin
+
 }//end of individual containers
 
 
@@ -202,7 +205,18 @@
 	left: 120px;
 
 	}
+}
 
+// resize the thumbnails to make sure that they are proportional for the different screen sizes to ensure no pixelation
+@media only screen and (max-width:1024px) {
+
+	#thumbnail_container > div.thumbnail {
+
+		width: 150px;
+		height: 150px;
+	}
 
 }
+
+
 

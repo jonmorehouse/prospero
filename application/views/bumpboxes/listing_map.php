@@ -73,7 +73,8 @@
 			</div>
 		</div>
 
-		<div data-id='nearby_properties'></div>
+		<!-- functionality built in, client didn't want it -->
+		<!-- <div data-id='nearby_properties'></div> -->
 
 	</div>
 
@@ -81,7 +82,9 @@
 		<ul>
 			<li data-id='walkscore'>WalkScore</li>
 			<li data-id='directions'>Directions</li>
-			<li data-id='nearby_properties'>Nearby Properties</li>
+
+			<!-- this functionality built in and tested, client didn't want it though -->
+			<!-- <li data-id='nearby_properties'>Nearby Properties</li> -->
 		</ul>
 	</div>
 </div>

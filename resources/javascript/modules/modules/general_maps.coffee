@@ -46,8 +46,10 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 				visible: true			
 				position: new google.maps.LatLng property.coordinates.latitude, property.coordinates.longitude
 
-			markerBox = thumbnailMarker property.thumbnail
-			markerBox.open map, marker			
+
+			# client requested that we remove the thumbnails that are present in the general maps section
+			# markerBox = thumbnailMarker property.thumbnail
+			# markerBox.open map, marker			
 
 		return true
 

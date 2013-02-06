@@ -1,4 +1,4 @@
-Project.Pages.Site_wide = (function () {
+Project.Pages.Site_wide = function () {
 
 	var background_slideshow = (function() {
 
@@ -17,4 +17,4 @@ Project.Pages.Site_wide = (function () {
 	}());
 	
 
-}());//
+};//
