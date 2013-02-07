@@ -188,6 +188,7 @@ class Temp_development extends CI_Controller {
 
 			"resources/css/local/vacancies.less",
 			"resources/css/local/bumpbox.less"
+			
 		);
 
 		foreach ($resources as $resource) {
@@ -246,7 +247,6 @@ class Temp_development extends CI_Controller {
 
 			$this->db->insert("javascript_modules", $data);
 		}
-
 
 	}
 

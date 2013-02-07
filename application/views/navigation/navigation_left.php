@@ -11,7 +11,7 @@
 	<li <?php if ($this->id == "vacancies") echo "class='current'";?>>Vacancies
 		<ul>
 			<li><a href='<?php echo site_url("vacancies/residential");?>'>Residential</li>
-			<li><a href='<?php echo site_url("vacancies/retail");?>'>Retail/Office/Industrial</li>
+			<li><a href='<?php echo site_url("vacancies/retail_office_industrial");?>'>Retail/Office/Industrial</li>
 		</ul>
 	</li>
 </div>
