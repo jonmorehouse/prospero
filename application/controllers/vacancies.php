@@ -47,14 +47,7 @@ class Vacancies extends CI_Controller{
 			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
 		);
 
-
-
-
-
-
 		// load the base vacancy view
 		$this->load->view('vacancies/vacancies_base');
-
-
 	}
 }
