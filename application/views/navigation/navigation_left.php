@@ -8,8 +8,12 @@
 		?>'>Home</a></li>
 	<li class='about'>About</li>
 	<li class='team'>Team</li>
-	<li class='services'>Services</li>
-	<!-- <li class='careers'>Careers</li> -->
+	<li <?php if ($this->id == "vacancies") echo "class='current'";?>>Vacancies
+		<ul>
+			<li><a href='<?php echo site_url("vacancies/residential");?>'>Residential</li>
+			<li><a href='<?php echo site_url("vacancies/retail");?>'>Retail/Office/Industrial</li>
+		</ul>
+	</li>
 </div>
 
 <?php
@@ -17,6 +21,6 @@
 	// keep this for now -- should by no sql in the future though
 	$this->load->view('navigation/bumpboxes/about');//not finished
 	$this->load->view('navigation/bumpboxes/team');//finished
-	$this->load->view('navigation/bumpboxes/services');//services bumpbox
+	// $this->load->view('navigation/bumpboxes/services');//services bumpbox
 	// $this->load->view('navigation/bumpboxes/careers');
 ?>

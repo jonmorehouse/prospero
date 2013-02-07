@@ -115,24 +115,10 @@ body{
 	}
 }
 
-#navigation_left{
-	z-index:20;
-	position:absolute;
-	bottom:2*@border_width;
-	left:0.5*@border_width;
-	.navigation_li(@dark_opacity, 1.1em, 30px);
-	li{
-		margin-top:2px;
-		.border(@dark_shadow, 2px, 2px, 0, 0);
-		.box_shadow(@dark_shadow, 6px, 0px);
-		clear:both;
-		&:first-child{
-			border-top-right-radius:@navigation_border_radius;
-		}
-		&:last-child{
-			border-bottom-right-radius:@navigation_border_radius;
-		}		
-	}
+#navigation_left {
+
+	.nested_navigation;
+
 }
 
 #search{
