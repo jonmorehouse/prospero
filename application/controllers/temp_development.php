@@ -186,7 +186,8 @@ class Temp_development extends CI_Controller {
 
 		$resources = array(
 
-			"resources/css/local/management.less",
+			"resources/css/local/vacancies.less",
+			"resources/css/local/bumpbox.less"
 		);
 
 		foreach ($resources as $resource) {
@@ -210,7 +211,7 @@ class Temp_development extends CI_Controller {
 
 		foreach ($resources as $resource) {
 
-			$insert = array("url" => $resource, "status" => false, "page_id" => "management");
+			$insert = array("url" => $resource, "status" => false, "page_id" => "vacancies");
 			$this->db->insert("javascript_resources", $insert);
 		}	
 	}
@@ -232,23 +233,20 @@ class Temp_development extends CI_Controller {
 
 	public function javascript_modules() {
 
-		$modules = array(
-			array("type" => "site_wide", "url" => "resources/javascript/modules/site_wide/site_wide.js"),
-			array("type" => "pages", "url" => "resources/javascript/modules/pages/site_wide.js"),
-			array("type" => "modules", "url" => "resources/javascript/modules/modules/background_gallery.js"),
-			array("type" => "modules", "url" => "resources/javascript/modules/modules/form_animation.js"),
-			array("type" => "modules", "url" => "resources/javascript/modules/pages/management.js"),
+		$query = $this->db->where(array("page_id" => "homepage"))->get("javascript_modules");
 
-		);
+		foreach ($query->result() as $row) {
 
-		foreach ($modules as $module) {
+			$data = array(
 
-			$module['status'] = false;
-			$module['page_id'] = "management";
+				"page_id" => "vacancies",
+				"url" => $row->url,
+				"type" => $row->type,
+			);
 
-			$this->db->insert("javascript_modules", $module);
-
+			$this->db->insert("javascript_modules", $data);
 		}
+
 
 	}
 
