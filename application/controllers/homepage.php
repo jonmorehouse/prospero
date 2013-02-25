@@ -3,6 +3,7 @@
 class Homepage extends CI_Controller{
 	
 	function __construct() {
+
 		parent::__construct();
 		$this->id = 'homepage';
 		
@@ -27,7 +28,6 @@ class Homepage extends CI_Controller{
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
 		$this->background_images = $this->elements->get_background_images("homepage_background");
 		$this->logo = $this->navigation->get_logo();
-
 
 		// left side bumpboxes
 		$this->team_bumpbox = $this->homepage_bumpboxes->get_team();//this is the team 
