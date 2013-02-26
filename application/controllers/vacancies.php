@@ -17,9 +17,9 @@ class Vacancies extends CI_Controller{
 	
 	public function _remap($uri) {
 		
-		$category = ($this->uri->segment(2)) ? ($this->uri->segment(2)) : ("retail_office_industrial");
+		$this->category = ($this->uri->segment(2)) ? ($this->uri->segment(2)) : ("retail_office_industrial");//
 
-		echo $category;
+		$this->index();
 	}
 	
 	function index() {

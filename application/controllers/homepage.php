@@ -20,6 +20,7 @@ class Homepage extends CI_Controller{
 	
 	function index() {
 					
+		// caching currently turned on
 		$this->output->cache(1440);
 
 		// data
