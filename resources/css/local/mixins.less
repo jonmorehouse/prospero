@@ -1,7 +1,13 @@
 @import "variables";
 
-/*****OLDER MIXINS*******/
+// declare our custom font face rule for this applciation
+@font-face {
+	font-family: sertig;
+	src: url('/resources/css/fonts/sertig.ttf');
+	src: url('/resources/css/fonts/sertig.eot'), format('embedded-opentype');//support for internet explorer compatibility
+}
 
+/*****OLDER MIXINS*******/
 .page_border{
 	position:fixed;
 	z-index:10000;
@@ -89,7 +95,7 @@
 .base_font(@size: @font_size){
 	color:white;
 	font-size:@size;
-	font-family:arial, sans-serif;
+	font-family:sertig, times, arial, sans-serif;
 	// .dark_background(@dark_opacity);
 }
 
