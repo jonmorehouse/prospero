@@ -3,7 +3,9 @@
 // declare our custom font face rule for this applciation
 @font-face {
 	font-family: sertig;
-	src: url('/resources/css/fonts/sertig.ttf');
+	src: url('/resources/css/fonts/sertig.ttf');//normal webkit browsers
+	src: url('/resources/css/fonts/sertig.eot');//ie 9 font
+	// legacy font support
 	src: url('/resources/css/fonts/sertig.eot'), format('embedded-opentype');//support for internet explorer compatibility
 }
 
