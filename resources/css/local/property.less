@@ -6,7 +6,7 @@
 #page_container{
 	/*THIS IS THE MASTER HOLDER WITH THE RIGHT SIDE PADDING TO HIDE THE NAV BAR*/
 	position:absolute;
-	top:220px;
+	top:170px;
 	right:0;
 	left:@page_container_left;
 	right:3%;
@@ -87,7 +87,8 @@
 #thumbnail_container > div.thumbnail {
 
 	.general_thumbnail;//include the thumbnail mixin
-
+	width: 170px;
+	height: 180px;	
 }//end of individual containers
 
 
@@ -134,7 +135,7 @@
 
 	#page_container {
 
-	left: 120px;
+		left: 120px;
 
 	}
 }
@@ -143,9 +144,9 @@
 @media only screen and (max-width:1024px) {
 
 	#thumbnail_container > div.thumbnail {
-
+		
 		width: 125px;
-		height: 125px;
+		height: 160px;
 	}
 
 }
