@@ -39,5 +39,7 @@ export -f worker
 # go through each of the folders and then call the worker function
 find property_images -mindepth 1 -maxdepth 1 -type d | xargs -n 1 -I{} bash -c "worker {}"
 
-
+# now lets find all of our new images and output them into the proper file for the image_upload controller
+# to upload the images, just run php index.php image_upload
+find property_images -type f > images.txt
 
