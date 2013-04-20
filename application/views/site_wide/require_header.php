@@ -21,7 +21,7 @@
 
 	?>
 
-	<script data-main='<?php echo $require_app;?>' src='js/resources/require.js'></script> 
+	<script data-main='<?php echo $require_app;?>' src='<?php echo base_url("resources/javascript/resources/require.js");?>'></script> 
 	
 </head>
 
