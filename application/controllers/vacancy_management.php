@@ -50,4 +50,8 @@ class Vacancy_management extends CI_Controller{
 		// load the base vacancy view
 		$this->load->view('vacancy_management/vacancy_management_base');
 	}
+
+	// do other upload / download elements here!
+
+
 }

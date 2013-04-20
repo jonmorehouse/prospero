@@ -19,7 +19,7 @@ class Assets extends CI_Controller {
 
 		foreach ($resources as $resource) {
 
-			$insert = array("url" => $resource, "status" => false, "page_id" => "vacancies");
+			$insert = array("url" => $resource, "status" => false, "page_id" => "vacancy_management");
 			$this->db->insert("javascript_resources", $insert);
 		}	
 	}
@@ -54,6 +54,34 @@ class Assets extends CI_Controller {
 
 			$this->db->insert("javascript_modules", $data);
 		}
+
+	}
+
+	// create a quick function to add a new stylesheet to the database!
+	private function add_stylesheet($page_id, $url, $live = false) {
+
+		// create our data object for the individual stylesheet
+		$data = array(
+			"url" => $url,
+			"status" => $live,
+			"page_id" => $page_id,
+			"file_type" => ($live) ? ("text/css") : ("stylesheet/less"),
+		);		
+
+		// actually insert the stylesheet into our database
+		$this->db->insert("stylesheets", $data);
+	}
+
+	// public accessor function for the stylesheets 
+	public function stylesheets() {
+
+		// set the page_id variable for the stylesheets element
+		$page_id = "vacancy_management";
+		$urls = array("resources/css/local/vacancy_management.less");
+
+		// now loop through each of the urls and add the asset
+		foreach ($urls as $url)
+			$this->add_stylesheet($page_id, $url);
 
 	}
 
