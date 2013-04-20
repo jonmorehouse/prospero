@@ -23,7 +23,7 @@ class Login extends MY_Controller {
 	// json api -- this is useful for logging in to make sure that the user is validated etc!
 	function create() {
 
-		// this should try to create a 
+		// this should try to create a session for a user etc
 
 	}
 	

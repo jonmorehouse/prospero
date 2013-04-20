@@ -7,5 +7,4 @@
 6.) Create a require header page! 
 
 
-<script data-main='js/app.js' src='js/resources/require.js'></script> 
 
