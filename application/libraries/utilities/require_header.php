@@ -9,7 +9,7 @@ class Require_header extends Dynamic_header {
 	}
 
 	// grab the require module for this particular page_id
-	public function get_require_header() {
+	public function get_require_module() {
 
 		// grab the require modules table
 		$table = "require_modules";

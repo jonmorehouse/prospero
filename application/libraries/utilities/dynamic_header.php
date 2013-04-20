@@ -138,7 +138,7 @@ class Dynamic_header extends Header{
 		return $raw_files;//this is going to be echoed out in the footer to be included with javascript
 	}
 
-	private function get_page_title() {
+	protected function get_page_title() {
 
 		if ($this->page_id === "listing") return $this->CI->headers->listing_page_title($this->property_id);
 			

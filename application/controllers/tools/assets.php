@@ -42,9 +42,9 @@ class Assets extends CI_Controller {
 
 		$this->db->insert("javascript_modules", $module);
 
-
 	}
 
+	// initialize basic modules for new pages etc...
 	public function javascript_modules() {
 
 		$query = $this->db->where(array("page_id" => "homepage"))->get("javascript_modules");
@@ -62,6 +62,20 @@ class Assets extends CI_Controller {
 		}
 
 	}
+
+	public function add_require_module() {
+
+		$data = array(
+			
+			"page_id" => "admin",	
+			"status" => false,
+			"url" => "resources/javascript/admin/app.js"
+		);
+
+		// actually insert our array of data into the database to start automated loading of the require modules
+		$this->db->insert("require_modules", $data);
+	}
+
 
 	// create a quick function to add a new stylesheet to the database!
 	private function add_stylesheet($page_id, $url, $live = false) {

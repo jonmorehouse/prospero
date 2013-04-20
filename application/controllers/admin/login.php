@@ -1,6 +1,7 @@
 <?php
 
-class Login extends MY_Controller {
+// create a base login element etc
+class Login extends Tool_Controller {
 
 	function __construct() {
 
@@ -9,6 +10,9 @@ class Login extends MY_Controller {
 
 		// call the parent construct function
 		parent::__construct();
+
+		// initialize data object for this particular tool etc
+		$this->data = array("tool_id" => "login");
 	}
 
 	function index() {

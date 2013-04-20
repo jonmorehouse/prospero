@@ -43,9 +43,8 @@ class MY_Controller extends CI_Controller{
 			// take this out because it was getting slow!
 			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
 		);
-
-
 	}	
-	
-
 }
+
+// now require all of our other php files here?
+require_once("application/core/tool_controller.php");
