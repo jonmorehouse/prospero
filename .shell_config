@@ -3,5 +3,9 @@ alias view='cd application/views/'
 alias model='cd application/models'
 alias controller='cd application/controllers'
 alias library='cd application/libraries'
-alias style='cd resources/css/local'
 alias core='cd application/core'
+
+
+# asset shortcuts
+alias style='cd resources/css/local'
+alias scripts='cd resources/javascript'

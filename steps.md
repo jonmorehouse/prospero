@@ -4,4 +4,8 @@
 3.) Create authentication library etc
 4.) Debug slow section -- map_api segment
 5.) Going to rebuild both cms systems using angular so will just use and deploy require there!
+6.) Create a require header page! 
+
+
+<script data-main='js/app.js' src='js/resources/require.js'></script> 
 
