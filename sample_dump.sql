@@ -1038,7 +1038,7 @@ CREATE TABLE `stylesheets` (
   `url` varchar(255) DEFAULT NULL,
   `file_type` varchar(255) DEFAULT 'stylesheet/less',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1047,7 +1047,7 @@ CREATE TABLE `stylesheets` (
 
 LOCK TABLES `stylesheets` WRITE;
 /*!40000 ALTER TABLE `stylesheets` DISABLE KEYS */;
-INSERT INTO `stylesheets` VALUES (3,'homepage',0,'resources/css/local/homepage.less','stylesheet/less'),(4,'homepage',0,'resources/css/local/bumpbox.less','stylesheet/less'),(5,'property',0,'resources/css/local/property.less','stylesheet/less'),(6,'property',0,'resources/css/local/bumpbox.less','stylesheet/less'),(9,'listing',0,'resources/css/local/bumpbox.less','stylesheet/less'),(10,'listing',0,'resources/css/local/listing.less','stylesheet/less'),(12,'listing',0,'resources/css/local/listing_bumpboxes.less','stylesheet/less'),(18,'vacancies',0,'resources/css/local/vacancies.less','stylesheet/less'),(19,'vacancies',0,'resources/css/local/bumpbox.less','stylesheet/less'),(20,'management',0,'resources/css/local/management.less','stylesheet/less'),(21,'management',0,'resources/css/local/vacancies.less','stylesheet/less'),(22,'management',0,'resources/css/local/bumpbox.less','stylesheet/less');
+INSERT INTO `stylesheets` VALUES (3,'homepage',0,'resources/css/local/homepage.less','stylesheet/less'),(4,'homepage',0,'resources/css/local/bumpbox.less','stylesheet/less'),(5,'property',0,'resources/css/local/property.less','stylesheet/less'),(6,'property',0,'resources/css/local/bumpbox.less','stylesheet/less'),(9,'listing',0,'resources/css/local/bumpbox.less','stylesheet/less'),(10,'listing',0,'resources/css/local/listing.less','stylesheet/less'),(12,'listing',0,'resources/css/local/listing_bumpboxes.less','stylesheet/less'),(18,'vacancies',0,'resources/css/local/vacancies.less','stylesheet/less'),(19,'vacancies',0,'resources/css/local/bumpbox.less','stylesheet/less'),(20,'management',0,'resources/css/local/management.less','stylesheet/less'),(21,'management',0,'resources/css/local/vacancies.less','stylesheet/less'),(22,'management',0,'resources/css/local/bumpbox.less','stylesheet/less'),(23,'vacancy_management',0,'resources/css/local/bumpbox.less','stylesheet/less');
 /*!40000 ALTER TABLE `stylesheets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1266,4 +1266,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-04-19 23:37:29
+-- Dump completed on 2013-04-20  0:39:04
