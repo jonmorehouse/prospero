@@ -51,7 +51,32 @@ class Vacancy_management extends CI_Controller{
 		$this->load->view('vacancy_management/vacancy_management_base');
 	}
 
-	// do other upload / download elements here!
+	// json api vacancy creation
+	public function create() {
 
+		// create a new vacancy!
+
+	}
+
+	// update a vacancy 
+	public function update() {
+
+		// update a single vacancy etc...
+
+	}
+
+	// remove a vacancy
+	public function destroy() {
+
+		// destroy an entire vacancy here
+
+	}
+
+	// grab a vacancy
+	public function show() {
+
+		// show an individual vacancy here
+
+	}
 
 }
