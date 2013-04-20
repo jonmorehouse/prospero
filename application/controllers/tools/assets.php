@@ -12,14 +12,19 @@ class Assets extends CI_Controller {
 
 	public function javascript_resources() {
 
-		$resources = array("resources/javascript/resources/jquery-1.7.1.min.js",
+		// general resources element for all pages throughout
+		$resources = array(
+			"resources/javascript/resources/modernizr.js",
+			"resources/javascript/resources/jquery-1.7.1.min.js",
 			"resources/javascript/resources/jquery-ui-1.8.18.custom.min.js",
 			"resources/javascript/resources/less-1.3.0.min.js",
-			"resources/javascript/resources/modernizr.js");
+			"resources/javascript/resources/angular.min.js",
+		);
 
+		// loop through all of resources and add them to the current page!
 		foreach ($resources as $resource) {
 
-			$insert = array("url" => $resource, "status" => false, "page_id" => "vacancy_management");
+			$insert = array("url" => $resource, "status" => false, "page_id" => "admin");
 			$this->db->insert("javascript_resources", $insert);
 		}	
 	}
@@ -76,8 +81,8 @@ class Assets extends CI_Controller {
 	public function stylesheets() {
 
 		// set the page_id variable for the stylesheets element
-		$page_id = "vacancy_management";
-		$urls = array("resources/css/local/vacancy_management.less");
+		$page_id = "admin";
+		$urls = array("resources/css/local/admin.less");
 
 		// now loop through each of the urls and add the asset
 		foreach ($urls as $url)
