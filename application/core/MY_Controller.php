@@ -48,3 +48,5 @@ class MY_Controller extends CI_Controller{
 
 // now require all of our other php files here?
 require_once("application/core/tool_controller.php");
+// require json_controller for all of our tools etc
+require_once("application/core/json_controller.php");
