@@ -17,7 +17,7 @@ class Assets extends CI_Controller {
 			// "resources/javascript/resources/modernizr.js",
 			// "resources/javascript/resources/jquery-1.7.1.min.js",
 			// "resources/javascript/resources/jquery-ui-1.8.18.custom.min.js",
-			"resources/javascript/resources/less-1.3.0.min.js",
+			// "resources/javascript/resources/less-1.3.0.min.js",
 			// "resources/javascript/resources/angular.min.js",
 			// "resources/javascript/resources/require.js"
 		);

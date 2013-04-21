@@ -60,6 +60,7 @@ class Navigation extends CI_Model {
 	// get the navigation_left element for a particular property -- handles all the proper elements etc
 	public function get_listing($property_id) {
 
+		// generate the get_listing element
 		return $this->generate_element_data($this->listing_elements($property_id));
 	}
 

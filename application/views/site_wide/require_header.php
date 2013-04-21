@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+<html ng-app>
 <head>
 	<title><?php echo $page_title; ?></title>		
 
