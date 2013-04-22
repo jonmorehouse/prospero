@@ -1,6 +1,20 @@
 # assume that all libraries / dependencies are loaded in before hand
+config = 
 
-require [], () ->
+	paths: 
+		angular: "/resources/javascript/resources/angular.min"
+		jquery: "/resources/javascript/resources/jquery"
 
-	alert "HELLO WORLD"	
+# initialize require with the proper config
+require.config config
+
+# 
+require ["angular"], ($) ->
+
+	# 
+				
+
+
+
+
 
