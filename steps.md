@@ -17,15 +17,13 @@
 
 Bump boxes bigger so that they take up more space on the screen
 
-Bump Boxes non-transparent of very very little transparency so it's easier to read
+	Not done yet -- lets chat about this
+
+(FIXED) -- Bump Boxes non-transparent of very very little transparency so it's easier to read
 
 (FIXED) -- Font in bump boxes bigger 
 
 (FIXED) -- Make sure Rick Halliday's picture is the same size as the other team members
-	
-
-
-No rotational images as background when bump boxes open 
 
 (FIXED) ---Wants the background of the listings boxes to be non-transparent 
 
@@ -36,11 +34,4 @@ No rotational images as background when bump boxes open
 (FIXED) -- Wants behind the "General Details" and "Residential Details" etc to be non-transparent behind it so it can be read easier under the listing info
 
 
-Bump boxes that these notes apply to: 
-About bump box
-Team bump box
-Map bump box
-Contact bump box
-Listing Map bump box 
-Inquire bump box
 
