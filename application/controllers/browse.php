@@ -58,7 +58,7 @@ class Browse extends CI_Controller{
 	
 	private function output(){
 					
-		$this->output->cache(1440);
+		// $this->output->cache(1440);
 
 		// load general libraries
 		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes", "property/base_filter", "property/map_api");
@@ -86,7 +86,7 @@ class Browse extends CI_Controller{
 
 		$this->data = array(
 	
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
+			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
 
 		);
 
