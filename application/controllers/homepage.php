@@ -16,7 +16,7 @@ class Homepage extends MY_Controller{
 		$this->index();
 	}
 	
-	function index() {
+	public function index() {
 					
 		// call our basic page setup here!
 		$this->base();
