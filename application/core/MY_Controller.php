@@ -41,6 +41,7 @@ class MY_Controller extends CI_Controller{
 
 		// data that should be printed out for front-end use
 		$this->data = array(
+			
 			// take this out because it was getting slow!
 			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
 		);

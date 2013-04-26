@@ -4,7 +4,7 @@ Project.modules.general_map = function(element, data) {
 
 		map_container: element.children('div').get(0),//can change this later if necessary!
 		center: new google.maps.LatLng(data['center']['latitude'], data['center']['longitude']),
-		zoom: 7,
+		zoom: 15,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 
 		};

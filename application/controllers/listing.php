@@ -1,7 +1,6 @@
 <?php
 class Listing extends Page_Controller { 
 	
-
 	function __construct() {
 
 		$this->id = "listing";
