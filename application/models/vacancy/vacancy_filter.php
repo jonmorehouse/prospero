@@ -22,11 +22,25 @@ class Vacancy_filter extends MY_Model {
 
 	private function get_vacancy_ids($filter) {
 
+		// if filter is for all elements then grab all of the vacancies currently available
 		if ($filter === "all")
-			$query = $this->db->get("vacancies");
+			$query = $this->db->select("vacancy_id")->get("vacancies");
 
-		if ($filter === "residential")
+		// otherwise lets do a join against the property_type element to grab the residential properties
+		else if ($filter === "residential")
+			// join the elements based on 
+			$query = $this->db->select("vacancy_id")->where(array("type_category" => "residential"))->join("property_type")->get("vacancies");	
+
+		// otherwise grab the retail_office_industrial filters by joining on the type_category
+		else if ($filter === "retail_office_industrial")
+			// join agains the office industrial etc
+			$query = $this->db->select("vacancy_id")->where(array("type_category" => "retail"))->or_where(array("type_category" => "office_industrial"))->join("property_type")->get("vacancies");	
+
+		// grab the variable dump element
+		var_dump($query);
+
+
+		// now lets return some sort of array with all of the vacancy_ids	
 
 	}
-
 }		
