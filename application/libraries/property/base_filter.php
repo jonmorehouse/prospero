@@ -20,6 +20,9 @@ class Base_filter {
 		// initialize an array to hold all of our thumbnail objects etc
 		$thumbnails = array();
 
+		// sort properties
+		$properties = $this->abc_sort($properties);
+
 		// loop through all of the properties and return an arry for them if they are currently live
 		foreach ($properties as $property_id) {
 
@@ -36,16 +39,16 @@ class Base_filter {
 	}
 
 	// prepare a basic bubble sort so that we can ensure that each element is sorted properly based on name
-	public function abc_sort($properties) {
+	protected function abc_sort($properties) {
 
-		// 
+		// initialize a generic boolean search variable etc
 		$finished = false;
 
 		// since the closure is an object itself, cannot use this etc in the function
 		$_this = $this;
 
 
-		// grab all
+		// map each element to a proper name / title array!
 		$get_name = function($property_id) use ($_this) {
 
 			return array(
