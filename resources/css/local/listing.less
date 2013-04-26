@@ -200,6 +200,52 @@
 	}
 }
 
+#surrounding {
+
+	width: 100%;
+	position: relative;
+	margin-top: 1em;
+	overflow-y:auto;
+	display:block;
+
+	> ul {
+
+		display:block;
+		overflow-y:auto;
+		list-style-type:none;
+		position: relative;
+		width: 100%;
+		margin: 0;
+		padding:0;
+
+		> li {
+			position: relative;
+			float: left;
+			width:47.5%;
+			> a {
+
+				width: 100%;
+				display:block;
+				.navigation_li(1);
+				.base_font(1.1em);
+				.light_background(0.3);
+				padding: 0.5em 0 0.5em 0;
+				text-align: center;
+			}	
+
+			&:first-child {
+
+				margin-right:5%;
+			}
+
+			&:hover {
+
+				.light_background(0.5);
+
+			}
+		}
+	}
+}
 
 
 /********* ELEMENTS ***************/
