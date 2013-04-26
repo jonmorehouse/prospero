@@ -14,12 +14,15 @@ class Assets extends CI_Controller {
 
 		// general resources element for all pages throughout
 		$resources = array(
-			"resources/javascript/resources/modernizr.js",
-			"resources/javascript/resources/jquery-1.7.1.min.js",
-			"resources/javascript/resources/jquery-ui-1.8.18.custom.min.js",
-			"resources/javascript/resources/less-1.3.0.min.js",
+			// "resources/javascript/resources/modernizr.js",
+			// "resources/javascript/resources/jquery-1.7.1.min.js",
+			// "resources/javascript/resources/jquery-ui-1.8.18.custom.min.js",
+			// "resources/javascript/resources/less-1.3.0.min.js",
 			// "resources/javascript/resources/angular.min.js",
 			// "resources/javascript/resources/require.js"
+			"http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false",
+			"resources/javascript/resources/infobox.js",
+			
 		);
 
 		// loop through all of resources and add them to the current page!
@@ -32,16 +35,43 @@ class Assets extends CI_Controller {
 
 	public function javascript_module() {
 
-		$module = array(
+		$urls = array(
 
-			// "url" => "resources/javascript/modules/modules/map_controller.js",
-			"url" => "resources/javascript/modules/pages/vacancies.js",
-			"type" => "modules",
-			"page_id" => "vacancies",
-			"status" => false
+			"resources/javascript/modules/site_wide/site_wide.js",
+			"resources/javascript/modules/modules/bumpbox.js",
+			"resources/javascript/modules/pages/site_wide.js",
+			"resources/javascript/modules/modules/background_gallery.js",
+			"resources/javascript/modules/modules/thumbnail_controller.js",
+			"resources/javascript/modules/modules/contact.js",
+			"resources/javascript/modules/modules/form_animation.js",
+			"resources/javascript/modules/modules/general_maps.js",
+			"resources/javascript/modules/modules/general_map.js",
+			"resources/javascript/modules/pages/bumpbox.js",
+			"resources/javascript/modules/pages/vacancies.js"
 		);
 
-		$this->db->insert("javascript_modules", $module);
+		// cache this for closure use
+		$_this = $this;
+
+		// insert closure element here
+		$insert = function($url) use ($_this) {
+
+			$data = array(
+
+				"url" => $url,
+				"type" => "modules",
+				"page_id" => "vacancies",	
+				"status" => false
+			);
+
+			// 
+			$_this->db->insert("javascript_modules", $data);
+
+		};
+
+		// insert each url into the database
+		foreach ($urls as $url)
+			$insert($url);
 
 	}
 
