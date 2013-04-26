@@ -17,9 +17,16 @@ class Vacancy_filter extends MY_Model {
 		// lets grab the various vacancy_ids etc for this particular element
 		$vacancy_ids = $this->get_vacancy_ids($filter);
 
-		var_dump($vacancy_ids);
+		// now initialize an array to hold of the vacancies that we have as objects ...
+		$vacancies = array();
 
+		// grab the vacancies that we need and then we can store them as a master list of objects
+		foreach ($vacancy_ids as $vacancy_id)
+			// grab all of the vacancies and push them into our array of objects
+			array_push($vacancies, $this->vacancy->get_vacancy($vacancy_id));
 
+		// now return the list of vacancies that we have ...
+		return $vacancies;
 	}
 
 	private function get_vacancy_ids($filter) {
