@@ -27,7 +27,11 @@
 					<ul>
 						<li>Property</li>
 						<li>Available</li>
-						<li>Description</li>
+						<?php if($this->filter == "residential"):?>
+							<li>Available Layouts</li>
+						<?php else:?>
+							<li>Description</li>
+						<?php endif;?>
 						<li>Price</li>
 					</ul>
 				</div>

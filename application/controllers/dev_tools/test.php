@@ -40,7 +40,7 @@ class Test extends MY_Controller {
 		$data = array(
 
 			"date_available" => "Immediate",
-			"property_id" => 5,
+			"property_id" => 6,
 			"description" => "Immediately available!",
 		);
 

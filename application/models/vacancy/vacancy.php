@@ -8,7 +8,10 @@ class Vacancy extends MY_Model {
 		parent::__construct();
 
 		// now load in extra libraries / models that we may need for this particul element
-		$this->load->model("property/thumbnail");
+		$models = array("property/thumbnail", "vacancy/vacancy_layout");
+
+		// load in the models for this particular model to use
+		$this->load->model($models);
 	}
 
 	// create a vacancy, will throw an error if the proper elements don't exist
@@ -23,6 +26,8 @@ class Vacancy extends MY_Model {
 			"description" => $data["description"],//should be a string, provided by the element
 		);
 
+
+		// insert the particular vacancy etc into our database
 		$this->db->insert("vacancies", $insert);//insert the data into the data
 	}
 
@@ -31,6 +36,20 @@ class Vacancy extends MY_Model {
 
 		// this will see if the row exists and will then delete the vacancy etc 
 		$this->db->where(array('vacancy_id' => $vacancy_id))->delete("vacancies");//delete the vacancy from the database
+
+	}
+
+	// 
+	public function get_vacancy_id($property_id) {
+
+		// search the database for any vacancies with this propert_id
+		$query = $this->db->where(array('property_id' => $property_id))->select("vacancy_id")->get("vacancies");
+
+		// now return false / vacancy_id dependeing upon whether or not the vacancy for this particular property exists
+		if ($query->num_rows() === 0) return false;
+
+		// found a vacancy already
+		return $query->row()->vacancy_id;
 
 	}
 
@@ -54,7 +73,6 @@ class Vacancy extends MY_Model {
 			// grab the date-available string from the database
 			"date_available" => $data->date_available,
 			// grab the description string from the database -- assume formatting of the text / cases is in place
-			"description" => $data->description,
 			// grab the listing link etc
 			"link" => $this->general->listing_link($data->property_id),
 			// now grab the initial thumbnail element etc
@@ -65,6 +83,14 @@ class Vacancy extends MY_Model {
 			"price" => $this->general->get_price($data->property_id)
 
 		);
+
+		// add in the layouts associated with this particular vacancy etc
+		if ($this->general->get_unformatted_category($vacancy['property_id'], "category_type") == "residential")
+			$vacancy['layouts'] = $this->vacancy_layouts->get_layouts($vacancy_id);
+
+		// otherwise we don't need to include the assorted layouts etc
+		else
+			$vacancy['description'] = $data->description;
 
 		// now return this exact vacancy object ...
 		return $vacancy;	

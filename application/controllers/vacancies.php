@@ -26,12 +26,12 @@ class Vacancies extends Page_Controller {
 		$this->base();
 
 		// initialize a filter variable for 
-		$filter = ($this->uri->segment(2)) ? ($this->uri->segment(2)) : ("all");
+		$this->filter = ($this->uri->segment(2)) ? ($this->uri->segment(2)) : ("all");
 
 		// load in vacancies logic etc here
 		// grab all of the vacancies with this particular filter exif_tagname(index)c
-		$this->vacancies = $this->vacancy_filter->get_vacancies($filter);
-		$this->label = $this->elements->label("${filter}_vacancies"); 
+		$this->vacancies = $this->vacancy_filter->get_vacancies($this->filter);
+		$this->label = $this->elements->label("{$this->filter}_vacancies"); 
 
 		// load our initial vacancies page
 		$this->load->view('vacancies/vacancies_base');
