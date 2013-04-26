@@ -1,6 +1,6 @@
 <?php
 
-class Vacancies extends MY_Controller {
+class Vacancies extends Page_Controller {
 
 	function __construct() {
 
@@ -9,6 +9,8 @@ class Vacancies extends MY_Controller {
 
 		// construct our base controller
 		parent::__construct();
+
+		// 
 	}
 
 	// force all calls to the vacancies page to go through the index element
@@ -30,10 +32,11 @@ class Vacancies extends MY_Controller {
 
 		// load in vacancies logic etc here
 		// grab all of the vacancies with this particular filter exif_tagname(index)c
-		$this->vacancies = $this->get_vacancies->get($filter);
+		$this->vacancies = $this->vacancy_filter->get_vacancies($filter);
+		$this->label = $this->db->get 
 
 		// load our initial vacancies page
-		// $this->load->view('vacancies/vacancies_base');
+		$this->load->view('vacancies/vacancies_base');
 	}
 
 }

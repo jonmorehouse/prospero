@@ -46,7 +46,13 @@ class MY_Controller extends CI_Controller{
 	}	
 }
 
+
+// now require our basic controllers that serve as the bases for the rest of the webpage etc
 // now require all of our other php files here?
 require_once("application/core/tool_controller.php");
+
 // require json_controller for all of our tools etc
 require_once("application/core/json_controller.php");
+
+// require our basic page controller
+require_once("application/core/page_controller.php");
