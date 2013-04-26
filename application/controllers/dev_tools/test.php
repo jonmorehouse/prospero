@@ -18,7 +18,7 @@ class Test extends MY_Controller {
 	// basic vacancies test etc
 	public function vacancies() {
 
-		// 
+		// vacancy elements etc
 		$vacancies = $this->vacancy_filter->get_vacancies();
 	}
 
