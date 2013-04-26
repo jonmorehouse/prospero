@@ -27,7 +27,8 @@ class Vacancies extends MY_Controller {
 		$filter = ($this->uri->segment(2)) ? ($this->uri->segment(2)) : ("all");
 
 		// load in vacancies logic etc here
-		$this->vacancies = $this->
+		// grab all of the vacancies with this particular filter exif_tagname(index)c
+		$this->vacancies = $this->get_vacancies->get($filter);
 
 		// load our initial vacancies page
 		// $this->load->view('vacancies/vacancies_base');

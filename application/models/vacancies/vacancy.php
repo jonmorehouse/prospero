@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-class Vacancy extends CI_Model {
+class Vacancy extends MY_Model {
 
 	function __construct() {
 
+		// initialize our parent model
 		parent::__construct();
-		$this->load->model("general");
-		$this->load->library("property/media");
 
+		// now load in extra libraries / models that we may need for this particul element
+		$this->load->model("property/thumbnail");
 	}
-
 
 	// create a vacancy, will throw an error if the proper elements don't exist
 	public function add_vacancy($data) {
@@ -37,18 +37,29 @@ class Vacancy extends CI_Model {
 	public function get_vacancy($vacancy_id) {
 
 		// grab an actual vacancy object from the database
-		$this->db->where();	
+		$query = $this->db->where(array('vacancy_id' => $vacancy_id))->get("vacancies");
 
-		// 			
-	}
+		// do some basic primitive tests to ensure that the vacancy exists 
+		if ($query->num_rows() == 0) return false;		
 
-	// get a list of vacancy ids from our database
-	public function get_vacancies($category) {
+		// grab the first query row
+		$data = $query->row();
 
-		// need to do a join of vacancies table on the 
-		
-		
+		// create our vacancy array which yields the normal vacancy object for the view etc
+		$vacancy = array(
 
+			"property_id" => $data->property_id,
+			// grab the date available for this particular element etc
+			"date_available" => $data->date_available,
+			// grab the description string from the database -- assume formatting of the text / cases is in place
+			"description" => $data->description,
+			// grab the listing link etc
+			"link" => $this->general->listing_link($data->property_id),
+			// now grab the initial thumbnail element etc
+			"thumbnail" => $this->thumbnail->general_thumbnail($data->property_id)
+		);
+
+		// now return this exact vacancy object ...
+		return $vacancy;	
 	}
 }
-	
