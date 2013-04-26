@@ -10,6 +10,10 @@ class Listing_content extends Listing_base{
 
 		parent::__construct($parameters);
 		
+		// load our filter model to help with various elements / data etc
+		$this->CI->load->model("property/filter");
+
+		// grab the banned categories etc
 		$this->banned_categories = $this->CI->general->non_global_categories();//return the non-global categories that should not be in the main list
 
 		$this->init();//initialize the list!
@@ -20,6 +24,30 @@ class Listing_content extends Listing_base{
 
 		return $this->elements;
 	}	
+
+	// grab surrounding links etc
+	public function surrounding_links() {
+
+		// grab the ids from our api etc
+		$ids = $this->CI->filter->get_surrounding($this->property_id);
+
+		$links = array();
+
+		// loop through both ids and then properly determine the thumbnail information for each
+		foreach ($ids as $key => $property_id) {
+
+			$links[$key] = array(
+
+				"label" => $this->CI->format->word_format($key),
+				"title" => $this->CI->general->get_category($property_id, "name"),
+				"link" => $this->CI->general->listing_link($property_id)
+			);
+		}
+
+		// now return the links that we want etc
+		return $links;
+	}
+
 
 	public function content() {
 

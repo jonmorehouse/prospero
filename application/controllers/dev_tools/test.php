@@ -59,5 +59,19 @@ class Test extends MY_Controller {
 		print_r($links);
 	}
 
+	public function navigation_links() {
+
+		$libraries = array("listing/listing_base", "listing/listing_content");
+		// load the property_content etc
+		$this->load->library($libraries, array("property_id" => 4));
+
+		// grab the surrounding links and then print them properly
+		$surrounding_links = $this->listing_content->surrounding_links();
+
+		// print both surrounding links
+		print_r($surrounding_links);
+
+	}
+
 }
 
