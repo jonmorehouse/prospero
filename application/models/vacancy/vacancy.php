@@ -36,7 +36,6 @@ class Vacancy extends MY_Model {
 
 		// this will see if the row exists and will then delete the vacancy etc 
 		$this->db->where(array('vacancy_id' => $vacancy_id))->delete("vacancies");//delete the vacancy from the database
-
 	}
 
 	// 
@@ -50,7 +49,6 @@ class Vacancy extends MY_Model {
 
 		// found a vacancy already
 		return $query->row()->vacancy_id;
-
 	}
 
 	// grab an individual vacancy from the database
@@ -80,13 +78,14 @@ class Vacancy extends MY_Model {
 			// now grab the title etc 
 			"title" => $this->general->get_category($data->property_id, "name"),
 			// now grab the price etc ...
-			"price" => $this->general->get_price($data->property_id)
+			"price" => $this->general->get_price($data->property_id),
 
+			"type_category" => $this->general->get_unformatted_category($data->property_id, "type_category"),
 		);
 
 		// add in the layouts associated with this particular vacancy etc
-		if ($this->general->get_unformatted_category($vacancy['property_id'], "category_type") == "residential")
-			$vacancy['layouts'] = $this->vacancy_layouts->get_layouts($vacancy_id);
+		if ($this->general->get_unformatted_category($vacancy['property_id'], "type_category") == "residential")
+			$vacancy['layouts'] = $this->vacancy_layout->get_layouts($vacancy_id);
 
 		// otherwise we don't need to include the assorted layouts etc
 		else

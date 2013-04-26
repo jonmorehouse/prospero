@@ -47,6 +47,49 @@
 		}
 	}
 }
+
+// should be called within an li element
+.vacancy_layout {
+
+	> ul {
+
+		display: none;
+		overflow-y: auto;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+
+		> li {
+
+			padding: 1em 0 1em 0;
+			.light_background(0.5);
+			width: 100%;
+			display: block;
+			margin: 0;
+			left:0 ;	
+
+			> label {
+
+				margin-left: 1em;
+				position: relative;
+				float: left;
+			}
+
+			clear:both;
+		}
+	}
+
+	&:hover {
+
+		> ul {
+
+			display: block;
+
+		}
+
+	}
+}
+
 #page_content > h1 {
 
 	padding-top: 2em;
@@ -58,8 +101,6 @@
 	margin: 0 auto;
 	font-size: 2em;
 }
-
-
 
 // vacancy page code base
 #header {
@@ -99,6 +140,12 @@
 			display: block;
 			.vacancy;
 			padding: 0;
+		}
+
+		// include our vacancy layout for the proper elements
+		> a > ul > li {
+
+			.vacancy_layout;	
 		}
 	}
 
