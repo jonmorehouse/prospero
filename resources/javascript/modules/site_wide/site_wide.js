@@ -65,6 +65,7 @@ Project.Global.temp = (function() {
 	  }
 	}
 
+	// destroy less 
 	destroyLessCache("/resources/css/local/");
 
 }());

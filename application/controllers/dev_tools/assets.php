@@ -20,8 +20,8 @@ class Assets extends CI_Controller {
 			// "resources/javascript/resources/less-1.3.0.min.js",
 			// "resources/javascript/resources/angular.min.js",
 			// "resources/javascript/resources/require.js"
-			"http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false",
-			"resources/javascript/resources/infobox.js",
+			// "http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs&sensor=false",
+			// "resources/javascript/resources/infobox.js",
 			
 		);
 
@@ -37,16 +37,16 @@ class Assets extends CI_Controller {
 
 		$urls = array(
 
-			"resources/javascript/modules/site_wide/site_wide.js",
-			"resources/javascript/modules/modules/bumpbox.js",
-			"resources/javascript/modules/pages/site_wide.js",
-			"resources/javascript/modules/modules/background_gallery.js",
-			"resources/javascript/modules/modules/thumbnail_controller.js",
-			"resources/javascript/modules/modules/contact.js",
-			"resources/javascript/modules/modules/form_animation.js",
-			"resources/javascript/modules/modules/general_maps.js",
-			"resources/javascript/modules/modules/general_map.js",
-			"resources/javascript/modules/pages/bumpbox.js",
+			// "resources/javascript/modules/site_wide/site_wide.js",
+			// "resources/javascript/modules/modules/bumpbox.js",
+			// "resources/javascript/modules/pages/site_wide.js",
+			// "resources/javascript/modules/modules/background_gallery.js",
+			// "resources/javascript/modules/modules/thumbnail_controller.js",
+			// "resources/javascript/modules/modules/contact.js",
+			// "resources/javascript/modules/modules/form_animation.js",
+			// "resources/javascript/modules/modules/general_maps.js",
+			// "resources/javascript/modules/modules/general_map.js",
+			// "resources/javascript/modules/pages/bumpbox.js",
 			"resources/javascript/modules/pages/vacancies.js"
 		);
 
@@ -59,7 +59,7 @@ class Assets extends CI_Controller {
 			$data = array(
 
 				"url" => $url,
-				"type" => "modules",
+				"type" => "pages",
 				"page_id" => "vacancies",	
 				"status" => false
 			);
@@ -78,7 +78,7 @@ class Assets extends CI_Controller {
 	// initialize basic modules for new pages etc...
 	public function javascript_modules() {
 
-		$query = $this->db->where(array("page_id" => "homepage"))->get("javascript_modules");
+		$query = $this->db->where(array("page_id" => "homepage"))->where("url !=", "resources/javascript/modules/pages/homepage.js")->get("javascript_modules");
 
 		foreach ($query->result() as $row) {
 
