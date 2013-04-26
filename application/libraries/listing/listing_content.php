@@ -55,7 +55,7 @@ class Listing_content extends Listing_base{
 
 				"name" => $this->CI->general->get_category($this->property_id, "name"),
 				"header" => $this->CI->general->get_category_title("property_content"),
-				"content" => $this->CI->general->get_category($this->property_id, "property_content"),
+				"content" => $this->CI->general->get_unformatted_category($this->property_id, "property_content"),
 			);
 
 		return $content;
