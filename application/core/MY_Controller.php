@@ -20,7 +20,8 @@ class MY_Controller extends CI_Controller{
 
 	// initialize basic html structure here
 	protected function base() {
-		// $this->output->cache(1440);
+
+		$this->output->cache(1440);
 
 		// generic global data
 		$this->header = $this->dynamic_header->get_header();//gets the dynamic header - not the tables that define the resources included
@@ -45,7 +46,6 @@ class MY_Controller extends CI_Controller{
 		);
 	}	
 }
-
 
 // now require our basic controllers that serve as the bases for the rest of the webpage etc
 // now require all of our other php files here?

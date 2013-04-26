@@ -1,7 +1,10 @@
 <?php
-class Listing extends CI_Controller { 
+class Listing extends Page_Controller { 
 	
+
 	function __construct() {
+
+		$this->id = "listing";
 		parent::__construct();
 
 		$this->load->model("general");//load this for status check -- interesting note if this doesn't exist, using it inside an if statement will just return false, not throw an error
