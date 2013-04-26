@@ -11,7 +11,7 @@ class MY_Controller extends CI_Controller{
 		$this->load->model(array("pages/elements", "pages/navigation"));
 
 		// now initialize the header libraries etc by using our declared page_id etc 
-		$this->load->library(array('utilities/header', 'utilities/dynamic_header', 'property/base_filter', 'property/map_api'), array("page_id" => $this->id));
+		$this->load->library(array('utilities/header', 'utilities/dynamic_header', 'property/base_filter', 'property/map_api'), array("page_id" => $this->id, "page_filter" => "office_industrial"));
 
 		// load the top_bumpboxes		
 		$this->load->library(array('general/top_bumpboxes', "homepage/homepage_bumpboxes"));
@@ -43,7 +43,7 @@ class MY_Controller extends CI_Controller{
 		$this->data = array(
 			
 			// take this out because it was getting slow!
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
+			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
 		);
 	}	
 }

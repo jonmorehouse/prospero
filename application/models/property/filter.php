@@ -63,7 +63,6 @@ class Filter extends CI_Model {
 			This function returns all new properties as flagged across the site
 			These properties can be flagged through the content management system
 		*/
-
 		$table = $this->db->where(array('category' => 'new_property'))->select('location')->get($this->base_table)->row()->location;
 
 		$properties = $this->db->select('property_id')->where(array('new_property' => true))->get($table);

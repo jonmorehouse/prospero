@@ -73,5 +73,25 @@ class Test extends MY_Controller {
 
 	}
 
+	public function address() {
+
+		echo $this->general->get_address(4);
+
+	}
+
+	public function abc_sort() {
+
+		// load our basic base filter model
+		$this->load->library("property/base_filter");
+
+		// now initialize all of the ids for this particular element to test on!
+		$ids = $this->general->get_live_properties();
+
+		// sort all based on abc
+		print_r($this->base_filter->abc_sort($ids));	
+
+
+	}
+
 }
 

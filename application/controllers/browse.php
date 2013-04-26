@@ -1,14 +1,19 @@
 <?php
 
-class Browse extends CI_Controller{
+class Browse extends Page_Controller{
 	
 	function __construct(){
-		parent::__construct();
-		$this->page_type = 'property';
-		$this->id = '';
-		
+
 		// VALID IDS--Corresponds to the type_category which is retail/residential/office/industrial etc
 		$this->valid_ids = array('retail', 'residential', 'office_industrial');
+
+		// initialize global variables
+		$this->page_type = 'property';
+		$this->id = 'property';
+		$this->page_filter = $this->valid_ids['2'];
+
+		// call our parent construct etc
+		parent::__construct();
 	}
 	
 	// FUNCTION REMAP IS TO MAKE SURE THAT WE NEVER LAND ON A 404!
@@ -53,42 +58,25 @@ class Browse extends CI_Controller{
 	
 	private function redirect(){
 		// Redirect to the property/office_industrial in case of an error. 
-		redirect('property/office_industrial');//default re-route
+		redirect('browse/office_industrial');//default re-route
 	}
 	
 	private function output(){
 					
-		// $this->output->cache(1440);
+		// initialize our output
+		$this->base();
+		$this->header = $this->dynamic_header->get_header();
 
-		// load general libraries
-		$libraries = array("utilities/header","utilities/dynamic_header", "general/top_bumpboxes", "property/base_filter", "property/map_api");
+		// initialize our generic elements for the browse page
+		$libraries =  array("property/base_filter", "property/map_api");
 		$this->load->library($libraries, array('page_id' => $this->page_type, "page_filter" => $this->id));
 
-		// load models
-		$this->load->model(array("pages/elements", "pages/headers", "pages/messages", "pages/navigation"));
-
-		// get the basic header
-		$this->header = $this->dynamic_header->get_header();//get the current header element
-		// now get the basic modules
-		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the current javascript modules for this page
-		// get the background image information
-		$this->background_images = $this->elements->get_background_images();
-		$this->logo = $this->navigation->get_logo($this->id);
-
-		// map bumpbox
-		$this->map_bumpbox = $this->top_bumpboxes->get_maps();//returns the map data etc
-
+		// grab our thumbnails
 		$this->thumbnails = $this->get_thumbnails();//seperate the logic out into another method for grabbing the proper thumbnail!
 
 		// this is the box in the middle of the screen the user sees
 		$this->site_label = $this->elements->site_label();
 		$this->thumbnail_label = ($this->id === "search") ? ($this->headers->search_header()) : ($this->headers->browse_header($this->id, $this->category, $this->category_filter));
-
-		$this->data = array(
-	
-			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
-
-		);
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID

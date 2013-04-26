@@ -18,8 +18,9 @@ class Thumbnail extends CI_Model {
 			"image" => $this->get_image($property_id),
 			"header" => $this->get_name($property_id),
 			"name" => $this->get_name($property_id),
-			"blurb" => $this->get_blurb($property_id)
-			// "blurb" => $this->general->get_category($property_id, "address"),
+			"blurb" => $this->general->get_address($property_id),	
+			"status" => $this->get_status($property_id),
+			"url" => $this->general->listing_link($property_id)
 		);
 	}
 
@@ -43,15 +44,7 @@ class Thumbnail extends CI_Model {
 
 	}
 
-	public function get_blurb($property_id) {
-
-		// return $this->general->get_category($property_id, "thumbnail_blurb");
-		// return $this->general->get_category($property_id, "address");
-
-		// grab full address
-
-	}
-
+	// 
 	public function get_name($property_id) {
 
 		return $this->general->get_category($property_id, "name");

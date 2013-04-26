@@ -17,26 +17,81 @@ class Base_filter {
 
 	public function get_thumbnails($properties) {
 
+		// initialize an array to hold all of our thumbnail objects etc
 		$thumbnails = array();
 
+		// loop through all of the properties and return an arry for them if they are currently live
 		foreach ($properties as $property_id) {
 
-			$thumbnail = array(
+			// grab the current thumbnail
+			$thumbnail = $this->CI->thumbnail->general_thumbnail($property_id);
 
-				"status" => $this->CI->thumbnail->get_status($property_id),
-				"url" => $this->CI->thumbnail->get_url($property_id),
-				"image" => $this->CI->thumbnail->get_image($property_id),
-				"blurb" => $this->CI->thumbnail->get_blurb($property_id),
-				"name" => $this->CI->thumbnail->get_name($property_id),
-			);
-
+			// now check the status and add thumbnail object in if applicable
 			if ($thumbnail['status'])
 				array_push($thumbnails, $thumbnail);
 		}
 
+		// return all thumbnail objects to caller
 		return $thumbnails;
 	}
 
+	// prepare a basic bubble sort so that we can ensure that each element is sorted properly based on name
+	public function abc_sort($properties) {
+
+		// 
+		$finished = false;
+
+		// since the closure is an object itself, cannot use this etc in the function
+		$_this = $this;
+
+
+		// grab all
+		$get_name = function($property_id) use ($_this) {
+
+			return array(
+				"name" => $_this->CI->general->get_category($property_id, "name"),
+				"property_id" => $property_id,
+			);
+		};
+
+		// now grab the property_id from the element
+		$get_id = function($property) {
+			return $property['property_id'];
+		};
+
+		// map the array to names etc
+		$names = array_map($get_name, $properties);  
+
+		// cache the length of the array for speed
+		$length = count($names);
+
+		// loop through each element and ensure that all names etc are proper before sorting etc
+		do {
+			// reset the loop etc
+			$finished = true;
+
+			for ($i = 0; $i < $length - 1; $i++) {
+
+				if ($names[$i]['name'] > $names[$i+1]['name']) {
+
+					// cache the current element
+					$temp = $names[$i];
+
+					// move the right name left once
+					$names[$i] = $names[$i+1];
+
+					// now reset the right name to the original left one
+					$names[$i+1] = $temp;
+
+					// reset the loop -- we're not finished yet ...
+					$finished = false;
+				}//end if statement
+			}//end foreach loop  
+		} while (!$finished);
+
+		// now we want to remap the elements etc to where we want them
+		return array_map($get_id, $names);
+	}
 	
 
 	// this will filter properties based on categories etc that are based upon default values that are specified in our 
@@ -69,7 +124,6 @@ class Base_filter {
 
 			else $elements[$id] = 1;
 		}
-
 
 		return $elements;
 	}

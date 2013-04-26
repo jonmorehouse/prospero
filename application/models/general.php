@@ -422,7 +422,7 @@ class General extends CI_Model{
 		return $properties;
 	}
 
-	// 
+	// write an accessor class for grabbing the price of an element etc
 	public function get_price($property_id) {
 
 		// initialize both type and type_category
@@ -441,7 +441,16 @@ class General extends CI_Model{
 			// value
 			"price" => $this->general->get_category($property_id, $price_category)
 		);
+	}
 
+	// now grab the address etc
+	public function get_address($property_id) {
+
+		$address = $this->get_category($property_id, "address");
+		$postal_code = $this->get_category($property_id, "postal_code");
+		$city = $this->get_category($property_id, "city");
+
+		return "${address}. ${city}. ${postal_code}";
 	}
 
 }

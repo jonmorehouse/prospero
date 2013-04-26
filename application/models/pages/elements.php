@@ -60,5 +60,6 @@ class Elements extends CI_Model {
 		// now return the first element	
 		return $query->row()->label;
 	}
+	
 
 }
