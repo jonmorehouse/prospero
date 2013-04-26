@@ -52,7 +52,11 @@ class Elements extends CI_Model {
 		return $query->row()->value;
 	}
 
-	public function header_label($label_id) {
+	public function label($label_id) {
+
+		echo $label_id;
+
+		return false;
 
 		// this is a place for grabbing header labels etc from around our database
 		$query = $this->db->where(array('label_id' => $label_id))->select("label")->get("labels", 1);	

@@ -10,7 +10,8 @@ class Vacancies extends Page_Controller {
 		// construct our base controller
 		parent::__construct();
 
-		// 
+		// initialize our further models for this page!
+		$this->load->model(array("vacancy/vacancy_filter"));
 	}
 
 	// force all calls to the vacancies page to go through the index element
@@ -21,9 +22,6 @@ class Vacancies extends Page_Controller {
 
 	public function index() {
 
-		// initialize our further models for this page!
-		$this->load->model(array("vacancy/vacancy_filter"));
-
 		// load our base controller function so that we can initialize a bunch of variables and data for the page view
 		$this->base();
 
@@ -33,10 +31,10 @@ class Vacancies extends Page_Controller {
 		// load in vacancies logic etc here
 		// grab all of the vacancies with this particular filter exif_tagname(index)c
 		$this->vacancies = $this->vacancy_filter->get_vacancies($filter);
-		$this->label = $this->db->get 
+		$this->label = $this->elements->label("vacancy_$filter"); 
 
 		// load our initial vacancies page
-		$this->load->view('vacancies/vacancies_base');
+		// $this->load->view('vacancies/vacancies_base');
 	}
 
 }

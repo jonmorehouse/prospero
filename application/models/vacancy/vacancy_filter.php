@@ -4,8 +4,11 @@ class Vacancy_filter extends MY_Model {
 
 	function __construct() {
 
+		// call basic custom model 
 		parent::__construct();
 
+		// now load our generic vacancy model etc...
+		$this->load->model("vacancy/vacancy");
 	}
 
 	// create a basic vacancies function etc
