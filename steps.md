@@ -6,10 +6,7 @@
 5.) Going to rebuild both cms systems using angular so will just use and deploy require there!
 6.) Create a require header page! 
 
-
-<!-- do this on the actual listing page etc .... -->
-5.) Previous / Next category --- on the listing pages etc ... -- for office_industrial / residential etc
-
+<!--  -->
 6.) Sort properties based on alphabetical order --
 
 9.) Move up listing page
