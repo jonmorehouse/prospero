@@ -90,7 +90,31 @@ class Test extends MY_Controller {
 		// sort all based on abc
 		print_r($this->base_filter->abc_sort($ids));	
 
+	}
 
+	public function add_vacancy_layout() {
+
+		// load proper model etc
+		$this->load->model("vacancies/vacancy_layout");
+
+		// initialize data
+		$data = array(
+
+			"vacancy_id" => 3,
+			"layout" => "2 BRD",
+			"quantity" => 3
+		);
+
+		$this->vacancy_layout->add_layout($data);
+	}
+
+	public function get_vacancy_layouts() {
+
+		// load proper model etc
+		$this->load->model("vacancies/vacancy_layout");
+
+		// grab all relevant layouts etc
+		print_r($this->vacancy_layout->get_layouts(3));
 	}
 
 }
