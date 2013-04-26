@@ -31,7 +31,7 @@ class Vacancies extends Page_Controller {
 		// load in vacancies logic etc here
 		// grab all of the vacancies with this particular filter exif_tagname(index)c
 		$this->vacancies = $this->vacancy_filter->get_vacancies($filter);
-		$this->label = $this->elements->label("vacancy_$filter"); 
+		$this->label = $this->elements->label("${filter}_vacancies"); 
 
 		// load our initial vacancies page
 		$this->load->view('vacancies/vacancies_base');
