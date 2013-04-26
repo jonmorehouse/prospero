@@ -1,0 +1,79 @@
+#page_container{
+	/*THIS IS THE MASTER HOLDER WITH THE RIGHT SIDE PADDING TO HIDE THE NAV BAR*/
+	position:absolute;
+	top:140px;
+	right:0;
+	left:@page_container_left;
+	right:3%;
+	bottom:@border_width;
+	overflow-y:auto;
+	.dark_background(0.6);
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+}
+
+#page_content{
+	position:relative;
+	padding:50px;
+	max-width:100%;
+	margin:none;
+	padding-top:0;
+
+}
+
+#header{
+	width:30%;
+	position:relative;
+	top:90px;
+	max-width:50%;
+	display:block;
+	margin:0 auto;
+	text-align:center;
+	overflow:auto;
+	.base_font();
+	color:white;
+	font-size:0.8em;
+	border-radius: 20px;
+	padding: 0.42em;
+	.dark_background();
+
+}
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width: 1200px) {
+
+	#search{
+		form{
+			input[type="text"]{
+				width:200px;
+				font-size:0.8em;
+			}
+		}	
+	}
+	
+	#header{
+		position:relative;
+		top:110px;
+		font-size:0.7em;
+	}
+}
+
+@media only screen and (max-width:900px) {
+
+	#header {
+
+		display:none;
+
+	}
+
+}
+
+// media queries below
+@media only screen and (max-width:600px) {
+
+	#page_container {
+
+		left: 120px;
+
+	}
+}

@@ -8,7 +8,6 @@
 
 	if ($this->id !== "search")
 		$this->load->view('navigation/navigation_' . $this->id);
-
 	else $this->load->view("navigation/navigation_office_industrial");
 
 	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 

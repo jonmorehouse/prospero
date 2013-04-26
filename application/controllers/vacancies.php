@@ -34,7 +34,7 @@ class Vacancies extends Page_Controller {
 		$this->label = $this->elements->label("vacancy_$filter"); 
 
 		// load our initial vacancies page
-		// $this->load->view('vacancies/vacancies_base');
+		$this->load->view('vacancies/vacancies_base');
 	}
 
 }

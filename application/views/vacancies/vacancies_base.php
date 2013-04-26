@@ -12,7 +12,19 @@
 	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 
 ?>
 
+<div id='page_container'>
+	<div id='page_content'>
 
+		<h1><?php echo $this->label;?></h1>
+
+		<div id='vacancy_container'>
+
+				
+
+		</div>
+
+	</div>
+</div>
 
 <?php
 	$this->load->view('site_wide/javascript_module_loader');
