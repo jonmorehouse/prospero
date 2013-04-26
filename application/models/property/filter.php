@@ -115,8 +115,8 @@ class Filter extends CI_Model {
 		// return an array of the surrounding properties
 		return array(
 
-			"next" => $properties[($key + 1 < count($properties)) ? ($key + 1) : (0)],//if the key+1 is less than the counter then use that otherwise loop to the front
 			"previous" => $properties[($key - 1 >= 0) ? ($key - 1) : (count($properties) - 1)],//otherwise use the - 1 or loop to the back
+			"next" => $properties[($key + 1 < count($properties)) ? ($key + 1) : (0)],//if the key+1 is less than the counter then use that otherwise loop to the front
 		);
 	}	
 

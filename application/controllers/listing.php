@@ -130,6 +130,7 @@ class Listing extends Page_Controller {
 		$this->listing_thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
 		$this->content = $this->listing_content->content();//returns the description, header etc
 		$this->elements = $this->listing_content->elements();//returns the name of the element
+		$this->surrounding_links = $this->listing_content->surrounding_links();//grab the surrounding links and their associated thumbnail information / objects
 
 		//images
 		$this->slideshow_images = $this->listing_media->slideshow_images();
@@ -137,7 +138,7 @@ class Listing extends Page_Controller {
 
 		$this->data = array(
 
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
+			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
 			"property_id" => $this->property_id,
 			"slideshow_images" => $this->slideshow_images,
 			"slideshow_thumbnail_images" => $this->thumbnail_images,

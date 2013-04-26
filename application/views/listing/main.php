@@ -24,7 +24,19 @@
 
 		<p><?php echo $this->content['content'];?></p>
 
+
+		<div id='surrounding'>
+			<ul>
+			<?php foreach($this->surrounding_links as $link): ?>
+				<li>
+					<a href='<?php echo $link['link'];?>'><?php echo $link['label'];?></a>
+				</li>
+			<?php endforeach;?>
+			</ul>
+		</div>
+
 	</div>
+
 
 	<div id='elements'>
 		<?php 
