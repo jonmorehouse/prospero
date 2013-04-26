@@ -9,7 +9,6 @@ class Vacancies extends MY_Controller {
 
 		// construct our base controller
 		parent::__construct();
-
 	}
 
 	// force all calls to the vacancies page to go through the index element
@@ -19,6 +18,9 @@ class Vacancies extends MY_Controller {
 	}
 
 	public function index() {
+
+		// initialize our further models for this page!
+		$this->load->model(array("vacancy/vacancy_filter"));
 
 		// load our base controller function so that we can initialize a bunch of variables and data for the page view
 		$this->base();

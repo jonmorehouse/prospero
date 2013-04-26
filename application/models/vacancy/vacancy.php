@@ -15,9 +15,10 @@ class Vacancy extends MY_Model {
 	public function add_vacancy($data) {
 
 		// will ensure that each of the vacancies are valid etc
-		$insert = (
+		$insert = array(
 
 			"property_id" => $data['property_id'],//property id for the element
+			// date available is a string so we can customize it with the least amount of overhead possible
 			"date_available" => $data["date_available"],//date available should be a string formatted date or a message similar to "Now available"
 			"description" => $data["description"],//should be a string, provided by the element
 		);
@@ -50,6 +51,7 @@ class Vacancy extends MY_Model {
 
 			"property_id" => $data->property_id,
 			// grab the date available for this particular element etc
+			// grab the date-available string from the database
 			"date_available" => $data->date_available,
 			// grab the description string from the database -- assume formatting of the text / cases is in place
 			"description" => $data->description,
