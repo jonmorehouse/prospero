@@ -19,6 +19,7 @@ class Thumbnail extends CI_Model {
 			"header" => $this->get_name($property_id),
 			"name" => $this->get_name($property_id),
 			"blurb" => $this->get_blurb($property_id)
+			// "blurb" => $this->general->get_category($property_id, "address"),
 		);
 	}
 
@@ -44,7 +45,10 @@ class Thumbnail extends CI_Model {
 
 	public function get_blurb($property_id) {
 
-		return $this->general->get_category($property_id, "thumbnail_blurb");
+		// return $this->general->get_category($property_id, "thumbnail_blurb");
+		// return $this->general->get_category($property_id, "address");
+
+		// grab full address
 
 	}
 

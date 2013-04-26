@@ -9,29 +9,8 @@
 
 
 
-(FIXED) -- Search bar should only say "Search"
+1.) Full address for thumbnail blurb ....
+3.) 8 price_square_per_feet
 
-(FIXED) -- (I did this and it looked horrible. Lets keep it where it is. I moved the container up so there is more space for links etc ..)
-
-	Wants search bar to be moved to the left of the Office/Industrial button so that there is more space for the listings to be shown
-
-Bump boxes bigger so that they take up more space on the screen
-
-	Not done yet -- lets chat about this
-
-(FIXED) -- Bump Boxes non-transparent of very very little transparency so it's easier to read
-
-(FIXED) -- Font in bump boxes bigger 
-
-(FIXED) -- Make sure Rick Halliday's picture is the same size as the other team members
-
-(FIXED) ---Wants the background of the listings boxes to be non-transparent 
-
-	I'm guessing that this applies to the thumbnails correct?
-
-(FIXED) -- When hovering over the listings thumbnails, wants the background of the one-line description to be non-transparent
-
-(FIXED) -- Wants behind the "General Details" and "Residential Details" etc to be non-transparent behind it so it can be read easier under the listing info
-
-
-
+<!-- do this on the actual listing page etc .... -->
+5.) Previous / Next category --- on the listing pages etc ... -- for office_industrial / residential etc

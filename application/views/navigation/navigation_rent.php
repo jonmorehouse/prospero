@@ -11,13 +11,6 @@
 		</ul>
 	</li>
 	
-<!-- 	<li>Price
-		<ul>
-			<li><a href='<?php echo site_url('browse/rent/rent_price/over_1000');?>'>Over $1000</a></li>
-			<li><a href='<?php echo site_url('browse/rent/rent_price/under_1000');?>'>Under $1000</a></li>
-		</ul>
-	</li>
- -->	
 	<li>Location
 		<ul>
 			<li><a href='<?php echo site_url('browse/rent/location_category/north');?>'>North</a></li>

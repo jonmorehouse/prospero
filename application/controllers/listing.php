@@ -83,9 +83,6 @@ class Listing extends CI_Controller {
 	// dynamic listing is the last step -- should not happen for any live pages
 	private function dynamic_listing() {
 
-		// 
-		$this->output->cache(1440);
-
 		// initialize library dependencies
 		$libraries = array(
 			"utilities/header", 
