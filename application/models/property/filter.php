@@ -76,6 +76,7 @@ class Filter extends CI_Model {
 		return $property_ids;
 	}	
 
+	// get all of the properties with a particular category_type filter
 	public function get_category($category, $filter) {
 		/*
 			this function is useful for returning all the properties that have a definitive option as the category
@@ -96,5 +97,27 @@ class Filter extends CI_Model {
 
 		return $property_ids;
 	}
+
+	public function get_surrounding($property_id) {
+
+		// goal -- we need to find the next and previous elements
+		$category_type = $this->general->get_unformatted_category($property_id, "type_category");
+
+		// now grab all property_ids with this particular filter 
+		$properties = $this->get_category("type_category", $category_type);
+
+		// grab the current array key etc
+		$key = array_search($property_id, $properties);
+
+		// if the element is not found in the current array of properties (ie it was a boolean) then return false
+		if (gettype($key) === "boolean") return array();
+
+		// return an array of the surrounding properties
+		return array(
+
+			"next" => $properties[($key + 1 < count($properties)) ? ($key + 1) : (0)],//if the key+1 is less than the counter then use that otherwise loop to the front
+			"previous" => $properties[($key - 1 >= 0) ? ($key - 1) : (count($properties) - 1)],//otherwise use the - 1 or loop to the back
+		);
+	}	
 
 }

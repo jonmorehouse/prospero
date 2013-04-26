@@ -261,6 +261,20 @@ class General extends CI_Model{
 
 		return $value;
 	}
+
+	public function get_unformatted_category($property_id, $category) {
+
+		$table = $this->get_category_table($category);//need to do some
+
+		$query = $this->db->where(array('property_id' => $property_id))->select($category)->get($table, 1);
+
+		// make sure the query exists
+		if(!$query || $query->num_rows() ==0 || !$query->row()->$category)
+			return false;
+
+		return $query->row()->$category;	
+
+	}
 	
 	public function get_category_type_categories($category_type) {//returns an array of all category_types
 

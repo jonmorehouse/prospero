@@ -47,5 +47,17 @@ class Test extends MY_Controller {
 		$this->vacancy->add_vacancy($data);
 	}
 
+	// test the before / after property filters etc
+	public function navigation() {
+
+		// load the property filter
+		$this->load->model("property/filter");
+
+		// now grab the previous / next	
+		$links = $this->filter->get_surrounding(4);
+
+		print_r($links);
+	}
+
 }
 
