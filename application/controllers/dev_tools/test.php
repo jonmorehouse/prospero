@@ -8,18 +8,33 @@ class Test extends MY_Controller {
 		$this->id = "test";
 		parent::__construct();
 
-	}
-	public function vacancies() {
-
-
+		// initialize our basic vacnacies based on our filter class etc
 		$this->load->model('vacancy/vacancy_filter');
-
-	}
-
-	public function add_vacancy() {
 
 		// initialize our vacancies element etc
 		$this->load->model("vacancy/vacancy");
+	}
+
+	// basic vacancies test etc
+	public function vacancies() {
+
+		// 
+		$vacancies = $this->vacancy_filter->get_vacancies();
+	}
+
+	// initialize our basic vacancies page
+	public function get_vacancy() {
+
+		// grab our most basic vacancy from the vacancy class etc
+		$vacancy = $this->vacancy->get_vacancy(1);
+
+		// dump a basic vacancy etc
+		var_dump($vacancy);
+	}
+
+	// initialize our add_vacancy test
+	public function add_vacancy() {
+
 
 		// grab the initialized data element
 		$data = array(

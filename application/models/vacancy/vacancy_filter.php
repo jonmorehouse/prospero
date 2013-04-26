@@ -15,6 +15,18 @@ class Vacancy_filter extends MY_Model {
 		// do some sort of query here to determin the type of vacancies we need
 
 		// will return an array of vacancies etc from calling the get_vacancy page
+
+
+
+	}
+
+	private function get_vacancy_ids($filter) {
+
+		if ($filter === "all")
+			$query = $this->db->get("vacancies");
+
+		if ($filter === "residential")
+
 	}
 
 }		
