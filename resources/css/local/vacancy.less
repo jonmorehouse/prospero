@@ -2,6 +2,64 @@
 @import "site_wide";
 @import "page_layout";
 
+// MIXINS
+
+// initialize vacancy elements
+.vacancy {
+
+	ul {
+
+		position: relative;
+		width: 90%;
+		list-style-type: none;
+		clear: both;
+		margin: 0;
+
+		li {
+
+			width: 19%;
+			position: relative;
+			float: left;
+			.dark_background(1);
+			margin-left: 1%;
+			.base_font();
+			font-size: 1.1em;
+			padding: 0.2em 0 0.2em 0;
+			text-align: center;
+
+
+			&:first-of-type {
+
+				margin-left: 0;	
+			}
+		}
+
+		img {
+
+			position: relative;
+			max-height: 100%;
+			max-width: 100%;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+#page_content > h1 {
+
+	padding-top: 2em;
+	position: relative;
+	width: 100%;
+	.base_font;
+	color: white;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 2em;
+
+}
+
+
+
+// vacancy page code base
 #header {
 
 	position: absolute;
@@ -12,7 +70,46 @@
 	font-size: 1.1em;
 }
 
+#vacancy_container {
 
+	position: relative;
+	width: 100%;
+	padding: 1em 2% 1em 2%;
 
+	// this is the labels element etc
+	> div {
 
+		position:relative;	
+		width: 100%;
+		display: block;
+		overflow-y: auto;
+		margin: 1em 0 1em 0;
 
+		// include our mixin code
+		.vacancy;
+
+		// initialize the anchor element 
+		> a {
+			position: relative;
+			width: 100%;
+			overflow-y: auto;
+			display: block;
+			.vacancy;
+		}
+	}
+
+	// now initialize the first element etc
+	> div:first-of-type {
+
+		> ul > li:first-of-type {
+
+			margin-left: 20%;
+			font-size: 1.3em;
+		}
+	}
+
+	> hr {
+		position: relative;
+		margin: 2em 0 2em 0;
+	}
+}

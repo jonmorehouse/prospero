@@ -58,7 +58,12 @@ class Vacancy extends MY_Model {
 			// grab the listing link etc
 			"link" => $this->general->listing_link($data->property_id),
 			// now grab the initial thumbnail element etc
-			"thumbnail" => $this->thumbnail->general_thumbnail($data->property_id)
+			"thumbnail" => $this->thumbnail->general_thumbnail($data->property_id),
+			// now grab the title etc 
+			"title" => $this->general->get_category($data->property_id, "name"),
+			// now grab the price etc ...
+			"price" => $this->general->get_price($data->property_id)
+
 		);
 
 		// now return this exact vacancy object ...
