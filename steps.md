@@ -7,10 +7,10 @@
 6.) Create a require header page! 
 
 
-
-
-1.) Full address for thumbnail blurb ....
-3.) 8 price_square_per_feet
-
 <!-- do this on the actual listing page etc .... -->
 5.) Previous / Next category --- on the listing pages etc ... -- for office_industrial / residential etc
+
+6.) Sort properties based on alphabetical order --
+
+7.) Map zoom!
+
