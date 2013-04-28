@@ -78,10 +78,29 @@
 		
 		width: 125px;
 		height: 160px;
-	}
 
+	}
 }
 
+// now deactive hovering for mobile devices on the individual thumbnails
+@media only screen and (max-width: 480px) {
+
+	#thumbnail_container > div.thumbnail {
+
+		// turn off hovering to help local elements 
+		&:hover {
+
+			> a > div:nth-of-type(2) {
+
+				display: none;
+
+			}
+		}	
+	}
+
+
+
+}
 
 
 

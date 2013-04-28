@@ -21,6 +21,7 @@ class MY_Controller extends CI_Controller{
 	// initialize basic html structure here
 	protected function base() {
 
+		// turn on caching for page speed here etc...
 		$this->output->cache(1440);
 
 		// generic global data
@@ -43,7 +44,7 @@ class MY_Controller extends CI_Controller{
 		$this->data = array(
 			
 			// take this out because it was getting slow!
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
+			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
 		);
 	}	
 }
