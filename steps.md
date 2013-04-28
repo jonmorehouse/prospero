@@ -1,5 +1,4 @@
 
-1.) Move all current controllers etc to the default my_controller layout etc
 2.) Create admin login page
 3.) Create authentication library etc
 4.) Debug slow section -- map_api segment
@@ -9,7 +8,10 @@
 <!--  -->
 6.) Sort properties based on alphabetical order --
 
-9.) Move up listing page
+Deployment Steps
+
+1.) Turn on maps / clear cache
+2.) Update google elements for javascript_resources etc
 
 
 
