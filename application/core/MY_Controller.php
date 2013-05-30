@@ -22,12 +22,12 @@ class MY_Controller extends CI_Controller{
 	protected function base() {
 
 		// turn on caching for page speed here etc...
-		$this->output->cache(1440);
+		// $this->output->cache(1440);
 
 		// generic global data
 		$this->header = $this->dynamic_header->get_header();//gets the dynamic header - not the tables that define the resources included
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();//get the javascript modules for this homepage
-		$this->background_images = $this->elements->get_background_images("homepage_background");
+		$this->background_images = $this->elements->get_background_images();
 		$this->logo = $this->navigation->get_logo($this->id);
 
 		// generate the elements for the left side bumpboxs
