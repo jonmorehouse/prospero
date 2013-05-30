@@ -12,7 +12,8 @@ require.config config
 require ["angular"], ($) ->
 
 	# 
-				
+	alert "HELLO WORLD"	
+					
 
 
 

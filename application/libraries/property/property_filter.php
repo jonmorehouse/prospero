@@ -28,14 +28,13 @@ class Property_filter extends Base_filter {
 			$filtered = $this->property_filter($filtered, $category, array("type" => $filter));
 
 		else if ($category === "over_1000")
-			$filtered = $this->property_filter($filtered, "type", array("type >" => "1000"));
+			$filtered = $this->property_filter($filtered, "price", array("type >" => "1000"));
 
 		else if ($category === "under_1000")
 			$filtered = $this->property_filter($filtered, "type", array("type <" => "1000"));
 
-		else if ($category === "category_location")
-			$filtered = $this->property_filter($filtered, "category_location", array("category_location" => $filter));
-
+		else if ($category === "location_category")
+			$filtered = $this->like_property_filter($filtered, "location_category", explode('_', $filter)[0]);
 
 		return $filtered;
 	}
@@ -64,6 +63,23 @@ class Property_filter extends Base_filter {
 		foreach ($unfiltered as $property_id) {
 
 			$query = $this->CI->db->where($where)->where(array("property_id" => $property_id))->select('property_id')->get($table);
+
+			if ($query->num_rows() === 1) 
+				array_push($filtered, $property_id);
+		}
+
+		return $filtered;
+	}
+
+	protected function like_property_filter($unfiltered, $category, $like) {
+
+		// takes in the where
+		$table = $this->CI->general->get_category_table($category);
+		$filtered = array();
+
+		foreach ($unfiltered as $property_id) {
+
+			$query = $this->CI->db->like($category, $like)->where(array('property_id' => $property_id))->select('property_id')->get($table);
 
 			if ($query->num_rows() === 1) 
 				array_push($filtered, $property_id);

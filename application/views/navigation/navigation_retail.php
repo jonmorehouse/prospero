@@ -7,14 +7,14 @@
 			<li><a href='<?php echo site_url("browse/{$this->id}/type/buy");?>'>Buy</a></li>
 		</ul>
 	</li>
-	
-	<li>Rental Price
+
+<!-- 	<li>Rental Price
 		<ul>
 			<li><a href='<?php echo site_url("browse/{$this->id}/rent_price/over_1000");?>'>Over $1000</a></li>
 			<li><a href='<?php echo site_url("browse/{$this->id}/rent_price/under_1000");?>'>Under $1000</a></li>
 		</ul>
 	</li>
-	
+ -->	
 	<li>Location
 		<ul>
 			<li><a href='<?php echo site_url("browse/{$this->id}/location_category/okanagan_valley");?>'>Okanagan Valley: Kamloops and Kelowna</a></li>

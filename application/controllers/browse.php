@@ -80,6 +80,7 @@ class Browse extends Page_Controller{
 
 		// FINAL OUTPUT
 		$this->load->view('browse/browse_base');//THIS HANDLES EVERYTHING BASED ON THE $This->ID
+
 	}
 
 	private function rest_search() {
