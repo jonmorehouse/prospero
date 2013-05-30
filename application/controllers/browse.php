@@ -86,7 +86,6 @@ class Browse extends Page_Controller{
 
 		// validate rest and then return thumbnails etc
 		// return json elements here
-
 	}
 
 	private function get_thumbnails() {
