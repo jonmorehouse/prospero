@@ -63,16 +63,14 @@ class Management_create_update extends Management_forms {
 			
 			foreach($categories as $category) {
 				
-				if($this->CI->general->get_category_datatype($category) != 'hidden')//don't put hidden in the columns -- columns floated left
-					$form .="\n\t<div>";
-
 				$input_type = $this->CI->general->get_category_input_type($category);//generate which type of category this is
+
+				if ($input_type != "hidden") $form .="\n\t<div>";
 				
 				$form .= $this->$input_type($property_id, $category);//add the form for this category type to our current form
 
 				// last already taken care of so div closed...just move on
-				if ($input_type != 'hidden')//if it is not hidden, add a div -- we don't want the hidden elements to take up space and create blank spots on the forsm!
-					$form .= "\n\t</div>";//only close the divs that were created -- not for hiddens
+				if ($input_type != 'hidden') $form .= "\n\t</div>";//only close the divs that were created -- not for hiddens
 
 			}//end foreach for categories
 

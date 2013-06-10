@@ -48,13 +48,11 @@ class Management_forms{
 	
 	public function checkbox($property_id, $category) {//not needed for prospero website
 		
-		/*
-		BASIC FUNCTIONALITY NOT NEEDED AT THIS POINT 
-		*/
 
 	}
 	
 	public function textarea($property_id, $category, $rows = 5) {
+			
 			
 		$value = $this->get_value($category, $property_id);//this returns the value for this category -- including the default problemsa
 		$textarea_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";

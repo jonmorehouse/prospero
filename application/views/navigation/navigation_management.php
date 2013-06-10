@@ -7,5 +7,4 @@
 	<li><a href='<?php echo site_url('admin/management/remove_listing');?>'>Remove Listing</a></li>
 	<li><a href='<?php echo site_url('admin/vacancies/add');?>'>Add Vacancies</a></li>
 	<li><a href='<?php echo site_url('admin/vacancies/remove');?>'>Remove Vacancies</a></li>
-
 </div>
