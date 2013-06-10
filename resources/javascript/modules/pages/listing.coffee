@@ -70,12 +70,12 @@ do Project.Pages.Listing = () ->
 
 		# development work
 ########### listeners['listing_map'].trigger "click"
-	
 	do listingSlideshow = () ->
 
 		containers = 
 			thumbnails : $("#slideshow > div.thumbnails")
 			slideshow : $("#slideshow > div.content")
+			imageBumpbox: $("#slideshow_bumpbox")
 
 		# want an 
 		image_template = (image) ->
@@ -89,9 +89,7 @@ do Project.Pages.Listing = () ->
 		# initialize slideshow controller -- initialize it with a default id -- ie: a first element to show!
 		controller = new Project.Modules.thumbnail_controller containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']
 
-		# let the slideshow controller know the first element to show / default element
-
-
+		slideShowBumpbox = new Project.Pages.ListingImage containers.slideshow, containers.imageBumpbox 
 
 
 
