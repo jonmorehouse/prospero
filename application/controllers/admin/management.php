@@ -3,7 +3,6 @@
 class Management extends CI_Controller{
 
 /******************* MANAGEMENT CONSTRUCT *************************/
-
 /* Note the management_forms, management_create_update and management_general class
 	
 	managmeent forms is for general form creation -- to be used for dynamic generation for the update/create listings -- everything is database driven
@@ -11,7 +10,6 @@ class Management extends CI_Controller{
 	management general creates thumbnails for search because it has to account for differing urls etc -- makes it easier to make modifications
 
 */
-
 /************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
 	public function __construct(){
 		parent::__construct();
@@ -50,7 +48,7 @@ class Management extends CI_Controller{
 	}
 	
 	public function _remap($method, $parameters){
-		
+			
 		if($method == 'login_validation')
 			$this->login_validation();
 
@@ -79,7 +77,7 @@ class Management extends CI_Controller{
 		$this->page = 'login';
 		
 		// Final output
-		$this->load->view('management/management_base');
+		$this->load->view('admin/management/management_base');
 		
 	}
 	
@@ -88,7 +86,7 @@ class Management extends CI_Controller{
 		$this->user_status->logout();
 		
 		// REDIRECT BACK TO THE MANAGEMENT LOGIN
-		redirect('management');
+		redirect('admin/management');
 	}
 	
 	function login_validation() {
@@ -101,11 +99,11 @@ class Management extends CI_Controller{
 		$status = $this->user_status->login($username, $password);
 		
 		//Failed login message
-		$this->content = $this->load->view('management/resources/failed_login', '', true);
+		$this->content = $this->load->view('admin/management/resources/failed_login', '', true);
 		
 		// IF USER_STATUS VALIDATES, The session will be set and it will auto-login
 		if($status)
-			redirect('management/homepage');
+			redirect('admin/management/homepage');
 		else
 			$this->login($username, $message);
 	}
@@ -114,7 +112,7 @@ class Management extends CI_Controller{
 		
 		$this->page = 'home';
 		$this->content = "Please select an option above. If you have reached this page in error, please contact an admin";
-		$this->load->view('management/management_base');
+		$this->load->view('admin/management/management_base');
 		
 	}
 
@@ -125,7 +123,7 @@ class Management extends CI_Controller{
 		$this->dashboard = true;
 		$this->content .= $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
 
-		$this->load->view('management/management_base');		
+		$this->load->view('admin/management/management_base');		
 	}
 	
 	public function update_listing() {//update listing -- ajax saving in ajax/management
@@ -137,11 +135,11 @@ class Management extends CI_Controller{
 			$this->content = $this->management_general->search('update_listing');
 		
 		else {
-			$this->content = $this->load->view('management/resources/general_dashboard', '', true);
+			$this->content = $this->load->view('admin/management/resources/general_dashboard', '', true);
 			$this->content .= $this->management_create_update->update_property($this->property_id);
 		}
 
-		$this->load->view('management/management_base');		
+		$this->load->view('admin/management/management_base');		
 	}
 
 	public function remove_listing() { //make status not-live -- ajax saving in ajax/management
@@ -150,7 +148,7 @@ class Management extends CI_Controller{
 		$this->content = $this->management_general->property_status();
 		$this->dashboard = true;
 		// $this->property_status_dashboard = true;
-		$this->load->view('management/management_base');
+		$this->load->view('admin/management/management_base');
 	
 	}
 	
@@ -165,7 +163,7 @@ class Management extends CI_Controller{
 			$this->dashboard = true;//load the dashboard for ajax controls in the view
 		}
 		
-		$this->load->view('management/management_base');
+		$this->load->view('admin/management/management_base');
 	}
 
 	public function upload_media() {//will be process with $this->process()
@@ -176,7 +174,7 @@ class Management extends CI_Controller{
 		else //listing selected -- load the generic upload form
 			$this->content = $this->management_general->upload_media($this->uri->segment(3));
 		
-		$this->load->view('management/management_base');
+		$this->load->view('admin/management/management_base');
 	}
 
 /****************** PROCESS UPLOADS -- NOTE THAT ajax/controller is the process for the other properties *******/
@@ -187,13 +185,13 @@ class Management extends CI_Controller{
 		$this->type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
 		
 		if(!$this->type || !$this->property_id)
-			redirect('management/upload_media');//redirect back to the main page to restart the process
+			redirect('admin/management/upload_media');//redirect back to the main page to restart the process
 		else
 			$this->load->library('property/property_set');//property_set loading
 			$this->status = $this->property_set->media_upload($this->property_id, $this->type);//submit the informatino
-			$this->content = $this->load->view('management/message', '', true);//return the proper message to be passed to the rendered view
+			$this->content = $this->load->view('admin/management/message', '', true);//return the proper message to be passed to the rendered view
 		
-		$this->load->view('management/management_base');
+		$this->load->view('admin/management/management_base');
 	}
 
 

@@ -14,11 +14,11 @@
 		
 		<?php 
 		
-		if($this->dashboard) $this->load->view('management/resources/general_dashboard');
+		if($this->dashboard) $this->load->view('admin/management/resources/general_dashboard');
 		
-		if($this->property_status_dashboard) $this->load->view('management/resources/remove_listing_dashboard');
+		if($this->property_status_dashboard) $this->load->view('admin/management/resources/remove_listing_dashboard');
 		
-		if(isset($this->page)) $this->load->view('management/forms/' . $this->page);
+		if(isset($this->page)) $this->load->view('admin/management/forms/' . $this->page);
 		
 		echo $this->content;
 		
