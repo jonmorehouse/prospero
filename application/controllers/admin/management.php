@@ -18,12 +18,7 @@ class Management extends My_Controller{
 		
 		$this->content = "";
 
-		// LOAD LIBRARIES
-		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header', "utilities/dynamic_header");
-		$this->load->library($libraries, array("page_id" => "management"));
-
-		$models = array("pages/navigation", "pages/elements");
-		$this->load->model($models);
+		$this->load->library('user_access/user_status');
 
 		// If the user_status is validated, we will then load session data to be used around the controller
 		if($this->user_status->current_status()){

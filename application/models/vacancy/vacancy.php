@@ -26,7 +26,6 @@ class Vacancy extends MY_Model {
 			"description" => $data["description"],//should be a string, provided by the element
 		);
 
-
 		// insert the particular vacancy etc into our database
 		$this->db->insert("vacancies", $insert);//insert the data into the data
 	}
