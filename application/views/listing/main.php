@@ -1,6 +1,5 @@
 <div id='content'>
 	<div id='slideshow'>
-
 		<div class='content'>
 
 			<div data-id='<?php echo $this->slideshow_images[0]['data-id'];?>'>
@@ -17,6 +16,7 @@
 			<!-- will dynamically add more elements into this later -->
 		</div>
 	</div>
+
 
 	<div id='description'>
 		<!-- this is the property content! -->
@@ -50,5 +50,15 @@
 			}
 		?>
 	</div>
+
 </div>
 
+<div id='slideshow_bumpbox'>
+	<div class='content'>
+		<!-- FILL THIS IN WITH IMAGES TO BE POPPED OUT LATER!-->
+		<img src='<?php echo $this->thumbnail_images[0]['url'];?>' alt='<?php echo $this->thumbnail_images[0]['alt']; ?>' />
+	</div>
+	
+	<div class='exit'>
+	</div>
+</div>

@@ -47,17 +47,19 @@
       }
     })();
     return (listingSlideshow = function() {
-      var containers, controller, image_template;
+      var containers, controller, image_template, slideShowBumpbox;
       containers = {
         thumbnails: $("#slideshow > div.thumbnails"),
-        slideshow: $("#slideshow > div.content")
+        slideshow: $("#slideshow > div.content"),
+        imageBumpbox: $("#slideshow_bumpbox")
       };
       image_template = function(image) {
         return "<div data-id='" + image.id + "'>\n\t<img src='" + image.url + "' alt='" + image.alt + "' />\n</div>";
       };
       Project.Modules.Slideshow_loader(pageData.slideshow_images.slice(1), containers.slideshow, image_template);
       Project.Modules.Slideshow_loader(pageData.slideshow_thumbnail_images.slice(1), containers.thumbnails, image_template);
-      return controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']);
+      controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']);
+      return slideShowBumpbox = new Project.Pages.ListingImage(containers.slideshow, containers.imageBumpbox);
     })();
   })();
 

@@ -5,6 +5,7 @@
 			<span> Suite 517, 1177</span><br />
 			<span>West Hastings St.</span><br />
 			<span>Vancouver, British Columbia V6E 2K3</span><br />
+			<span>(604) 669-7733</span><br />
 		</address>
 	</div>
 	
