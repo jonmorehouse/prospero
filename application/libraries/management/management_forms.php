@@ -143,8 +143,7 @@ class Management_forms{
 
 		if ($category === "property_id") return $property_id;
 
-		return $this->CI->general->get_category($property_id, $category);
-
+		return $this->CI->general->get_unformatted_category($property_id, $category);
 	}
 
 	/********** PROTECTED FUNCTIONS *******/

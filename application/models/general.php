@@ -280,7 +280,7 @@ class General extends CI_Model{
 
 		$categories = array();//initialize empty array so that we don't have to validate in methods!
 		
-		$query = $this->db->select('category')->where(array('category_type' => $category_type))->order_by("category_order", "asc")->get('category_type_categories');
+		$query = $this->db->select('category')->where(array('category_type' => $category_type, 'editable' => true))->order_by("category_order", "asc")->get('category_type_categories');
 		
 		if(0 != $query->num_rows()) {
 			foreach ($query->result() as $row) 
