@@ -31,8 +31,8 @@ class Management extends My_Controller{
 		$this->base();
 
 		// management variables
-		$this->dashboard = false;
-		$this->property_status_dashboard = false;
+		$this->listing_dashboard = true;
+		$this->general_dashboard = false;
 	}
 	
 	public function _remap($method, $parameters){
@@ -108,7 +108,6 @@ class Management extends My_Controller{
 	
 	public function create_listing() {//create listing -- ajax saving in ajax/management
 		
-		$this->dashboard = true;
 		$this->content .= $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
 
 		$this->load->view('admin/management/management_base');		
@@ -116,7 +115,6 @@ class Management extends My_Controller{
 	
 	public function update_listing() {//update listing -- ajax saving in ajax/management
 
-		$this->dashboard = true;
 		$this->property_id = $this->uri->segment(4);
 
 		if(!$this->property_id || strlen($this->property_id < 1))
@@ -133,21 +131,24 @@ class Management extends My_Controller{
 	public function remove_listing() { //make status not-live -- ajax saving in ajax/management
 
 		// generates a list of properties to be set as live or not live
+		$this->listing_dashboard = false;
+		$this->general_dashboard = true;
 		$this->content = $this->management_general->property_status();
-		$this->dashboard = true;
 		$this->load->view('admin/management/management_base');
 	
 	}
 	
 	public function media_status() { //save with ajax to ajax/management
 		
-		if(!$this->uri->segment(4))
+		if(!$this->uri->segment(4)) {
+			$this->listing_dashboard = false;
 			$this->content = $this->management_general->search('media_status');
+		}
+
 		
 		else{
 			$property_id = $this->uri->segment(4);
 			$this->content = $this->management_general->media_status($property_id);
-			$this->dashboard = true;//load the dashboard for ajax controls in the view
 		}
 		
 		$this->load->view('admin/management/management_base');
@@ -155,8 +156,10 @@ class Management extends My_Controller{
 
 	public function upload_media() {//will be process with $this->process()
 		
-		if(!$this->uri->segment(4))//no listing set -- listing will be 3rd segment -- we need to give our users search parameters
+		if(!$this->uri->segment(4)){//no listing set -- listing will be 3rd segment -- we need to give our users search parameters
 			$this->content = $this->management_general->search("upload_media");//the search will send the 
+			$this->listing_dashboard = false;
+		}
 
 		else //listing selected -- load the generic upload form
 			$this->content = $this->management_general->upload_media($this->uri->segment(3));
@@ -173,10 +176,13 @@ class Management extends My_Controller{
 		
 		if(!$this->type || !$this->property_id)
 			redirect('admin/management/upload_media');//redirect back to the main page to restart the process
-		else
+		else {
+
+			$this->listing_dashboard = false;
 			$this->load->library('property/property_set');//property_set loading
 			$this->status = $this->property_set->media_upload($this->property_id, $this->type);//submit the informatino
 			$this->content = $this->load->view('admin/management/message', '', true);//return the proper message to be passed to the rendered view
+		}
 		
 		$this->load->view('admin/management/management_base');
 	}
