@@ -135,7 +135,6 @@ class Management extends My_Controller{
 		// generates a list of properties to be set as live or not live
 		$this->content = $this->management_general->property_status();
 		$this->dashboard = true;
-		// $this->property_status_dashboard = true;
 		$this->load->view('admin/management/management_base');
 	
 	}

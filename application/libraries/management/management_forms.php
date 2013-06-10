@@ -101,7 +101,7 @@ class Management_forms{
 		// uses radio forms where the options are not database driven
 		
 		// grab the value, can't use the general->get_category because that is for front-end and you don't necessarily want to see some of these values!
-		$value = $this->get_value($property_id, $category);		
+		$value = $this->get_value($category, $property_id);		
 
 		
 		$form = "\n\t<input type='radio' name='${category}' value='false' data-property_id='${property_id}' ";

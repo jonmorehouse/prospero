@@ -1,8 +1,4 @@
-<div id='remove_listing'>
-
-	<div class='exit'>
-		<div class='trigger'><a href='<?php echo site_url('admin/management/homepage');?>'>Exit</a></div>
-	</div>
+<div id='general_dashboard'>
 
 	<div class='save'>
 		<div class='trigger'>Save</div>

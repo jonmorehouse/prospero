@@ -1,4 +1,4 @@
-<div id='management_dashboard'>
+<div id='listing_dashboard'>
 
 	<div class='exit'>
 		<div class='trigger'><a href='<?php echo site_url('admin/management/homepage');?>'>Exit</a></div>
