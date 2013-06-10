@@ -34,13 +34,12 @@ class Management_forms{
 			
 			$radio_form .= "\n\t<input type='radio' name='{$category}' value='{$option}'";
 			
-			$db_type = $this->CI->general->get_category($property_id, $category);
+			$db_type = $this->get_value($category, $property_id);
 
 			if($this->CI->format->comparison_format($db_type) === $this->CI->format->comparison_format($option))//check to see if the value stored in the database is the same as the one that is being used for this option
 				$radio_form .= "checked='checked'";
 			
 			$radio_form .= " />\n\t{$this->CI->format->word_format($option)}<br />";//this is the final ending of this basic radio form
-
 		}
 		
 		return $radio_form;
@@ -154,8 +153,8 @@ class Management_forms{
 		return array(
 
 			"general",
-			$this->get_value($property_id, "type"),//rent or buy or lease
-			$this->get_value($property_id, "type_category"),//retail / office / industrial etc etc			
+			$this->get_value("type", $property_id),//rent or buy or lease
+			$this->get_value("type_category", $property_id),//retail / office / industrial etc etc			
 			"other",//not usually needed
 		);
 	}

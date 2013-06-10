@@ -801,7 +801,7 @@ CREATE TABLE `property_meta` (
 
 LOCK TABLES `property_meta` WRITE;
 /*!40000 ALTER TABLE `property_meta` DISABLE KEYS */;
-INSERT INTO `property_meta` VALUES (1,'Meta Description','Meta Keywords','1'),(2,'Meta Description','Meta Keywords','1'),(3,'Meta Description','Meta Keywords','1'),(4,'Meta Description','Meta Keywords','1'),(5,'Meta Description','Meta Keywords','1'),(6,'Meta Description','Meta Keywords','1'),(7,'Meta Description','Meta Keywords','1'),(8,'Meta Description','Meta Keywords','1'),(9,'Meta Description','Meta Keywords','1'),(10,'Meta Description','Meta Keywords','1'),(11,'Meta Description','Meta Keywords','1'),(12,'Meta Description','Meta Keywords','1'),(13,'Meta Description','Meta Keywords','1'),(14,'Meta Description','Meta Keywords','1'),(15,'Meta Description','Meta Keywords','1'),(16,'Meta Description','Meta Keywords','1'),(17,'Meta Description','Meta Keywords','1'),(18,'Meta Description','Meta Keywords','1'),(19,'Meta Description','Meta Keywords','1'),(20,'Meta Description','Meta Keywords','1'),(21,'Meta Description','Meta Keywords','1'),(22,'Meta Description','Meta Keywords','1'),(23,'Meta Description','Meta Keywords','1'),(24,'Meta Description','Meta Keywords','1'),(25,'Meta Description','Meta Keywords','1'),(26,'Meta Description','Meta Keywords','1'),(27,'Meta Description','Meta Keywords','1'),(28,'Meta Description','Meta Keywords','1'),(29,'Meta Description','Meta Keywords','1'),(30,'Meta Description','Meta Keywords','1'),(31,'Meta Description','Meta Keywords','1'),(32,'Meta Description','Meta Keywords','1'),(33,'Meta Description','Meta Keywords','1'),(34,'Meta Description','Meta Keywords','1'),(35,'Meta Description','Meta Keywords','1'),(36,'Meta Description','Meta Keywords','1'),(39,'Meta Description','Meta Keywords','1'),(37,'Meta Description','Meta Keywords','1'),(38,'Meta Description','Meta Keywords','1'),(40,'Meta Description','Meta Keywords','1'),(41,'Meta Description','Meta Keywords','1'),(42,'Meta Description','Meta Keywords','1'),(43,'Meta Description','Meta Keywords','1'),(44,'Meta Description','Meta Keywords','1'),(45,'Meta Description','Meta Keywords','1'),(46,'Meta Description','Meta Keywords','1'),(47,'Meta Description','Meta Keywords','1'),(48,'Meta Description','Meta Keywords','1'),(49,'Meta Description','Meta Keywords','1'),(50,'Meta Description','Meta Keywords','1'),(51,'Meta Description','Meta Keywords','1'),(52,'Meta Description','Meta Keywords','1'),(53,'Meta Description','Meta Keywords','1'),(54,'Meta Description','Meta Keywords','1'),(55,'Meta Description','Meta Keywords','1'),(56,'Meta Description','Meta Keywords','false');
+INSERT INTO `property_meta` VALUES (1,'Meta Description','Meta Keywords','true'),(2,'Meta Description','Meta Keywords','true'),(3,'Meta Description','Meta Keywords','true'),(4,'Meta Description','Meta Keywords','true'),(5,'Meta Description','Meta Keywords','true'),(6,'Meta Description','Meta Keywords','true'),(7,'Meta Description','Meta Keywords','true'),(8,'Meta Description','Meta Keywords','true'),(9,'Meta Description','Meta Keywords','true'),(10,'Meta Description','Meta Keywords','true'),(11,'Meta Description','Meta Keywords','true'),(12,'Meta Description','Meta Keywords','true'),(13,'Meta Description','Meta Keywords','true'),(14,'Meta Description','Meta Keywords','true'),(15,'Meta Description','Meta Keywords','true'),(16,'Meta Description','Meta Keywords','true'),(17,'Meta Description','Meta Keywords','true'),(18,'Meta Description','Meta Keywords','true'),(19,'Meta Description','Meta Keywords','true'),(20,'Meta Description','Meta Keywords','true'),(21,'Meta Description','Meta Keywords','true'),(22,'Meta Description','Meta Keywords','true'),(23,'Meta Description','Meta Keywords','true'),(24,'Meta Description','Meta Keywords','true'),(25,'Meta Description','Meta Keywords','true'),(26,'Meta Description','Meta Keywords','true'),(27,'Meta Description','Meta Keywords','true'),(28,'Meta Description','Meta Keywords','true'),(29,'Meta Description','Meta Keywords','true'),(30,'Meta Description','Meta Keywords','true'),(31,'Meta Description','Meta Keywords','true'),(32,'Meta Description','Meta Keywords','true'),(33,'Meta Description','Meta Keywords','true'),(34,'Meta Description','Meta Keywords','true'),(35,'Meta Description','Meta Keywords','true'),(36,'Meta Description','Meta Keywords','true'),(39,'Meta Description','Meta Keywords','true'),(37,'Meta Description','Meta Keywords','true'),(38,'Meta Description','Meta Keywords','true'),(40,'Meta Description','Meta Keywords','true'),(41,'Meta Description','Meta Keywords','true'),(42,'Meta Description','Meta Keywords','true'),(43,'Meta Description','Meta Keywords','true'),(44,'Meta Description','Meta Keywords','true'),(45,'Meta Description','Meta Keywords','true'),(46,'Meta Description','Meta Keywords','true'),(47,'Meta Description','Meta Keywords','true'),(48,'Meta Description','Meta Keywords','true'),(49,'Meta Description','Meta Keywords','true'),(50,'Meta Description','Meta Keywords','true'),(51,'Meta Description','Meta Keywords','true'),(52,'Meta Description','Meta Keywords','true'),(53,'Meta Description','Meta Keywords','true'),(54,'Meta Description','Meta Keywords','true'),(55,'Meta Description','Meta Keywords','true'),(56,'Meta Description','Meta Keywords','true');
 /*!40000 ALTER TABLE `property_meta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1294,7 +1294,7 @@ CREATE TABLE `videos` (
   `status` tinyint(1) DEFAULT '0',
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`video_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1303,7 +1303,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (1,'resources/images/defaults/video.png',1,1);
+INSERT INTO `videos` VALUES (1,'resources/images/defaults/video.png',1,1),(2,'property_videos/upload_media/2.',1,0);
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1341,4 +1341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-06-10 14:13:43
+-- Dump completed on 2013-06-10 14:27:22
