@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-class Management extends CI_Controller{
+class Management extends My_Controller{
 
 /******************* MANAGEMENT CONSTRUCT *************************/
 /* Note the management_forms, management_create_update and management_general class
@@ -12,12 +12,10 @@ class Management extends CI_Controller{
 */
 /************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
 	public function __construct(){
+
+		$this->id = 'management'; //this is used for the navigation bars--not always page_type in other controllers
 		parent::__construct();
 		
-		// PAGE META INFORMATION
-		$page_title = 'Prospero Real Estate Content Management System';
-		$this->page_type = 'management';//this is used for headers
-		$this->id = 'management'; //this is used for the navigation bars--not always page_type in other controllers
 		$this->content = "";
 
 		// LOAD LIBRARIES
@@ -32,15 +30,10 @@ class Management extends CI_Controller{
 			$username = $this->session->userdata('username');
 			$admin_rights = $this->session->userdata('admin_rights');
 			$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
-			
 		}
 
-		// load header information-this will be passed into management_base and echoed from there
-		// initialize view elements
-		$this->header = $this->dynamic_header->get_header();
-		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
-		$this->logo = $this->navigation->get_logo("listing");
-		$this->background_images = $this->elements->get_background_images();
+		// initialize a few things!
+		$this->base();
 
 		// management variables
 		$this->dashboard = false;
@@ -129,7 +122,7 @@ class Management extends CI_Controller{
 	public function update_listing() {//update listing -- ajax saving in ajax/management
 
 		$this->dashboard = true;
-		$this->property_id = $this->uri->segment(3);
+		$this->property_id = $this->uri->segment(4);
 
 		if(!$this->property_id || strlen($this->property_id < 1))
 			$this->content = $this->management_general->search('update_listing');
@@ -193,8 +186,4 @@ class Management extends CI_Controller{
 		
 		$this->load->view('admin/management/management_base');
 	}
-
-
-
-
 }

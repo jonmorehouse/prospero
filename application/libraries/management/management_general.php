@@ -13,7 +13,7 @@ class Management_general extends Management_forms {
 		$this->CI->load->library(array('user_access/admin', 'property/media'));
 		$this->CI->load->model("management/management_properties");
 
-		$this->url = site_url('management');
+		$this->url = site_url('admin/management');
 		$this->property_list = $this->CI->admin->property_list($this->username);
 		
 		$this->CI->load->config('site_status');
@@ -69,7 +69,7 @@ class Management_general extends Management_forms {
 		
 		// This function is used to dynamically generate all of the categories for the radio dropdown to be used in the upload_media form
 		$media_categories = $this->get_individual_categories('media');//get the dropdown options for the media form
-		$destination = site_url('management/process/' . $property_id);
+		$destination = site_url('admin/management/process/' . $property_id);
 		
 		// Form creation
 		$form = "\n<h1>Upload Media for {$this->CI->general->get_category($property_id, "name")}</h1>";

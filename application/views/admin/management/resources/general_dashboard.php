@@ -1,7 +1,7 @@
 <div id='management_dashboard'>
 
 	<div class='exit'>
-		<div class='trigger'><a href='<?php echo site_url('management/homepage');?>'>Exit</a></div>
+		<div class='trigger'><a href='<?php echo site_url('admin/management/homepage');?>'>Exit</a></div>
 	</div>
 
 	<div class='save'>

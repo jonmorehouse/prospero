@@ -16,13 +16,8 @@ class Management_data extends CI_Model {
 	// examples are property_new, if it is the default value, then we can't see it in the normal element
 	public function get_category($property_id, $category) {
 
-		$table = $this->general->get_category_table($category);//gets the location of the property from the database
+		echo $category;
 
-		$query = $this->db->where(array("property_id" => $property_id))->select($category)->get($table, 1);
-
-		if ($query->num_rows() == 0) return false;
-
-		return $query->row()->$category;
 	}
 
 	public function get_default($category) {

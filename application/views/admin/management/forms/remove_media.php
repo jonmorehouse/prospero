@@ -12,7 +12,7 @@
 			
 			// CREATE THUMBNAIL FOR EACH PROPERTY!
 			foreach($file_list as $value){
-				$url = site_url('management/media_remove/slideshow_image/' . $this->property_id);
+				$url = site_url('admin/management/media_remove/slideshow_image/' . $this->property_id);
 				echo "<div class='thumbnail'>
 					<form action='{$url}' method='post'>
 						<input type='hidden' name='file_name' value='{$value}' />
@@ -29,7 +29,7 @@
 	<div>
 		<?php
 		// CREATE URL FOR DELETING VIDEO
-		$url = site_url('management/media_remove/video/' . $this->property_id);
+		$url = site_url('admin/management/media_remove/video/' . $this->property_id);
 		if($this->property_get->video_status($this->property_id))
 			echo "<h2>Delete Video for this Property</h2>
 					<form action='{$url}' method='post'>

@@ -54,6 +54,7 @@ class Dynamic_header extends Header{
 
 		$stylesheets = array(); // this is the css linker html
 
+
 		if ($query) {//if the query exists ("And it should")
 
 			foreach ($query->result() as $row) {//loop through all of the results that come with this query

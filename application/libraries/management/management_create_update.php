@@ -29,9 +29,9 @@ class Management_create_update extends Management_forms {
 	function form_generation($property_id, $type) {
 		
 		$this->header = "<h1>{$this->CI->format->word_format($type)} Property</h1><br /><hr /><br />\n";
+
 		$form_categories = $this->get_category_types($property_id);//passed by reference
 		
-
 		$form = $this->generate_categories($property_id, $form_categories);
 
 		return $form;
@@ -39,8 +39,7 @@ class Management_create_update extends Management_forms {
 	}
 	
 	function generate_categories($property_id, $category_types) {
-				
-
+					
 		// form destination url
 		$destination = site_url('ajax/management/save');
 		
@@ -72,7 +71,7 @@ class Management_create_update extends Management_forms {
 				$form .= $this->$input_type($property_id, $category);//add the form for this category type to our current form
 
 				// last already taken care of so div closed...just move on
-				if($this->get_category_input_type($category) != 'hidden')//if it is not hidden, add a div -- we don't want the hidden elements to take up space and create blank spots on the forsm!
+				if ($input_type != 'hidden')//if it is not hidden, add a div -- we don't want the hidden elements to take up space and create blank spots on the forsm!
 					$form .= "\n\t</div>";//only close the divs that were created -- not for hiddens
 
 			}//end foreach for categories

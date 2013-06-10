@@ -28,7 +28,7 @@ class Management_forms{
 		$options = $this->CI->general->get_default_options($category); // get all options
 
 		$radio_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
-		$radio_form .= $this->get_comment($category);
+		// $radio_form .= $this->get_comment($category);
 
 		foreach ($options as $option) {
 			
@@ -56,9 +56,9 @@ class Management_forms{
 	
 	public function textarea($property_id, $category, $rows = 5) {
 			
-		$value = $this->get_value($category);//this returns the value for this category -- including the default problemsa
+		$value = $this->get_value($category, $property_id);//this returns the value for this category -- including the default problemsa
 		$textarea_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
-		$textarea_form .= $this->get_comment($category);
+		// $textarea_form .= $this->get_comment($category);
 		
 		$textarea_form .= "\n\t<textarea rows='{$rows}' name='{$category}'>{$value}</textarea>"; 
 		
@@ -68,22 +68,18 @@ class Management_forms{
 	
 	public function text($property_id, $category) {
 			
-		$value = $this->get_value($category);//get the correct value for this item
-
+		$value = $this->get_value($category, $property_id);//get the correct value for this item
 
 		$text_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
 
-		$text_form .= $this->get_comment($category);
-		
 		$text_form .= "\n\t<input type='text' name='{$category}' value='{$value}' />\n\t";
-		
+
 		return $text_form;
 	}
 
 	public function hidden($property_id, $category) {
 		
-		$hidden_form = "\n\t<input type='hidden' value='{$this->get_value($category)}' name='{$category}' />\n\t";
-		
+		$hidden_form = "\n\t<input type='hidden' value='{$this->get_value($category, $property_id)}' name='{$category}' />\n\t";
 
 		return $hidden_form;
 		
@@ -145,16 +141,12 @@ class Management_forms{
 
 	/********* PRIVATE FUNCTIONS ********/
 
-	protected function get_value($property_id, $category) {
+	protected function get_value($category, $property_id) {
 
 		if ($category === "property_id") return $property_id;
-		
-		$value = $this->CI->management_data->get_category($property_id, $category);
 
-		if (!$value) // need to get the default!
-			$value = $this->CI->management_data->get_default($category);//returns the default value for this particular query!
+		return $this->CI->general->get_category($property_id, $category);
 
-		return $this->CI->format->word_format($value);//return the cleaned value
 	}
 
 	/********** PROTECTED FUNCTIONS *******/
