@@ -147,11 +147,11 @@ class Management extends My_Controller{
 	
 	public function media_status() { //save with ajax to ajax/management
 		
-		if(!$this->uri->segment(3))
+		if(!$this->uri->segment(4))
 			$this->content = $this->management_general->search('media_status');
 		
 		else{
-			$property_id = $this->uri->segment(3);
+			$property_id = $this->uri->segment(4);
 			$this->content = $this->management_general->media_status($property_id);
 			$this->dashboard = true;//load the dashboard for ajax controls in the view
 		}
@@ -161,7 +161,7 @@ class Management extends My_Controller{
 
 	public function upload_media() {//will be process with $this->process()
 		
-		if(!$this->uri->segment(3))//no listing set -- listing will be 3rd segment -- we need to give our users search parameters
+		if(!$this->uri->segment(4))//no listing set -- listing will be 3rd segment -- we need to give our users search parameters
 			$this->content = $this->management_general->search("upload_media");//the search will send the 
 
 		else //listing selected -- load the generic upload form
@@ -174,7 +174,7 @@ class Management extends My_Controller{
 
 	public function process() {//process all media uploads
 		
-		$this->property_id = $this->uri->segment(3);//property_id
+		$this->property_id = $this->uri->segment(4);//property_id
 		$this->type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
 		
 		if(!$this->type || !$this->property_id)

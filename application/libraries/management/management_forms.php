@@ -95,7 +95,7 @@ class Management_forms{
 		return $dropdown;
 	}
 
-	public function status_form($property_id, $property_id, $category) {//generates a live/not live for each category sent to it 
+	public function status_form($property_id, $category) {//generates a live/not live for each category sent to it 
 
 		// for each category will give an option of live or not
 		// in the input, just cast the function as boolean
@@ -160,5 +160,20 @@ class Management_forms{
 			"other",//not usually needed
 		);
 	}
+
+	protected function get_individual_categories($category) {
+
+		// initialize the query from our table_schema table
+		$query = $this->CI->db->where(array('type' => $category))->select('category')->get('table_schema');
+
+		// initialize a categories holder
+		$categories = array();
+
+		// push all of the results into the categories etc
+		foreach ($query->result() as $row)
+			array_push($categories, $row->category);
+
+		return $categories;
+	}	
 
 };

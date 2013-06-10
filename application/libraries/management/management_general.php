@@ -75,7 +75,7 @@ class Management_general extends Management_forms {
 		$form = "\n<h1>Upload Media for {$this->CI->general->get_category($property_id, "name")}</h1>";
 		$form .= "\n<form action='{$destination}' method='post' enctype='multipart/form-data'>";
 		$form .= "\n<span>Media Type:</span>";
-		$form .= $this->dropdown($media_categories, 'type');
+		$form .= $this->dropdown($property_id, $media_categories, 'type');
 		$form .= "\n<input type='file' name='media' />";
 		$form .= "\n<span>Maximum File Size: {$this->CI->format->max_file($this->CI->general->config('max_file'))}</span>";
 		$form .= "\n<input type='submit' name='submit' />";
