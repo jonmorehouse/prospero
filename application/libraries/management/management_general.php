@@ -176,6 +176,7 @@ class Management_general extends Management_forms {
 
 		else if('slideshow_upload' == $this->action)
 			$this->header = "Upload Slideshow Images";
+
 	}
 	
 	private function thumbnail($property_id) {
@@ -185,7 +186,7 @@ class Management_general extends Management_forms {
 
 		$thumbnail = "\n<div class='thumbnail'>";
 		$thumbnail .= "\n\t<span>{$image}</span>";
-		$thumbnail .= "\n\t<span>{$name}</span>";
+		$thumbnail .= "\n\t<span><span>{$name}</span></span>";
 		$thumbnail .= "\n\t<span><a href='{$this->tool_url}/{$property_id}'>{$this->header} Property</a></span>";
 		$thumbnail .= "\n</div>";
 		

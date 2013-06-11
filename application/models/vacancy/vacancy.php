@@ -14,6 +14,36 @@ class Vacancy extends MY_Model {
 		$this->load->model($models);
 	}
 
+	// create a temporary vacancy for a property and return a vacancy_id
+	public function create_vacancy($property_id) {
+
+		// initialize our base saving data etc
+		$data = array('property_id' => $property_id);
+
+		// now create the vacancy and insert it into the proper table
+		$this->db->insert('vacancies', $data);
+
+		// grab the insert id and return it etc
+		$vacancy_id = $this->db->insert_id();
+
+		// now return the proper id
+		return $vacancy_id;
+	}
+
+	public function save_vacancy($data) {
+
+		// generate our valid update data etc
+		$update_data = array(
+
+			'property_id' => $data['property_id'],
+			'date_available' => $data['date_available'],
+			'description' => $data['description'],
+		);
+
+		// update the data in the database
+		$this->db->where(array('vacancy_id'=> $data['vacancy_id']))->update('vacancies', $update_data);
+	}
+
 	// create a vacancy, will throw an error if the proper elements don't exist
 	public function add_vacancy($data) {
 
@@ -65,6 +95,7 @@ class Vacancy extends MY_Model {
 		// create our vacancy array which yields the normal vacancy object for the view etc
 		$vacancy = array(
 
+			"vacancy_id" => $data->vacancy_id,
 			"property_id" => $data->property_id,
 			// grab the date available for this particular element etc
 			// grab the date-available string from the database

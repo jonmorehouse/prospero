@@ -243,6 +243,7 @@ position:absolute;
 	div{
 		
 		margin-top:20px;
+
 		div.thumbnail{/*THUMBNAIL DIV*/
 			position:relative;
 			top:0;
@@ -252,6 +253,7 @@ position:absolute;
 			margin-bottom:10px;
 			clear:both;
 			padding:0;
+			height: 50px;
 		
 			span{
 				.light_background();
@@ -278,6 +280,15 @@ position:absolute;
 
 				&:nth-child(2), &:nth-child(3) {
 					margin-left:2%;
+					padding: 0;
+
+					> span {
+
+						width: 100%;
+						margin-top: 0.5em;
+
+
+					}
 
 				}
 			
@@ -297,7 +308,6 @@ position:absolute;
 					display:block;
 					vertical-align: middle;
 					padding:@span_padding 0 @span_padding 0;
-
 
 					&:hover{
 						.dark_background();
@@ -351,7 +361,7 @@ position:absolute;
 
 		> span {
 
-			height: 100px;
+			height: 50px;
 			float: left;
 			width: 200px;
 			position: relative;
@@ -383,14 +393,134 @@ position:absolute;
 				> span {
 
 					position: relative;
-					height: 80%;
-					top: 3em;
-
+					top: 1em;
 				}
 			}
 		}
 	}
 }
 
+#add_vacancy {
 
+	> div.header {
+
+		position: relative;
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+		.light_background();
+
+
+		> span {
+
+			position: relative;
+			float: left;
+
+			&:first-of-type {
+
+				width: 25%;
+				height: 50px;
+
+				> img {
+
+					position: relative;
+					max-height: 100%;
+					max-width:100%;
+					display: block;
+					margin: 0 auto;
+
+				}
+			}
+
+			&:nth-of-type(2) {
+
+				width: 50%;					
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+// general thumbnails to be used throughout application
+div.thumbnail{/*THUMBNAIL DIV*/
+	position:relative;
+	top:0;
+	left:0;
+	width:80%;
+	margin:0 auto;
+	margin-bottom:1em;
+	clear:both;
+	padding:0;
+	height: 50px;
+
+	span{
+		.light_background();
+		position:relative;
+		margin:0;
+		display:block;
+		width:40%;
+		padding:@span_padding 0 @span_padding 0;
+		float:left;
+		height: 100%;
+
+		&:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4) {
+
+			> span {
+
+				top: 1em;
+				width: 100%;
+
+			}
+		}
+		
+		&:first-child{
+			padding:0;
+			height:@span_padding;
+			margin:0;
+			background-color:transparent;
+			width:10%;
+			margin-right:0;
+		}
+
+		&:nth-child(3) {
+			padding:0;
+		}
+
+		&:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+			margin-left:2%;
+			padding: 0;
+		}
+	
+		img{
+			clear:both;
+			position:relative;
+			margin:0 auto;
+			max-height:@span_height;
+			margin:0;
+
+		}
+	
+		a{
+			text-align:middle;
+			clear:both;
+			width:100%;
+			display:block;
+			vertical-align: middle;
+			padding:@span_padding 0 @span_padding 0;
+
+
+			&:hover{
+				.dark_background();
+			}
+		}
+	}/*THIS IS THE BLOCK FOR THE THUMBNAIL*/
+}
+
+div.vacancy_thumbnail {
+
+	> span {
+
+		width: 20%;
+	}
+}
 

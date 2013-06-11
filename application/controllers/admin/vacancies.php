@@ -9,8 +9,10 @@ class Vacancies extends My_Controller{
 		
 		$this->content = "";
 
+		$this->load->model(array('vacancy/vacancy', 'vacancy/vacancy_filter'));
+
 		// LOAD LIBRARIES
-		$this->load->library('user_access/user_status');
+		$this->load->library(array('user_access/user_status'));
 
 		// If the user_status is validated, we will then load session data to be used around the controller
 		if ($this->user_status->current_status()){
@@ -23,8 +25,8 @@ class Vacancies extends My_Controller{
 		$this->base();
 
 		// management variables
-		$this->dashboard = false;
-		$this->property_status_dashboard = false;
+		$this->listing_dashboard = false;
+		$this->general_dashboard = false;
 	}
 	
 	public function _remap($method, $parameters){
@@ -42,46 +44,58 @@ class Vacancies extends My_Controller{
 
 		// show a list of all vacancies!
 				
-			
-		
-
-
 
 	}
 		
 	// create a new vacancy!
 	public function add() {
 
-		if ($this->input->post()) {
+		// load in general add header
+		$this->content = $this->load->view('admin/vacancies/add_header', array(), true);
 
-			// save the element!
-		}
+		// show thumbnails if no uris passed
+		if (!$this->uri->segment(4) || !$this->general->live($this->uri->segment(4))) return $this->property_thumbnails();
 
-		// generate a form here that something can post from!
-		else {
+		// if we have a property continue on!
+		$this->property_id = $this->uri->segment(4);
+		// grab some basic data!
+		$this->data = $this->thumbnail->general_thumbnail($this->property_id);
 
-			// first check to see if we passed in a parameter for the property_id and if we did that its a legit property!
-			if (!$this->uri->segment(4) || !$this->general->live($this->uri->segment(4))) return $this->property_thumbnails();
-
-			// if we have a property continue on!
-			$this->property_id = $this->uri->segment(4);
-
-			// generate form below!
-			$this->content = $this->load->view('admin/vacancies/add', array(), true);
-			$this->load->view('admin/management_base');
-		}
+		// generate form below!
+		$this->content = $this->load->view('admin/vacancies/add', array(), true);
+		$this->general_dashboard = true;
+		$this->load->view('admin/management/management_base');
 	}
+
+	public function save() {
+
+		$data = $this->input->post();
+
+		print_r($data);
+		// save a vacancy here!
+		// $this->vacancy->save_vacancy($data);
+
+	}
+
 
 	// remove any 
 	public function remove() {
 
+		// initialize our basic header
+		$this->content = $this->load->view('admin/vacancies/remove_header', array(), true);
 
+		// if we pass in a query element go ahead and delete that vacancy_id
+		if ($this->uri->segment(4)) $this->vacancy->delete_vacancy($this->uri->segment(4));
 
+		// grab our vacancy_thumbnails
+		$this->content .= $this->vacancy_thumbnails();
 
-
+		// load out our layout 
+		$this->load->view('admin/management/management_base');
 	}
 
 	// render views for thumbnail searching etc!
+	// render links to create a property forms etc
 	private function property_thumbnails() {
 
 		// grab all properties from the database that are live
@@ -106,9 +120,6 @@ class Vacancies extends My_Controller{
 		// load up all of the proper vacancy thumbnails etc
 		foreach ($vacancies as $vacancy)
 			$this->content .= $this->load->view('admin/vacancies/vacancy_thumbnail', array('vacancy' => $vacancy), true);
-
-		// 
-		$this->load->view('admin/management/management_base');
 
 	}
 
