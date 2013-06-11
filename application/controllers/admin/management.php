@@ -87,7 +87,7 @@ class Management extends My_Controller{
 		$status = $this->user_status->login($username, $password);
 		
 		//Failed login message
-		$this->content = $this->load->view('admin/management/resources/failed_login', '', true);
+		$message = $this->load->view('admin/management/resources/failed_login', '', true);
 		
 		// IF USER_STATUS VALIDATES, The session will be set and it will auto-login
 		if($status)

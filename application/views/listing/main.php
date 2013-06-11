@@ -58,6 +58,13 @@
 		<!-- FILL THIS IN WITH IMAGES TO BE POPPED OUT LATER!-->
 		<img src='<?php echo $this->thumbnail_images[0]['url'];?>' alt='<?php echo $this->thumbnail_images[0]['alt']; ?>' />
 	</div>
+
+	<div class='control'>
+		<ul>
+			<li class='prev'>Prev</li>
+			<li class='next'>Next</li>
+		</ul>
+	</div>
 	
 	<div class='exit'>
 	</div>

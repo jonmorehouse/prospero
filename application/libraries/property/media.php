@@ -159,7 +159,6 @@ class Media{
 			if(file_exists($url))//only works for local files no http:// etc
 				return base_url($url);
 
-			
 			else if('thumbnail_image' == $media)
 				return $this->default_thumbnail_image_url;
 
@@ -192,8 +191,6 @@ class Media{
 	}
 
 /************* PRIVATE FUNCTIONS ********************/
-	
-	
 	private function slideshow_images($property_id, $status = 'live') {
 		
 		$category = "slideshow_image_id";

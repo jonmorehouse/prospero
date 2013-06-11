@@ -93,13 +93,13 @@ class Management_general extends Management_forms {
 	
 		$destination = site_url('ajax/management/media_status');
 
-		$form = "\n<div id='form' data-destination='{$destination}' data-property_id='{$property_id}' data-form_type='media_status'>";//parent form
+		$form = "\n<div id='form' class='media_status' data-destination='{$destination}' data-property_id='{$property_id}' data-form_type='media_status'>";//parent form
 		
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
 
 			$media_id_list = $this->CI->media->get_media_list($property_id, $media_type);//will return an array of all properties available
-			
+
 			$exists = (boolean)count($media_id_list);//count the media_list and use a boolean
 			$category = "{$media_type}_id";
 			

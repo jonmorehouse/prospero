@@ -196,14 +196,7 @@
 	}
 }
 
-#surrounding {
-
-	width: 100%;
-	position: relative;
-	margin-top: 1em;
-	overflow-y:auto;
-	display:block;
-
+.next_prev{
 	> ul {
 
 		display:block;
@@ -241,6 +234,17 @@
 			}
 		}
 	}
+}
+
+#surrounding {
+
+	width: 100%;
+	position: relative;
+	margin-top: 1em;
+	overflow-y:auto;
+	display:block;
+
+	.next_prev;
 }
 
 
@@ -290,7 +294,7 @@
 
 #slideshow_bumpbox {
 
-	display: none;
+	// display: none;
 	position: fixed;
 	width: 80%;
 	overflow-y: auto;
@@ -309,9 +313,38 @@
 			position: relative;
 			margin: 0 auto;
 			max-width: 100%;
-			max-height: 100%;
+			max-height: 80%;
 		}
 	}
+
+	> div.control {
+
+		position: absolute;
+		width: 30%;
+		left:35%;
+		cursor:pointer;
+		.next_prev;
+
+		> ul {
+
+			padding:0;
+			width: 100%;
+
+			> li {
+				.light_background();
+				.base_font();
+
+				margin:0;
+				display:block;
+				padding:1em 0 1em 0;
+				text-align:center;
+				position:relative;
+				box-shadow:none;
+				border:none;
+			}
+		}
+
+	}		
 
 	> div.exit {
 
