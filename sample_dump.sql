@@ -1195,7 +1195,7 @@ CREATE TABLE `user_information` (
   `admin_rights` varchar(25) DEFAULT 'manager',
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1204,7 +1204,7 @@ CREATE TABLE `user_information` (
 
 LOCK TABLES `user_information` WRITE;
 /*!40000 ALTER TABLE `user_information` DISABLE KEYS */;
-INSERT INTO `user_information` VALUES ('morehousej09','2dfb7abc18ef51bb4a6466d4d7779f15',1,'all','morehouse');
+INSERT INTO `user_information` VALUES ('morehousej09','2dfb7abc18ef51bb4a6466d4d7779f15',1,'all','morehouse'),('admin','9d995a162c03e078ee667c9b9af1cc70',8,'all',NULL);
 /*!40000 ALTER TABLE `user_information` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1341,4 +1341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-06-11  4:37:14
+-- Dump completed on 2013-06-11  4:41:10
