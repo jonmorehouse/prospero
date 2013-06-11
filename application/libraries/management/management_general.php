@@ -132,7 +132,7 @@ class Management_general extends Management_forms {
 		
 		$destination = site_url('ajax/management/listing_status');
 		$form = "\n<h1>Activate/Deactivate Properties</h1>";
-		$form .= "\n<div id='form' data-form_type='property_status' data-destination='{$destination}'>";//parent form
+		$form .= "\n<div id='form' class='remove' data-form_type='property_status' data-destination='{$destination}'>";//parent form
 
 		foreach($this->property_list as $property_id) {
 
@@ -142,10 +142,10 @@ class Management_general extends Management_forms {
 
 			$form .= "\n\t<form data-property_id='{$property_id}' data-category='property_status'>";
 			$form .= "\n\t\t<span><img src='{$url}' alt='{$name}' /></span>";
-			$form .= "\n\t\t<span>{$name}</span>";
-			$form .="\n\t\t<span>";
+			$form .= "\n\t\t<span><span>{$name}</span></span>";
+			$form .="\n\t\t<span><span>";
 			$form .= $this->status_form($property_id, 'property_status');//generates a live/not live form for each
-			$form .= "\n\t\t</span>";
+			$form .= "\n\t\t</span></span>";
 			$form .= "\n\t</form>";//individual form is used to create the same form input several times but with different values so there is not interference with the different radios
 		}
 		

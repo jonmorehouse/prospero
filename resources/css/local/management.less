@@ -338,7 +338,58 @@ position:absolute;
 		vertical-align: center;
 		padding-top:2000px;
 	}
+}
 
+#form.remove {
+
+	> form {
+
+		min-height: 20px;
+		max-height: 30px;
+		padding: 0;
+		position: relative;
+
+		> span {
+
+			height: 100px;
+			float: left;
+			width: 200px;
+			position: relative;
+			padding: 0;
+			margin-left: 1em;
+			top: 0;
+			margin-bottom: 1em;
+			.light_background();
+
+			&:nth-of-type(1) {
+
+				display: block;
+				margin-left: 14em;
+
+				> img {
+
+					position: relative;
+					top: 10%;
+					height: 80%;
+				}
+			}
+
+			&:nth-of-type(2), &:nth-of-type(3) {
+
+				vertical-align: center;
+				position: relative;
+				display:block;
+
+				> span {
+
+					position: relative;
+					height: 80%;
+					top: 3em;
+
+				}
+			}
+		}
+	}
 }
 
 

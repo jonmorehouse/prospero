@@ -1,7 +1,6 @@
 /* Notes:
 	a prototype is an object from which other objects inherit functinos/traits etc
 */
-
 var login_page = (function($, document) {
 
 	$(document).ready(function() {
@@ -47,8 +46,7 @@ $(document).ready(function() {
 	
 	page_container = $('#page_content');
 	
-	// alert(model.Podcast.prototype.toString);
-	$('#management_dashboard .save').click(function() {
+	$('#listing_dashboard .save').click(function() {
 		
 		if (!running) {
 
@@ -75,12 +73,12 @@ $(document).ready(function() {
 
 function start_loading() {
 
-	$('#management_dashboard .loading').fadeIn(500);
+	$('#listing_dashboard .loading').fadeIn(500);
 }
 
 function stop_loading() {
 
-	$('#management_dashboard .loading').fadeOut(500);
+	$('#listing_dashboard .loading').fadeOut(500);
 }
 
 function content_submission() {
