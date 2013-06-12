@@ -25,7 +25,7 @@ var multiple_fields = (function($, document) {
 
 	$(document).ready(function() {
 
-		$('#form input, textarea').blur(function() {
+		$('#form input, textarea, #form form input').blur(function() {
 
 			var name = $(this).attr('name'),
 				value = $(this).attr('value'),
@@ -46,7 +46,7 @@ $(document).ready(function() {
 	
 	page_container = $('#page_content');
 	
-	$('#listing_dashboard .save').click(function() {
+	$('#listing_dashboard .save, #general_dashboard .save').click(function() {
 		
 		if (!running) {
 
@@ -73,12 +73,12 @@ $(document).ready(function() {
 
 function start_loading() {
 
-	$('#listing_dashboard .loading').fadeIn(500);
+	$('#listing_dashboard .loading, #general_dashboard .loading').fadeIn(500);
 }
 
 function stop_loading() {
 
-	$('#listing_dashboard .loading').fadeOut(500);
+	$('#listing_dashboard .loading, #general_dashboard .loading').fadeOut(500);
 }
 
 function content_submission() {
@@ -86,7 +86,7 @@ function content_submission() {
 	// variable settings
 	var parent_form;
 
-	parent_form = page_container.children('#form');//declare the master form -- there are forms inside of this however
+	parent_form = page_container.find('#form');//declare the master form -- there are forms inside of this however
 	management_submit.form_type = parent_form.attr('data-form_type');//form type -- save is the general, property_listing and media_status are 'special cases'
 	management_submit.url = parent_form.attr('data-destination');//the destination -- as set in the hard coded form
 	management_submit.container = parent_form;//master form as above
@@ -130,7 +130,7 @@ var management_submit = {//defaults -- uses the prototype below
 			this.container.find('form').each(function(){
 				
 				var current = $(this);
-				
+
 				$.extend(form_data, get_form_data.input(current));//combine the objects
 				$.extend(form_data, get_form_data.radio(current));//combine the objects
 				$.extend(form_data, get_form_data.hidden(current));//combine the objects!
@@ -177,12 +177,12 @@ var management_submit = {//defaults -- uses the prototype below
 		};
 	
 		this.post_data = function() {
-			
+
 			$.ajax({
 				url: this.url,
 				data: this.data,
 				type: 'post',
-				
+					
 				success:function(content) {
 					
 					stop_loading();
@@ -193,7 +193,6 @@ var management_submit = {//defaults -- uses the prototype below
 					if (content.property_id !== undefined) {//need to update the category!
 						$('#form').find('input[name="property_id"]').attr('value', content.property_id);
 					}
-
 					running = false;
 				}
 			});//end ajax call
@@ -211,6 +210,7 @@ var get_form_data = get_form_data || {};
 		
 		container.find('input[type="hidden"]').each(function() {
 			
+
 			data[this.name] = this.value;
 			
 		});

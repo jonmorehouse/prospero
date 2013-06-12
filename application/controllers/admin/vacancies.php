@@ -60,6 +60,7 @@ class Vacancies extends My_Controller{
 		$this->property_id = $this->uri->segment(4);
 		// grab some basic data!
 		$this->data = $this->thumbnail->general_thumbnail($this->property_id);
+		$this->data['vacancy_id'] = $this->vacancy->create_vacancy($this->property_id);
 
 		// generate form below!
 		$this->content = $this->load->view('admin/vacancies/add', array(), true);
@@ -69,12 +70,17 @@ class Vacancies extends My_Controller{
 
 	public function save() {
 
-		$data = $this->input->post();
+		$data = array(
 
-		print_r($data);
-		// save a vacancy here!
-		// $this->vacancy->save_vacancy($data);
+			'property_id'=> $this->uri->segment(4),
+			'date_available'=>$this->input->post('date_available'),
+			'description'=>$this->input->post('description'),
+			'vacancy_id'=>$this->input->post('vacancy_id')
+		);
 
+		$this->vacancy->save_vacancy($data);
+
+		echo "{}";
 	}
 
 
