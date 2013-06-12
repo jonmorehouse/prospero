@@ -1,5 +1,5 @@
 <?php
-class Listing extends Page_Controller { 
+class Listing extends My_Controller { 
 	
 	function __construct() {
 
@@ -138,7 +138,7 @@ class Listing extends Page_Controller {
 
 		$this->data = array(
 
-			// "general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
+			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
 			"property_id" => $this->property_id,
 			"slideshow_images" => $this->slideshow_images,
 			"slideshow_thumbnail_images" => $this->thumbnail_images,
