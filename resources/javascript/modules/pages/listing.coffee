@@ -69,7 +69,8 @@ do Project.Pages.Listing = () ->
 			listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger
 
 		# development work
-	do listingSlideshow = () =>
+########### listeners['listing_map'].trigger "click"
+	do listingSlideshow = () ->
 
 		containers = 
 			thumbnails : $("#slideshow > div.thumbnails")
@@ -88,7 +89,7 @@ do Project.Pages.Listing = () ->
 		# initialize slideshow controller -- initialize it with a default id -- ie: a first element to show!
 		controller = new Project.Modules.thumbnail_controller containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']
 
-		# slideShowBumpbox = new Project.Pages.ListingImage containers.slideshow, containers.imageBumpbox, fade 
+		slideShowBumpbox = new Project.Pages.ListingImage containers.slideshow, containers.imageBumpbox, pageData.slideshow_images 
 
 
 

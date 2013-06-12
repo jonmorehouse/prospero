@@ -3,8 +3,7 @@
   var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   (Project.Pages.Listing = function() {
-    var bumpboxDependencies, bumpboxes, elements, fade, listingBumpboxes, listingSlideshow, topBumpbox,
-      _this = this;
+    var bumpboxDependencies, bumpboxes, elements, fade, listingBumpboxes, listingSlideshow, topBumpbox;
     elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#content')];
     topBumpbox = Project.Pages.Bumpbox(elements);
     fade = topBumpbox.fade;
@@ -48,7 +47,7 @@
       }
     })();
     return (listingSlideshow = function() {
-      var containers, controller, image_template;
+      var containers, controller, image_template, slideShowBumpbox;
       containers = {
         thumbnails: $("#slideshow > div.thumbnails"),
         slideshow: $("#slideshow > div.content"),
@@ -59,7 +58,8 @@
       };
       Project.Modules.Slideshow_loader(pageData.slideshow_images.slice(1), containers.slideshow, image_template);
       Project.Modules.Slideshow_loader(pageData.slideshow_thumbnail_images.slice(1), containers.thumbnails, image_template);
-      return controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']);
+      controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']);
+      return slideShowBumpbox = new Project.Pages.ListingImage(containers.slideshow, containers.imageBumpbox);
     })();
   })();
 
