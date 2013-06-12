@@ -58,13 +58,19 @@ class Property_set{
 		
 		$media_id = $this->create_media_id($property_id, $type);//generates a new media piece 
 		$file_name = $this->create_relative_url($property_id, $type, $media_id, $extension);//create the url to be saved
-		
 
 		$this->update_media($property_id, $media_id, $type, $file_name);//update the database
 		
 		// If there is no error, we will add the file. Thumbnail images will be overwritten because we can only have one thumbnail
-
 		if(!$media['error']){//WE WILL JUST HAVE THE IMAGES OVERWRITE IF THERE IS A PROBLEM
+			
+			// make sure the directory currently exists
+			$pieces = explode("/", $file_name);
+			$directory = join("/", array_slice($pieces, 0, count($pieces) - 1));
+
+			// make sure the directory exists, if not create it!
+			if (!file_exists($directory)) mkdir($directory);
+
 			move_uploaded_file($temporary_file, $file_name);
 			
 			if('slideshow_image' == $type) {
@@ -91,13 +97,6 @@ class Property_set{
 		}
 	
 	}
-
-	/***
-
-	
-
-
-	****/ 
 
 	public function property_status($property_id, $input_status) {//responsible for activating/deactivating properties etc
 		
@@ -127,20 +126,10 @@ class Property_set{
 			$status = true;
 		
 		$table = $this->CI->general->get_category_table($category);
-		
-		if('thumbnail_image_id' === $category) {//note that the last thumbnail inserted will be the current one
-			
-			$this->current_thumbnail($property_id, $media_id);
-		}
-		
-		else
-			$this->CI->general->update($table, array($category => $media_id));
+
+		$this->CI->db->where(array('property_id'=>$property_id, $category => $media_id))->update($table, array('status' => $status));
 	}
 	
-	/*****
-		NOT CURRENTLY WORKING
-	*****/
-
 	public function destroy_property($property_id) {
 		
 		$tables = $this->CI->general->category_tables();
@@ -279,8 +268,6 @@ class Property_set{
 			}
 
 		$this->CI->general->update($table, array($category=>$media_id), array('status' => true));
-
 	}
-
 
 };

@@ -99,7 +99,8 @@ class Management extends CI_Controller{
 	}	
 
 	public function media_status() {
-		
+
+
 		$post_data = $this->input->post();
 
 		$property_id = $post_data['property_id'];

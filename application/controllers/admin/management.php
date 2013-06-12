@@ -162,7 +162,7 @@ class Management extends My_Controller{
 		}
 
 		else //listing selected -- load the generic upload form
-			$this->content = $this->management_general->upload_media($this->uri->segment(3));
+			$this->content = $this->management_general->upload_media($this->uri->segment(4));
 		
 		$this->load->view('admin/management/management_base');
 	}
@@ -172,10 +172,11 @@ class Management extends My_Controller{
 	public function process() {//process all media uploads
 		
 		$this->property_id = $this->uri->segment(4);//property_id
+
 		$this->type = $this->input->post('type');//this is pdf/video/slideshow_image or thumbnail_image
 		
-		if(!$this->type || !$this->property_id)
-			redirect('admin/management/upload_media');//redirect back to the main page to restart the process
+		if(!$this->type || !$this->property_id) redirect('admin/management/upload_media');//redirect back to the main page to restart the process
+
 		else {
 
 			$this->listing_dashboard = false;
