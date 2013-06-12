@@ -89,7 +89,7 @@ do Project.Pages.Listing = () ->
 		# initialize slideshow controller -- initialize it with a default id -- ie: a first element to show!
 		controller = new Project.Modules.thumbnail_controller containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']
 
-		slideShowBumpbox = new Project.Pages.ListingImage containers.slideshow, containers.imageBumpbox, pageData.slideshow_images 
+		slideShowBumpbox = new Project.Pages.ListingImage containers.slideshow, containers.imageBumpbox, fade 
 
 
 

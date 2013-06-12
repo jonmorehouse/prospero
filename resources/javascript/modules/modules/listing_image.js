@@ -5,7 +5,7 @@
 
 
 (function() {
-  Project.Pages.ListingImage = function(listener, bumpbox) {
+  Project.Pages.ListingImage = function(listener, bumpbox, fade) {
     var animationDuration, currentUrl, exit, hide, image, images, length, next, prev, show;
     images = pageData.slideshow_images;
     image = bumpbox.find(".content > img");
@@ -14,15 +14,17 @@
     prev = bumpbox.find(".prev");
     exit = bumpbox.find(".exit");
     length = images.length;
-    alert(length);
     animationDuration = 200;
     hide = function() {
+      fade.fadeIn();
       return bumpbox.fadeOut(animationDuration);
     };
     show = function() {
       currentUrl = listener.find("div:visible > img").attr("src");
       image.attr("src", currentUrl);
-      return bumpbox.fadeIn(animationDuration);
+      return bumpbox.fadeIn(animationDuration, function() {
+        return fade.fadeOut();
+      });
     };
     exit.click(function() {
       return hide();

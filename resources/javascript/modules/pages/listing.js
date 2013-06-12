@@ -59,7 +59,7 @@
       Project.Modules.Slideshow_loader(pageData.slideshow_images.slice(1), containers.slideshow, image_template);
       Project.Modules.Slideshow_loader(pageData.slideshow_thumbnail_images.slice(1), containers.thumbnails, image_template);
       controller = new Project.Modules.thumbnail_controller(containers.thumbnails, containers.slideshow, pageData.slideshow_images[0]['id']);
-      return slideShowBumpbox = new Project.Pages.ListingImage(containers.slideshow, containers.imageBumpbox);
+      return slideShowBumpbox = new Project.Pages.ListingImage(containers.slideshow, containers.imageBumpbox, fade);
     })();
   })();
 

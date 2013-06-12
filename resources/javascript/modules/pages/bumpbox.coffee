@@ -48,8 +48,6 @@ Project.Pages.Bumpbox = (elements) =>
 			controller["config"]["in_callback"] = fade.fadeOut
 			controller["config"]["out_callback"] = fade.fadeIn
 
-
-
 		# set up the in call back so that when we click on the bumpbox nav (top_nav) we reset the general thumbnail controller and then reset the specific bumpbox content controller
 		controllers.map.config.in_callback = () =>
 
