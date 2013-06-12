@@ -13,13 +13,12 @@ class Tools extends CI_Controller{
 		
 		$this->load->model('general');
 		$this->load->library('utilities/format');
-		
+
 	}
 
 	public function index(){
 		
 		redirect();
-		
 	}
 
 	public function create_default() { //creates the default property!
