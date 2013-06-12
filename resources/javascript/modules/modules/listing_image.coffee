@@ -1,7 +1,9 @@
 ###
 	Initialize a temporary bumpbox listener that will pop up a bigger box that the image can be displayed in etc
 ###
-Project.Pages.ListingImage = (listener, bumpbox) ->
+Project.Pages.ListingImage = (listener, bumpbox, fade) ->
+
+
 
 	# cache a few variables etc
 	images = pageData.slideshow_images
@@ -12,9 +14,6 @@ Project.Pages.ListingImage = (listener, bumpbox) ->
 	exit = bumpbox.find(".exit")
 	length = images.length
 
-	alert length
-
-
 	# cache a variable for animation duration
 	animationDuration = 200
 
@@ -22,6 +21,7 @@ Project.Pages.ListingImage = (listener, bumpbox) ->
 	hide = ->
 
 		bumpbox.fadeOut animationDuration
+		fade.fadeOut()
 
 	show = ->	
 
@@ -33,6 +33,8 @@ Project.Pages.ListingImage = (listener, bumpbox) ->
 
 		# now show the bumpbox
 		bumpbox.fadeIn animationDuration
+
+		fade.fadeIn()
 
 
 	# listen on clicks etc

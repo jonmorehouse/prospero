@@ -34,7 +34,7 @@ class Listing extends Page_Controller {
 		
 	public function redirect() {
 		// THIS IS TO REDIRECT TO ANOTHER SITE--THIS IS SO IT CAN BE CHANGED EASILY!
-		redirect('property/industrial_retail');
+		redirect('browse/industrial_retail');
 	}
 	
 /******** LISTING CONTROLLER ***********/
