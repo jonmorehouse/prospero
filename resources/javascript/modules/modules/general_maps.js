@@ -42,6 +42,7 @@
       }
       return true;
     };
+    mapInit("all");
     changeTrigger = function(id) {
       var callback;
       if (!maps[id]) {
