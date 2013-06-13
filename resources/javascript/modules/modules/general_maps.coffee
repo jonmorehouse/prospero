@@ -29,7 +29,7 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 		options =
 
 			center: new google.maps.LatLng _data.center.latitude, _data.center.longitude
-			zoom: 12 
+			zoom: 13 
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 
 		# initialize the map

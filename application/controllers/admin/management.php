@@ -31,7 +31,7 @@ class Management extends My_Controller{
 		$this->base();
 
 		// management variables
-		$this->listing_dashboard = true;
+		$this->listing_dashboard = false;
 		$this->general_dashboard = false;
 	}
 	
@@ -109,6 +109,7 @@ class Management extends My_Controller{
 	public function create_listing() {//create listing -- ajax saving in ajax/management
 		
 		$this->content .= $this->management_create_update->create_property();//1 is our default property -- to load the defaults in! 
+		$this->listing_dashboard = true;
 
 		$this->load->view('admin/management/management_base');		
 	}
@@ -121,7 +122,8 @@ class Management extends My_Controller{
 			$this->content = $this->management_general->search('update_listing');
 		
 		else {
-			$this->content = $this->load->view('admin/management/resources/general_dashboard', '', true);
+			$this->general_dashboard = false;
+			$this->listing_dashboard = true;
 			$this->content .= $this->management_create_update->update_property($this->property_id);
 		}
 

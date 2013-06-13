@@ -108,24 +108,31 @@ class Filter extends CI_Model {
 		$unsorted_properties = array();
 
 		// now make sure we only grab the proper ones 
-		foreach ($all_properties as $property_id)
-			if ($this->general->live($property_id)) array_push($unsorted_properties, $property_id);
+		foreach ($all_properties as $temp_property_id)
+			if ($this->general->live($temp_property_id)) array_push($unsorted_properties, $temp_property_id);
 
 		// now we need to sort these elements alphabetically
 		$properties = $this->base_filter->abc_sort($unsorted_properties);
 
 		// grab the current array key etc
-		$key = array_search($property_id, $properties);
+		$key = false;
 
-		// if the element is not found in the current array of properties (ie it was a boolean) then return false
-		// if (gettype($key) === "boolean") return array();
+		foreach ($properties as $_key =>$temp_property_id)
+			if ($temp_property_id == $property_id) {
+
+				$key = $_key;
+				break;
+			}
 
 		// return an array of the surrounding properties
-		return array(
+		$surrounding = array(
 
 			"previous" => $properties[($key - 1 >= 0) ? ($key - 1) : (count($properties) - 1)],//otherwise use the - 1 or loop to the back
 			"next" => $properties[($key + 1 < count($properties)) ? ($key + 1) : (0)],//if the key+1 is less than the counter then use that otherwise loop to the front
 		);
+
+		// return surrounding
+		return $surrounding;
 	}	
 
 }
