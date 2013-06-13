@@ -39,7 +39,7 @@ class Base_filter {
 	}
 
 	// prepare a basic bubble sort so that we can ensure that each element is sorted properly based on name
-	protected function abc_sort($properties) {
+	public function abc_sort($properties) {
 
 		// initialize a generic boolean search variable etc
 		$finished = false;

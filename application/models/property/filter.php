@@ -22,6 +22,7 @@ class Filter extends CI_Model {
 		// initialize models
 		$models = array('general');//this is responsible for all location lookup etc
 		$this->load->model($models);
+		$this->load->library('property/base_filter');
 
 		// table for low-level lookups
 		$this->base_table = "table_schema";
@@ -103,13 +104,21 @@ class Filter extends CI_Model {
 		$category_type = $this->general->get_unformatted_category($property_id, "type_category");
 
 		// now grab all property_ids with this particular filter 
-		$properties = $this->get_category("type_category", $category_type);
+		$all_properties = $this->get_category("type_category", $category_type);
+		$unsorted_properties = array();
+
+		// now make sure we only grab the proper ones 
+		foreach ($all_properties as $property_id)
+			if ($this->general->live($property_id)) array_push($unsorted_properties, $property_id);
+
+		// now we need to sort these elements alphabetically
+		$properties = $this->base_filter->abc_sort($unsorted_properties);
 
 		// grab the current array key etc
 		$key = array_search($property_id, $properties);
 
 		// if the element is not found in the current array of properties (ie it was a boolean) then return false
-		if (gettype($key) === "boolean") return array();
+		// if (gettype($key) === "boolean") return array();
 
 		// return an array of the surrounding properties
 		return array(

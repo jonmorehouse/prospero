@@ -11,6 +11,7 @@ Project.Pages.ListingImage = (listener, bumpbox, fade) ->
 	prev = bumpbox.find ".prev"
 	exit = bumpbox.find(".exit")
 	length = images.length
+	bumpboxTrigger = $('#bumpbox_out_trigger')
 
 	# cache a variable for animation duration
 	animationDuration = 200
@@ -20,6 +21,7 @@ Project.Pages.ListingImage = (listener, bumpbox, fade) ->
 
 		fade.fadeIn()
 		bumpbox.fadeOut animationDuration
+		bumpboxTrigger.fadeOut animationDuration	
 
 	show = ->	
 
@@ -33,6 +35,11 @@ Project.Pages.ListingImage = (listener, bumpbox, fade) ->
 		bumpbox.fadeIn animationDuration, ->
 
 			fade.fadeOut()
+			bumpboxTrigger.fadeIn animationDuration
+
+	bumpboxTrigger.click ->
+
+		do hide
 
 	# listen on clicks etc
 	exit.click ->
