@@ -33,7 +33,7 @@
         contact: new Project.Modules.bumpbox($('#navigation_top li[data-link="contact"]'), $('.bumpbox.contact'))
       };
       modules = {
-        map: new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content'), "new"),
+        map: new Project.Modules.thumbnail_controller($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content'), "all"),
         map_controller: new Project.Modules.general_maps($('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')),
         contact: new Project.Modules.contact($('.bumpbox.contact').children("div:nth-child(2)"), site_url + "general_rest/submit_email"),
         contact_animation: new Project.Modules.form_animation($('.bumpbox.contact'))

@@ -35,7 +35,7 @@ Project.Pages.Bumpbox = (elements) =>
 		modules =
 
 			# map include
-			map : new Project.Modules.thumbnail_controller $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content'), "new" #will create a pause function later -- this can be embedded in a different element
+			map : new Project.Modules.thumbnail_controller $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content'), "all" #will create a pause function later -- this can be embedded in a different element
 			map_controller : new Project.Modules.general_maps $('.bumpbox.map > .thumbnails ul'), $('.bumpbox.map > .content')
 
 			# contact modules
