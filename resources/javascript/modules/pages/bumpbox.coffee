@@ -53,14 +53,14 @@ Project.Pages.Bumpbox = (elements) =>
 
 			do fade.fadeOut
 			do modules.map.reset
-			modules.map_controller.changeTrigger "new"
+			modules.map_controller.changeTrigger "all"
 
 		# what to do when we exit / close the bumpbox. Want to reset the controller and signal a reset in the map content controller
 		controllers.map.config.out_callback = () =>
 
 			do fade.fadeIn
 			do modules.map.reset
-			modules.map_controller.changeTrigger "new"
+			modules.map_controller.changeTrigger "all"
 
 
 		# now map the thumbnail controller change trigger to the general_maps so that when there isn't a show / hide of the entire bumpbox we still need to call the contnet update!

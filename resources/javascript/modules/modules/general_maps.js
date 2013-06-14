@@ -42,15 +42,8 @@
       }
       return true;
     };
-    mapInit("all");
     changeTrigger = function(id) {
-      var callback;
-      if (!maps[id]) {
-        callback = function() {
-          return maps[id] = mapInit(id);
-        };
-        return setTimeout(callback, 500);
-      }
+      return maps[id] != null ? maps[id] : maps[id] = mapInit(id);
     };
     return {
       changeTrigger: changeTrigger

@@ -29,7 +29,7 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 		options =
 
 			center: new google.maps.LatLng _data.center.latitude, _data.center.longitude
-			zoom: 12 
+			zoom: 12
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 
 		# initialize the map
@@ -53,15 +53,8 @@ Project.Modules.general_maps = (@thumbnails, container) =>
 
 		return true
 
-	mapInit "all"
 	changeTrigger = (id) =>
 
-		if not maps[id]
-
-			callback = () =>
-				maps[id] = mapInit id
-
-			setTimeout callback, 500
-			
+		maps[id] ?= mapInit id
 
 	changeTrigger: changeTrigger

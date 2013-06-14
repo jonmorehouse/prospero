@@ -51,12 +51,12 @@
       controllers.map.config.in_callback = function() {
         fade.fadeOut();
         modules.map.reset();
-        return modules.map_controller.changeTrigger("new");
+        return modules.map_controller.changeTrigger("all");
       };
       controllers.map.config.out_callback = function() {
         fade.fadeIn();
         modules.map.reset();
-        return modules.map_controller.changeTrigger("new");
+        return modules.map_controller.changeTrigger("all");
       };
       return modules.map.config.change_trigger = modules.map_controller.changeTrigger;
     })();
