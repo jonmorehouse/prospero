@@ -26,7 +26,7 @@
       _container = container.find("div[data-id='" + id + "'] > div").get(0);
       options = {
         center: new google.maps.LatLng(_data.center.latitude, _data.center.longitude),
-        zoom: 12,
+        zoom: 11,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(_container, options);
