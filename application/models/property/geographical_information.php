@@ -21,7 +21,6 @@ class Geographical_information extends CI_Model {
 
 	}
 
-
 	function get_coordinates($property_id) {
 
 		$longitude = $this->general->get_category($property_id, "longitude");

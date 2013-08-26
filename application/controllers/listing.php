@@ -105,6 +105,7 @@ class Listing extends My_Controller {
 			"pages/navigation",
 			"pages/elements",
 			"property/thumbnail",
+			"property/geographical_information"
 		);
 
 		$this->load->model($models);
@@ -151,6 +152,7 @@ class Listing extends My_Controller {
 			"slideshow_images" => $this->slideshow_images,
 			"slideshow_thumbnail_images" => $this->thumbnail_images,
 			"listing_bumpboxes" => $this->left_bumpboxes,
+			"geolocation" => $this->geographical_information->get_coordinates($this->property_id),
 		);
 
 		// load the views
