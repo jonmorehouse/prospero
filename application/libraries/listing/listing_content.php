@@ -26,11 +26,13 @@ class Listing_content extends Listing_base{
 	}	
 
 	// grab surrounding links etc
-	public function surrounding_links() {
+	// if an array of ids is passed in, then we should just use those
+	public function surrounding_links($results = false) {
 
 		// grab the ids from our api etc
-		$ids = $this->CI->filter->get_surrounding($this->property_id);
+		$ids = $this->CI->filter->get_surrounding($this->property_id, $results);
 
+		// initialize each of the links we need
 		$links = array();
 
 		// loop through both ids and then properly determine the thumbnail information for each

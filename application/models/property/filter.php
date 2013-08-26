@@ -98,26 +98,31 @@ class Filter extends CI_Model {
 		return $property_ids;
 	}
 
-	public function get_surrounding($property_id) {
+	public function get_surrounding($property_id, $properties) {
 
-		// goal -- we need to find the next and previous elements
-		$category_type = $this->general->get_unformatted_category($property_id, "type_category");
+		if (!$properties) {
 
-		// now grab all property_ids with this particular filter 
-		$all_properties = $this->get_category("type_category", $category_type);
-		$unsorted_properties = array();
+			// goal -- we need to find the next and previous elements
+			$category_type = $this->general->get_unformatted_category($property_id, "type_category");
 
-		// now make sure we only grab the proper ones 
-		foreach ($all_properties as $temp_property_id)
-			if ($this->general->live($temp_property_id)) array_push($unsorted_properties, $temp_property_id);
+			// now grab all property_ids with this particular filter 
+			$all_properties = $this->get_category("type_category", $category_type);
+			$unsorted_properties = array();
 
-		// now we need to sort these elements alphabetically
-		$properties = $this->base_filter->abc_sort($unsorted_properties);
+			// now make sure we only grab the proper ones 
+			foreach ($all_properties as $temp_property_id)
+				if ($this->general->live($temp_property_id)) array_push($unsorted_properties, $temp_property_id);
+
+			// now we need to sort these elements alphabetically
+			$properties = $this->base_filter->abc_sort($unsorted_properties);
+
+		}
 
 		// grab the current array key etc
 		$key = false;
 
-		foreach ($properties as $_key =>$temp_property_id)
+		// now determine the property index
+		foreach ($properties as $_key => $temp_property_id)
 			if ($temp_property_id == $property_id) {
 
 				$key = $_key;

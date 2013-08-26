@@ -9,7 +9,7 @@ class Listing extends My_Controller {
 		$this->load->model("general");//load this for status check -- interesting note if this doesn't exist, using it inside an if statement will just return false, not throw an error
 
 		// LIBRARY LOADING -- these are universal 
-		$libraries = array('property/base_filter', 'property/property_search', 'session', "general/page_management");
+		$libraries = array('property/base_filter', 'property/property_search', 'session', "general/page_management", "session");
 		$this->load->library($libraries);
 	}
 	
@@ -130,12 +130,20 @@ class Listing extends My_Controller {
 		$this->listing_thumbnail = $this->thumbnail->general_thumbnail($this->property_id);//returns the basic thumbnail image 
 		$this->content = $this->listing_content->content();//returns the description, header etc
 		$this->elements = $this->listing_content->elements();//returns the name of the element
-		$this->surrounding_links = $this->listing_content->surrounding_links();//grab the surrounding links and their associated thumbnail information / objects
+
+		// initialize results from any previous searches if applicable
+		// returns false per the session userdata element if not found
+		$this->results = $this->session->userdata('results');
+
+		// create the links elements that are relevant to these elements
+		// pass in our results element with the current listing id removed
+		$this->surrounding_links = $this->listing_content->surrounding_links($this->results);//grab the surrounding links and their associated thumbnail information / objects
 
 		//images
 		$this->slideshow_images = $this->listing_media->slideshow_images();
 		$this->thumbnail_images = $this->listing_media->slideshow_image_thumbnails();
 
+		// initialize json data that should be written into the page
 		$this->data = array(
 
 			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),

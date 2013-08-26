@@ -4,6 +4,7 @@ class Browse extends Page_Controller{
 	
 	function __construct(){
 
+
 		// VALID IDS--Corresponds to the type_category which is retail/residential/office/industrial etc
 		$this->valid_ids = array('retail', 'residential', 'office_industrial');
 
@@ -14,6 +15,9 @@ class Browse extends Page_Controller{
 
 		// call our parent construct etc
 		parent::__construct();
+		
+		// load up any needed codeigniter specific libraries that are not already auto initialized
+		$this->load->library('session');
 	}
 	
 	// FUNCTION REMAP IS TO MAKE SURE THAT WE NEVER LAND ON A 404!
@@ -73,6 +77,16 @@ class Browse extends Page_Controller{
 
 		// grab our thumbnails
 		$this->thumbnails = $this->get_thumbnails();//seperate the logic out into another method for grabbing the proper thumbnail!
+
+		// grab all of the resulting property_ids from the thumbnail elements
+		if (gettype($this->thumbnails) == "array") {
+
+			// initialize results and save them in the session
+			$this->results = array_map(function($thumbnail) { return $thumbnail["property_id"];}, $this->thumbnails);
+			
+			// we need to cache our results in a session for future requests
+			$this->session->set_userdata(array('results' => $this->results));
+		}
 
 		// this is the box in the middle of the screen the user sees
 		$this->site_label = $this->elements->site_label();
