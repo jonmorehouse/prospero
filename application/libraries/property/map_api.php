@@ -12,7 +12,7 @@ class Map_api extends Base_filter {
 		$libraries = array('property/media');
 		$this->CI->load->library($libraries);
 
-		$this->CI->load->model(array("general", "property/thumbnail"));
+		$this->CI->load->model(array("general", "property/thumbnail", "property/infobox"));
 	}
 
 	public function general_map_data($filters) {
@@ -52,7 +52,9 @@ class Map_api extends Base_filter {
 
 				"coordinates" => $this->CI->geographical_information->get_coordinates($property_id),
 				"title" => $this->CI->general->get_category($property_id, "name"),
-				"thumbnail" => $this->CI->thumbnail->general_thumbnail($property_id)
+				"thumbnail" => $this->CI->thumbnail->general_thumbnail($property_id), 
+				"infobox" => $this->CI->infobox->get_html($property_id)
+
 			);
 
 			if ($data['coordinates']['longitude'] && $data['coordinates']['latitude'])
