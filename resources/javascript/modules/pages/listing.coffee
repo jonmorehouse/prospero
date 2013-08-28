@@ -23,6 +23,7 @@ do Project.Pages.Listing = () ->
 		modules = {} #responsible for showing the elements and not showing them
 		contentModules = {} #the magic behind what happens in the bumpboxes
 
+		console.log bumpboxes
 		# notes, we send modules a reset element from contentModules ... that way we can easily map these together
 		for bumpbox in bumpboxes
 			 listeners[bumpbox] = $("#navigation_left li[data-link=\"#{bumpbox}\"]")
@@ -49,24 +50,12 @@ do Project.Pages.Listing = () ->
 
 			# need to map the bumpbox listner to the thumbnail controller
 			# need to map the thumbnail controller to the listingMapController
-			listingMapThumbnailController = new Project.Modules.thumbnail_controller containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content") #return a change trigger
-			listingMapThumbnailController.config.default_id = "walkscore"
+			#listingMapThumbnailController = new Project.Modules.thumbnail_controller containers["listing_map"].children(".thumbnails").children("ul"), containers["listing_map"].children(".content") #return a change trigger
+			#listingMapThumbnailController.config.default_id = "walkscore"
 
 			# connect the bumpbox click to listingMapThumbnailController to target a change_trigger that can be used to contact the actual code base later
-			modules.listing_map.config.in_callback = () ->
-
-				# do the normal element, but also do a reset on the actual caller etc!
-				do fade.fadeOut
-				do listingMapThumbnailController.reset
-
-			# connect the call out to ensure proper reset!
-			modules.listing_map.config.out_callback = () ->
-
-				do fade.fadeIn
-				do listingMapThumbnailController.reset
-
 			listingMapController = new Project.Modules.listing_map_controller()
-			listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger
+			#listingMapThumbnailController.config.change_trigger = listingMapController.changeTrigger
 
 		# development work
 ########### listeners['listing_map'].trigger "click"

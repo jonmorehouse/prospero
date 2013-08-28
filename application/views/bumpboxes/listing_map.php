@@ -80,8 +80,8 @@
 
 	<div class='thumbnails'>
 		<ul>
-			<li data-id='walkscore'>WalkScore</li>
-			<li data-id='directions'>Directions</li>
+			<li>WalkScore</li>
+			<li><a target='_blank' href='<?php echo 'https://maps.google.com/maps?q={$this->data["geolocation"]["latitude"]},{$this->data["geolocation"]["longitude"]}&ll={$this->data["geolocation"]["latitude"]},{$this->data["geolocation"]["longitude"]}&z=17';?>'>Directions</a></li>
 
 			<!-- this functionality built in and tested, client didn't want it though -->
 			<!-- <li data-id='nearby_properties'>Nearby Properties</li> -->

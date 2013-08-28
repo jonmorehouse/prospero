@@ -9,25 +9,10 @@ Project.Modules.listing_map_controller = () ->
 		"walkscore" : false
 		"nearby_properties" : false
 		"directions" : false
+	
+	$('#navigation_left > li[data-link="listing_map"]').click ->
 
-	changeTrigger = (id) =>
-
-		# responsible for any extra logic that we need to have here
-		if id == "walkscore" and not status.walkscore
-			do walkscoreInit
-			status.walkscore = true
-
-
-		# functionality was built in here, but not wanted by the client.
-		# iniitalize the nearby properties only if they haven't been initialized yet!
-		# else if id == "nearby_properties"  and not status.nearby_properties
-		# 	do nearbyPropertiesInit
-		# 	status.nearby_properties = true
-
-		else if id == "directions" and not status.directions
-			do directionsInit
-			status.directions = true
-
+		do walkscoreInit
 
 	walkscoreInit = () =>
 		# will be responsible for initializing the elements
