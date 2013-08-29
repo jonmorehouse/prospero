@@ -110,6 +110,26 @@ class Listing extends My_Controller {
 
 		$this->load->model($models);
 
+		// global bumpbox content
+		$this->map_bumpbox = $this->top_bumpboxes->get_maps();
+
+		//images
+		$this->slideshow_images = $this->listing_media->slideshow_images();
+		$this->thumbnail_images = $this->listing_media->slideshow_image_thumbnails();
+
+		// get the bumpbox list
+		$this->left_bumpboxes = $this->navigation->get_listing_bumpboxes($this->property_id);//get the listing specific bumpboxes for this particular element 
+		// initialize json data that should be written into the page
+		$this->data = array(
+
+			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
+			"property_id" => $this->property_id,
+			"slideshow_images" => $this->slideshow_images,
+			"slideshow_thumbnail_images" => $this->thumbnail_images,
+			"listing_bumpboxes" => $this->left_bumpboxes,
+			"geolocation" => $this->geographical_information->get_coordinates($this->property_id),
+		);
+
 		// initilialize basic elements
 		$this->header = $this->dynamic_header->get_header();
 		$this->javascript_modules = $this->dynamic_header->get_javascript_modules();
@@ -120,11 +140,6 @@ class Listing extends My_Controller {
 		// generate the top elements!
 		$this->navigation_left = $this->navigation->get_listing($this->property_id);
 
-		// global bumpbox content
-		$this->map_bumpbox = $this->top_bumpboxes->get_maps();
-
-		// get the bumpbox list
-		$this->left_bumpboxes = $this->navigation->get_listing_bumpboxes($this->property_id);//get the listing specific bumpboxes for this particular element 
 		$this->bumpbox_content = $this->listing_bumpbox->content($this->left_bumpboxes);
 
 		// initialize main page elements
@@ -140,20 +155,7 @@ class Listing extends My_Controller {
 		// pass in our results element with the current listing id removed
 		$this->surrounding_links = $this->listing_content->surrounding_links($this->results);//grab the surrounding links and their associated thumbnail information / objects
 
-		//images
-		$this->slideshow_images = $this->listing_media->slideshow_images();
-		$this->thumbnail_images = $this->listing_media->slideshow_image_thumbnails();
 
-		// initialize json data that should be written into the page
-		$this->data = array(
-
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
-			"property_id" => $this->property_id,
-			"slideshow_images" => $this->slideshow_images,
-			"slideshow_thumbnail_images" => $this->thumbnail_images,
-			"listing_bumpboxes" => $this->left_bumpboxes,
-			"geolocation" => $this->geographical_information->get_coordinates($this->property_id),
-		);
 
 		// load the views
 		$this->load->view("listing/listing_base");
