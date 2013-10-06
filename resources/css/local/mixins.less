@@ -164,19 +164,17 @@
 }
 
 .nested_navigation {
-z-index:100;
+
+	z-index:100;
 
 	// changed this to allow for the navigation properties to not be so large
 	@li_width:250px;
 	position:absolute;
-	bottom:2*@border_width;
 	left:0.5*@border_width;
-	.navigation_li(@dark_opacity, 1.1em, 20px);
 	@border_radius:20px;
 	@secondary_radius:10px;
 	
 	li{
-		.box_shadow(@dark_shadow, 6px, 0px);
 		margin-top:2px;
 		&:first-child{
 			border-top-right-radius:@border_radius; 
@@ -192,32 +190,42 @@ z-index:100;
 
 
 		ul{
-			.navigation_li(1, 0.8em, 15px);
+			clear: both;
+			.navigation_li(1, 0.8em, 22px);
 			
-			text-align:center;
-			width:@li_width;
-			list-style-type:none;
+			// positional / functional styles
 			display:none;
-			position:absolute;
-			right:-@li_width;
-			bottom:0;
-			padding:0;
-			margin:0;
-			
-			li{
-				margin-left:2px;
+			position: absolute;
+			top: 68%;
+			left: 4px;
+			right: 0;
+			width: 150%;
+
+			border: none;
+			box-shadow:none;
+			// visual styles
+			list-style-type:none;
+
+			li {
+				
+				width: 100%;
+				clear:both;
+				display:block;
+				border-left:0;
+				margin: 0;
 			}
-			
+
 			li:hover{
-				margin-left:3px;
-			}
-			
-			li:first-child{
-				border-top-right-radius:@secondary_radius;
+
+				display: block;
 			}
 			
 			li:last-child{
+
 				border-bottom-right-radius:@secondary_radius;
+				border: none;
+				box-shadow:none;
+				
 			}
 		}
 		

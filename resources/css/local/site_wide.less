@@ -94,12 +94,14 @@ body{
 }
 
 #navigation_top{
+	.nested_navigation;
 	z-index:20;
 	position:absolute;
 	top:@border_width;
 	right:@border_width*0.5;
-	.navigation_li(@dark_opacity, 1.1em, 30px);
+	.navigation_li(@dark_opacity, 1.1em, 22px);
 	clear:both;
+	float: right;
 
 	li{
 		.border(@dark_shadow);
@@ -107,15 +109,24 @@ body{
 		border-right:none;
 		border-left:none;
 		margin-right:2px;
+		margin-top: 0px;
 		float:right;
+		font-size: 1.1em;
+
 		&:last-child{
+
 			border-bottom-left-radius:@navigation_border_radius;
+			border-bottom-right-radius:0px;
 			.border(@dark_shadow);
 			border-top:none;
 			border-right:none;
 		}
+
 		&:first-child{
+
 			margin:0;
+			border-top-right-radius: 0px;
+
 		}
 	}
 }
