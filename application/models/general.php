@@ -453,6 +453,11 @@ class General extends CI_Model{
 		return "${address}. ${city}. ${postal_code}";
 	}
 
+	public function test() {
+
+		return "ASDF";
+	}
+
 }
 
 ?>

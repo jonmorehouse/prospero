@@ -20,10 +20,9 @@ class Browse_listings extends MY_Controller {
 	
 	public function index() {
 					
-
 		// now initialize base
 		// get the thumbnails needed here for each element
-		$this->thumbnails = "FAIL";
+		$this->thumbnails = "";
 
 		//load and compile the view
 		$this->load->view('browse/browse_listings_base');//main view for this page

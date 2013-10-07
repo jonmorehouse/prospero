@@ -3,8 +3,6 @@
 // Will come back to this class later to see how to best organize the images.
 // Not sure of the server software, so for now lets just use the slideshow images for the thumbnails and the actual slideshow images. Just resize them!
 
-
-
 class Listing_media extends Listing_base{
 
 /******* CONSTRUCTS / DESTRUCTS ********/
