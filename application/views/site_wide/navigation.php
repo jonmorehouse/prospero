@@ -1,10 +1,3 @@
-<div id='navigation_top'>
-	<?php
-		foreach ($this->navigation_top as $link)
-			echo "<li data-bumpbox='{$link['data_bumpbox']}' data-link='{$link['data_link']}' class='{$link['class']}'><a href='{$link['link']}'>{$link['name']}</a></li>\n\t";
-	?>
-</div>
-
 <div id='navigation_left'>
 	<?php
 		foreach ($this->navigation_left as $link)

@@ -3,7 +3,8 @@
 	$this->load->view("site_wide/background");
 	$this->load->view('site_wide/logo');
 	$this->load->view("site_wide/border");
-	$this->load->view("site_wide/navigation");//handles logo, top and left navigation!
+	$this->load->view("navigation/navigation_top");
+	$this->load->view("site_wide/navigation");
 	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 
 ?>
 
