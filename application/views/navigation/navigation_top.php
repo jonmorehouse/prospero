@@ -43,7 +43,7 @@
 	</a></li>
 	
 	<!-- Initialize the listings browse page -->
-	<li class='<?php if($this->id=='listings') echo 'current';?>'><a href='<?php echo site_url('browse/listings');?>'>Listings</a></li>
+	<li class='<?php if($this->id=='browse_listings') echo 'current';?>'><a href='<?php echo site_url('browse_listings');?>'>Listings</a></li>
 
 	<!-- Initialize nested menu for the vacancies section -->
 	<li <?php if ($this->id == "vacancies") echo "class='current'";?>><a href='<?php echo site_url('vacancies');?>'>Vacancies</a></li>
