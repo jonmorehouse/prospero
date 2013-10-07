@@ -33,6 +33,9 @@ class Team extends MY_Controller {
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
 		$this->background_images = $this->elements->get_background_images("homepage_background");
 
+		// hack up the logo so it works normally!
+		$this->logo["link"] = site_url();
+
 		// now initialize the team member thumbnail data
 		$this->team = $this->team_member->get_full_team();
 

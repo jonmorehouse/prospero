@@ -21,6 +21,7 @@ class Homepage extends MY_Controller {
 		// call our basic page setup here!
 		$this->base();
 
+
 		// grab our homepage blurbs here!
 		$this->homepage_blurbs = $this->general->get_column("homepage_blurbs", array(), "blurb", true);//generates all blurbs for the page
 		$this->background_images = $this->elements->get_background_images("homepage_background");
