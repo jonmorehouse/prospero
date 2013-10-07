@@ -16,13 +16,16 @@ class Browse_listings extends MY_Controller {
 		// mega hackk!!
 		$this->id="browse_listings";
 
+		// now load in the models we need for this piece
+		$this->load->model("property/property_listing");
+
 	}
 	
 	public function index() {
 					
 		// now initialize base
 		// get the thumbnails needed here for each element
-		$this->thumbnails = "";
+		$this->thumbnails = $this->property_listing->get_thumbnails();
 
 		//load and compile the view
 		$this->load->view('browse/browse_listings_base');//main view for this page

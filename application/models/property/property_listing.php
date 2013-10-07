@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-class Listing extends MY_Model {
+class Property_listing extends MY_Model {
 
 	function __construct() {
 
@@ -15,7 +15,7 @@ class Listing extends MY_Model {
 
 	}
 
-	public function get_listings() {
+	public function get_thumbnails() {
 
 		$listings = $this->filter();
 		
