@@ -148,9 +148,151 @@ body{
 
 #navigation_left {
 
-	.nested_navigation;
+	z-index:100;
 
-	z-index:20;
+	// changed this to allow for the navigation properties to not be so large
+	@li_width:250px;
+	position:absolute;
+	bottom:2*@border_width;
+	left:0.5*@border_width;
+	.navigation_li(@dark_opacity, 1.1em, 20px);
+	@border_radius:20px;
+	@secondary_radius:10px;
+	
+	li{
+		.box_shadow(@dark_shadow, 6px, 0px);
+		margin-top:2px;
+		&:first-child{
+			border-top-right-radius:@border_radius; 
+			margin:none;
+			/*THIS IS TO ADD THE FIRST-CHILD BORDER RADIUS LOGIC...SHOULD BE JS LATER BUT WHATEVER*/
+		}
+		&:last-child{
+			border-bottom-right-radius:@border_radius;
+		}
+		
+		cursor:pointer;
+		position:relative;
+
+
+		ul{
+			.navigation_li(1, 0.8em, 15px);
+			
+			text-align:center;
+			width:@li_width;
+			list-style-type:none;
+			display:none;
+			position:absolute;
+			right:-@li_width;
+			bottom:0;
+			padding:0;
+			margin:0;
+			
+			li{
+				margin-left:2px;
+			}
+			
+			li:hover{
+				margin-left:3px;
+			}
+			
+			li:first-child{
+				border-top-right-radius:@secondary_radius;
+			}
+			
+			li:last-child{
+				border-bottom-right-radius:@secondary_radius;
+			}
+		}
+		
+		&:hover {
+
+			ul {
+				display:block;
+			}
+		}
+
+	}
+	
+	li:nth-child(2){
+		li:first-child{
+			border-top-left-radius:@secondary_radius;
+		}
+	}
+	
+}
+ted_navigation {
+	z-index:100;
+
+	// changed this to allow for the navigation properties to not be so large
+	@li_width:250px;
+	position:absolute;
+	bottom:2*@border_width;
+	left:0.5*@border_width;
+	.navigation_li(@dark_opacity, 1.1em, 20px);
+	@border_radius:20px;
+	@secondary_radius:10px;
+	
+	li{
+		.box_shadow(@dark_shadow, 6px, 0px);
+		margin-top:2px;
+		&:first-child{
+			border-top-right-radius:@border_radius; 
+			margin:none;
+			/*THIS IS TO ADD THE FIRST-CHILD BORDER RADIUS LOGIC...SHOULD BE JS LATER BUT WHATEVER*/
+		}
+		&:last-child{
+			border-bottom-right-radius:@border_radius;
+		}
+		
+		cursor:pointer;
+		position:relative;
+
+
+		ul{
+			.navigation_li(1, 0.8em, 15px);
+			
+			text-align:center;
+			width:@li_width;
+			list-style-type:none;
+			display:none;
+			position:absolute;
+			right:-@li_width;
+			bottom:0;
+			padding:0;
+			margin:0;
+			
+			li{
+				margin-left:2px;
+			}
+			
+			li:hover{
+				margin-left:3px;
+			}
+			
+			li:first-child{
+				border-top-right-radius:@secondary_radius;
+			}
+			
+			li:last-child{
+				border-bottom-right-radius:@secondary_radius;
+			}
+		}
+		
+		&:hover {
+
+			ul {
+				display:block;
+			}
+		}
+
+	}
+	
+	li:nth-child(2){
+		li:first-child{
+			border-top-left-radius:@secondary_radius;
+		}
+	}
 }
 
 #search{
