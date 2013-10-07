@@ -46,7 +46,7 @@
 	<li class='<?php if($this->id=='listings') echo 'current';?>'><a href='<?php echo site_url('browse/listings');?>'>Listings</a></li>
 
 	<!-- Initialize nested menu for the vacancies section -->
-	<li <?php if ($this->id == "vacancies") echo "class='current'";?>>Vacancies</li>
+	<li <?php if ($this->id == "vacancies") echo "class='current'";?>><a href='<?php echo site_url('vacancies');?>'>Vacancies</a></li>
 
 	<?php if($this->id == "homepage"):?>
 		<li class='about'>About</li>
