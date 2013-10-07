@@ -4,7 +4,7 @@ Prospero Project
 Overview
 -
 
-This is / was my first big web project. I'm still finishing some things up here / there. This project will deploy in the next few weeks.
+This is / was my first big web project. I'm still finishing some things up here and there. This project will deploy in the next few weeks.
 
 Built from the groundup in Codeigniter. Many things have changed as I've learned more and more!
 
