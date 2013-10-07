@@ -80,16 +80,31 @@ body{
 }
 
 #logo{
-	position:fixed;
-	top:@border_width * 1.7;
-	left:@border_width*1;
-	height:@logo_height;
-	cursor:pointer;
-	&:hover{
-		border-bottom-right-radius:20px;
-	}
-	img{
-		height:100%;
+	max-height: 6em;
+	max-width: 6em;
+	position:absolute;
+	top: @border_width;
+	left: @border_width;
+	padding: 0.5em;
+	a {
+
+		display:block;
+		position: relative;
+		cursor:pointer;
+		overflow: auto;
+		z-index: 99999999999999;
+		
+		img {
+			display: block;
+			position: relative;
+			left: 0;
+			top: 0;
+			
+			width: 6em;
+			
+		}
+
+
 	}
 }
 
