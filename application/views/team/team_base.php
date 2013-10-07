@@ -21,10 +21,8 @@
 		<h2><?php echo $this->member["title"];?></h2>
 		
 		<hr>
+		<p><?php echo $this->member["content"];?></p>
 	</div>
-	
-
-	<p><?php echo $this->member["content"];?></p>
 </div>
 
 <?php

@@ -55,15 +55,14 @@
 
 	<li class='about'>About</li>
 
-	<li class='team'><a href='<?php echo site_url("team");?>'>Team</li></li>
+	<li class='team'><a href='<?php echo site_url("team");?>'>Team</a></li>
 
-	<li><a href='<?php 
-		// THIS IS SO YOU CAN'T RELOAD THE HOMEPAGE FROM THE HOMEPAGE!!!--THATS ANNOYING
-			if(strtolower($this->id)=='homepage')
-				echo '#';
-			else
-				echo site_url();
-		?>'>Home</a></li>
+	<?php if(strtolower($this->id) != "homepage"): ?>
+
+		<li><a href='<?=site_url()?>'>Home</a></li>
+	
+	<?php endif;?>
+
 </div>
 
 
