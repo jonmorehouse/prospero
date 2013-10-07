@@ -16,7 +16,7 @@ Project.Pages.Homepage = (function() {
 		var bumpbox_modules = {
 
 
-			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails > ul'), $('.bumpbox.team > .content'), 0),//will create a pause function later -- this can be embedded in a different element
+			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails > ul'), $('.bumpbox.about > .content'), 0),//will create a pause function later -- this can be embedded in a different element
 		}; 
 
 		for (controller in bumpbox_controllers) 
