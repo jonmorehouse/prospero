@@ -53,7 +53,9 @@
 		</ul>
 	</li>
 
-	<li class='about'>About</li>
+	<?php if($this->id == "homepage"):?>
+		<li class='about'>About</li>
+	<?php endif;?>
 
 	<li class='team'><a href='<?php echo site_url("team");?>'>Team</a></li>
 
