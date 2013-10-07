@@ -1,7 +1,7 @@
 Project.Pages.Homepage = (function() {
 
 	// elements
-	var elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#homepage_blurb'), $('#search')];
+	var elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#homepage_blurb'), $('#search'), $('#current_member'), $('#member_thumbnails')];
 	var bumpbox = Project.Pages.Bumpbox(elements);//initialize the bumpbox
 	var fade = bumpbox.fade;
 
@@ -10,18 +10,13 @@ Project.Pages.Homepage = (function() {
 
 		var bumpbox_controllers = {
 
-			"about" : new Project.Modules.bumpbox($('#navigation_left li.about'), $('.bumpbox.about')),
-			"team" : new Project.Modules.bumpbox($('#navigation_left li.team'), $('.bumpbox.team')),
-			"services" : new Project.Modules.bumpbox($('#navigation_left li.services'), $('.bumpbox.services'))
+			"about" : new Project.Modules.bumpbox($('#navigation_top li.about'), $('.bumpbox.about')),
 		};
 
 		var bumpbox_modules = {
 
 
 			"team" : new Project.Modules.thumbnail_controller($('.bumpbox.team > .thumbnails > ul'), $('.bumpbox.team > .content'), 0),//will create a pause function later -- this can be embedded in a different element
-			"services" : new Project.Modules.thumbnail_controller($('.bumpbox.services > .thumbnails > ul'), $('.bumpbox.services > .content'), 0),//will create a pause function later -- this can be embedded in a different element
-			"about" : new Project.Modules.thumbnail_controller($('.bumpbox.about > .thumbnails > ul'), $('.bumpbox.about > .content'), 0),//will create a pause function later -- this can be embedded in a different element
-
 		}; 
 
 		for (controller in bumpbox_controllers) 
