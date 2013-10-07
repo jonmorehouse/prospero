@@ -22,7 +22,7 @@
 
 	<li class='about'>About</li>
 
-	<li class='team'>Team</li>
+	<li class='team'><a href='<?php echo site_url("team");?>'>Team</li></li>
 
 	<li><a href='<?php 
 		// THIS IS SO YOU CAN'T RELOAD THE HOMEPAGE FROM THE HOMEPAGE!!!--THATS ANNOYING

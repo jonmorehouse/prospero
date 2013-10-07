@@ -6,11 +6,60 @@ class Team_member extends CI_Model {
 
 		parent::__construct();
 
+		$this->load->library("utilities/format");
+
+		// initialize sql dependencies
 		$this->member_table = "team_bumpbox";
 		$this->image_table = "general_images";
-
 	}
 
+	/*
+	 * Return an array for the thumbnails for each member
+	 * 
+	 * teamMember = array(
+	 * 	"member_id" => member_id,
+	 * 	"image" => array("imageUrl", "imageAlt"),
+	 *	"title" => title,
+	 *  )
+	 */
+	public function get_full_team() {
+	
+		// grab all relevant member ids (in the correct order)
+		$member_ids = $this->get_member_ids();
+		
+		// loop through and create an array of members
+		$members = array();
+
+		// loop through each member 
+		foreach ($member_ids as $member_id) {
+
+			// grab the correct member and push it into the array
+			array_push($members, $this->get_member($member_id));
+		}
+
+		return $members;
+	}
+
+	public function get_member($member_id) {
+	
+		$member = array(
+
+			"member_id" => $member_id,
+			"content" => $this->get_content($member_id),
+			"image" => array(
+
+				"url" => $this->get_image_url($member_id),
+				"src" => $this->get_image_url($member_id),
+				"alt" => $this->get_image_alt($member_id),
+
+			),
+			"title" => $this->get_title($member_id),
+			"name" => $this->format->word_format($member_id),
+		);
+
+		return $member;
+	}
+	
 	public function get_member_ids() {
 
 		// returns an array of all member ids using a distinct phrase
@@ -53,8 +102,5 @@ class Team_member extends CI_Model {
 
 
 		return $query->row()->title;
-
-
-
 	}
 }
