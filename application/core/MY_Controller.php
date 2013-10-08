@@ -11,7 +11,7 @@ class MY_Controller extends CI_Controller{
 		$this->load->model(array("pages/elements", "pages/navigation"));
 
 		// now initialize the header libraries etc by using our declared page_id etc 
-		$this->load->library(array('utilities/header', 'utilities/dynamic_header', 'property/base_filter', 'property/map_api'), array("page_id" => $this->id, "page_filter" => "office_industrial"));
+		$this->load->library(array('utilities/header', 'utilities/cache', 'utilities/dynamic_header', 'property/base_filter', 'property/map_api'), array("page_id" => $this->id, "page_filter" => "office_industrial"));
 
 		// load the top_bumpboxes		
 		$this->load->library(array('general/top_bumpboxes', "homepage/homepage_bumpboxes"));
@@ -41,11 +41,24 @@ class MY_Controller extends CI_Controller{
 		$this->map_bumpbox = $this->top_bumpboxes->get_maps();//returns the map data etc
 
 		// data that should be printed out for front-end use
-		$this->data = array(
+		$this->data = array();
+
+		// now cehck to see if the general_maps are cached
+		$cache = $this->cache->get("general_maps");
+
+		// 
+		if ($cache) $this->data["general_maps"] = $cache;
+
+		// if not then lets get the maps and then move forward
+		else {
 			
-			// take this out because it was getting slow!
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
-		);
+			// load this data
+			$this->data["general_maps"] = $this->map_api->general_maps_data($this->map_bumpbox);
+
+			// now cache the results
+			$this->cache->set("general_maps", $this->data["general_maps"]);
+
+		}	
 	}	
 }
 
