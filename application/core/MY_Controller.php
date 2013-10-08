@@ -22,7 +22,7 @@ class MY_Controller extends CI_Controller{
 	protected function base() {
 
 		// turn on caching for page speed here etc...
-		// $this->output->cache(1440);
+		//$this->output->cache(1440);
 
 		// generic global data
 		$this->header = $this->dynamic_header->get_header();//gets the dynamic header - not the tables that define the resources included
@@ -44,7 +44,7 @@ class MY_Controller extends CI_Controller{
 		$this->data = array(
 			
 			// take this out because it was getting slow!
-			//"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
+			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),//get the map data for all of the filters included!
 		);
 	}	
 }

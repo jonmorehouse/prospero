@@ -9,10 +9,6 @@
 ?>
 
 <?php
-	// initialize the default bumpboxes!
-	$this->load->view('navigation/bumpboxes/contact');
-	$this->load->view('navigation/bumpboxes/map');
-
 	foreach ($this->bumpbox_content as $bumpbox) echo $bumpbox;//need to loop out some bumpbox js objects to help our front end. Will send everything
 ?>
 

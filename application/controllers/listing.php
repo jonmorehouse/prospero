@@ -11,6 +11,7 @@ class Listing extends My_Controller {
 		// LIBRARY LOADING -- these are universal 
 		$libraries = array('property/base_filter', 'property/property_search', 'session', "general/page_management", "session");
 		$this->load->library($libraries);
+		$this->base();
 	}
 	
 	public function _remap($uri) { //uri is the number or title etc
@@ -94,6 +95,7 @@ class Listing extends My_Controller {
 			"listing/listing_bumpbox",
 			"listing/listing_content",
 			"listing/listing_media",
+			"property/media",
 			"property/base_filter",
 			'property/map_api'//used to get general map data
 		);
@@ -119,16 +121,18 @@ class Listing extends My_Controller {
 
 		// get the bumpbox list
 		$this->left_bumpboxes = $this->navigation->get_listing_bumpboxes($this->property_id);//get the listing specific bumpboxes for this particular element 
+	
 		// initialize json data that should be written into the page
-		$this->data = array(
+		$data = array(
 
-			"general_maps" => $this->map_api->general_map_data($this->map_bumpbox),
 			"property_id" => $this->property_id,
 			"slideshow_images" => $this->slideshow_images,
 			"slideshow_thumbnail_images" => $this->thumbnail_images,
 			"listing_bumpboxes" => $this->left_bumpboxes,
 			"geolocation" => $this->geographical_information->get_coordinates($this->property_id),
 		);
+
+		$this->data = array_merge($this->data, $data);
 
 		// initilialize basic elements
 		$this->header = $this->dynamic_header->get_header();
@@ -137,6 +141,9 @@ class Listing extends My_Controller {
 		$this->background_images = $this->elements->get_background_images();
 		$this->navigation_top = $this->navigation->get_navigation("global_top", $this->general->get_category($this->property_id, "type_category"));
 
+		// grab the pdf element		
+		$this->pdf = $this->media->get_pdf($this->property_id);
+	
 		// generate the top elements!
 		$this->navigation_left = $this->navigation->get_listing($this->property_id);
 

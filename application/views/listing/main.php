@@ -34,6 +34,15 @@
 			<?php endforeach;?>
 			</ul>
 		</div>
+		
+		<?php if($this->pdf):?>
+			<div id='pdf_link'>
+				<a href='<?=$this->pdf?>'>
+					<img src='<?=base_url("resources/images/site_wide/pdf.png")?>' />
+					Click for pdf
+				</a>
+			</div>
+		<?php endif;?>
 
 	</div>
 
