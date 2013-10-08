@@ -33,8 +33,15 @@ class Property_filter extends Base_filter {
 		else if ($category === "under_1000")
 			$filtered = $this->property_filter($filtered, "type", array("type <" => "1000"));
 
-		else if ($category === "location_category")
-			$filtered = $this->like_property_filter($filtered, "location_category", explode('_', $filter)[0]);
+		else if ($category === "location_category") {
+
+			$pieces = explode('_', $filter);
+
+			if (!$pieces) $pieces = array($filter);
+
+			$filtered = $this->like_property_filter($filtered, "location_category", $pieces[0]);
+
+		}
 
 		return $filtered;
 	}
