@@ -2,11 +2,15 @@ do Project.Pages.Vacancy = () ->
 
 	# initialize all elements for hiding etc
 	elements = [$('#navigation_left'), $('#navigation_top'), $('#logo'), $('#search'), $('#header'), $('#page_container'), $('#page_content')]
+
 	# initialize bumpbox elements across the board
 	bumpbox = Project.Pages.Bumpbox elements
 
 	# cache our fade functionality
 	fade = bumpbox.fade
+	
+	# initialize search bar animation for this element
+	search_bar_animation = new Project.Modules.form_animation $('#search')
 
 	do bumpbox_init = () =>
 

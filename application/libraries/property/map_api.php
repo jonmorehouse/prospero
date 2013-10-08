@@ -42,11 +42,15 @@ class Map_api extends Base_filter {
 
 		$map_data = array();
 
+		/*
+		 * THIS NEEDS TO BE OPTIMIZED -- SLOW POINT FOR SITE...
+		 *
+		 *
+		 */
 		foreach ($properties as $property_id) {
 
 			if (!$this->CI->general->live($property_id))
 				continue;
-
 
 			$data = array("property_id" => $property_id,
 
@@ -54,7 +58,6 @@ class Map_api extends Base_filter {
 				"title" => $this->CI->general->get_category($property_id, "name"),
 				"thumbnail" => $this->CI->thumbnail->general_thumbnail($property_id), 
 				"infobox" => $this->CI->infobox->get_html($property_id)
-
 			);
 
 			if ($data['coordinates']['longitude'] && $data['coordinates']['latitude'])

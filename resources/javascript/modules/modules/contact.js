@@ -24,7 +24,6 @@ Project.Modules.contact = function(container, url) {
 		return false;
 	});
 
-
 	function data() {
 
 		return {};
