@@ -16,7 +16,7 @@
 }
 
 /* THUMBNAIL CONTENTS FOR THIS PAGE ***/
-#thumbnail_container {
+#thumbnail_container, #listings_container {
 
 	position: relative;
 	width:100%;
@@ -59,6 +59,67 @@
 
 		height: 170px*0.5;
 
+	}
+}//end of individual containers
+
+#listings_container > div.thumbnail {
+
+	width: 270px;
+	height: 320px;	
+	position: relative;
+	display: block;
+	float: left;
+	.dark_background(1);
+	margin-left: 1em;
+
+	> h1 {
+		position:relative;
+		.base_font(1.2em);
+		margin: 1em auto;
+		text-align: center;
+	}
+
+	> div:first-of-type {
+
+		height: 55%;
+		max-width: 100%;
+		position: relative;
+		margin: 0 auto;
+		display:block;
+
+		img {
+
+			display: block;
+			margin: 0 auto;
+			max-width: 90%;
+			max-height: 90%;
+		}
+	}
+
+	> div:last-of-type {
+
+		position: relative;
+		width: 100%;
+		display: block;
+
+		> a, span {
+
+			width: 100%;
+			display: block;
+			text-align:center;
+			position:relative;
+			.base_font(1.2em);
+
+		}
+		span:last-of-type {
+
+			margin-bottom: 0.5em;
+
+		}
+		> a:hover {
+		
+			text-decoration: underline;
+		}
 	}
 }//end of individual containers
 

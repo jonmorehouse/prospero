@@ -428,9 +428,10 @@ class General extends CI_Model{
 		// initialize both type and type_category
 		// whether residential / retail / office / industrial
 		$property_type_category = $this->general->get_category($property_id, "type_category");
+		$property_type = $this->general->get_category($property_id, "type");
 
 		// now grab the proper price category!	
-		$price_category = $this->db->where(array('category_type' => $this->format->comparison_format($property_type_category)))->like('category', 'price', 'both')->get("category_type_categories")->row()->category;
+		$price_category = $this->db->where(array('category_type' => $this->format->comparison_format($property_type)))->like('category', 'price', 'both')->get("category_type_categories")->row()->category;
 	
 		// now generate the price!
 		return array(

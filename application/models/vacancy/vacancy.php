@@ -109,7 +109,7 @@ class Vacancy extends MY_Model {
 			"title" => $this->general->get_category($data->property_id, "name"),
 			// now grab the price etc ...
 			"price" => $this->general->get_price($data->property_id),
-
+			// now initialize elements
 			"type_category" => $this->general->get_unformatted_category($data->property_id, "type_category"),
 		);
 

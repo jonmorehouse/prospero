@@ -18,7 +18,7 @@
 <div id='page_container'>
 	<div id='page_content'>
 		
-		<div id='thumbnail_container'>
+		<div id='listings_container'>
 			<?php
 				if (gettype($this->thumbnails) === "array") $this->load->view("browse/listing_thumbnail");
 				else echo $this->thumbnails;

@@ -43,6 +43,11 @@ class Property_listing extends MY_Model {
 		if ($thumbnail["pdf_status"]) 
 			$thumbnail["pdf_link"] = $this->media->get_pdf($property_id);
 
+		// now grab the thumbnail price for this listing
+		//$thumbnail["price"] = $this->general->get_price($property_id);
+		$thumbnail["address"] = $this->general->get_address($property_id);
+		$thumbnail["priced_from"] = $this->general->get_category($property_id, "priced_from");
+
 		return $thumbnail;
 	}
 

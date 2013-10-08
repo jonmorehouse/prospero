@@ -20,6 +20,8 @@ class Vacancy_filter extends MY_Model {
 		// lets grab the various vacancy_ids etc for this particular element
 		$vacancy_ids = $this->get_vacancy_ids($filter);
 
+		print_r($vacancy_ids);
+
 		// now initialize an array to hold of the vacancies that we have as objects ...
 		$vacancies = array();
 

@@ -9,7 +9,6 @@
 	$this->load->view('site_wide/bumpbox_trigger');//this is used for creating the bumpbox 
 ?>
 
-
 <!-- INDIVIDUAL NAVIGATION BAR IS BELOW -->
 <?php
 	$this->load->view('navigation/search');
