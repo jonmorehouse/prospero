@@ -14,7 +14,7 @@
 
 		<a href='<?=$thumbnail["pdf_link"]?>'>Brochure</a>
 	<?php endif;?>
-		<a href='<?=$thumbnail["link"]?>'>Link</a>
+		<a href='<?=$thumbnail["url"]?>'>Link</a>
 	</div>
 </div>
 <?php endforeach;?>
