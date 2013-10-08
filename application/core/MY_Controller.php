@@ -53,7 +53,7 @@ class MY_Controller extends CI_Controller{
 		else {
 			
 			// load this data
-			$this->data["general_maps"] = $this->map_api->general_maps_data($this->map_bumpbox);
+			$this->data["general_maps"] = $this->map_api->general_map_data($this->map_bumpbox);
 
 			// now cache the results
 			$this->cache->set("general_maps", $this->data["general_maps"]);
