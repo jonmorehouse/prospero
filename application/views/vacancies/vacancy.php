@@ -15,7 +15,7 @@
 			<?php else:?>
 				<li><?php echo $description; ?></li>
 			<?php endif;?>
-			<li><?php echo "${price['header']} : ${price['price']}"; ?></li>
+			<li><?php echo "${price['header']} : \$${price['price']}"; ?></li>
 		</ul>	
 	</a>
 </div>
