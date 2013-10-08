@@ -46,7 +46,12 @@
 	<li class='<?php if($this->id=='browse_listings') echo 'current';?>'><a href='<?php echo site_url('browse_listings');?>'>Listings</a></li>
 
 	<!-- Initialize nested menu for the vacancies section -->
-	<li <?php if ($this->id == "vacancies") echo "class='current'";?>><a href='<?php echo site_url('vacancies');?>'>Vacancies</a></li>
+	<li <?php if ($this->id == "vacancies") echo "class='current'";?>><a href='<?php echo site_url('vacancies');?>'>Vacancies
+		<ul>
+			<li><a href='<?php echo site_url("vacancies/residential");?>'>Residential</a></li>
+			<li><a href='<?php echo site_url("vacancies/retail_office_industrial");?>'>Retail/Office/Industrial</a></li>
+		</ul>
+	</a></li>
 
 	<?php if($this->id == "homepage"):?>
 		<li class='about'>About</li>
