@@ -45,6 +45,7 @@
 	right: -0.5em;
 	top: -0.5em;
 	cursor: pointer;
+	z-index: 99999999999999999999999999999999999999;
 
 	img {
 
@@ -210,7 +211,51 @@
 		}
 	}
 }
-//end of contact
+
+.bumpbox.listing_inquire > div {
+
+	// global contact styles
+	h1, span {
+		display:block;
+		text-align:center;
+	}
+
+	// form styles
+	&:nth-of-type(2) {//email form
+
+		width:100%;
+
+		input[type="text"], textarea, button{
+
+			.base_font;
+			color:black;
+			display:block;
+			width:80%;
+			padding:0.1em 0 0.1em 0;
+			font-size:1.1em;
+			margin: 1em auto;
+			background-color:rgba(255, 255,255,0.8);
+		}
+
+		button {
+			margin:0 auto 2em;
+			cursor:pointer;
+			width:50%;
+			.border_radius;
+			&:hover {
+				background-color:gray;
+			}
+		}
+
+		div.message {
+
+			display:none;
+			width:50%;
+			margin:0 auto;
+			color:white;
+		}
+	}
+}
 
 
 /******* TEAM *****/
@@ -265,7 +310,6 @@
 .bumpbox.services > .thumbnails, .bumpbox.about > .thumbnails, .bumpbox.map > .thumbnails, .bumpbox.listing_map {
 
 	width: 100%;
-	overflow-x:hidden;
 	
 	ul {
 		position:relative;

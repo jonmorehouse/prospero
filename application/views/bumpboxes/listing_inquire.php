@@ -1,4 +1,10 @@
 <div class='bumpbox listing_inquire' data-link='listing_inquire'>
+	<div class='exit'>
+
+		<img src='<?php echo base_url('resources/images/site_wide/exit.png');?>' alt='exit icon' />	
+
+	</div>
+
 	<div>
 		<h1><?php echo $data['name'];?> Inquire</h1>
 
