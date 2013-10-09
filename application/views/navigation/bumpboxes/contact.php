@@ -1,4 +1,11 @@
 <div class='bumpbox contact'>
+
+	<div class='exit'>
+
+		<img src='<?php echo base_url('resources/images/site_wide/exit.png');?>' alt='exit icon' />	
+
+	</div>
+
 	<div>
 		<address>
 			<h1>Prospero</h1>
@@ -10,6 +17,7 @@
 	</div>
 	
 	<div>	
+
 		<h1>Contact</h1>
 		
 		<form destination='<?php echo site_url("general_rest/submit_email");?>' method='post'>

@@ -1,4 +1,10 @@
 <div class='bumpbox map'>
+	<div class='exit'>
+
+		<img src='<?php echo base_url('resources/images/site_wide/exit.png');?>' alt='exit icon' />	
+
+	</div>
+
 	<div class='content'>
 	<?php
 		foreach ($this->map_bumpbox as $index=>$map)
