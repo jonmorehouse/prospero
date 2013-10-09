@@ -39,7 +39,7 @@
 			<div id='pdf_link'>
 				<a href='<?=$this->pdf?>'>
 					<img src='<?=base_url("resources/images/site_wide/pdf.png")?>' />
-					Click for pdf
+					Click for PDF 
 				</a>
 			</div>
 		<?php endif;?>
