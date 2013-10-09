@@ -54,7 +54,7 @@ class Cache {
 
 		else {
 
-			$this->db->where(array("cache_key" => $key))->delete($this->table_name);
+			$this->CI->db->where(array("cache_key" => $key))->delete($this->table_name);
 			return false;
 		}
 	}
