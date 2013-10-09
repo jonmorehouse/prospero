@@ -38,6 +38,12 @@ Project.Modules.bumpbox = function(in_trigger, container) {
 
 	var out_listener = config.out_trigger.click(function() { close()});
 
+	// close the bumpbox on the exit click here
+	container.find(".exit").click(function() {
+		
+		close();
+	});
+
 	function close() {
 
 		if (!config.visible) return true;
