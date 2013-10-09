@@ -33,7 +33,7 @@
 	bottom: @border_width;
 	.dark_background(0.4);
 	border-radius: 0.5em;
-	left: 10em;
+	left: 6em;
 	display:block;
 	width: 12em;
 	overflow-y: auto;
@@ -89,11 +89,10 @@
 	
 	position: absolute;
 	top: 9em;
-	left: 26em;
-	right: 10em;
+	left: 22em;
+	right: 6em;
 	border-radius: 1em;
 	bottom: @border_width;
-
 	.dark_background(0.9);
 	
 	div {
@@ -101,11 +100,17 @@
 		position: relative;
 		float: left;
 		width: 60%;
+		height: 100%;
 		margin-right: 5%;
 
 		&:first-of-type {
 
 			width: 30%;
+		}
+
+		&:last-of-type {
+		
+			overflow-y: auto;
 		}
 
 	}
@@ -136,14 +141,12 @@
 	}
 	
 	p {
-
 		margin-left: 5%;
 		margin-right: 5%;
 		color: white;
 		.base_font(1em);
 
 	}
-
 }
 
 
