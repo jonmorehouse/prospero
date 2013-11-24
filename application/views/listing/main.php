@@ -39,7 +39,7 @@
 			<div id='pdf_link'>
 				<a href='<?=$this->pdf?>'>
 					<img src='<?=base_url("resources/images/site_wide/pdf.png")?>' />
-					Click for PDF 
+					Click Here for Leasing Brochure
 				</a>
 			</div>
 		<?php endif;?>
