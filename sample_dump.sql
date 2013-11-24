@@ -212,7 +212,7 @@ CREATE TABLE `default_options` (
 
 LOCK TABLES `default_options` WRITE;
 /*!40000 ALTER TABLE `default_options` DISABLE KEYS */;
-INSERT INTO `default_options` VALUES ('type','rent'),('type','buy'),('type_category','office_industrial'),('type_category','retail'),('type_category','residential'),('type_category','other'),('location_category','okanagan_valley'),('location_category','vancouver_island'),('location_category','north_shore'),('location_category','richmond'),('location_category','west_side'),('location_category','fraser_valley'),('location_category','downtown/chinatown/west_end'),('location_category','burnaby/coquitlam/new_westminister'),('weekend_manager','true'),('weekend_manager','false'),('new_property','true'),('new_property','false'),('no_vacancies','true'),('no_vacancies','false');
+INSERT INTO `default_options` VALUES ('type','rent'),('type','buy'),('type_category','office_industrial'),('type_category','retail'),('type_category','residential'),('type_category','other'),('location_category','okanagan_valley'),('location_category','vancouver_island'),('location_category','north_shore'),('location_category','richmond'),('location_category','west_side'),('location_category','fraser_valley'),('location_category','downtown/chinatown/west_end'),('location_category','burnaby/coquitlam/new_westminister'),('weekend_manager','true'),('weekend_manager','false'),('new_property','true'),('new_property','false'),('no_vacancies','true'),('no_vacancies','false'),('location_category','delta'),('location_category','other'),('location_category','other_vancouver');
 /*!40000 ALTER TABLE `default_options` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1365,4 +1365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-11-23 21:08:44
+-- Dump completed on 2013-11-23 21:26:14
