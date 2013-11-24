@@ -5,14 +5,14 @@
 	<li class='<?php if($this->id=='residential') echo 'current'; ?>'><a href='<?php echo site_url('browse/residential');?>'>Residential
 
 		<ul>
+			<li><a href='<?php echo site_url("browse/residential/location_category/downtown_west_end");?>'>Downtown / West End</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/kitsilano_kerrisdale");?>'>Kitsilano / Kerrisdale</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/burnaby");?>'>Burnaby / East Vancouver</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/other_vancouver");?>'>Other Vancouver</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/surrey_new_westminster");?>'>Burnaby/New Westminster</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/tri_cities");?>'>Tri-Cities: Coquitlam / Port Moody / Maple Ridge</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/fraser_valley");?>'>Surry, Fraser Valley / Chilliwack</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/vancouver_island");?>'>Vancouver Island</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/north_shore");?>'>North Shore: West and North</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/downtown_west_end");?>'>Downtown/West End</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/kitsilano_kerrisdale");?>'>Kitsilano/ Kerrisdale</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/burnaby");?>'>Burnaby</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/surrey_new_westminster");?>'>Surrey/New Westminster</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/tri_cities");?>'>Tri-Cities: Coquitlam, Port Moody</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/fraser_valley");?>'>Fraser Valley: Chilliwack</a></li>
 		</ul>
 
 	</a></li>
@@ -20,14 +20,13 @@
 	<li class='<?php if($this->id=='retail') echo 'current';?>'><a href='<?php echo site_url('browse/retail');?>'>Retail
 
 		<ul>
-			<li><a href='<?php echo site_url("browse/retail/location_category/okanagan_valley");?>'>Okanagan Valley: Kamloops and Kelowna</a></li>
-			<li><a href='<?php echo site_url("browse/retail/location_category/richmond_delta");?>'>Richmond/Delta</a></li>
-			<li><a href='<?php echo site_url("browse/retail/location_category/fraser_valley");?>'>Fraser Valley: Abbotsford, Mission</a></li>	
-			<li><a href='<?php echo site_url("browse/retail/location_category/squamish");?>'>Squamish</a></li>
-			<li><a href='<?php echo site_url("browse/retail/location_category/vancouver_island");?>'>Vancouver Island: Parksville</a></li>
 			<li><a href='<?php echo site_url("browse/retail/location_category/vancouver");?>'>Vancouver</a></li>
-			<li><a href='<?php echo site_url("browse/retail/location_category/burnaby");?>'>Burnaby</a></li>
-			<li><a href='<?php echo site_url("browse/retail/location_category/pitt_meadows");?>'>Pitt Meadows</a></li>
+			<li><a href='<?php echo site_url("browse/retail/location_category/burnaby");?>'>Burnaby / Coquitlam/ Port Moody</a></li>
+			<li><a href='<?php echo site_url("browse/retail/location_category/richmond_delta");?>'>Richmond / Delta</a></li>
+			<li><a href='<?php echo site_url("browse/retail/location_category/squamish");?>'>Squamish / North Shore</a></li>
+			<li><a href='<?php echo site_url("browse/retail/location_category/fraser_valley");?>'>Fraser Valley: Abbotsford / Mission</a></li>	
+			<li><a href='<?php echo site_url("browse/retail/location_category/okanagan_valley");?>'>Okanagan Valley: Kamloops / Kelowna</a></li>
+			<li><a href='<?php echo site_url("browse/retail/location_category/vancouver_island");?>'>Vancouver Island: Nanimo / Parksville</a></li>
 		</ul>
 	</a></li>
 	
@@ -38,6 +37,8 @@
 			<li><a href='<?php echo site_url("browse/office_industrial/location_category/vancouver");?>'>Vancouver</a></li>
 			<li><a href='<?php echo site_url("browse/office_industrial/location_category/richmond");?>'>Richmond</a></li>
 			<li><a href='<?php echo site_url("browse/office_industrial/location_category/burnaby");?>'>Burnaby</a></li>
+			<li><a href='<?php echo site_url("browse/office_industrial/location_category/delta");?>'>Delta</a></li>
+			<li><a href='<?php echo site_url("browse/office_industrial/location_category/other");?>'>Other</a></li>
 		</ul>
 
 	</a></li>
