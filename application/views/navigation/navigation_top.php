@@ -2,7 +2,7 @@
 
 	<li data-link='contact'>Contact</li>
 	<li data-link='map'>Map</li>
-	<li class='<?php if($this->id=='residential') echo 'current'; ?>'><a href='<?php echo site_url('browse/residential');?>'>Residential
+	<li class='<?php if($this->id=='residential') echo 'current'; ?>'><a href='<?php echo site_url('browse/residential');?>'>&nbsp;&nbsp;Residential&nbsp;&nbsp;
 
 		<ul>
 			<li><a href='<?php echo site_url("browse/residential/location_category/downtown_west_end");?>'>Downtown / West End</a></li>
