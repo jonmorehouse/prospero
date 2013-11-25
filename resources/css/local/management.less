@@ -215,15 +215,21 @@ position:absolute;
 	}
 }
 
-#login{
-	input[type="text"], input[type="password"]{
+#login { 
+	input[type="text"], input[type="password"], button[type="submit"] {
 		width:100px;
-		color:gray;
+		color:black;
 		
 		&:focus{
 			color:black;
 		}
 	}	
+
+	button[type="submit"] {
+
+		font-weight: bold;
+		font-size:1.2em;
+	}
 }
 
 @span_height:50px;
