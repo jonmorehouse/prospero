@@ -50,7 +50,7 @@
 	<li <?php if ($this->id == "vacancies") echo "class='current'";?>><a href='<?php echo site_url('vacancies');?>'>Vacancies
 		<ul>
 			<li><a href='<?php echo site_url("vacancies/residential");?>'>Residential</a></li>
-			<li><a href='<?php echo site_url("vacancies/retail_office_industrial");?>'>Retail/Office/Industrial</a></li>
+			<li><a href='<?php echo site_url("vacancies/retail_office_industrial");?>'>Retail / Office / Industrial</a></li>
 		</ul>
 	</a></li>
 
