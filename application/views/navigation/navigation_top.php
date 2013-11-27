@@ -17,11 +17,11 @@
 
 	</a></li>
 	
-	<li class='<?php if($this->id=='retail') echo 'current';?>'><a href='<?php echo site_url('browse/retail');?>'>Retail
+	<li class='<?php if($this->id=='retail') echo 'current';?>'><a href='<?php echo site_url('browse/retail');?>'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 		<ul>
 			<li><a href='<?php echo site_url("browse/retail/location_category/vancouver");?>'>Vancouver</a></li>
-			<li><a href='<?php echo site_url("browse/retail/location_category/burnaby");?>'>Burnaby / Coquitlam/ Port Moody</a></li>
+			<li><a href='<?php echo site_url("browse/retail/location_category/burnaby");?>'>Burnaby / Coquitlam / Port Moody</a></li>
 			<li><a href='<?php echo site_url("browse/retail/location_category/richmond_delta");?>'>Richmond / Delta</a></li>
 			<li><a href='<?php echo site_url("browse/retail/location_category/squamish");?>'>Squamish / North Shore</a></li>
 			<li><a href='<?php echo site_url("browse/retail/location_category/fraser_valley");?>'>Fraser Valley: Abbotsford / Mission</a></li>	
@@ -31,7 +31,7 @@
 	</a></li>
 	
 	<!-- Office industrial link. We need to have drop down menus here-->
-	<li class='<?php if($this->id=='office_industrial') echo 'current';?>'><a href='<?php echo site_url('browse/office_industrial');?>'>Office/Industrial
+	<li class='<?php if($this->id=='office_industrial') echo 'current';?>'><a href='<?php echo site_url('browse/office_industrial');?>'>Office / Industrial
 
 		<ul>
 			<li><a href='<?php echo site_url("browse/office_industrial/location_category/vancouver");?>'>Vancouver</a></li>
