@@ -112,7 +112,16 @@ class Management_general extends Management_forms {
 			foreach($media_id_list as $media_id) {
 				
 				$form .= "\n<div>";
-				$form .= "\n\t<span><div class='thumbnail'><img src='{$this->CI->media->get_url($media_type, $media_id)}' alt='Management Thumbnail' /></div></span>";//create thumbnail
+					
+				# initialize the url that is the destination here
+				$url = $this->CI->media->get_url($media_type, $media_id);
+
+				// create the correct thumbnails for this form etc
+				if ($media_type == "pdf")
+					$form .= "\n\t<span><div class='thumbnail'><a href='{$url}'><img src='{$this->CI->media->get_pdf_thumbnail_url($property_id)}' alt='Management Thumbnail' /></a></div></span>";//create thumbnail
+				else
+					$form .= "\n\t<span><div class='thumbnail'><img src='{$url}' alt='Management Thumbnail' /></div></span>";//create thumbnail
+				//
 				// special form with data values for form submission
 				//javascript creates an object with key of category and then has members inside with media_id and true or false
 				$form .= "\n\t<span>{$this->media_status_form($category, $media_id)}</span>";//actual form section

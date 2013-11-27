@@ -150,6 +150,7 @@ class Management extends My_Controller{
 		
 		else{
 			$property_id = $this->uri->segment(4);
+			$this->listing_dashboard = true;
 			$this->content = $this->management_general->media_status($property_id);
 		}
 		
