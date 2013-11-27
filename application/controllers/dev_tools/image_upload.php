@@ -45,6 +45,7 @@ class Image_upload extends CI_Controller {
 			"url" => $url,
 			"property_id" => $property_id,
 			"status" => true,
+
 		);
 
 		$this->db->insert("slideshow_images", $data);

@@ -59,9 +59,6 @@ class Media{
 			return $this->get_url("pdf", $id);
 
 		return false;
-
-
-
 	}
 
 	public function get_pdf_thumbnail_url($property_id) {
@@ -97,7 +94,10 @@ class Media{
 		$category = "{$type}_id";//generic media type--hardcoded around the site in this format
 		$table = $this->CI->general->get_category_table($category);//category location
 		
-		$query = $this->CI->general->get($table, array('property_id' => $property_id, "status" => $status));//get all all medias for this property!
+		if ($status)
+			$query = $this->CI->general->get($table, array('property_id' => $property_id, "status" => $status));//get all all medias for this property!
+		else
+			$query = $this->CI->general->get($table, array('property_id' => $property_id));//get all all medias for this property!
 		
 		if(!$query)//no medias for this type for this property_id
 			return $media_list;
