@@ -98,7 +98,7 @@ class Management_general extends Management_forms {
 		foreach($media_types as $media_type) {//need to generate the list for each one and then generate a radio from there
 			
 
-			$media_id_list = $this->CI->media->get_media_list($property_id, $media_type);//will return an array of all properties available
+			$media_id_list = $this->CI->media->get_media_list($property_id, $media_type, false);//will return an array of all properties available
 
 			$exists = (boolean)count($media_id_list);//count the media_list and use a boolean
 			$category = "{$media_type}_id";
