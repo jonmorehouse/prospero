@@ -165,7 +165,7 @@ CREATE TABLE `config_settings` (
 
 LOCK TABLES `config_settings` WRITE;
 /*!40000 ALTER TABLE `config_settings` DISABLE KEYS */;
-INSERT INTO `config_settings` VALUES ('cgi_url','http://localhost:8888/cgi-bin/'),('default_latitude','49.2419'),('default_longitude','-123.058'),('default_pdf_thumbnail','resources/images/defaults/pdf.png'),('default_slideshow_image','resources/images/defaults/slideshow.png'),('default_thumbnail','resources/images/defaults/thumbnail.png'),('default_video_thumbnail','resources/images/defaults/video.png'),('general_email','morehousej09@gmail.com'),('google_maps_api_key','AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs'),('inquire_url','ajax/listing_rest/inquire'),('max_file','100M'),('max_nearby_properties','10'),('max_similar_properties','5'),('site_label','Prospero International Realty'),('site_status','local'),('walkscore_api_key','60aaf442c1061e1c1bf69eb7b42ee627'),('webmaster_email','morehousej09@gmail.com');
+INSERT INTO `config_settings` VALUES ('cgi_url','http://localhost:8888/cgi-bin/'),('default_latitude','49.2419'),('default_longitude','-123.058'),('default_pdf_thumbnail','resources/images/defaults/pdf.png'),('default_slideshow_image','resources/images/defaults/slideshow.png'),('default_thumbnail','resources/images/defaults/thumbnail.png'),('default_video_thumbnail','resources/images/defaults/video.png'),('general_email','morehousej09@gmail.com'),('google_maps_api_key','AIzaSyBgNXY0_P4HuxH3N1ClOSerzSdH7dF7wfs'),('inquire_url','ajax/listing_rest/inquire'),('max_file','100M'),('max_nearby_properties','10'),('max_similar_properties','5'),('site_label','Prospero International Realty'),('site_status','local'),('walkscore_api_key','60aaf442c1061e1c1bf69eb7b42ee627'),('webmaster_email','info@prospero.ca');
 /*!40000 ALTER TABLE `config_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +212,7 @@ CREATE TABLE `default_options` (
 
 LOCK TABLES `default_options` WRITE;
 /*!40000 ALTER TABLE `default_options` DISABLE KEYS */;
-INSERT INTO `default_options` VALUES ('rent','type'),('buy','type'),('office_industrial','type_category'),('retail','type_category'),('residential','type_category'),('other','type_category'),('true','weekend_manager'),('false','weekend_manager'),('true','new_property'),('false','new_property'),('true','no_vacancies'),('false','no_vacancies'),('downtown_west_end','location_category'),('kitsilano_kerrisdale','location_category'),('burnaby','location_category'),('other_vancouver','location_category'),('surrey_new_westminster','location_category'),('tri_cities','location_category'),('fraser_valley','location_category'),('vancouver_island','location_category'),('vancouver','location_category'),('richmond_delta','location_category'),('squamish','location_category'),('okanagan_valley','location_category'),('richmond','location_category'),('delta','location_category'),('other','location_category');
+INSERT INTO `default_options` VALUES ('rent','type'),('buy','type'),('office_industrial','type_category'),('retail','type_category'),('residential','type_category'),('other','type_category'),('true','weekend_manager'),('false','weekend_manager'),('true','new_property'),('false','new_property'),('true','no_vacancies'),('false','no_vacancies'),('downtown_west_end','location_category'),('kitsilano_kerrisdale','location_category'),('burnaby','location_category'),('other_vancouver','location_category'),('surrey_new_westminster','location_category'),('tri_cities','location_category'),('fraser_valley','location_category'),('vancouver_island','location_category'),('vancouver','location_category'),('richmond_delta','location_category'),('squamish','location_category'),('okanagan_valley','location_category'),('richmond','location_category'),('delta','location_category'),('other','location_category'),('north_shore','location_category'),('vancouver_other','location_category');
 /*!40000 ALTER TABLE `default_options` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1219,7 +1219,7 @@ CREATE TABLE `user_information` (
   `admin_rights` varchar(25) DEFAULT 'manager',
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1228,7 +1228,7 @@ CREATE TABLE `user_information` (
 
 LOCK TABLES `user_information` WRITE;
 /*!40000 ALTER TABLE `user_information` DISABLE KEYS */;
-INSERT INTO `user_information` VALUES ('morehousej09','2dfb7abc18ef51bb4a6466d4d7779f15',12,'all',NULL);
+INSERT INTO `user_information` VALUES ('morehousej09','2dfb7abc18ef51bb4a6466d4d7779f15',12,'all',NULL),('christie','9d995a162c03e078ee667c9b9af1cc70',15,'all','lee');
 /*!40000 ALTER TABLE `user_information` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1365,4 +1365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-17 13:48:27
+-- Dump completed on 2013-12-17 15:19:21
