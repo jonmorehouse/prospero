@@ -7,7 +7,7 @@ class User_information extends CI_Model{
 		
 		
 	}
-	
+
 	// GET INFORMATION IS FOR THE USER_ACCESS
 	public function get_user_information($column, $value, $get){
 
