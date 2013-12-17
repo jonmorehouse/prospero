@@ -3,11 +3,9 @@
 
 class Image_upload extends CI_Controller {
 
-
 	function __construct() {
 
 		parent::__construct();//initialize the parent to give us access to the database object
-
 	}
 
 	public function index() {
