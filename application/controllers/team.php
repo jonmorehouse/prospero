@@ -15,7 +15,7 @@ class Team extends MY_Controller {
 	
 	public function _remap($uri) {
 	
-		$this->member_id = "derek_lee";
+		$this->member_id = "team";
 
 		// cache the uri member for the segment
 		if ($this->uri->segment(2)) $this->member_id = $this->uri->segment(2);

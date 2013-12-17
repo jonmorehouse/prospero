@@ -35,13 +35,13 @@
 	border-radius: 0.5em;
 	left: 6em;
 	display:block;
-	width: 12em;
+	width: 14em;
 	overflow-y: auto;
 
 	a {
 		display: block;
 		.dark_background();
-		height: 6em;
+		height: 7em;
 		width: 100%;
 		margin-bottom: 0.5em;
 		padding-top: 0.5em;
@@ -83,6 +83,51 @@
 
 		.dark_background(1);
 	}
+
+	a:last-of-type {
+
+		> div {
+			> h2 {
+				
+				max-width: 70%;
+			}
+		}
+	}
+
+	a:first-of-type {
+
+		
+		> div {
+			
+			&:first-of-type {
+
+				width: 55%;
+
+				margin-right: 0;
+				> img {
+					
+					margin-top: 10%;
+					height: 80%;
+
+				}
+			}
+			
+			> h1 {
+
+				display: none;
+			}
+
+			> h2 {
+			
+				text-align: center;
+				max-width: 70%;
+
+			}
+
+
+		}
+	}
+
 }
 
 #current_member {
@@ -149,7 +194,36 @@
 	}
 }
 
+/**** Special rules for team bumpbox only *****/
+#current_member > div.team {
 
+	clear:both;
+	position: relative;
+	float: none;
+	width: 80%;
+	margin: 0 auto;
+
+	&:nth-of-type(1) {
+		
+		max-height: 10%;
+
+	}
+
+	&:nth-of-type(2) {
+		
+		padding: 0;
+		max-height: 80%;
+		border-radius: 1em;
+
+		> img {
+			border-radius: 1em;
+			border-top-right-radius: 1em;
+			margin: 0 auto;
+			max-width: 80%;
+			max-height: 100%;
+		}
+	}
+}
 
 
 

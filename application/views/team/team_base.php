@@ -10,8 +10,9 @@
 ?>
 </div>
 
-<!-- initialize current member main / middle box etc -->
 <div id='current_member'>
+<!-- initialize current member main / middle box etc -->
+<?php if ($this->member["member_id"] != "team"): ?>
 
 	<div>
 		<img src='<?php echo $this->member["image"]["url"];?>' alt='<?php echo $this->member["image"]["alt"];?>' />
@@ -23,6 +24,16 @@
 		<hr>
 		<p><?php echo $this->member["content"];?></p>
 	</div>
+<?php else: ?>
+
+	<div class='team'>
+		<h1><?php echo $this->member["title"];?></h1>
+	</div>
+	<div class='team'>
+		<img src='<?php echo $this->member["image"]["url"];?>' alt='<?php echo $this->member["image"]["alt"];?>' />
+	</div>
+
+<?php endif;?>
 </div>
 
 <?php
