@@ -201,8 +201,8 @@ DROP TABLE IF EXISTS `default_options`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `default_options` (
-  `category` varchar(255) DEFAULT NULL,
-  `category_value` varchar(255) DEFAULT NULL
+  `category_value` varchar(255) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1365,4 +1365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-16 23:13:33
+-- Dump completed on 2013-12-16 23:29:13
