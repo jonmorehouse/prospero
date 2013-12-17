@@ -13,6 +13,7 @@ class Management extends My_Controller{
 /************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
 	public function __construct(){
 
+		$this->admin_only = ["update_listing", "create_listing", "remove_listing", "media_status", "upload_media"];
 		$this->id = 'management'; //this is used for the navigation bars--not always page_type in other controllers
 		parent::__construct();
 		
@@ -22,8 +23,10 @@ class Management extends My_Controller{
 
 		// If the user_status is validated, we will then load session data to be used around the controller
 		if($this->user_status->current_status()){
+
 			$username = $this->session->userdata('username');
 			$admin_rights = $this->session->userdata('admin_rights');
+			$this->is_admin = (($admin_rights == "all")? (true) : (false));
 			$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
 		}
 
@@ -46,8 +49,24 @@ class Management extends My_Controller{
 		else if($method == 'index')
 			$this->homepage();
 
-		else
-			$this->$method();
+		// grab the correct method if we are permitted
+		else {
+			
+			if (in_array($method, $this->admin_only) && !$this->is_admin) 
+				$this->unauthorized();
+
+			else
+				$this->$method();
+
+		}
+
+
+	}
+
+	function unauthorized() {
+
+		$this->content = $this->load->view("admin/error", true, true);
+		$this->load->view('admin/management/management_base');
 
 	}
 		
