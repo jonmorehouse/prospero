@@ -27,8 +27,9 @@ class Management_forms{
 		// make sure it takes care of the default!
 		$options = $this->CI->general->get_default_options($category); // get all options
 
-		$radio_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n";
+		$radio_form = "\n\t<h3>{$this->CI->format->word_format($category)}</h3>\n<div>";
 		// $radio_form .= $this->get_comment($category);
+
 
 		foreach ($options as $option) {
 			
@@ -41,6 +42,8 @@ class Management_forms{
 			
 			$radio_form .= " />\n\t{$this->CI->format->word_format($option)}<br />";//this is the final ending of this basic radio form
 		}
+
+		$radio_form .= "</div>";
 		
 		return $radio_form;
 	}

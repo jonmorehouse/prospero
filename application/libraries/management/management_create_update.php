@@ -65,7 +65,11 @@ class Management_create_update extends Management_forms {
 				
 				$input_type = $this->CI->general->get_category_input_type($category);//generate which type of category this is
 
-				if ($input_type != "hidden") $form .="\n\t<div>";
+				if ($input_type == "radio") 
+					$form .="\n\t<div class='fixed_height'>";
+
+				else if ($input_type != "hidden")
+					$form .="\n\t<div>";
 				
 				$form .= $this->$input_type($property_id, $category);//add the form for this category type to our current form
 
