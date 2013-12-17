@@ -212,7 +212,7 @@ CREATE TABLE `default_options` (
 
 LOCK TABLES `default_options` WRITE;
 /*!40000 ALTER TABLE `default_options` DISABLE KEYS */;
-INSERT INTO `default_options` VALUES ('type','rent'),('type','buy'),('type_category','office_industrial'),('type_category','retail'),('type_category','residential'),('type_category','other'),('weekend_manager','true'),('weekend_manager','false'),('new_property','true'),('new_property','false'),('no_vacancies','true'),('no_vacancies','false'),('location_category','downtown_west_end'),('location_category','kitsilano_kerrisdale'),('location_category','burnaby'),('location_category','other_vancouver'),('location_category','surrey_new_westminster'),('location_category','tri_cities'),('location_category','fraser_valley'),('location_category','vancouver_island'),('location_category','vancouver'),('location_category','burnaby'),('location_category','richmond_delta'),('location_category','squamish'),('location_category','fraser_valley'),('location_category','okanagan_valley'),('location_category','vancouver_island'),('location_category','vancouver'),('location_category','richmond'),('location_category','burnaby'),('location_category','delta'),('location_category','other');
+INSERT INTO `default_options` VALUES ('rent','type'),('buy','type'),('office_industrial','type_category'),('retail','type_category'),('residential','type_category'),('other','type_category'),('true','weekend_manager'),('false','weekend_manager'),('true','new_property'),('false','new_property'),('true','no_vacancies'),('false','no_vacancies'),('downtown_west_end','location_category'),('kitsilano_kerrisdale','location_category'),('burnaby','location_category'),('other_vancouver','location_category'),('surrey_new_westminster','location_category'),('tri_cities','location_category'),('fraser_valley','location_category'),('vancouver_island','location_category'),('vancouver','location_category'),('richmond_delta','location_category'),('squamish','location_category'),('okanagan_valley','location_category'),('richmond','location_category'),('delta','location_category'),('other','location_category');
 /*!40000 ALTER TABLE `default_options` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1365,4 +1365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-16 23:04:37
+-- Dump completed on 2013-12-16 23:13:33
