@@ -26,16 +26,5 @@ class Upload extends CI_Controller {
 
 			$this->db->insert("pdfs", $data);
 		}
-
-
 	}
-
-
-
-
-
-
-
-
-
 }
