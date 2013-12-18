@@ -11,4 +11,8 @@
 
 	<li><a href='<?php echo site_url('admin/vacancies/add');?>'>Add Vacancies</a></li>
 	<li><a href='<?php echo site_url('admin/vacancies/remove');?>'>Remove Vacancies</a></li>
+
+	<?php if(property_exists($this, "is_admin") && $this->is_admin):?>
+		<li><a href='<?php echo site_url('admin/user_management');?>'>Manage Users</a></li>
+	<?php endif;?>
 </div>

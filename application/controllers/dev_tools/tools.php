@@ -13,7 +13,6 @@ class Tools extends CI_Controller{
 		
 		$this->load->model('general');
 		$this->load->library('utilities/format');
-
 	}
 	
 	public function create_user($username = False, $password = False, $rights = False){
