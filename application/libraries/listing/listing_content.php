@@ -21,7 +21,47 @@ class Listing_content extends Listing_base{
 
 	// public content
 	public function elements() {
+		
+		$manager_first_name = "";	
+		$manager_last_name = "";
+		$remove_indexes = array();
 
+		foreach ($this->elements[0]["elements"] as $key => $value) {
+			
+			if ($value["title"] == "Manager Last Name") {
+			
+				$manager_last_name = $value["value"];	
+				array_push($remove_indexes, $key);
+			}
+
+			else if ($value["title"] == "Manager First Name") {
+
+				$manager_first_name = $value["value"];
+				array_push($remove_indexes, $key);
+			}
+		}
+
+		// now handle the aftermath
+		if ($manager_first_name != "" && $manager_last_name != "") {
+
+			// remove the two indexes
+			foreach ($remove_indexes as $index) 
+				unset($this->elements[0]["elements"][$index]);
+
+			// now lets add the array in
+			$manager_array = array(
+				
+				"title" => "Manager",
+				"value" => "{$manager_first_name} {$manager_last_name}"
+			);
+			
+			// now lets push the manager array onto this list 			
+			array_push($this->elements[0]["elements"], $manager_array);
+
+			// now lets 
+			$this->elements[0]["elements"] = array_values($this->elements[0]["elements"]);
+		}
+		
 		return $this->elements;
 	}	
 
