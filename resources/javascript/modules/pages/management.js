@@ -269,4 +269,3 @@ var get_form_data = get_form_data || {};
 		
 		return data;
 	}
-
