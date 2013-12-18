@@ -13,7 +13,7 @@ class Management extends My_Controller{
 /************** CONTROLLER CONSTRUCTORS AND MAPPING ***************/
 	public function __construct(){
 
-		$this->admin_only = ["update_listing", "create_listing", "remove_listing", "media_status", "upload_media"];
+		$this->admin_only = array("update_listing", "create_listing", "remove_listing", "media_status", "upload_media");
 		$this->id = 'management'; //this is used for the navigation bars--not always page_type in other controllers
 		parent::__construct();
 		
