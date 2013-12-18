@@ -1,3 +1,12 @@
+<h1>User Management</h1>
+<hr></hr>
+<?php if ($this->message):?>
+	
+	<div id='message'>
+		<?=$this->message?>	
+	</div>
+
+<?php endif;?>
 <div id='add_user'>
 	<h1>Add User</h1>
 
@@ -31,6 +40,7 @@
 <div id='remove_user'>
 
 	<h1>Remove User</h1>
+	<form>
 	<?php foreach($this->users as $user):?>
 
 		<div>
@@ -42,12 +52,6 @@
 		</div>
 			
 	<?php endforeach;?>
+	</form>
 </div>
 
-<?php if ($this->message):?>
-	
-	<div id='message'>
-		<?=$this->message?>	
-	</div>
-
-<?php endif;?>

@@ -655,3 +655,107 @@ div.vacancy_thumbnail {
 	top: 2em;
 
 }
+
+
+#add_user, #remove_user, #message {
+
+	width: 100%;	
+	position: relative;
+
+	> form {
+
+		position: relative;
+		width: 100%;
+
+		> div {
+			margin-left: 10%;
+			width: 80%;
+			height: 2em;
+			
+			>span {
+
+				position: relative;
+				float: left;
+
+				> input {
+
+					position:relative;
+					top: -0.25em;
+				}
+
+			}
+
+			> span:first-of-type {
+				
+				width: 15%;
+				margin-right: 2.5%;
+				font-size: 1.2em;
+			}
+
+			> span:nth-of-type(2) {
+			
+				width: 60%;
+			}
+		}
+		
+		// admin yes / no check box
+		> div:nth-of-type(4) {
+		
+			> span:nth-of-type(1) {
+				
+				margin-right: 8%;	
+				
+			}
+
+			> span:nth-of-type(n+2) {
+
+				margin: 0;
+				width: 1.5em;
+				top: 0.125em;
+			}
+
+			> span:nth-of-type(2n+3) {
+
+				width: 1.5em%;
+				margin:0;
+				cursor: pointer;
+			}
+		}
+
+		> button {
+			margin: 1.3em auto;
+			width: 25%;
+			color: black;
+		}
+	}
+}
+
+#add_user {
+
+	margin-top: 1.5em;
+
+}
+
+#remove_user {
+
+
+	> form {
+		
+		> div > span:nth-of-type(1) {
+			
+
+		}
+		> div > span:nth-of-type(2) {
+			
+			width: 20%;
+			text-decoration: underline;
+
+		}
+	}
+}
+
+#message {
+	
+	font-size: 1.5em;
+}
+
