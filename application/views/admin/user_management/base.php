@@ -5,8 +5,8 @@
 	<div id='message'>
 		<?=$this->message?>	
 	</div>
-
 <?php endif;?>
+
 <div id='add_user'>
 	<h1>Add User</h1>
 

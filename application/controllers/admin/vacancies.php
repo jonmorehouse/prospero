@@ -19,6 +19,7 @@ class Vacancies extends My_Controller{
 			$username = $this->session->userdata('username');
 			$admin_rights = $this->session->userdata('admin_rights');
 			$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
+			$this->is_admin = (($admin_rights == "all")? (true) : (false));
 		}
 
 		// initialize a few things!
