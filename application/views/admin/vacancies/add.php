@@ -13,6 +13,7 @@
 		<form>
 			<input type='hidden' name='vacancy_id' value='<?php echo $this->data['vacancy_id'];?>' />
 			<input type='text' name='date_available' value='Date Available' />
+			<input type='text' name='price' value='Price (ex: $2000 per month)' />
 			<textarea name='description'>Description</textarea>
 		</form>
 	</div>

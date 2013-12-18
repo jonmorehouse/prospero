@@ -38,6 +38,7 @@ class Vacancy extends MY_Model {
 			'property_id' => $data['property_id'],
 			'date_available' => $data['date_available'],
 			'description' => $data['description'],
+			'price' => $data['price']
 		);
 
 		// update the data in the database
@@ -54,6 +55,7 @@ class Vacancy extends MY_Model {
 			// date available is a string so we can customize it with the least amount of overhead possible
 			"date_available" => $data["date_available"],//date available should be a string formatted date or a message similar to "Now available"
 			"description" => $data["description"],//should be a string, provided by the element
+			"price" => $data["price"],
 		);
 
 		// insert the particular vacancy etc into our database
@@ -108,7 +110,8 @@ class Vacancy extends MY_Model {
 			// now grab the title etc 
 			"title" => $this->general->get_category($data->property_id, "name"),
 			// now grab the price etc ...
-			"price" => $this->general->get_price($data->property_id),
+			"price" => $data->price,
+			//"price" => $this->general->get_price($data->property_id),
 			// now initialize elements
 			"type_category" => $this->general->get_unformatted_category($data->property_id, "type_category"),
 		);

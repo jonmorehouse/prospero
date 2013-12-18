@@ -76,14 +76,14 @@ class Vacancies extends My_Controller{
 			'property_id'=> $this->uri->segment(4),
 			'date_available'=>$this->input->post('date_available'),
 			'description'=>$this->input->post('description'),
-			'vacancy_id'=>$this->input->post('vacancy_id')
+			'vacancy_id'=>$this->input->post('vacancy_id'),
+			'price' => $this->input->post("price"),
 		);
 
 		$this->vacancy->save_vacancy($data);
 
 		echo "{}";
 	}
-
 
 	// remove any 
 	public function remove() {
