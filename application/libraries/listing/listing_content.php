@@ -21,47 +21,80 @@ class Listing_content extends Listing_base{
 
 	// public content
 	public function elements() {
-		
-		$manager_first_name = "";	
-		$manager_last_name = "";
-		$remove_indexes = array();
 
+		$replacements = array(
+		
+			"weekend_manager_first_name" => false,
+			"weekend_manager_last_name" => false,
+			"manager_first_name" => false,
+			"manager_last_name" => false,
+		);
+		
+		// loop through and remove the elements etc
 		foreach ($this->elements[0]["elements"] as $key => $value) {
-			
-			if ($value["title"] == "Manager Last Name") {
-			
-				$manager_last_name = $value["value"];	
-				array_push($remove_indexes, $key);
-			}
 
-			else if ($value["title"] == "Manager First Name") {
+			// grab the array index from the elements
+			$index = $this->CI->format->comparison_format($value["title"]);
 
-				$manager_first_name = $value["value"];
-				array_push($remove_indexes, $key);
+			// check if this index needs replacement
+			if (array_key_exists($index, $replacements)) {
+
+				$replacements[$index] = array(
+					
+					"index" => $key,
+					"value" => $value["value"],
+				);
 			}
 		}
 
-		// now handle the aftermath
-		if ($manager_first_name != "" && $manager_last_name != "") {
+		// now remove the indexes that are not needed
+		foreach($replacements as $index => $value) {
 
-			// remove the two indexes
-			foreach ($remove_indexes as $index) 
-				unset($this->elements[0]["elements"][$index]);
+			// pass if this is element is false
+			if ($value == false) 
+				continue;
 
-			// now lets add the array in
-			$manager_array = array(
+
+			// now remove the actual index in the previous element
+			unset($this->elements[0]["elements"][$value["index"]]);
+		}
+
+		// now lets try to generate the weekend managers / managers
+		foreach (array("manager", "weekend_manager") as $key) {
+
+			$name = "";
+
+			// switch to see if these elements exist
+			if ($replacements["{$key}_first_name"] !== false  && $replacements["{$key}_last_name"] !== false)
+
+				$name = $replacements["{$key}_first_name"]["value"] . " " . $replacements["{$key}_last_name"]["value"];
+
+			// switch to see if these elements exist
+			else if ($replacements["{$key}_first_name"] !== false) {
+
+				$name = $replacements["{$key}_first_name"]["value"]; 
+			}
+
+			else if ($replacements["{$key}_last_name"] !== false) {
+
+				$name = $replacements["{$key}_last_name"]["value"];
+
+			}
+
+			else 
+				continue;
+			
+			// now lets append this element
+			$append_array = array(
 				
-				"title" => "Manager",
-				"value" => "{$manager_first_name} {$manager_last_name}"
+				"title" => $this->CI->format->word_format($key), 
+				"value" => $name,
 			);
-			
-			// now lets push the manager array onto this list 			
-			array_push($this->elements[0]["elements"], $manager_array);
 
-			// now lets 
-			$this->elements[0]["elements"] = array_values($this->elements[0]["elements"]);
+			// now append the array that was created
+			array_push($this->elements[0]["elements"], $append_array);
 		}
-		
+
 		return $this->elements;
 	}	
 
