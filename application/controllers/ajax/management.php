@@ -22,16 +22,12 @@ class Management extends CI_Controller{
 	/******* USED TO MAKE A PROPERTY NOT LIVE ********/
 	public function listing_status() {
 
-
-		return;
-
 		$this->load->model('general');
-
 
 		$table = $this->general->get_category_table('property_status');
 
 		$post_data = $this->input->post();
-
+		$property_statuses = array();
 
 		foreach ($post_data as $property_id => $value) {
 
@@ -41,10 +37,19 @@ class Management extends CI_Controller{
 			else 
 				$status = true;
 
+			$status_array = array("property_id" => $property_id,
+
+				"status" => $status
+			
+			);
+
+			array_push($property_statuses, $status_array);
+
 			$this->general->update($table, array('property_id' => $property_id), array('property_status' => $status));
 		}
 
-		echo "Successfully updated";
+		//echo json_encode($property_statuses);
+		echo json_encode($post_data);
 	}
 		
 	// THIS IS TO GRAB THE INFORMATION FROM THE CMS GUI
