@@ -44,7 +44,6 @@ class Property_automated {
 	public function save_static() {
 
 		$this->CI->page_management->compile($this->property_id);
-		
 
 	}
 
@@ -65,9 +64,13 @@ class Property_automated {
 	private function save_geocoded_address($property_id) {
 
 		$address = $this->get_address($property_id);
+
 		$geocoded_address = $this->CI->geocoding->get_geocoded_address($address);
 
-		if (!$geocoded_address) return false;
+		if (!$geocoded_address) {
+
+			return false;
+		}
 
 		$this->CI->save_geographical_information->save_geocoded_address($property_id, $geocoded_address);
 		$this->CI->save_geographical_information->save_formatted_address($property_id, $geocoded_address['formatted_address']);//this is the absolute address validated from google!

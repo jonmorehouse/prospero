@@ -132,7 +132,7 @@ class Management extends CI_Controller{
 			// AUTOMATED UPDATE -- COMMENTED OUT FOR NOW UNTIL WE GO THROUGH AND UDPATE THE PROPERTIES FURTHER ON
 			//property_automated is seperate from the other property_set because it relies on outside apis
 			$this->load->library('property/property_automated', array('property_id' => $property_id));
-			$this->property_automated->update_property()->update_static();
+			$this->property_automated->update_property($property_id);
 		}
 	}//end of method
 
