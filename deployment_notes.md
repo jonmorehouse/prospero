@@ -9,7 +9,6 @@ Overview
 3. Install various extensions
   
   * `sudo apt-get install php5-curl`
-  * 
 
 Documents
 -
