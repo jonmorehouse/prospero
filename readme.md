@@ -11,14 +11,14 @@ Built from the groundup in Codeigniter. Many things have changed as I've learned
 Technologies
 -
 
--	PHP
--	MySQL
--	CodeIgniter
--	LESS/CSS
--	Coffee/Javascript
--	Angular
--	Require
--	Modernizr
--	Google API
+- PHP
+- MySQL
+- CodeIgniter
+- LESS/CSS
+- Coffee/Javascript
+- Angular
+- Require
+- Modernizr
+- Google API
 
 ...probably some other things as well...
