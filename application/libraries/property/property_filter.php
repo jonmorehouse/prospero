@@ -14,7 +14,6 @@ class Property_filter extends Base_filter {
 
 	public function filter_properties($category = "all", $filter = false) {
 
-
 		// will create custom statements etc based upon absolute values!
 		$unfiltered = $this->CI->filter->get_category($this->category, $this->filter);//gets all top level categories
 
@@ -35,12 +34,7 @@ class Property_filter extends Base_filter {
 
 		else if ($category === "location_category") {
 
-			$pieces = explode('_', $filter);
-
-			if (!$pieces) $pieces = array($filter);
-
-			$filtered = $this->like_property_filter($filtered, "location_category", $pieces[0]);
-
+			$filtered = $this->property_filter($filtered, "location_category", array("location_category" => $filter));
 		}
 
 		return $filtered;
