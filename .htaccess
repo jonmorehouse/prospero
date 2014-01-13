@@ -12,6 +12,12 @@
 	# rewrite index.php file and remove it
 	RewriteRule ^(.*)$ /index.php/$1 [L]
 
+	#now do a conditional rewrite
+	<If "%{HTTP_HOST} != 'localhost:8888'">
+		
+		RewriteCond %{HTTP_HOST} !^www\.
+		RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+	</If>
 </IfModule>
  
 <IfModule !mod_rewrite.c>
