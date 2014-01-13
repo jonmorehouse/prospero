@@ -36,17 +36,14 @@ class Property_automated {
 		$this->save_geocoded_address($property_id);
 
 		// save walkscore api data!
-		// $this->save_walkscore($property_id);
-		// $this->save_walking_distance($property_id);
+		 $this->save_walkscore($property_id);
+		 $this->save_walking_distance($property_id);
 
-		// save a static cache
-		// $this->save_static($property_id);
 	}
 
 	public function save_static() {
 
 		$this->CI->page_management->compile($this->property_id);
-		
 
 	}
 
@@ -67,9 +64,13 @@ class Property_automated {
 	private function save_geocoded_address($property_id) {
 
 		$address = $this->get_address($property_id);
+
 		$geocoded_address = $this->CI->geocoding->get_geocoded_address($address);
 
-		if (!$geocoded_address) return false;
+		if (!$geocoded_address) {
+
+			return false;
+		}
 
 		$this->CI->save_geographical_information->save_geocoded_address($property_id, $geocoded_address);
 		$this->CI->save_geographical_information->save_formatted_address($property_id, $geocoded_address['formatted_address']);//this is the absolute address validated from google!
@@ -88,9 +89,7 @@ class Property_automated {
 	// for now, all the properties are returning a status of 2 == not available yet -- fml
 	private function save_walking_distance($property_id) {
 
-		$request = $this->CI->walkscore->get_walking_distance($property_id);
-
-		echo "Need to implement functionality later when walkscore has proper responses for properties";
+		//$request = $this->CI->walkscore->get_walking_distance($property_id);
 
 		// if ($request) 
 			// $this->CI->save_geographical_information->save_walking_distance()

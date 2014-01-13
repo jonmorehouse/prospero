@@ -9,18 +9,11 @@ class Management extends CI_Controller{
 		// LOAD LIBRARIES
 		$libraries = array('user_access/user_status', 'utilities/format', 'utilities/header', 'property/property_set');
 		$this->load->library($libraries);
-		
-
-		// // If the user_status is validated, we will then load session data to be used around the controller
-		// if($this->user_status->current_status()){
-		// 	$username = $this->session->userdata('username');
-		// 	$admin_rights = $this->session->userdata('admin_rights');
-		// 	$this->load->library(array('management/management_forms', 'management/management_general', 'management/management_create_update'), array('admin_rights' => $admin_rights, 'username' => $username));
-		// }
 	}
 
 	/******* USED TO MAKE A PROPERTY NOT LIVE ********/
 	public function listing_status() {
+
 
 		$this->load->model('general');
 
@@ -28,6 +21,8 @@ class Management extends CI_Controller{
 
 		$post_data = $this->input->post();
 		$property_statuses = array();
+
+		$return_element = array();
 
 		foreach ($post_data as $property_id => $value) {
 
@@ -45,11 +40,11 @@ class Management extends CI_Controller{
 
 			array_push($property_statuses, $status_array);
 
+
 			$this->general->update($table, array('property_id' => $property_id), array('property_status' => $status));
 		}
 
-		//echo json_encode($property_statuses);
-		echo json_encode($post_data);
+		echo json_encode($property_statuses);
 	}
 		
 	// THIS IS TO GRAB THE INFORMATION FROM THE CMS GUI
@@ -92,7 +87,7 @@ class Management extends CI_Controller{
 		ob_end_flush();
 
 		// start the asynchronous call!
-		$url = site_url('ajax/management/save_worker', $post_data);
+		$url = site_url('ajax/management/save_worker'); //, $post_data);
 
 		$this->curl_post_async($url, $post_data);
 
@@ -104,7 +99,6 @@ class Management extends CI_Controller{
 	}	
 
 	public function media_status() {
-
 
 		$post_data = $this->input->post();
 
@@ -137,10 +131,8 @@ class Management extends CI_Controller{
 
 			// AUTOMATED UPDATE -- COMMENTED OUT FOR NOW UNTIL WE GO THROUGH AND UDPATE THE PROPERTIES FURTHER ON
 			//property_automated is seperate from the other property_set because it relies on outside apis
-
 			$this->load->library('property/property_automated', array('property_id' => $property_id));
-			$this->property_automated->update_property()->update_static();
-
+			$this->property_automated->update_property($property_id);
 		}
 	}//end of method
 
@@ -170,29 +162,26 @@ class Management extends CI_Controller{
 
 		ignore_user_abort(true);
 
-	    foreach ($params as $key => &$val) {
-	      if (is_array($val)) $val = implode(',', $val);
-	        $post_params[] = $key.'='.urlencode($val);
-	    }
-	    
-	    $post_string = implode('&', $post_params);
+		// create field_string as needed
+		foreach ($params as $key=>$value)
+			$fields_string .= $key . "=" . $value . "&";
 
-	    $parts=parse_url($url);
+		// remove trailing &
+		rtrim($fields_string, "&");
 
-	    $fp = fsockopen($parts['host'],
-	        isset($parts['port'])?$parts['port']:80,
-	        $errno, $errstr, 30);
+		// init curl session
+		$ch = curl_init();
 
-	    $out = "POST ".$parts['path']." HTTP/1.1\r\n";
-	    $out.= "Host: ".$parts['host']."\r\n";
-	    $out.= "Content-Type: application/x-www-form-urlencoded\r\n";
-	    $out.= "Content-Length: ".strlen($post_string)."\r\n";
-	    $out.= "Connection: Close\r\n\r\n";
-	    if (isset($post_string)) $out.= $post_string;
+		// set curl options
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, count($params));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
 
-	    fwrite($fp, $out);
-	    fclose($fp);
+		// perform request
+		$result = curl_exec($ch);
 	
-	}
+		// now set the url
+		curl_close($ch);
 
+	}
 }
