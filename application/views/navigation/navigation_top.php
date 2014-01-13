@@ -10,7 +10,7 @@
 			<li><a href='<?php echo site_url("browse/residential/location_category/kitsilano_kerrisdale");?>'>Kitsilano / Kerrisdale</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/burnaby");?>'>Burnaby / East Vancouver</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/other_vancouver");?>'>Other Vancouver</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/surrey_new_westminster");?>'>Burnaby / New Westminster</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/surrey_new_westminster");?>'>New Westminster</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/tri_cities");?>'>Tri-Cities: Coquitlam / Port Moody / Maple Ridge</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/fraser_valley");?>'>Surrey / Fraser Valley / Chilliwack</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/vancouver_island");?>'>Vancouver Island</a></li>
