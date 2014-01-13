@@ -162,6 +162,8 @@ class Management extends CI_Controller{
 
 		ignore_user_abort(true);
 
+		$fields_string = "";
+
 		// create field_string as needed
 		foreach ($params as $key=>$value)
 			$fields_string .= $key . "=" . $value . "&";
