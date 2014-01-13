@@ -6,7 +6,7 @@
 		<li><a href='<?php echo site_url('admin/management/update_listing');?>'>Update Listing</a></li>
 		<li><a href='<?php echo site_url('admin/management/upload_media'); ?>'>Upload Media</a></li>
 		<li><a href='<?php echo site_url('admin/management/media_status');?>'>Show/Hide Media</a></li>
-		<li><a href='<?php echo site_url('admin/management/remove_listing');?>'>Remove Listing</a></li>
+		<li><a href='<?php echo site_url('admin/management/remove_listing');?>'>Listing Status</a></li>
 	<?php endif;?>
 
 	<li><a href='<?php echo site_url('admin/vacancies/add');?>'>Add Vacancies</a></li>
