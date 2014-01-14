@@ -8,7 +8,7 @@
 			<li><a href='<?php echo site_url("browse/residential/location_category/downtown_west_end");?>'>Downtown / West End</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/north_shore");?>'>North Shore</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/kitsilano_kerrisdale");?>'>Kitsilano / Kerrisdale</a></li>
-			<li><a href='<?php echo site_url("browse/residential/location_category/burnaby");?>'>Burnaby / East Vancouver</a></li>
+			<li><a href='<?php echo site_url("browse/residential/location_category/burnaby");?>'>Burnaby</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/other_vancouver");?>'>Other Vancouver</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/surrey_new_westminster");?>'>New Westminster</a></li>
 			<li><a href='<?php echo site_url("browse/residential/location_category/tri_cities");?>'>Tri-Cities: Coquitlam / Port Moody / Maple Ridge</a></li>
