@@ -7,7 +7,7 @@
 	# rewrite application urls based upon internal logic
 	RewriteRule ^/?property_pdfs/.+$ - [L]
 	RewriteRule ^/?property_images/.+$ - [L]
-	RewriteCond $1 !^(index\.php|images|robots\.txt|js|png|gif|css|less|resources)
+	RewriteCond $1 !^(index\.php|images|robots\.txt|js|png|gif|css|less|resources|jpg)
 
 	# rewrite index.php file and remove it
 	RewriteRule ^(.*)$ /index.php/$1 [L]

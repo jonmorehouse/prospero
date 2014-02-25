@@ -19,8 +19,8 @@
 		.navigation_div();
 		.dark_background(1);
 		font-size:1.4em;
-		border-top-right-radius:@generic_radius;
-		border-top-left-radius:@generic_radius;
+		//border-top-right-radius:@generic_radius;
+		//border-top-left-radius:@generic_radius;
 		box-shadow:none;
 
 		&:hover{
@@ -217,18 +217,26 @@ position:absolute;
 }
 
 #listing_dashboard, #general_dashboard{
-	z-index:100;
-	position:fixed;
-	top:120px;
-	right:160px;
+	position:absolute;
+	right: 100px;
+	left: 500px;
+	top: 00px;
+	display: block;
+	height: 60px;
 
-
+	z-index: 900;
 
 	div{
 		float:right;
 		position:relative;
 		.top_button;
 		border-radius:0px;
+		z-index:1000;
+		display:block;
+		border-top-right-radius:0px;
+		border-top-left-radius:0px;
+		border-bottom-left-radius:20px;
+		border-bottom-right-radius: 20px;
 	}
 
 	div.loading {
